@@ -28,7 +28,7 @@ namespace Display
             GUIupdate.Start();
             referee.Show();
             GoFullscreen(false);
-            PipeClient.connectToPipe();
+            PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut);
         }
 
         /// <summary>
