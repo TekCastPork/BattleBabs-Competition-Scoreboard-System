@@ -109,7 +109,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.teamBox2);
             this.Controls.Add(this.teamBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Team_Entry";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Team Entry";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Team_Entry_FormClosing);
             this.ResumeLayout(false);

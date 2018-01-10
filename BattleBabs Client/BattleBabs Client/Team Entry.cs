@@ -20,24 +20,46 @@ namespace Display
 
         }
 
+        /// <summary>
+        /// Thrown when the team entry form is closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Team_Entry_FormClosing(object sender, FormClosingEventArgs e)
         {
             Console.WriteLine("Team Entry Form is closing");
         }
 
+        /// <summary>
+        /// Thrown when the OK btton is hit, used to set the new teams
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void okbutton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("OK Button hit.");
-            Display.team1 = teamBox1.SelectedText;
-            Display.team2 = teamBox2.SelectedText;
+            Display.team1 = teamBox1.Text;
+            Display.team2 = teamBox2.Text;
+            Console.WriteLine("Team 1 is: " + Display.team1);
+            Console.WriteLine("Team 2 is: " + Display.team2);
             Display.teamEntryForm.Hide();
         }
 
+        /// <summary>
+        /// Thrown when the load button is hit, used to load team names
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loadbutton_Click(object sender, EventArgs e)
         {
-            loadNamesFile.ShowDialog();
+            loadNamesFile.ShowDialog(); // make a windows load file dialog
         }
 
+        /// <summary>
+        /// Thrown when the load file ok is hit, gets file path.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loadNamesFile_FileOk(object sender, CancelEventArgs e)
         {
             Console.WriteLine("File Selected.");

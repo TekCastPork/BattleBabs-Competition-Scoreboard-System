@@ -22,11 +22,11 @@ namespace Display
         public static Boolean connectToPipe(PipeDirection ioDirection)
         {
             Boolean returnState = false;
-            client = new NamedPipeClientStream(".", "boardPipe", ioDirection);
+            client = new NamedPipeClientStream(".", "boardPipe", ioDirection); // create a Pipe client
             Console.WriteLine("Attempting to connect to server's pipe. Will timeout in 30 seconds if no connection is made");
             try
             {
-                client.Connect(10);
+                client.Connect(10); // attempt to connect but timeout is you don't connect
             } catch (Exception e)
             {
                 Console.WriteLine("Error during pipe connect!");

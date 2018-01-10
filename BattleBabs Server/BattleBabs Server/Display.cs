@@ -15,6 +15,12 @@ namespace BattleBabs_Server
         public Display()
         {
             InitializeComponent();
+            PipeServer.openServer();
+        }
+
+        private void Display_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            PipeServer.closeServers();
         }
     }
 }
