@@ -152,5 +152,9 @@ namespace Display
             ActiveForm.Close();
         }
 
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,6 +40,7 @@
             this.Team1Rank = new System.Windows.Forms.Label();
             this.team2Rank = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
+            this.connectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             // team2Name
             // 
             this.team2Name.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.team2Name.Font = new System.Drawing.Font("Monotxt_IV25", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team2Name.Location = new System.Drawing.Point(642, 188);
             this.team2Name.MaximumSize = new System.Drawing.Size(330, 50);
             this.team2Name.Name = "team2Name";
@@ -71,7 +72,7 @@
             // team1Name
             // 
             this.team1Name.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.team1Name.Font = new System.Drawing.Font("Monotxt_IV25", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team1Name.Location = new System.Drawing.Point(12, 188);
             this.team1Name.MaximumSize = new System.Drawing.Size(330, 50);
             this.team1Name.Name = "team1Name";
@@ -87,7 +88,7 @@
             this.team1ScoreLbl.BackColor = System.Drawing.Color.Silver;
             this.team1ScoreLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.team1ScoreLbl.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.team1ScoreLbl.Font = new System.Drawing.Font("Monotxt_IV25", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team1ScoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team1ScoreLbl.Location = new System.Drawing.Point(12, 238);
             this.team1ScoreLbl.MaximumSize = new System.Drawing.Size(330, 50);
             this.team1ScoreLbl.Name = "team1ScoreLbl";
@@ -103,7 +104,7 @@
             this.team2ScoreLbl.BackColor = System.Drawing.Color.Silver;
             this.team2ScoreLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.team2ScoreLbl.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.team2ScoreLbl.Font = new System.Drawing.Font("Monotxt_IV25", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2ScoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team2ScoreLbl.Location = new System.Drawing.Point(642, 238);
             this.team2ScoreLbl.MaximumSize = new System.Drawing.Size(330, 50);
             this.team2ScoreLbl.Name = "team2ScoreLbl";
@@ -139,7 +140,7 @@
             // timerLabel
             // 
             this.timerLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.timerLabel.Font = new System.Drawing.Font("Monotxt_IV25", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerLabel.Location = new System.Drawing.Point(0, 50);
             this.timerLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.timerLabel.Name = "timerLabel";
@@ -152,7 +153,7 @@
             // Team1Rank
             // 
             this.Team1Rank.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Team1Rank.Font = new System.Drawing.Font("Monotxt_IV25", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Team1Rank.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team1Rank.Location = new System.Drawing.Point(12, 288);
             this.Team1Rank.MaximumSize = new System.Drawing.Size(330, 50);
             this.Team1Rank.Name = "Team1Rank";
@@ -165,7 +166,7 @@
             // team2Rank
             // 
             this.team2Rank.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.team2Rank.Font = new System.Drawing.Font("Monotxt_IV25", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2Rank.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team2Rank.Location = new System.Drawing.Point(642, 288);
             this.team2Rank.MaximumSize = new System.Drawing.Size(330, 50);
             this.team2Rank.Name = "team2Rank";
@@ -186,12 +187,24 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // connectButton
+            // 
+            this.connectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.connectButton.Location = new System.Drawing.Point(9, 497);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(87, 23);
+            this.connectButton.TabIndex = 14;
+            this.connectButton.Text = "Connect...";
+            this.connectButton.UseVisualStyleBackColor = true;
+            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.connectButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.team2Rank);
             this.Controls.Add(this.Team1Rank);
@@ -224,6 +237,7 @@
         private System.Windows.Forms.Label Team1Rank;
         private System.Windows.Forms.Label team2Rank;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button connectButton;
     }
 }
 

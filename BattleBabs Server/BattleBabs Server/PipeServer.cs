@@ -41,8 +41,10 @@ namespace BattleBabs_Server
             Console.WriteLine("[{0}] Server pipe created, awaiting a connection from a client pipe.",threadID);
             server.WaitForConnection(); // now we wait for the client to connect
             Console.WriteLine("Scoreboard's client pipe has connected to thread {0}", threadID);
+            StreamString reader = new StreamString(server); //create a reader to read from the pipe
             while(true) // temp while true to make sure stuff works properly after client connection
             {
+                reader.ReadString();
                 Thread.Sleep(500);
                 Console.WriteLine("[{0}] Ping!",threadID);
             }
@@ -56,5 +58,45 @@ namespace BattleBabs_Server
                 Console.WriteLine("Server {0} stopped.", i);
             }
         }
+    }
+}
+
+public class StreamString
+{
+    private Stream ioStream;
+    private UnicodeEncoding streamEncoding;
+
+    public StreamString(Stream ioStream)
+    {
+        this.ioStream = ioStream;
+        streamEncoding = new UnicodeEncoding();
+    }
+
+    public string ReadString()
+    {
+        int len = 0;
+
+        len = ioStream.ReadByte() * 256;
+        len += ioStream.ReadByte();
+        byte[] inBuffer = new byte[len];
+        ioStream.Read(inBuffer, 0, len);
+
+        return streamEncoding.GetString(inBuffer);
+    }
+
+    public int WriteString(string outString)
+    {
+        byte[] outBuffer = streamEncoding.GetBytes(outString);
+        int len = outBuffer.Length;
+        if (len > UInt16.MaxValue)
+        {
+            len = (int)UInt16.MaxValue;
+        }
+        ioStream.WriteByte((byte)(len / 256));
+        ioStream.WriteByte((byte)(len & 255));
+        ioStream.Write(outBuffer, 0, len);
+        ioStream.Flush();
+
+        return outBuffer.Length + 2;
     }
 }

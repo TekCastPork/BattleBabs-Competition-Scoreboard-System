@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArduinoSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArduinoSelect.Designer.cs">
+      <DependentUpon>ArduinoSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Display.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Team Entry.Designer.cs">
       <DependentUpon>Team Entry.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ArduinoSelect.resx">
+      <DependentUpon>ArduinoSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
     </EmbeddedResource>
