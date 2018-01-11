@@ -21,16 +21,30 @@ namespace Display
         public static Team_Entry teamEntryForm = new Team_Entry();
 
         Thread GUIupdate;
+        System.Timers.Timer gameTime;
+        public int timerCount = 75; // an indexing number to be used with the timer to determine game time
         public Display()
         {
             InitializeComponent();
-            GUIupdate = new Thread(new ThreadStart(updateComponents));
-            GUIupdate.IsBackground = true;
-            GUIupdate.Start();
-            referee.Show();
-            GoFullscreen(false);
-            PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut);
+            gameTime = new System.Timers.Timer(); // create a timer
+            gameTime.Interval = 1000;
+            gameTime.AutoReset = true;
+            gameTime.Elapsed += handleTimerTicks;
+            gameTime.Enabled = false;
+            GUIupdate = new Thread(new ThreadStart(updateComponents)); // create a GUI updating thread
+            GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
+            GUIupdate.Start(); // start the GUI updating thread
+            referee.Show(); // create the referee window so that points can be allocated and team names set
+            GoFullscreen(false); // set the fullscreen mode
+            PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
         }
+
+        private void handleTimerTicks(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Console.WriteLine("Timer tick!");
+            timerCount--; // countdown to 0 for game time display
+        }
+
 
         /// <summary>
         /// Allows the toggling of fullscreen for this display
@@ -105,7 +119,7 @@ namespace Display
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.
             // If these threads are different, it returns true.
-            if (this.team1Name.InvokeRequired)
+            if (this.team2Name.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(SetTeam2Text);
                 this.Invoke(d, new object[] { text });
@@ -113,6 +127,22 @@ namespace Display
             else
             {
                 this.team2Name.Text = text;
+            }
+        }
+
+        private void SetTimerText(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.timerLabel.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetTimerText);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.timerLabel.Text = text;
             }
         }
 
