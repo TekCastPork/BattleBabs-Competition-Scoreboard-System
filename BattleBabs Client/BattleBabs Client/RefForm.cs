@@ -16,13 +16,12 @@ namespace Display
     {
         //VARIABLES//
         public static string receivedData;
+        public static string selectedPort = "";
 
         //FUNCTIONS//
         public RefForm()
         {
             InitializeComponent();
-            getArduinoPort();
-
         }
 
         private void RefForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -120,45 +119,19 @@ namespace Display
         /// <summary>
         /// This fuction will establish communication with the arduino by "auto-detecting" the COM port the arduino is on
         /// </summary>
-        private void getArduinoPort()
+        public static void connectArduinoPort()
         {
-            Console.WriteLine("Now attempting to connect to the arduino, this will have a timeout of 30 seconds");
-            string[] originalPorts;
-            string[] latestPorts;
-            originalPorts = SerialPort.GetPortNames();
-            latestPorts = originalPorts;
-            int timeoutIndex = 0;
-            Boolean detected = false;
-            while (timeoutIndex != 10)
+            try
             {
-                Console.WriteLine(timeoutIndex);
-                latestPorts = SerialPort.GetPortNames();
-                if (latestPorts.Length > originalPorts.Length)
-                {
-                    Console.WriteLine("COM port change detected, a COM port was added, the arduino was plugged in");
-                    detected = true;
-                    break; // break the while loop since the port was detected
-                }
-                else
-                {
-                    Console.WriteLine("no COM port change detected.");
-                    Thread.Sleep(1000);
-                    timeoutIndex++;
-                }
-            }
-            if (detected)
-            {
-                Console.WriteLine("The arduino was detected, now we must connect to it.");
                 arduinoport.BaudRate = 9600; // set the baud rate to the default for arduinos.
-                arduinoport.PortName = latestPorts[latestPorts.Length - 1]; // set the COM port to use
+                arduinoport.PortName = selectedPort; // set the COM port to use
                 arduinoport.ReceivedBytesThreshold = 1;
                 arduinoport.NewLine = "\n";
                 arduinoport.Open(); // assume direct control
-                Console.WriteLine("Connected to arduino via COM port {0}", latestPorts[latestPorts.Length - 1]);
-            }
-            else
+                Console.WriteLine("Connected to arduino via COM port {0}", selectedPort);
+            } catch (Exception e)
             {
-                Console.WriteLine("No arduino was detected in the 30 second range. Either the user is lazy and didnt plug it in or it was not detected. Resorting to no arduino.");
+                Console.WriteLine("Exception Caught! {0}", e.ToString());
             }
         }
 

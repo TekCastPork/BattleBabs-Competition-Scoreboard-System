@@ -1,4 +1,4 @@
-﻿namespace BattleBabs_Client
+﻿namespace Display
 {
     partial class ArduinoForm
     {
@@ -32,6 +32,8 @@
             this.comPortBox = new System.Windows.Forms.ComboBox();
             this.selectButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            refreshLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -46,7 +48,7 @@
             // comPortBox
             // 
             this.comPortBox.FormattingEnabled = true;
-            this.comPortBox.Location = new System.Drawing.Point(15, 25);
+            this.comPortBox.Location = new System.Drawing.Point(15, 33);
             this.comPortBox.Name = "comPortBox";
             this.comPortBox.Size = new System.Drawing.Size(121, 21);
             this.comPortBox.TabIndex = 1;
@@ -63,7 +65,7 @@
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(106, 86);
+            this.refreshButton.Location = new System.Drawing.Point(106, 4);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 23);
             this.refreshButton.TabIndex = 3;
@@ -71,18 +73,39 @@
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
-            // ArduinoSelect
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(106, 86);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 4;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // refreshLabel
+            // 
+            refreshLabel.AutoSize = true;
+            refreshLabel.Location = new System.Drawing.Point(12, 57);
+            refreshLabel.Name = "refreshLabel";
+            refreshLabel.Size = new System.Drawing.Size(104, 13);
+            refreshLabel.TabIndex = 5;
+            refreshLabel.Text = "COM ports refreshed";
+            // 
+            // ArduinoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(193, 121);
+            this.Controls.Add(refreshLabel);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.selectButton);
             this.Controls.Add(this.comPortBox);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ArduinoSelect";
+            this.Name = "ArduinoForm";
             this.Text = "Select COM Port";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -95,5 +118,7 @@
         private System.Windows.Forms.ComboBox comPortBox;
         private System.Windows.Forms.Button selectButton;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Button cancelButton;
+        private static System.Windows.Forms.Label refreshLabel;
     }
 }

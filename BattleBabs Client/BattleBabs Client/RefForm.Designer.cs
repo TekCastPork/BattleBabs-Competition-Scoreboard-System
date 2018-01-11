@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.arduinoport = new System.IO.Ports.SerialPort(this.components);
+            arduinoport = new System.IO.Ports.SerialPort(this.components);
             this.startButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             // 
             // arduinoport
             // 
-            this.arduinoport.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.arduinoport_DataReceived);
+            arduinoport.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.arduinoport_DataReceived);
             // 
             // startButton
             // 
@@ -252,7 +252,7 @@
 
         #endregion
 
-        private System.IO.Ports.SerialPort arduinoport;
+        private static System.IO.Ports.SerialPort arduinoport;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

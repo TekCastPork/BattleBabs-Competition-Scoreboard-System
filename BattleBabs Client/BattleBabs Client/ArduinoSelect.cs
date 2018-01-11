@@ -8,16 +8,66 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.Timers;
+using System.Threading;
 
-namespace BattleBabs_Client
+namespace Display
 {
     public partial class ArduinoForm : Form
     {
+        System.Timers.Timer timer = new System.Timers.Timer();
+        Thread updateThread = new Thread(new ThreadStart(updateText));
+        public static Boolean showRefreshString = false;
         public string[] portList;
         public ArduinoForm()
         {
             InitializeComponent();
+            updateThread.IsBackground = true;
+            updateThread.Start();
+            timer.Interval = 5000;
+            timer.AutoReset = false;
+            timer.Enabled = false;
+            timer.Elapsed += timerEnlapsed;
             getSerialPorts();
+            refreshLabel.Hide();
+        }
+
+        delegate void SetCallback(Boolean mode);
+
+        public static void updateText()
+        {
+            while (true)
+            {
+                SetRefreshMode(showRefreshString);
+            }
+        }
+
+        private static void SetRefreshMode(Boolean mode)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (refreshLabel.InvokeRequired)
+            {
+                SetCallback d = new SetCallback(SetRefreshMode);
+                refreshLabel.Invoke(d, new object[] { mode });
+            }
+            else
+            {
+                if(mode)
+                {
+                    refreshLabel.Show();
+                } else
+                {
+                    refreshLabel.Hide();
+                }
+            }
+        }
+
+        private void timerEnlapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            showRefreshString = false;
+            timer.Enabled = false;
         }
 
         private void getSerialPorts()
@@ -48,13 +98,27 @@ namespace BattleBabs_Client
 
         private void selectButton_Click(object sender, EventArgs e)
         {
+            Display.connectOpen = false;
+            Console.WriteLine("OK button was hit, handing selected port [{0}] to RefForm", comPortBox.Text);
+            RefForm.selectedPort = comPortBox.Text;
+            RefForm.connectArduinoPort();
+            Display.arduinoForm.Hide();
+        }
 
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Cancel button hit.");
+            Display.arduinoForm.Hide();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Refresh button hit! Refreshing Ports");
             getSerialPorts();
+            showRefreshString = true;
+            timer.Enabled = true;
         }
+
+        
     }
 }

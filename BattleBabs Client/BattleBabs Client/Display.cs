@@ -15,6 +15,7 @@ namespace Display
     public partial class Display : Form
     {
         RefForm referee = new RefForm();
+        public static ArduinoForm arduinoForm = new ArduinoForm();
         public static string team1 = "Team1";
         public static string team2 = "Team2";
         public static Boolean teamOpen = false;
@@ -76,6 +77,7 @@ namespace Display
             if (teamOpen == false)
             {
                 teamEntryForm.Show();
+                teamOpen = true;
             }
         }
 
@@ -151,10 +153,15 @@ namespace Display
         {
             ActiveForm.Close();
         }
-
+        public static Boolean connectOpen = false;
         private void connectButton_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("connect button was clicked.");
+            if (connectOpen == false)
+            {
+                arduinoForm.Show();
+                connectOpen = true;
+            }
         }
     }
 }

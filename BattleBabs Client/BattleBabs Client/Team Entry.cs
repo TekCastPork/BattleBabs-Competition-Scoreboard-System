@@ -43,6 +43,7 @@ namespace Display
             Console.WriteLine("Team 1 is: " + Display.team1);
             Console.WriteLine("Team 2 is: " + Display.team2);
             Display.teamEntryForm.Hide();
+            Display.teamOpen = false;
         }
 
         /// <summary>
