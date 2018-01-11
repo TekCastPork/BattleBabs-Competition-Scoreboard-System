@@ -80,6 +80,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RefForm.resx">
+      <DependentUpon>RefForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Team Entry.resx">
       <DependentUpon>Team Entry.cs</DependentUpon>
     </EmbeddedResource>

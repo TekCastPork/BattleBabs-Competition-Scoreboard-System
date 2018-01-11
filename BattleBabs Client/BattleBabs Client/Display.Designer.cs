@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Display));
             this.titleLabel = new System.Windows.Forms.Label();
             this.team2Name = new System.Windows.Forms.Label();
@@ -36,7 +35,6 @@
             this.team1ScoreLbl = new System.Windows.Forms.Label();
             this.team2ScoreLbl = new System.Windows.Forms.Label();
             this.VSpicture = new System.Windows.Forms.PictureBox();
-            this.playTimer = new System.Windows.Forms.Timer(this.components);
             this.teamchangeButton = new System.Windows.Forms.Button();
             this.timerLabel = new System.Windows.Forms.Label();
             this.Team1Rank = new System.Windows.Forms.Label();
@@ -221,7 +219,6 @@
         private System.Windows.Forms.Label team1ScoreLbl;
         private System.Windows.Forms.Label team2ScoreLbl;
         private System.Windows.Forms.PictureBox VSpicture;
-        private System.Windows.Forms.Timer playTimer;
         private System.Windows.Forms.Button teamchangeButton;
         private System.Windows.Forms.Label timerLabel;
         private System.Windows.Forms.Label Team1Rank;

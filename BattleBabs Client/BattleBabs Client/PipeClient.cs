@@ -50,25 +50,12 @@ namespace Display
         /// This function will handle sending messages to the server via the connected pipe
         /// </summary>
         /// <param name="msg"></param>
-        /**
-        * The way the byte for sending is set up will be in this fashion:
-        * MSB LSB
-        *  |   |   |   |   |   |   |   |
-        *  0   0   0   0   0   0   0   0
-        *  |           Team#           |
-        *  
-        *  
-        *  |   |   |   |   |   |   |   |
-        *  0   0   0   0   0   0   0   0
-        *  |          Points           |
-        *  
-        **/
-        public static void sendToServer(byte[] msg)
+        public static void sendToServer(byte msg)
         {
             if(connectionState)
             {
                 Console.WriteLine("Connection to the server is enabled, continuing with the sending of the message to server.");
-                client.Write(msg,0, count: 2); //send the data bytes to the server via the connected pipe
+                client.WriteByte(msg); //send the data byte to the server via the connected pipe
             } else 
             {
                 Console.WriteLine("Connection to the server is not enabled, refusing to send the message");

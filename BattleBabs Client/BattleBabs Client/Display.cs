@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Timers;
 
 namespace Display
 {
@@ -119,5 +120,6 @@ namespace Display
         {
             ActiveForm.Close();
         }
+
     }
 }
