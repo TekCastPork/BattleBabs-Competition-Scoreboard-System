@@ -63,38 +63,47 @@ namespace Display
                     case 0:
                         Console.WriteLine("Command received was a start match command. Starting Match");
                         data = 0; // set the data to send to 0 instead of 255 to signify the starting of the match
+                        setDataText("Match Start.");
                         break;
                     case 1:
                         Console.WriteLine("Command received was a team 1 band score.");
                         data = 2; // set the data to send to 2 (event 1 + offset) to signify team one scoring points via rubber bands
+                        setDataText("Team 1 Rubber Bands");
                         break;
                     case 2:
                         Console.WriteLine("Command received was a team 1 ping pong score.");
                         data = 3; // set the data to send to 3 (event 2 + offset) to signify team one scoring points via ping pong balls
+                        setDataText("Team 1 Ping Pong");
                         break;
                     case 3:
                         Console.WriteLine("Command received was a team 1 push off score.");
                         data = 4; // set the data to send to 4 (event 3 + offset) to signify team one scoring points via pushing team 2 off
+                        setDataText("Team 1 Pushing");
                         break;
                     case 4:
                         Console.WriteLine("Command received was a team 1 disabled score.");
-                        data = 5; // set the data to send to 5 (event 4 + offset) to signify team one scoring points via diabling team 2
+                        data = 5; // set the data to send to 5 (event 4 + offset) to signify team one scoring points via disabling team 2
+                        setDataText("Team 1 Disable");
                         break;
                     case 5:
                         Console.WriteLine("Command received was a team 2 band score.");
                         data = 133; // set the data to send to 133 (event 5 + team 2 offset) to signify team 2 scoring points via rubber bands
+                        setDataText("Team 2 Rubber Bands");
                         break;
                     case 6:
                         Console.WriteLine("Command received was a team 2 ping pong score.");
                         data = 134; // set the data to send to 134 (event 6 + team 2 offset) to signify team 2 scoring points via ping pong balls
+                        setDataText("Team 2 Ping Pong");
                         break;
                     case 7:
                         Console.WriteLine("Command received was a team 2 push off score.");
                         data = 135; // set the data to send to 135 (event 7 + team 2 offset) to signify team 2 scoring points via pushing team 1 off
+                        setDataText("Team 2 Pushing");
                         break;
                     case 8:
                         Console.WriteLine("Command received was a team 2 disabled score.");
                         data = 136; // set the data t osend to 136 (event 8 + team 2 offset) to signify team 2 scoring points via disabling team 1
+                        setDataText("Team 2 Disable");
                         break;
                     default:
                         Console.WriteLine("Command was not determinable.");

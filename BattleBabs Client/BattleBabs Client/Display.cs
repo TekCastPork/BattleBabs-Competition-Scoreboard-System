@@ -92,6 +92,7 @@ namespace Display
             {
                 SetTeam1Text(team1);
                 SetTeam2Text(team2);
+                SetTimerText(timerCount.ToString());
                 Thread.Sleep(500);
             }
         }
