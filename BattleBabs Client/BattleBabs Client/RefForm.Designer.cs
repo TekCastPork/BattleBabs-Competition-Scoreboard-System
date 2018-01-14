@@ -31,21 +31,25 @@
             this.components = new System.ComponentModel.Container();
             arduinoport = new System.IO.Ports.SerialPort(this.components);
             this.startButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.team1Ping = new System.Windows.Forms.Button();
+            this.team1Band = new System.Windows.Forms.Button();
+            this.team1Shove = new System.Windows.Forms.Button();
+            this.team1Disable = new System.Windows.Forms.Button();
+            this.team2Shove = new System.Windows.Forms.Button();
+            this.team2Disable = new System.Windows.Forms.Button();
+            this.team2Band = new System.Windows.Forms.Button();
+            this.team2Ping = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.team1Toggle = new System.Windows.Forms.CheckBox();
+            this.team2Toggle = new System.Windows.Forms.CheckBox();
             this.timeBar = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.arduinoDataLbl = new System.Windows.Forms.Label();
+            this.team1Score = new System.Windows.Forms.TextBox();
+            this.team2Score = new System.Windows.Forms.TextBox();
+            this.team1Override = new System.Windows.Forms.Button();
+            this.team2Override = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // arduinoport
@@ -56,100 +60,100 @@
             // 
             this.startButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.startButton.Location = new System.Drawing.Point(105, 226);
+            this.startButton.Location = new System.Drawing.Point(105, 42);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(75, 23);
             this.startButton.TabIndex = 0;
             this.startButton.Text = "Start Match";
             this.startButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // team1Ping
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.team1Ping.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(12, 65);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Ping Pong";
-            this.button1.UseVisualStyleBackColor = true;
+            this.team1Ping.Location = new System.Drawing.Point(12, 65);
+            this.team1Ping.Name = "team1Ping";
+            this.team1Ping.Size = new System.Drawing.Size(86, 23);
+            this.team1Ping.TabIndex = 1;
+            this.team1Ping.Text = "Ping Pong";
+            this.team1Ping.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // team1Band
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.team1Band.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(12, 94);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Rubber Band";
-            this.button2.UseVisualStyleBackColor = true;
+            this.team1Band.Location = new System.Drawing.Point(12, 94);
+            this.team1Band.Name = "team1Band";
+            this.team1Band.Size = new System.Drawing.Size(86, 23);
+            this.team1Band.TabIndex = 2;
+            this.team1Band.Text = "Rubber Band";
+            this.team1Band.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // team1Shove
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.team1Shove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.Location = new System.Drawing.Point(12, 152);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Shove";
-            this.button3.UseVisualStyleBackColor = true;
+            this.team1Shove.Location = new System.Drawing.Point(12, 152);
+            this.team1Shove.Name = "team1Shove";
+            this.team1Shove.Size = new System.Drawing.Size(86, 23);
+            this.team1Shove.TabIndex = 4;
+            this.team1Shove.Text = "Shove";
+            this.team1Shove.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // team1Disable
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.team1Disable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(12, 123);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(86, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Disable";
-            this.button4.UseVisualStyleBackColor = true;
+            this.team1Disable.Location = new System.Drawing.Point(12, 123);
+            this.team1Disable.Name = "team1Disable";
+            this.team1Disable.Size = new System.Drawing.Size(86, 23);
+            this.team1Disable.TabIndex = 3;
+            this.team1Disable.Text = "Disable";
+            this.team1Disable.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // team2Shove
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.team2Shove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(186, 152);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(86, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Shove";
-            this.button5.UseVisualStyleBackColor = true;
+            this.team2Shove.Location = new System.Drawing.Point(186, 152);
+            this.team2Shove.Name = "team2Shove";
+            this.team2Shove.Size = new System.Drawing.Size(86, 23);
+            this.team2Shove.TabIndex = 8;
+            this.team2Shove.Text = "Shove";
+            this.team2Shove.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // team2Disable
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.team2Disable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(186, 123);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(86, 23);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Disable";
-            this.button6.UseVisualStyleBackColor = true;
+            this.team2Disable.Location = new System.Drawing.Point(186, 123);
+            this.team2Disable.Name = "team2Disable";
+            this.team2Disable.Size = new System.Drawing.Size(86, 23);
+            this.team2Disable.TabIndex = 7;
+            this.team2Disable.Text = "Disable";
+            this.team2Disable.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // team2Band
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.team2Band.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Location = new System.Drawing.Point(186, 94);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(86, 23);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Rubber Band";
-            this.button7.UseVisualStyleBackColor = true;
+            this.team2Band.Location = new System.Drawing.Point(186, 94);
+            this.team2Band.Name = "team2Band";
+            this.team2Band.Size = new System.Drawing.Size(86, 23);
+            this.team2Band.TabIndex = 6;
+            this.team2Band.Text = "Rubber Band";
+            this.team2Band.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // team2Ping
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.team2Ping.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.Location = new System.Drawing.Point(186, 65);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(86, 23);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Ping Pong";
-            this.button8.UseVisualStyleBackColor = true;
+            this.team2Ping.Location = new System.Drawing.Point(186, 65);
+            this.team2Ping.Name = "team2Ping";
+            this.team2Ping.Size = new System.Drawing.Size(86, 23);
+            this.team2Ping.TabIndex = 5;
+            this.team2Ping.Text = "Ping Pong";
+            this.team2Ping.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -169,27 +173,27 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Team 2";
             // 
-            // checkBox1
+            // team1Toggle
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(2, 181);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(96, 17);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Subtract Mode";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.team1Toggle.AutoSize = true;
+            this.team1Toggle.Location = new System.Drawing.Point(2, 181);
+            this.team1Toggle.Name = "team1Toggle";
+            this.team1Toggle.Size = new System.Drawing.Size(96, 17);
+            this.team1Toggle.TabIndex = 11;
+            this.team1Toggle.Text = "Subtract Mode";
+            this.team1Toggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.team1Toggle.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // team2Toggle
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(176, 181);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(96, 17);
-            this.checkBox2.TabIndex = 12;
-            this.checkBox2.Text = "Subtract Mode";
-            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.team2Toggle.AutoSize = true;
+            this.team2Toggle.Location = new System.Drawing.Point(176, 181);
+            this.team2Toggle.Name = "team2Toggle";
+            this.team2Toggle.Size = new System.Drawing.Size(96, 17);
+            this.team2Toggle.TabIndex = 12;
+            this.team2Toggle.Text = "Subtract Mode";
+            this.team2Toggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.team2Toggle.UseVisualStyleBackColor = true;
             // 
             // timeBar
             // 
@@ -213,32 +217,72 @@
             // arduinoDataLbl
             // 
             this.arduinoDataLbl.AutoSize = true;
-            this.arduinoDataLbl.Location = new System.Drawing.Point(141, 26);
+            this.arduinoDataLbl.Location = new System.Drawing.Point(132, 26);
             this.arduinoDataLbl.Name = "arduinoDataLbl";
-            this.arduinoDataLbl.Size = new System.Drawing.Size(92, 13);
+            this.arduinoDataLbl.Size = new System.Drawing.Size(33, 13);
             this.arduinoDataLbl.TabIndex = 15;
-            this.arduinoDataLbl.Text = "ArduinoDataLabel";
+            this.arduinoDataLbl.Text = "None";
+            // 
+            // team1Score
+            // 
+            this.team1Score.Location = new System.Drawing.Point(12, 200);
+            this.team1Score.Name = "team1Score";
+            this.team1Score.Size = new System.Drawing.Size(100, 20);
+            this.team1Score.TabIndex = 16;
+            // 
+            // team2Score
+            // 
+            this.team2Score.Location = new System.Drawing.Point(172, 200);
+            this.team2Score.Name = "team2Score";
+            this.team2Score.Size = new System.Drawing.Size(100, 20);
+            this.team2Score.TabIndex = 17;
+            // 
+            // team1Override
+            // 
+            this.team1Override.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.team1Override.Location = new System.Drawing.Point(12, 226);
+            this.team1Override.Name = "team1Override";
+            this.team1Override.Size = new System.Drawing.Size(100, 23);
+            this.team1Override.TabIndex = 18;
+            this.team1Override.Text = "Override Score";
+            this.team1Override.UseVisualStyleBackColor = true;
+            // 
+            // team2Override
+            // 
+            this.team2Override.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.team2Override.Location = new System.Drawing.Point(172, 226);
+            this.team2Override.Name = "team2Override";
+            this.team2Override.Size = new System.Drawing.Size(100, 23);
+            this.team2Override.TabIndex = 19;
+            this.team2Override.Text = "Override Score";
+            this.team2Override.UseVisualStyleBackColor = true;
             // 
             // RefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.team2Override);
+            this.Controls.Add(this.team1Override);
+            this.Controls.Add(this.team2Score);
+            this.Controls.Add(this.team1Score);
             this.Controls.Add(this.arduinoDataLbl);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.timeBar);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.team2Toggle);
+            this.Controls.Add(this.team1Toggle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.team2Shove);
+            this.Controls.Add(this.team2Disable);
+            this.Controls.Add(this.team2Band);
+            this.Controls.Add(this.team2Ping);
+            this.Controls.Add(this.team1Shove);
+            this.Controls.Add(this.team1Disable);
+            this.Controls.Add(this.team1Band);
+            this.Controls.Add(this.team1Ping);
             this.Controls.Add(this.startButton);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -251,23 +295,26 @@
         }
 
         #endregion
-
-        private static System.IO.Ports.SerialPort arduinoport;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button team1Ping;
+        private System.Windows.Forms.Button team1Band;
+        private System.Windows.Forms.Button team1Shove;
+        private System.Windows.Forms.Button team1Disable;
+        private System.Windows.Forms.Button team2Shove;
+        private System.Windows.Forms.Button team2Disable;
+        private System.Windows.Forms.Button team2Band;
+        private System.Windows.Forms.Button team2Ping;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox team1Toggle;
+        private System.Windows.Forms.CheckBox team2Toggle;
         private System.Windows.Forms.ProgressBar timeBar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label arduinoDataLbl;
+        private System.Windows.Forms.TextBox team1Score;
+        private System.Windows.Forms.TextBox team2Score;
+        private System.Windows.Forms.Button team1Override;
+        private System.Windows.Forms.Button team2Override;
+        private static System.IO.Ports.SerialPort arduinoport;
     }
 }

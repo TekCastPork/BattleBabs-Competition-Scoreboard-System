@@ -39,6 +39,7 @@ namespace Display
             while (true)
             {
                 SetRefreshMode(showRefreshString);
+                Thread.Sleep(500);
             }
         }
 
@@ -98,16 +99,37 @@ namespace Display
 
         private void selectButton_Click(object sender, EventArgs e)
         {
-            Display.connectOpen = false;
-            Console.WriteLine("OK button was hit, handing selected port [{0}] to RefForm", comPortBox.Text);
-            RefForm.selectedPort = comPortBox.Text;
-            RefForm.connectArduinoPort();
-            Display.arduinoForm.Hide();
+            Boolean dataMatch = false;
+            for (int i = 0; i < portList.Length; i++) {
+                if (comPortBox.Text.Equals(portList[i])) {
+                    Console.WriteLine("It matched!");
+                    dataMatch = true;
+                    break;
+                } else
+                {
+                    Console.WriteLine("Data did not match.");
+                    dataMatch = false;
+                }
+            }
+            if(dataMatch)
+            {
+                Display.connectOpen = false;
+                Console.WriteLine("OK button was hit, handing selected port [{0}] to RefForm", comPortBox.Text);
+                RefForm.selectedPort = comPortBox.Text;
+                RefForm.connectArduinoPort();
+                Display.arduinoForm.Hide();
+            } else
+            {
+                Console.WriteLine("The COM port box was null, is we sent this then the prgoram would crash!");
+                MessageBox.Show("No COM port selected, please select a COM port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Cancel button hit.");
+            Display.connectOpen = false;
             Display.arduinoForm.Hide();
         }
 
@@ -119,6 +141,9 @@ namespace Display
             timer.Enabled = true;
         }
 
-        
+        private void ArduinoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
     }
 }

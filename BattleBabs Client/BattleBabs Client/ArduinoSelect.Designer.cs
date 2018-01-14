@@ -59,7 +59,7 @@
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(75, 23);
             this.selectButton.TabIndex = 2;
-            this.selectButton.Text = "Select";
+            this.selectButton.Text = "Connect";
             this.selectButton.UseVisualStyleBackColor = true;
             this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
             // 
@@ -106,7 +106,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ArduinoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select COM Port";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ArduinoForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
