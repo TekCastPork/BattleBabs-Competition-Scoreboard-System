@@ -85,72 +85,55 @@ namespace Display
             if(receivedFull)
             {
                 receivedFull = false; // make this if only run once
-                Console.WriteLine("Now determining Event so we know what to send to server pipe.");
-                byte data = 255;
-                Boolean send = true;
+                Console.WriteLine("Now determining Event so points may be assigned.");
                 try
                 {
                     switch (int.Parse(receivedData)) //This switch handles all possible events from the arduino and has a failsafe incase we cannot setermine the error
-                    { //Team 2 events will by their event number plus 128 in to ensure they don't get seen as team 1 events
-                      //Team 1 events will be their event number plus 1 so that there is a size 1 gap between them and the start match event
+                    { 
                         case 0:
                             Console.WriteLine("Command received was a start match command. Starting Match");
-                            data = 0; // set the data to send to 0 instead of 255 to signify the starting of the match
                             setDataText("Match Start.");
                             break;
                         case 1:
                             Console.WriteLine("Command received was a team 1 band score.");
-                            data = 2; // set the data to send to 2 (event 1 + offset) to signify team one scoring points via rubber bands
                             setDataText("Team 1 Rubber Bands");
                             break;
                         case 2:
                             Console.WriteLine("Command received was a team 1 ping pong score.");
-                            data = 3; // set the data to send to 3 (event 2 + offset) to signify team one scoring points via ping pong balls
                             setDataText("Team 1 Ping Pong");
                             break;
                         case 3:
                             Console.WriteLine("Command received was a team 1 push off score.");
-                            data = 4; // set the data to send to 4 (event 3 + offset) to signify team one scoring points via pushing team 2 off
                             setDataText("Team 1 Pushing");
                             break;
                         case 4:
                             Console.WriteLine("Command received was a team 1 disabled score.");
-                            data = 5; // set the data to send to 5 (event 4 + offset) to signify team one scoring points via disabling team 2
                             setDataText("Team 1 Disable");
                             break;
                         case 5:
                             Console.WriteLine("Command received was a team 2 band score.");
-                            data = 133; // set the data to send to 133 (event 5 + team 2 offset) to signify team 2 scoring points via rubber bands
                             setDataText("Team 2 Rubber Bands");
                             break;
                         case 6:
                             Console.WriteLine("Command received was a team 2 ping pong score.");
-                            data = 134; // set the data to send to 134 (event 6 + team 2 offset) to signify team 2 scoring points via ping pong balls
                             setDataText("Team 2 Ping Pong");
                             break;
                         case 7:
                             Console.WriteLine("Command received was a team 2 push off score.");
-                            data = 135; // set the data to send to 135 (event 7 + team 2 offset) to signify team 2 scoring points via pushing team 1 off
                             setDataText("Team 2 Pushing");
                             break;
                         case 8:
                             Console.WriteLine("Command received was a team 2 disabled score.");
-                            data = 136; // set the data t osend to 136 (event 8 + team 2 offset) to signify team 2 scoring points via disabling team 1
                             setDataText("Team 2 Disable");
                             break;
                         default:
                             Console.WriteLine("Command was not determinable.");
-                            send = false;
                             break;
                     }
                 } catch (Exception w)
                 {
                     Console.WriteLine("Exception caught! {0}", w.ToString());
-                    Console.WriteLine("Data received was [{0}], we cannot parse a integer from that.", receivedData);
-                }
-                if (send)
-                {
-                    PipeClient.sendToServer(data); // send the data byte to the server via the pipe connection
+                    Console.WriteLine("Data received was [{0}], we cannot parse a integer from that for some reason.", receivedData);
                 }
             }
         }
@@ -159,78 +142,6 @@ namespace Display
         /// This alternative to DataReceived is for client button presses instead of arduino commands
         /// </summary>
         /// <param name="Data"></param>
-        private void arduinoport_DataReceived(string Data)
-        {
-            setDataText(Data);
-            Console.WriteLine("Now determining Event so we know what to send to server pipe.");
-            byte data = 255;
-            Boolean send = true;
-            try
-            {
-                switch (int.Parse(receivedData)) //This switch handles all possible events from the arduino and has a failsafe incase we cannot setermine the error
-                { //Team 2 events will by their event number plus 128 in to ensure they don't get seen as team 1 events
-                    //Team 1 events will be their event number plus 1 so that there is a size 1 gap between them and the start match event
-                    case 0:
-                        Console.WriteLine("Command received was a start match command. Starting Match");
-                        data = 0; // set the data to send to 0 instead of 255 to signify the starting of the match
-                        setDataText("Match Start.");
-                        break;
-                    case 1:
-                        Console.WriteLine("Command received was a team 1 band score.");
-                        data = 2; // set the data to send to 2 (event 1 + offset) to signify team one scoring points via rubber bands
-                        setDataText("Team 1 Rubber Bands");
-                        break;
-                    case 2:
-                        Console.WriteLine("Command received was a team 1 ping pong score.");
-                        data = 3; // set the data to send to 3 (event 2 + offset) to signify team one scoring points via ping pong balls
-                        setDataText("Team 1 Ping Pong");
-                        break;
-                    case 3:
-                        Console.WriteLine("Command received was a team 1 push off score.");
-                        data = 4; // set the data to send to 4 (event 3 + offset) to signify team one scoring points via pushing team 2 off
-                        setDataText("Team 1 Pushing");
-                        break;
-                    case 4:
-                        Console.WriteLine("Command received was a team 1 disabled score.");
-                        data = 5; // set the data to send to 5 (event 4 + offset) to signify team one scoring points via disabling team 2
-                        setDataText("Team 1 Disable");
-                        break;
-                    case 5:
-                        Console.WriteLine("Command received was a team 2 band score.");
-                        data = 133; // set the data to send to 133 (event 5 + team 2 offset) to signify team 2 scoring points via rubber bands
-                        setDataText("Team 2 Rubber Bands");
-                        break;
-                    case 6:
-                        Console.WriteLine("Command received was a team 2 ping pong score.");
-                        data = 134; // set the data to send to 134 (event 6 + team 2 offset) to signify team 2 scoring points via ping pong balls
-                        setDataText("Team 2 Ping Pong");
-                        break;
-                    case 7:
-                        Console.WriteLine("Command received was a team 2 push off score.");
-                        data = 135; // set the data to send to 135 (event 7 + team 2 offset) to signify team 2 scoring points via pushing team 1 off
-                        setDataText("Team 2 Pushing");
-                        break;
-                    case 8:
-                        Console.WriteLine("Command received was a team 2 disabled score.");
-                        data = 136; // set the data t osend to 136 (event 8 + team 2 offset) to signify team 2 scoring points via disabling team 1
-                        setDataText("Team 2 Disable");
-                        break;
-                    default:
-                        Console.WriteLine("Command was not determinable.");
-                        send = false;
-                        break;
-                }
-            }
-            catch (Exception w)
-            {
-                Console.WriteLine("Exception caught! {0}", w.ToString());
-                Console.WriteLine("Data received was [{0}], we cannot parse a integer from that.", receivedData);
-            }
-            if (send)
-            {
-                PipeClient.sendToServer(data); // send the data byte to the server via the pipe connection
-            }
-        }
 
         /// <summary>
         /// This fuction will establish communication with the arduino by "auto-detecting" the COM port the arduino is on
@@ -278,6 +189,72 @@ namespace Display
             {
                 this.arduinoDataLbl.Text = text;
             }
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Start Match button pressed.");
+
+        }
+
+        private void team1Ping_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team1Band_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team1Disable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team1Shove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team2Ping_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team2Band_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team2Disable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team2Shove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team1Toggle_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team1Override_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team2Toggle_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void team2Override_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

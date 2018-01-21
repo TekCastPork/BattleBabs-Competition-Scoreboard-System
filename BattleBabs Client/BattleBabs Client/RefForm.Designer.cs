@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            arduinoport = new System.IO.Ports.SerialPort(this.components);
+            this.arduinoport = new System.IO.Ports.SerialPort(this.components);
             this.startButton = new System.Windows.Forms.Button();
             this.team1Ping = new System.Windows.Forms.Button();
             this.team1Band = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@
             // 
             // arduinoport
             // 
-            arduinoport.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.arduinoport_DataReceived);
+            this.arduinoport.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.arduinoport_DataReceived);
             // 
             // startButton
             // 
@@ -66,6 +66,7 @@
             this.startButton.TabIndex = 0;
             this.startButton.Text = "Start Match";
             this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // team1Ping
             // 
@@ -77,6 +78,7 @@
             this.team1Ping.TabIndex = 1;
             this.team1Ping.Text = "Ping Pong";
             this.team1Ping.UseVisualStyleBackColor = true;
+            this.team1Ping.Click += new System.EventHandler(this.team1Ping_Click);
             // 
             // team1Band
             // 
@@ -88,6 +90,7 @@
             this.team1Band.TabIndex = 2;
             this.team1Band.Text = "Rubber Band";
             this.team1Band.UseVisualStyleBackColor = true;
+            this.team1Band.Click += new System.EventHandler(this.team1Band_Click);
             // 
             // team1Shove
             // 
@@ -99,6 +102,7 @@
             this.team1Shove.TabIndex = 4;
             this.team1Shove.Text = "Shove";
             this.team1Shove.UseVisualStyleBackColor = true;
+            this.team1Shove.Click += new System.EventHandler(this.team1Shove_Click);
             // 
             // team1Disable
             // 
@@ -110,6 +114,7 @@
             this.team1Disable.TabIndex = 3;
             this.team1Disable.Text = "Disable";
             this.team1Disable.UseVisualStyleBackColor = true;
+            this.team1Disable.Click += new System.EventHandler(this.team1Disable_Click);
             // 
             // team2Shove
             // 
@@ -121,6 +126,7 @@
             this.team2Shove.TabIndex = 8;
             this.team2Shove.Text = "Shove";
             this.team2Shove.UseVisualStyleBackColor = true;
+            this.team2Shove.Click += new System.EventHandler(this.team2Shove_Click);
             // 
             // team2Disable
             // 
@@ -132,6 +138,7 @@
             this.team2Disable.TabIndex = 7;
             this.team2Disable.Text = "Disable";
             this.team2Disable.UseVisualStyleBackColor = true;
+            this.team2Disable.Click += new System.EventHandler(this.team2Disable_Click);
             // 
             // team2Band
             // 
@@ -143,6 +150,7 @@
             this.team2Band.TabIndex = 6;
             this.team2Band.Text = "Rubber Band";
             this.team2Band.UseVisualStyleBackColor = true;
+            this.team2Band.Click += new System.EventHandler(this.team2Band_Click);
             // 
             // team2Ping
             // 
@@ -154,6 +162,7 @@
             this.team2Ping.TabIndex = 5;
             this.team2Ping.Text = "Ping Pong";
             this.team2Ping.UseVisualStyleBackColor = true;
+            this.team2Ping.Click += new System.EventHandler(this.team2Ping_Click);
             // 
             // label1
             // 
@@ -183,6 +192,7 @@
             this.team1Toggle.Text = "Subtract Mode";
             this.team1Toggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.team1Toggle.UseVisualStyleBackColor = true;
+            this.team1Toggle.CheckedChanged += new System.EventHandler(this.team1Toggle_CheckedChanged);
             // 
             // team2Toggle
             // 
@@ -194,6 +204,7 @@
             this.team2Toggle.Text = "Subtract Mode";
             this.team2Toggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.team2Toggle.UseVisualStyleBackColor = true;
+            this.team2Toggle.CheckedChanged += new System.EventHandler(this.team2Toggle_CheckedChanged);
             // 
             // timeBar
             // 
@@ -247,6 +258,7 @@
             this.team1Override.TabIndex = 18;
             this.team1Override.Text = "Override Score";
             this.team1Override.UseVisualStyleBackColor = true;
+            this.team1Override.Click += new System.EventHandler(this.team1Override_Click);
             // 
             // team2Override
             // 
@@ -258,6 +270,7 @@
             this.team2Override.TabIndex = 19;
             this.team2Override.Text = "Override Score";
             this.team2Override.UseVisualStyleBackColor = true;
+            this.team2Override.Click += new System.EventHandler(this.team2Override_Click);
             // 
             // RefForm
             // 
@@ -315,6 +328,6 @@
         private System.Windows.Forms.TextBox team2Score;
         private System.Windows.Forms.Button team1Override;
         private System.Windows.Forms.Button team2Override;
-        private static System.IO.Ports.SerialPort arduinoport;
+        private System.IO.Ports.SerialPort arduinoport;
     }
 }
