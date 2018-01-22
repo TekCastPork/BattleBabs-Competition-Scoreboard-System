@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BattleBabs_Client.Properties
+namespace Display.Properties
 {
 
 

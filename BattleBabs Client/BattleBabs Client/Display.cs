@@ -8,38 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-using System.Timers;
-using System.Media;
 using System.IO;
 
 namespace Display
 {
     public partial class Display : Form
     {
-        RefForm referee = new RefForm();
-        SoundPlayer musicPlayer;
+        RefForm referee = new RefForm();        
         public static ArduinoForm arduinoForm = new ArduinoForm();
         public static string team1 = "Team1";
         public static string team2 = "Team2";
         public static Boolean teamOpen = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
-        public static Boolean enableMatch = true;
+        public static Boolean enableMatch = false;
 
         Thread GUIupdate, threadedTimerEvents;
-        System.Timers.Timer gameTime;
         public int timerCount = 75; // an indexing number to be used with the timer to determine game time
         public Display()
         {
             InitializeComponent();
-            musicPlayer = new SoundPlayer();
-            musicPlayer.SoundLocation = "";
-            gameTime = new System.Timers.Timer(); // create a timer
-            gameTime.Interval = 1000;
-            gameTime.AutoReset = true;
-            gameTime.Elapsed += handleTimerTicks;
-            gameTime.Enabled = false;
+            GameUtility.makeSpeech("Hello World. Program Loading.");
             GUIupdate = new Thread(new ThreadStart(updateComponents)); // create a GUI updating thread
-            threadedTimerEvents = new Thread(new ThreadStart(timerThread));
             GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
             GUIupdate.Start(); // start the GUI updating thread
             threadedTimerEvents.IsBackground = true;
@@ -47,26 +36,6 @@ namespace Display
             referee.Show(); // create the referee window so that points can be allocated and team names set
             GoFullscreen(false); // set the fullscreen mode
             PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
-        }
-
-        private void timerThread()
-        {
-            while (true)
-            {
-                Thread.Sleep(500);
-                if(timerCount <= 0)
-                {
-                    Console.WriteLine("Timer has hit 0! Match ends now!");
-                    gameTime.Enabled = false;
-                }
-            }
-
-        }
-
-        private void handleTimerTicks(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            Console.WriteLine("Timer tick!");
-            timerCount--; // countdown to 0 for game time display
         }
 
 

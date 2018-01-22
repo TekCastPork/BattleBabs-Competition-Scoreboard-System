@@ -28,8 +28,6 @@ namespace Display
             arduinoport = new SerialPort();
         }
 
-        /***TODO: Add button events and map to DataReceived ***/
-
         /// <summary>
         /// This function is threaded and just checks to see if the COm port is still connected,
         /// aka, if the arduino is still plugged in after connection has been established
@@ -141,11 +139,6 @@ namespace Display
         }
 
         /// <summary>
-        /// This alternative to DataReceived is for client button presses instead of arduino commands
-        /// </summary>
-        /// <param name="Data"></param>
-
-        /// <summary>
         /// This fuction will establish communication with the arduino by "auto-detecting" the COM port the arduino is on
         /// </summary>
         public static void connectArduinoPort()
@@ -196,6 +189,7 @@ namespace Display
         private void startButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Start Match button pressed.");
+            Display.enableMatch = true;
 
         }
 

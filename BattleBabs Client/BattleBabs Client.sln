@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Data\Battle.mp3 = Data\Battle.mp3
 		Data\erbos_draco_1st_nbp.ttf = Data\erbos_draco_1st_nbp.ttf
 		Data\erbos_draco_1st_open_nbp.ttf = Data\erbos_draco_1st_open_nbp.ttf
+		GameTimer.cs = GameTimer.cs
 		Data\Guile's Theme.wav = Data\Guile's Theme.wav
 		Data\Heart of Courage.wav = Data\Heart of Courage.wav
 		Data\Ken's Theme.wav = Data\Ken's Theme.wav

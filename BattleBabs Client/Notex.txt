@@ -1,0 +1,1 @@
+if(string.IsNullOREmpty(string)) -- use instead of many OR statements for checking for nulls
