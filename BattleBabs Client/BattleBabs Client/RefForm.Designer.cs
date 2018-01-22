@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.arduinoport = new System.IO.Ports.SerialPort(this.components);
             this.startButton = new System.Windows.Forms.Button();
             this.team1Ping = new System.Windows.Forms.Button();
             this.team1Band = new System.Windows.Forms.Button();
@@ -51,10 +49,6 @@
             this.team1Override = new System.Windows.Forms.Button();
             this.team2Override = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // arduinoport
-            // 
-            this.arduinoport.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.arduinoport_DataReceived);
             // 
             // startButton
             // 
@@ -328,6 +322,5 @@
         private System.Windows.Forms.TextBox team2Score;
         private System.Windows.Forms.Button team1Override;
         private System.Windows.Forms.Button team2Override;
-        private System.IO.Ports.SerialPort arduinoport;
     }
 }

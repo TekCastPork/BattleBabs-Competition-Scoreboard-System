@@ -15,6 +15,7 @@ namespace Display
     public partial class RefForm : Form
     {
         //VARIABLES//
+        public static SerialPort arduinoport;
         public static string receivedData;
         public static string selectedPort = "";
         public static Thread heartBeat = new Thread(new ThreadStart(isConnectionAlive));
@@ -24,6 +25,7 @@ namespace Display
         {
             InitializeComponent();
             heartBeat.IsBackground = true;
+            arduinoport = new SerialPort();
         }
 
         /***TODO: Add button events and map to DataReceived ***/
