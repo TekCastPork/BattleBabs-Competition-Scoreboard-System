@@ -18,6 +18,8 @@ namespace BattleBabs_Client
         public static ArduinoForm arduinoForm = new ArduinoForm();
         public static string team1 = "Team1";
         public static string team2 = "Team2";
+        public static int team1Score = 0;
+        public static int team2Score = 0;
         public static Boolean teamOpen = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
         Thread GUIupdate;
@@ -89,6 +91,8 @@ namespace BattleBabs_Client
             {
                 SetTeam1Text(team1);
                 SetTeam2Text(team2);
+                SetTeam1Score(team1Score.ToString());
+                SetTeam2Score(team2Score.ToString());
                 if (GameUtility.gameTime <= 99)
                 {
                     SetTimerText(GameUtility.getGameTime().ToString("00.00"));
@@ -96,7 +100,7 @@ namespace BattleBabs_Client
                 {
                     SetTimerText(GameUtility.getGameTime().ToString("000.00"));
                 }
-                Thread.Sleep(70);
+                Thread.Sleep(50);
             }
         }
 
@@ -131,6 +135,38 @@ namespace BattleBabs_Client
             else
             {
                 this.team2Name.Text = text;
+            }
+        }
+
+        private void SetTeam1Score(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.team1ScoreLbl.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetTeam1Score);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.team1ScoreLbl.Text = text;
+            }
+        }
+
+        private void SetTeam2Score(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.team2ScoreLbl.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetTeam2Score);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.team2ScoreLbl.Text = text;
             }
         }
 

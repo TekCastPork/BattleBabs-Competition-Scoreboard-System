@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
@@ -238,25 +231,34 @@ namespace BattleBabs_Client
             GameUtility.beginMatch();
 
         }
-
+        /*
+         * kOp1 = new GButton(this,1,50,80,30,"Incapacitated +60");
+           pOff1 = new GButton(this,85,50,70,30,"Pushed Off +30");
+           band1 = new GButton(this,1,90,80,30,"Rubber Band +20");
+           ball1 = new GButton(this,85,90,70,30,"Ping Pong +40");
+         */
         private void team1Ping_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Team 1 scored via a ping pong ball. +40 points!");
+            Display.team1Score += 40;
         }
 
         private void team1Band_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Team 1 scored via a rubber band. +20 points!");
+            Display.team1Score += 20;
         }
 
         private void team1Disable_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Team 1 scored via disabling team 2. +60 points!");
+            Display.team1Score += 60;
         }
 
         private void team1Shove_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Team 1 scored via shoving team 2. +30 points!");
+            Display.team1Score += 30;
         }
 
         private void team2Ping_Click(object sender, EventArgs e)
