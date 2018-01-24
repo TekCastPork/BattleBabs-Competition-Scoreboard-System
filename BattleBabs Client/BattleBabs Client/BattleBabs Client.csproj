@@ -59,7 +59,7 @@
     <Compile Include="Display.Designer.cs">
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameTimer.cs" />
+    <Compile Include="GameUtility.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="PipeClient.cs" />
     <Compile Include="Program.cs" />
@@ -90,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RefForm.resx">
       <DependentUpon>RefForm.cs</DependentUpon>
@@ -106,9 +107,41 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\erbos_draco_1st_nbp.ttf" />
+    <None Include="Resources\erbos_draco_1st_open_nbp.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Battle.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guile%27s Theme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Heart of Courage.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ken%27s Theme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Popcorn Techno.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RobbyRotten.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ryu%27s Theme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sonic2 Zone.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tetris B.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trainer Battle.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

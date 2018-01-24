@@ -1,4 +1,4 @@
-﻿namespace Display
+﻿namespace BattleBabs_Client
 {
     partial class Team_Entry
     {

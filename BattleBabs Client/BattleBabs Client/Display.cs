@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 
-namespace Display
+namespace BattleBabs_Client
 {
     public partial class Display : Form
     {
@@ -20,19 +20,22 @@ namespace Display
         public static string team2 = "Team2";
         public static Boolean teamOpen = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
-        public static Boolean enableMatch = false;
+        Thread GUIupdate;
 
-        Thread GUIupdate, threadedTimerEvents;
-        public int timerCount = 75; // an indexing number to be used with the timer to determine game time
         public Display()
         {
             InitializeComponent();
-            GameUtility.makeSpeech("Hello World. Program Loading.");
+            System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
+            privateFonts.AddFontFile("C:\\Users\\674623\\source\\repos\\BattleBabs-Competition-Scoreboard-System\\BattleBabs Client\\BattleBabs Client\\Resources\\erbos_draco_1st_open_nbp.ttf");
+            System.Drawing.Font scoreFont = new Font(privateFonts.Families[0], 27);
+            System.Drawing.Font timeFont = new Font(privateFonts.Families[0], 40);
+            team2ScoreLbl.Font = scoreFont;
+            team1ScoreLbl.Font = scoreFont;
+            timerLabel.Font = timeFont;
+            GameUtility.setupObjects();
             GUIupdate = new Thread(new ThreadStart(updateComponents)); // create a GUI updating thread
             GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
             GUIupdate.Start(); // start the GUI updating thread
-            threadedTimerEvents.IsBackground = true;
-            threadedTimerEvents.Start();
             referee.Show(); // create the referee window so that points can be allocated and team names set
             GoFullscreen(false); // set the fullscreen mode
             PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
@@ -86,8 +89,14 @@ namespace Display
             {
                 SetTeam1Text(team1);
                 SetTeam2Text(team2);
-                SetTimerText(timerCount.ToString());
-                Thread.Sleep(500);
+                if (GameUtility.gameTime <= 99)
+                {
+                    SetTimerText(GameUtility.getGameTime().ToString("00.00"));
+                } else
+                {
+                    SetTimerText(GameUtility.getGameTime().ToString("000.00"));
+                }
+                Thread.Sleep(70);
             }
         }
 

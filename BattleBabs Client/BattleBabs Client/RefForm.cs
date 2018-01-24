@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
 
-namespace Display
+namespace BattleBabs_Client
 {
     public partial class RefForm : Form
     {
@@ -19,6 +19,7 @@ namespace Display
         public static string receivedData;
         public static string selectedPort = "";
         public static Thread heartBeat = new Thread(new ThreadStart(isConnectionAlive));
+        Thread guiUpdate;
 
         //FUNCTIONS//
         public RefForm()
@@ -26,6 +27,10 @@ namespace Display
             InitializeComponent();
             heartBeat.IsBackground = true;
             arduinoport = new SerialPort();
+            guiUpdate = new Thread(new ThreadStart(updateComponents));
+            guiUpdate.IsBackground = true;
+            guiUpdate.Start();
+            setTimeProgress(GameUtility.gameTime, true);
         }
 
         /// <summary>
@@ -48,6 +53,15 @@ namespace Display
 
                 }
                 Thread.Sleep(750);
+            }
+        }
+
+        private void updateComponents()
+        {
+            while (true)
+            {
+                setTimeProgress(GameUtility.getGameTime(), false);
+                Thread.Sleep(250);
             }
         }
 
@@ -165,6 +179,7 @@ namespace Display
         /// </summary>
         /// <param name="text"></param>
         delegate void SetTextCallback(string text);
+        delegate void SetIntCallback(float number, Boolean statement);
 
         /// <summary>
         /// Used to edit the text of the recent event label, by either modifying directly or invoking if required
@@ -186,10 +201,41 @@ namespace Display
             }
         }
 
+        /// <summary>
+        /// Used to edit the value of the progress bar, can also change the max value of said bar
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="maxValue"></param>
+        private void setTimeProgress(float time, Boolean maxValue)
+        {
+            if (this.timeBar.InvokeRequired)
+            {
+                SetIntCallback d = new SetIntCallback(setTimeProgress);
+                try
+                {
+                    this.Invoke(d, new object[] { time, maxValue });
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.StackTrace.ToString());
+                }
+            }
+            else
+            {
+                if (maxValue)
+                {
+                    this.timeBar.Maximum = (int)time;
+                }
+                else
+                {
+                    this.timeBar.Value = (int)time;
+                }
+            }
+        }
+
         private void startButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Start Match button pressed.");
-            Display.enableMatch = true;
+            GameUtility.beginMatch();
 
         }
 
@@ -251,6 +297,25 @@ namespace Display
         private void team2Override_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void stopButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Stop button is pushed!");
+            GameUtility.endMatch();
+            GameUtility.makeSpeech("The match was stopped by the referee.");
+        }
+
+        private void resumeButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Resume button pushed.");
+            GameUtility.resumeMatch();
+        }
+
+        private void pauseButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("pause button pushed");
+            GameUtility.pauseMatch();
         }
     }
 }

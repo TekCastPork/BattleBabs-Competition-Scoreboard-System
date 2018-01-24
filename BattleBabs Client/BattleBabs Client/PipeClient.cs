@@ -7,7 +7,7 @@ using System.IO.Pipes;
 using System.Threading;
 using System.IO;
 
-namespace Display
+namespace BattleBabs_Client
 {
     class PipeClient
     {

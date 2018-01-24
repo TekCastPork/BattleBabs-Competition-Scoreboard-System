@@ -11,7 +11,7 @@ using System.IO.Ports;
 using System.Timers;
 using System.Threading;
 
-namespace Display
+namespace BattleBabs_Client
 {
     public partial class ArduinoForm : Form
     {

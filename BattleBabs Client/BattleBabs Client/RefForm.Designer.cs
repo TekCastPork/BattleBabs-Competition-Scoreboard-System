@@ -1,4 +1,4 @@
-﻿namespace Display
+﻿namespace BattleBabs_Client
 {
     partial class RefForm
     {
@@ -48,13 +48,16 @@
             this.team2Score = new System.Windows.Forms.TextBox();
             this.team1Override = new System.Windows.Forms.Button();
             this.team2Override = new System.Windows.Forms.Button();
+            this.stopButton = new System.Windows.Forms.Button();
+            this.resumeButton = new System.Windows.Forms.Button();
+            this.pauseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startButton
             // 
             this.startButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.startButton.Location = new System.Drawing.Point(105, 42);
+            this.startButton.Location = new System.Drawing.Point(104, 65);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(75, 23);
             this.startButton.TabIndex = 0;
@@ -266,11 +269,44 @@
             this.team2Override.UseVisualStyleBackColor = true;
             this.team2Override.Click += new System.EventHandler(this.team2Override_Click);
             // 
+            // stopButton
+            // 
+            this.stopButton.Location = new System.Drawing.Point(104, 152);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(75, 23);
+            this.stopButton.TabIndex = 20;
+            this.stopButton.Text = "Stop Match";
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            // 
+            // resumeButton
+            // 
+            this.resumeButton.Location = new System.Drawing.Point(104, 94);
+            this.resumeButton.Name = "resumeButton";
+            this.resumeButton.Size = new System.Drawing.Size(75, 23);
+            this.resumeButton.TabIndex = 21;
+            this.resumeButton.Text = "Resume";
+            this.resumeButton.UseVisualStyleBackColor = true;
+            this.resumeButton.Click += new System.EventHandler(this.resumeButton_Click);
+            // 
+            // pauseButton
+            // 
+            this.pauseButton.Location = new System.Drawing.Point(105, 123);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(75, 23);
+            this.pauseButton.TabIndex = 22;
+            this.pauseButton.Text = "Pause";
+            this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
+            // 
             // RefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.pauseButton);
+            this.Controls.Add(this.resumeButton);
+            this.Controls.Add(this.stopButton);
             this.Controls.Add(this.team2Override);
             this.Controls.Add(this.team1Override);
             this.Controls.Add(this.team2Score);
@@ -322,5 +358,8 @@
         private System.Windows.Forms.TextBox team2Score;
         private System.Windows.Forms.Button team1Override;
         private System.Windows.Forms.Button team2Override;
+        private System.Windows.Forms.Button stopButton;
+        private System.Windows.Forms.Button resumeButton;
+        private System.Windows.Forms.Button pauseButton;
     }
 }

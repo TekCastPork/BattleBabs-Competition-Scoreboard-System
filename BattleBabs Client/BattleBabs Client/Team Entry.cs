@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Display
+namespace BattleBabs_Client
 {
     public partial class Team_Entry : Form
     {

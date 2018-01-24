@@ -1,4 +1,4 @@
-﻿namespace Display
+﻿namespace BattleBabs_Client
 {
     partial class Display
     {
@@ -85,34 +85,37 @@
             // team1ScoreLbl
             // 
             this.team1ScoreLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.team1ScoreLbl.BackColor = System.Drawing.Color.Silver;
+            this.team1ScoreLbl.BackColor = System.Drawing.Color.Black;
             this.team1ScoreLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.team1ScoreLbl.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.team1ScoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team1ScoreLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.team1ScoreLbl.Location = new System.Drawing.Point(12, 238);
             this.team1ScoreLbl.MaximumSize = new System.Drawing.Size(330, 50);
             this.team1ScoreLbl.Name = "team1ScoreLbl";
             this.team1ScoreLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.team1ScoreLbl.Size = new System.Drawing.Size(330, 50);
             this.team1ScoreLbl.TabIndex = 6;
-            this.team1ScoreLbl.Text = "Team1Score";
-            this.team1ScoreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.team1ScoreLbl.Text = "0123456789";
+            this.team1ScoreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // team2ScoreLbl
             // 
             this.team2ScoreLbl.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.team2ScoreLbl.BackColor = System.Drawing.Color.Silver;
+            this.team2ScoreLbl.BackColor = System.Drawing.Color.Black;
             this.team2ScoreLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.team2ScoreLbl.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.team2ScoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2ScoreLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.team2ScoreLbl.Location = new System.Drawing.Point(642, 238);
             this.team2ScoreLbl.MaximumSize = new System.Drawing.Size(330, 50);
             this.team2ScoreLbl.Name = "team2ScoreLbl";
+            this.team2ScoreLbl.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.team2ScoreLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.team2ScoreLbl.Size = new System.Drawing.Size(330, 50);
             this.team2ScoreLbl.TabIndex = 7;
-            this.team2ScoreLbl.Text = "Team2Score";
-            this.team2ScoreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.team2ScoreLbl.Text = "0123456789";
+            this.team2ScoreLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // VSpicture
             // 
@@ -148,7 +151,7 @@
             this.timerLabel.Size = new System.Drawing.Size(984, 135);
             this.timerLabel.TabIndex = 10;
             this.timerLabel.Text = "TimerCountIsHere";
-            this.timerLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Team1Rank
             // 
