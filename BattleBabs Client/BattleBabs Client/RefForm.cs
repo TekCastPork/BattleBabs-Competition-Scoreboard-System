@@ -54,7 +54,7 @@ namespace BattleBabs_Client
             while (true)
             {
                 setTimeProgress(GameUtility.getGameTime(), false);
-                Thread.Sleep(250);
+                Thread.Sleep(100);
             }
         }
 
@@ -231,6 +231,7 @@ namespace BattleBabs_Client
             GameUtility.beginMatch();
 
         }
+
         /*
          * kOp1 = new GButton(this,1,50,80,30,"Incapacitated +60");
            pOff1 = new GButton(this,85,50,70,30,"Pushed Off +30");
@@ -240,46 +241,75 @@ namespace BattleBabs_Client
         private void team1Ping_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via a ping pong ball. +40 points!");
-            Display.team1Score += 40;
+            if (GameUtility.matchState == 1)
+            {
+                Display.team1Score += 40;
+            }
         }
 
         private void team1Band_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via a rubber band. +20 points!");
-            Display.team1Score += 20;
+            if (GameUtility.matchState == 1)
+            {
+                Display.team1Score += 20;
+            }
         }
 
         private void team1Disable_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via disabling team 2. +60 points!");
-            Display.team1Score += 60;
+            if (GameUtility.matchState == 1)
+            {
+                Display.team1Score += 60;
+            }
         }
 
         private void team1Shove_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via shoving team 2. +30 points!");
-            Display.team1Score += 30;
+            if (GameUtility.matchState == 1)
+            {
+                Display.team1Score += 30;
+            }
         }
 
         private void team2Ping_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Team 2 scored via a ping pong ball. +40 points!");
+            if (GameUtility.matchState == 1)
+            {
+                Display.team2Score += 40;
+            }
         }
 
         private void team2Band_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Team 2 scored via a rubber band. +20 points!");
+            if (GameUtility.matchState == 1)
+            {
+                Display.team2Score += 20;
+            }
         }
 
         private void team2Disable_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Team 2 scored via disabling team 2. +60 points!");
+            if (GameUtility.matchState == 1)
+            {
+                Display.team2Score += 60;
+            }
         }
 
         private void team2Shove_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Team 2 scored via shoving team 2. +30 points!");
+            if (GameUtility.matchState == 1)
+            {
+                Display.team2Score += 30;
+            }
         }
+
 
         private void team1Toggle_CheckedChanged(object sender, EventArgs e)
         {

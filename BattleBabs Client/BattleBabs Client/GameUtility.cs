@@ -13,6 +13,7 @@ namespace BattleBabs_Client
         static System.Timers.Timer gameTimer = new System.Timers.Timer(); // create a timer for making the match a specific length
         public static System.Media.SoundPlayer music = new SoundPlayer(Properties.Resources.Heart_of_Courage);
         public static int gameTime = 120; // default match time will be 1 minute 15 seconds, as requested
+        public static int matchState = 0;
         static float currentTime = 0.0f; // current time used for match times
         static Random RNGesus = new Random(); // Pray to him! Kappa
         static int previousSongID = -1; // used with RNGesus for picking the next song
@@ -78,7 +79,7 @@ namespace BattleBabs_Client
 
         public static void makeSpeech(string msg) // uses the TTS engine to talk
         {
-            synth.Speak(msg); // do some robit speak stuff
+            synth.SpeakAsync(msg); // do some robit speak stuff
         }
 
         public static void alterGameTime(int newTime) // used to change the duration of a match
@@ -88,35 +89,50 @@ namespace BattleBabs_Client
 
         public static void beginMatch() // start a match's timer and will handle other match start events
         {
-            
-            Console.WriteLine("Game timer started since the match is starting");
-            setRandomSong();
-            music.Play(); // start the audio
-            currentTime = gameTime;
-            gameTimer.Start(); // start the game timer
+            if (matchState == 0)
+            {
+                Console.WriteLine("Game timer started since the match is starting");
+                setRandomSong();
+                music.Play(); // start the audio
+                currentTime = gameTime;
+                gameTimer.Start(); // start the game timer
+                matchState = 1;
+            }
         }
 
         public static void resumeMatch()
         {
-            makeSpeech("Resuming Match.");
-            gameTimer.Start();
-            music.Play();
-        }
+            if (matchState == 2)
+            {
+                makeSpeech("Resuming Match.");
+                gameTimer.Start();
+                music.Play();
+                matchState = 1;
+            }
+        } // resumes the match is it was paused
 
         public static void endMatch() // ends the match's timer and will handle other end match events
         {
-            gameTimer.Enabled = false; // stop the game timer
-            Console.WriteLine("Game timer stopped since match is ending.");
-            music.Stop(); // stop the audio from playing
-            setRandomSong(); // pick a new song randomly
+            if (matchState != 0)
+            {
+                gameTimer.Stop(); // stop the game timer
+                Console.WriteLine("Game timer stopped since match is ending.");
+                music.Stop(); // stop the audio from playing
+                setRandomSong(); // pick a new song randomly
+                matchState = 0;
+            }
         }
 
         public static void pauseMatch()
         {
-            gameTimer.Stop();
-            Console.WriteLine("Match Paused.");
-            music.Stop();
-            makeSpeech("The referee paused the game.");
+            if (matchState == 1)
+            {
+                gameTimer.Stop();
+                Console.WriteLine("Match Paused.");
+                music.Stop();
+                makeSpeech("The referee paused the game.");
+                matchState = 2;
+            }
         }
 
         public static void handleTimerTicks (object sender, System.Timers.ElapsedEventArgs e) // handles timer ticks
@@ -127,7 +143,6 @@ namespace BattleBabs_Client
             {
                 Console.WriteLine("match time hit 0!");
                 endMatch();
-                music.Stop();
                 currentTime = 0.00f;
             }
 
