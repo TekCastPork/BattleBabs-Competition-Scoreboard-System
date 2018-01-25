@@ -20,6 +20,7 @@ namespace BattleBabs_Client
             InitializeComponent();
             heartBeat.IsBackground = true;
             arduinoport = new SerialPort();
+            arduinoport.DataReceived += arduinoport_DataReceived;
             guiUpdate = new Thread(new ThreadStart(updateComponents));
             guiUpdate.IsBackground = true;
             guiUpdate.Start();
@@ -41,11 +42,13 @@ namespace BattleBabs_Client
                 else
                 {
                     Console.WriteLine("Comms port is dead");
+                    GameUtility.makeSpeech("Warning: connection with arduino controller lost! Match Auto-pausing!");
                     MessageBox.Show("Lost Connection with Arduino Controller.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    GameUtility.pauseMatch();
                     break;
 
                 }
-                Thread.Sleep(750);
+                Thread.Sleep(200);
             }
         }
 
@@ -100,38 +103,71 @@ namespace BattleBabs_Client
                         case 0:
                             Console.WriteLine("Command received was a start match command. Starting Match");
                             setDataText("Match Start.");
+                            GameUtility.beginMatch();
                             break;
                         case 1:
                             Console.WriteLine("Command received was a team 1 band score.");
                             setDataText("Team 1 Rubber Bands");
+                            if(GameUtility.matchState==1)
+                            {
+                                Display.team1Score += 20;
+                            }
                             break;
                         case 2:
                             Console.WriteLine("Command received was a team 1 ping pong score.");
                             setDataText("Team 1 Ping Pong");
+                            if (GameUtility.matchState == 1)
+                            {
+                                Display.team1Score += 40;
+                            }
                             break;
                         case 3:
                             Console.WriteLine("Command received was a team 1 push off score.");
                             setDataText("Team 1 Pushing");
+                            if (GameUtility.matchState == 1)
+                            {
+                                Display.team1Score += 30;
+                            }
                             break;
                         case 4:
                             Console.WriteLine("Command received was a team 1 disabled score.");
                             setDataText("Team 1 Disable");
+                            if (GameUtility.matchState == 1)
+                            {
+                                Display.team1Score += 60;
+                            }
                             break;
                         case 5:
                             Console.WriteLine("Command received was a team 2 band score.");
                             setDataText("Team 2 Rubber Bands");
+                            if (GameUtility.matchState == 1)
+                            {
+                                Display.team2Score += 20;
+                            }
                             break;
                         case 6:
                             Console.WriteLine("Command received was a team 2 ping pong score.");
                             setDataText("Team 2 Ping Pong");
+                            if (GameUtility.matchState == 1)
+                            {
+                                Display.team2Score += 40;
+                            }
                             break;
                         case 7:
                             Console.WriteLine("Command received was a team 2 push off score.");
                             setDataText("Team 2 Pushing");
+                            if (GameUtility.matchState == 1)
+                            {
+                                Display.team2Score += 30;
+                            }
                             break;
                         case 8:
                             Console.WriteLine("Command received was a team 2 disabled score.");
                             setDataText("Team 2 Disable");
+                            if (GameUtility.matchState == 1)
+                            {
+                                Display.team2Score += 60;
+                            }
                             break;
                         default:
                             Console.WriteLine("Command was not determinable.");

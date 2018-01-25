@@ -26,7 +26,7 @@ namespace BattleBabs_Client
             Console.WriteLine("Attempting to connect to server's pipe. Will timeout in 30 seconds if no connection is made");
             try
             {
-                client.Connect(10); // attempt to connect but timeout is you don't connect
+                client.Connect(10); // attempt to connect but timeout if you don't connect
             } catch (Exception e)
             {
                 Console.WriteLine("Error during pipe connect!");

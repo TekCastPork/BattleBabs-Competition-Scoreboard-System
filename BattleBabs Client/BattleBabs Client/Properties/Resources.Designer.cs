@@ -129,15 +129,6 @@ namespace BattleBabs_Client.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream RobbyRotten {
-            get {
-                return ResourceManager.GetStream("RobbyRotten", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
         internal static System.IO.UnmanagedMemoryStream Ryu_s_Theme {
             get {
                 return ResourceManager.GetStream("Ryu_s_Theme", resourceCulture);

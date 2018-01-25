@@ -25,7 +25,7 @@ namespace BattleBabs_Server
             for (int i = 0; i < serverThreads.Length; i++) // for integer i starting at 0, while i is less than the length of the server threads array, increment i by 1
             {
                 serverThreads[i] = new Thread(new ThreadStart(serverCommandThread));//create the thread
-                serverThreads[i].IsBackground = false; //make the thread an active thread
+                serverThreads[i].IsBackground = true;
                 serverThreads[i].Start(); // start the threads
                 Console.WriteLine("Server {0} started.", i);
             }            
@@ -36,6 +36,8 @@ namespace BattleBabs_Server
         /// </summary>
         private static void serverCommandThread()
         {
+            Random delayAdder = new Random();
+            string readLine = "";
             int threadID = Thread.CurrentThread.ManagedThreadId;
             NamedPipeServerStream server = new NamedPipeServerStream("boardPipe", PipeDirection.InOut, serverThreadCount); // create a server pipe instance
             Console.WriteLine("[{0}] Server pipe created, awaiting a connection from a client pipe.",threadID);
@@ -44,9 +46,14 @@ namespace BattleBabs_Server
             StreamString reader = new StreamString(server); //create a reader to read from the pipe
             while(true) // temp while true to make sure stuff works properly after client connection
             {
-                reader.ReadString();
-                Thread.Sleep(500);
-                Console.WriteLine("[{0}] Ping!",threadID);
+                Thread.Sleep(200 + delayAdder.Next(20,80)); // help make sure only 1 server will be looking at any given time
+                if (server.Length > 0)
+                {
+                    readLine = reader.ReadString();
+                    Console.WriteLine("[{0}] Ping!", threadID);
+                    Console.WriteLine("A client said: {0}", readLine);
+                }
+                
             }
         }
 

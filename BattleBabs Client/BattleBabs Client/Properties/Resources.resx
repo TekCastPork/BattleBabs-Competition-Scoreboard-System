@@ -139,9 +139,6 @@
   <data name="Popcorn_Techno" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Popcorn Techno.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RobbyRotten" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RobbyRotten.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Ryu_s_Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ryu's Theme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

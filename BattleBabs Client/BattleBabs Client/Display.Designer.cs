@@ -41,6 +41,8 @@
             this.team2Rank = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.connectButton = new System.Windows.Forms.Button();
+            this.aboutButton = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,9 +184,9 @@
             // exitButton
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.exitButton.Location = new System.Drawing.Point(897, 526);
+            this.exitButton.Location = new System.Drawing.Point(885, 526);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.Size = new System.Drawing.Size(87, 23);
             this.exitButton.TabIndex = 13;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -201,12 +203,32 @@
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
+            // aboutButton
+            // 
+            this.aboutButton.Location = new System.Drawing.Point(9, 439);
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(87, 23);
+            this.aboutButton.TabIndex = 15;
+            this.aboutButton.Text = "About";
+            this.aboutButton.UseVisualStyleBackColor = true;
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.Location = new System.Drawing.Point(9, 468);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(87, 23);
+            this.settingsButton.TabIndex = 16;
+            this.settingsButton.Text = "Settings...";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.settingsButton);
+            this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.team2Rank);
@@ -241,6 +263,8 @@
         private System.Windows.Forms.Label team2Rank;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Button aboutButton;
+        private System.Windows.Forms.Button settingsButton;
     }
 }
 
