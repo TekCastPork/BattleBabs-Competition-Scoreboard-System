@@ -23,6 +23,7 @@ namespace BattleBabs_Client
         public static int team2Score = 0;
         public static Boolean teamOpen = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
+        AboutBox about = new AboutBox();
         Thread GUIupdate;
 
 
@@ -31,8 +32,8 @@ namespace BattleBabs_Client
         {
             InitializeComponent();
             System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
-            //  privateFonts.AddFontFile("C:\\Users\\TekCastPork\\Source\\Repos\\BattleBabs\\Display\\BattleBabs Client\\BattleBabs Client\\Resources\\erbos_draco_1st_open_nbp.ttf");
-            privateFonts.AddFontFile(Path.GetFullPath(Properties.Resources.erbos_draco_1st_nbp.ToString()));
+        //    privateFonts.AddFontFile("C:\\Users\\TekCastPork\\Source\\Repos\\BattleBabs\\Display\\BattleBabs Client\\BattleBabs Client\\Resources\\erbos_draco_1st_open_nbp.ttf");
+            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "erbos_draco_1st_open_nbp.ttf")); //uncomment when exporting, use top for debugging
             System.Drawing.Font scoreFont = new Font(privateFonts.Families[0], 27);
             System.Drawing.Font timeFont = new Font(privateFonts.Families[0], 40);
             team2ScoreLbl.Font = scoreFont;
@@ -205,6 +206,14 @@ namespace BattleBabs_Client
                 arduinoForm.Show();
                 connectOpen = true;
             }
+        }
+
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+           if(AboutBox.isShowing == false) {
+                about.Show();
+                AboutBox.isShowing = true;
+            } 
         }
     }
 }

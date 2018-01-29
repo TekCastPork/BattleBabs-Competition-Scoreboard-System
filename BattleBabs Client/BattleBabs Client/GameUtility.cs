@@ -12,6 +12,7 @@ namespace BattleBabs_Client
         static SpeechSynthesizer synth = new SpeechSynthesizer(); // make a TTS instance so we can so text to speech
         static System.Timers.Timer gameTimer = new System.Timers.Timer(); // create a timer for making the match a specific length
         public static System.Media.SoundPlayer music = new SoundPlayer(Properties.Resources.Heart_of_Courage);
+        public static System.Media.SoundPlayer buzzer = new SoundPlayer(Properties.Resources.Buzzer);
         public static int gameTime = 75; // default match time will be 1 minute 15 seconds, as requested
         public static int matchState = 0;
         static int SEED = 1337;

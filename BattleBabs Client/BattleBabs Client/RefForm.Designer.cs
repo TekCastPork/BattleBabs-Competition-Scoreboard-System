@@ -327,6 +327,7 @@
             this.Controls.Add(this.team1Band);
             this.Controls.Add(this.team1Ping);
             this.Controls.Add(this.startButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RefForm";
