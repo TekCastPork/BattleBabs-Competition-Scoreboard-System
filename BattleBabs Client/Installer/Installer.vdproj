@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:BattleBabs Scoreboard"
+"ProjectName" = "8:BattleBabs Scoreboard Installer"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -17,6 +17,12 @@
         {
         "MsmKey" = "8:_120E76CAF27DCBF322D16F12B3F6F6DD"
         "OwnerKey" = "8:_E28BF7E5BF504CEC85C95C8D40CAC0DC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6447BAAAEEF94C468C7E054D79A02AA8"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -62,6 +68,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -86,6 +100,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -145,6 +167,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6447BAAAEEF94C468C7E054D79A02AA8"
+            {
+            "SourcePath" = "8:..\\BattleBabs Client\\battlebabs_temp_icon_cl4_icon.ico"
+            "TargetName" = "8:battlebabs_temp_icon_cl4_icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_1474F814EDC24475AA22BE1578047E45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -326,16 +368,16 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_821BA25A1E1946769202E15F52ECD5CD"
             {
-            "Name" = "8:Shortcut to BattleBabs Scoreboard"
+            "Name" = "8:BattleBabs Scoreboard"
             "Arguments" = "8:"
-            "Description" = "8:"
+            "Description" = "8:Launch the BattleBabs Scoreboard"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_E28BF7E5BF504CEC85C95C8D40CAC0DC"
             "Folder" = "8:_9676303BCE6F4113BFDCECE228515099"
             "WorkingFolder" = "8:_1474F814EDC24475AA22BE1578047E45"
-            "Icon" = "8:"
+            "Icon" = "8:_6447BAAAEEF94C468C7E054D79A02AA8"
             "Feature" = "8:"
             }
         }

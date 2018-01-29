@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArduinoForm));
             this.label1 = new System.Windows.Forms.Label();
             this.comPortBox = new System.Windows.Forms.ComboBox();
             this.selectButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            refreshLabel = new System.Windows.Forms.Label();
+            this.refreshLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -85,24 +86,25 @@
             // 
             // refreshLabel
             // 
-            refreshLabel.AutoSize = true;
-            refreshLabel.Location = new System.Drawing.Point(12, 57);
-            refreshLabel.Name = "refreshLabel";
-            refreshLabel.Size = new System.Drawing.Size(104, 13);
-            refreshLabel.TabIndex = 5;
-            refreshLabel.Text = "COM ports refreshed";
+            this.refreshLabel.AutoSize = true;
+            this.refreshLabel.Location = new System.Drawing.Point(12, 57);
+            this.refreshLabel.Name = "refreshLabel";
+            this.refreshLabel.Size = new System.Drawing.Size(104, 13);
+            this.refreshLabel.TabIndex = 5;
+            this.refreshLabel.Text = "COM ports refreshed";
             // 
             // ArduinoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(193, 121);
-            this.Controls.Add(refreshLabel);
+            this.Controls.Add(this.refreshLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.selectButton);
             this.Controls.Add(this.comPortBox);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ArduinoForm";
@@ -121,6 +123,6 @@
         private System.Windows.Forms.Button selectButton;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button cancelButton;
-        private static System.Windows.Forms.Label refreshLabel;
+        private System.Windows.Forms.Label refreshLabel;
     }
 }

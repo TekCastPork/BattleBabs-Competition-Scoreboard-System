@@ -56,7 +56,8 @@ namespace BattleBabs_Client
         {
             while (true)
             {
-                setTimeProgress(GameUtility.getGameTime(), false);
+                setTimeProgress(GameUtility.gameTime, true);
+                setTimeProgress(GameUtility.getGameTime(), false);                
                 Thread.Sleep(100);
             }
         }

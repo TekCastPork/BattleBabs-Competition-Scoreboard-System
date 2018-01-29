@@ -33,6 +33,9 @@
             this.timerCount = new System.Windows.Forms.NumericUpDown();
             this.applyButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.seedBox = new System.Windows.Forms.CheckBox();
+            this.seedText = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.timerCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,9 +44,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Match Duration";
+            this.label1.Text = "Match Duration (s)";
             // 
             // timerCount
             // 
@@ -82,16 +85,48 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // seedBox
+            // 
+            this.seedBox.AutoSize = true;
+            this.seedBox.Location = new System.Drawing.Point(15, 51);
+            this.seedBox.Name = "seedBox";
+            this.seedBox.Size = new System.Drawing.Size(116, 17);
+            this.seedBox.TabIndex = 4;
+            this.seedBox.Text = "Use seeded RNG?";
+            this.seedBox.UseVisualStyleBackColor = true;
+            // 
+            // seedText
+            // 
+            this.seedText.Location = new System.Drawing.Point(96, 24);
+            this.seedText.Name = "seedText";
+            this.seedText.Size = new System.Drawing.Size(78, 20);
+            this.seedText.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(115, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "RNG Seed";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(183, 122);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.seedText);
+            this.Controls.Add(this.seedBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.applyButton);
             this.Controls.Add(this.timerCount);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Settings";
             this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.timerCount)).EndInit();
@@ -106,5 +141,8 @@
         private System.Windows.Forms.NumericUpDown timerCount;
         private System.Windows.Forms.Button applyButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.CheckBox seedBox;
+        private System.Windows.Forms.TextBox seedText;
+        private System.Windows.Forms.Label label2;
     }
 }

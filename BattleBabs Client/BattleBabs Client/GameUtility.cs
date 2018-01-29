@@ -15,10 +15,11 @@ namespace BattleBabs_Client
         public static System.Media.SoundPlayer buzzer = new SoundPlayer(Properties.Resources.Buzzer);
         public static int gameTime = 75; // default match time will be 1 minute 15 seconds, as requested
         public static int matchState = 0;
-        static int SEED = 1337;
+        public static int SEED = 1337; // seed for random number generation via specified seed
+        public static Boolean useSeeded = true; // enables random override
         static float currentTime = 0.0f; // current time used for match times
-      //  static Random RNGesus = new Random(); // Pray to him! Kappa, this one does not have a pre-set seed, so it will seed based on the time
-        static Random RNGesus = new Random(SEED); // use if you want to debug via seeding
+        static Random RNGesus = new Random(); // Pray to him! Kappa, this one does not have a pre-set seed, so it will seed based on the time
+        static Random RNGesusSeed = new Random(SEED); // use if you want to debug via seeding
         static int previousSongID = -1; // used with RNGesus for picking the next song
 
         public static float getGameTime()
@@ -41,13 +42,20 @@ namespace BattleBabs_Client
             System.IO.Stream str = null; // stream instance for use with audio
             while (true) // while true statement for randomly choosing the next song, dont worry t breaks eventually
             {
-                RNGResult = RNGesus.Next(0, 7); // get the next value according to the RNG for use with picking the song
+                if (useSeeded)
+                {
+                    RNGResult = RNGesusSeed.Next(0, 7);
+                }
+                else
+                {
+                    RNGResult = RNGesus.Next(0, 7); // get the next value according to the RNG for use with picking the song
+                }
                 if(RNGResult != previousSongID) // is the "new" song the same as the last one?
                 {
                     // It was not! make it the new song
                     Console.WriteLine("RNG result wasnt revious song! Using chosen value.");
-                    previousSongID = RNGResult;
-                    break;
+                    previousSongID = RNGResult; // set the previous song ID to the new one for next time
+                    break; // break the while loop
                 } else
                 {
                     // It was the same, reroll the RNG
@@ -57,7 +65,8 @@ namespace BattleBabs_Client
             Console.WriteLine("Selected number is {0}", RNGResult);
             switch (RNGResult) // switch for determining the song to play, this means however that the songs are hardcoded and cannot be changed easily
             {
-                case 0:
+                case 0: // case 0 and default will both be Popcorn techno. default is here to prevent potential crashes
+                default:
                     str = Properties.Resources.Popcorn_Techno;
                     music.Stream = str; // set the new song stream source 
                     break;
@@ -88,10 +97,6 @@ namespace BattleBabs_Client
                 case 7:
                     str = Properties.Resources.Sonic2_Zone;
                     music.Stream = str;
-                    break;
-                default:
-                    str = Properties.Resources.Popcorn_Techno;
-                    music.Stream = str; // set the new song stream source 
                     break;
             }
             
@@ -163,7 +168,6 @@ namespace BattleBabs_Client
 
         public static void handleTimerTicks (object sender, System.Timers.ElapsedEventArgs e) // handles timer ticks
         {
-            Console.WriteLine("Timer Tick!");
             currentTime -= 0.01f;
             if(currentTime < 0.0f)
             {
