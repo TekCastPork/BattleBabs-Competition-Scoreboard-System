@@ -24,6 +24,7 @@ namespace BattleBabs_Client
         public static Boolean teamOpen = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
         AboutBox about = new AboutBox();
+        Settings settingWindow = new Settings();
         Thread GUIupdate;
 
 
@@ -214,6 +215,11 @@ namespace BattleBabs_Client
                 about.Show();
                 AboutBox.isShowing = true;
             } 
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            settingWindow.Show();
         }
     }
 }

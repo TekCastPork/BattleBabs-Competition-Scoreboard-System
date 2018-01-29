@@ -223,6 +223,7 @@
             this.settingsButton.TabIndex = 16;
             this.settingsButton.Text = "Settings...";
             this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // Display
             // 
@@ -244,8 +245,7 @@
             this.Controls.Add(this.team1Name);
             this.Controls.Add(this.team2Name);
             this.Controls.Add(this.titleLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "Display";
             this.Text = "BattleBabs";

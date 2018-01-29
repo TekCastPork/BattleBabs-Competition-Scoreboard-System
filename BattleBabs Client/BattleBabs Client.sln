@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6F47A7E-56D2-428D-854B-73207DD67DE6}"
 	ProjectSection(SolutionItems) = preProject
 		Data\Battle.mp3 = Data\Battle.mp3
+		..\..\..\..\Downloads\battlebabs_temp_icon_cl4_icon.ico = ..\..\..\..\Downloads\battlebabs_temp_icon_cl4_icon.ico
 		Data\erbos_draco_1st_nbp.ttf = Data\erbos_draco_1st_nbp.ttf
 		Data\erbos_draco_1st_open_nbp.ttf = Data\erbos_draco_1st_open_nbp.ttf
 		Data\Guile's Theme.wav = Data\Guile's Theme.wav
@@ -21,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Data\Trainer Battle.wav = Data\Trainer Battle.wav
 	EndProjectSection
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{78360394-4B17-401F-BE5D-EADD1CA7A154}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BattleBabs Scoreboard", "Installer\Installer.vdproj", "{78360394-4B17-401F-BE5D-EADD1CA7A154}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

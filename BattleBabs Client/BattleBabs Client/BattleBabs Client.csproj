@@ -49,16 +49,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint></ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>
+    </ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile></ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests></GenerateManifests>
+    <GenerateManifests>
+    </GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests></SignManifests>
+    <SignManifests>
+    </SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -104,6 +108,12 @@
     <Compile Include="RefForm.Designer.cs">
       <DependentUpon>RefForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Team Entry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,13 +142,16 @@
     <EmbeddedResource Include="RefForm.resx">
       <DependentUpon>RefForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Team Entry.resx">
       <DependentUpon>Team Entry.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="battlebabs_temp_icon_cl4_icon.ico" />
     <Content Include="erbos_draco_1st_open_nbp.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="BattleBabs Client_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

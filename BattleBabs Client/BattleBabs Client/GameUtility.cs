@@ -106,6 +106,7 @@ namespace BattleBabs_Client
         public static void alterGameTime(int newTime) // used to change the duration of a match
         {
             gameTime = newTime; // set the game time to the specified value
+            Console.WriteLine("New game time is {0} seconds.", gameTime);
         }
 
         public static void beginMatch() // start a match's timer and will handle other match start events
@@ -142,6 +143,7 @@ namespace BattleBabs_Client
                 gameTimer.Stop(); // stop the game timer
                 Console.WriteLine("Game timer stopped since match is ending.");
                 music.Stop(); // stop the audio from playing
+                buzzer.Play();
                 setRandomSong(); // pick a new song randomly
                 matchState = 0;
             }
