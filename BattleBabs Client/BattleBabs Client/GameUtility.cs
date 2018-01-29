@@ -113,6 +113,8 @@ namespace BattleBabs_Client
             if (matchState == 0)
             {
                 Console.WriteLine("Game timer started since the match is starting");
+                Display.team1Score = 0;
+                Display.team2Score = 0;
                 setRandomSong();
                 music.Play(); // start the audio
                 currentTime = gameTime;
