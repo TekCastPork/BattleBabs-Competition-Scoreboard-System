@@ -19,7 +19,7 @@ namespace BattleBabs_Client
         public static Boolean useSeeded = true; // enables random override
         static float currentTime = 0.0f; // current time used for match times
         static Random RNGesus = new Random(); // Pray to him! Kappa, this one does not have a pre-set seed, so it will seed based on the time
-        static Random RNGesusSeed = new Random(SEED); // use if you want to debug via seeding
+        static Random RNGesusSeed;
         static int previousSongID = -1; // used with RNGesus for picking the next song
 
         public static float getGameTime()
@@ -44,6 +44,7 @@ namespace BattleBabs_Client
             {
                 if (useSeeded)
                 {
+                    RNGesusSeed = new Random(SEED); // use if you want to debug via seeding
                     RNGResult = RNGesusSeed.Next(0, 7);
                 }
                 else
