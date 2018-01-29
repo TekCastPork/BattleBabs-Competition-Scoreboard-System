@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,11 +25,14 @@ namespace BattleBabs_Client
         public static Team_Entry teamEntryForm = new Team_Entry();
         Thread GUIupdate;
 
+
+
         public Display()
         {
             InitializeComponent();
             System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
-            privateFonts.AddFontFile("C:\\Users\\674623\\source\\repos\\BattleBabs-Competition-Scoreboard-System\\BattleBabs Client\\BattleBabs Client\\Resources\\erbos_draco_1st_open_nbp.ttf");
+            //  privateFonts.AddFontFile("C:\\Users\\TekCastPork\\Source\\Repos\\BattleBabs\\Display\\BattleBabs Client\\BattleBabs Client\\Resources\\erbos_draco_1st_open_nbp.ttf");
+            privateFonts.AddFontFile(Path.GetFullPath(Properties.Resources.erbos_draco_1st_nbp.ToString()));
             System.Drawing.Font scoreFont = new Font(privateFonts.Families[0], 27);
             System.Drawing.Font timeFont = new Font(privateFonts.Families[0], 40);
             team2ScoreLbl.Font = scoreFont;

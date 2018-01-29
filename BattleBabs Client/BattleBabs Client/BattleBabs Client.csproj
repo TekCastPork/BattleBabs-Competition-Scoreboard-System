@@ -107,6 +107,9 @@
     <EmbeddedResource Include="Team Entry.resx">
       <DependentUpon>Team Entry.cs</DependentUpon>
     </EmbeddedResource>
+    <Resource Include="erbos_draco_1st_open_nbp.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,7 +120,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\erbos_draco_1st_nbp.ttf" />
-    <None Include="Resources\erbos_draco_1st_open_nbp.ttf" />
+    <Resource Include="Resources\erbos_draco_1st_open_nbp.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -126,31 +131,31 @@
     <None Include="Resources\Battle.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Guile%27s Theme.wav" />
+    <Content Include="Resources\Guile%27s Theme.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Heart of Courage.wav" />
+    <Content Include="Resources\Heart of Courage.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Ken%27s Theme.wav" />
+    <Content Include="Resources\Ken%27s Theme.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Popcorn Techno.wav" />
+    <Content Include="Resources\Popcorn Techno.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RobbyRotten.wav" />
+    <Content Include="Resources\RobbyRotten.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Ryu%27s Theme.wav" />
+    <Content Include="Resources\Ryu%27s Theme.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sonic2 Zone.wav" />
+    <Content Include="Resources\Sonic2 Zone.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Tetris B.wav" />
+    <Content Include="Resources\Tetris B.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Trainer Battle.wav" />
+    <Content Include="Resources\Trainer Battle.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
