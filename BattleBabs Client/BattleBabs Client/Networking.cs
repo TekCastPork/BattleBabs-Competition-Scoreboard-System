@@ -13,15 +13,22 @@ namespace BattleBabs_Client
         static Socket commSocket;
         static IPAddress address;
         static IPEndPoint endPoint;
+        public static string IP = "1.1.1.1";
         static StringBuilder sb = new StringBuilder();
         public static void create()
         {
             //Lets use a UDP socket for communication
             commSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //We need a IP to communicate on
-            address = IPAddress.Parse("192.168.2.255");
+            address = IPAddress.Parse(IP);
             endPoint = new IPEndPoint(address, 5800);
             Console.WriteLine("UDP Settings and socket created.");
+        }
+
+        public static void update()
+        {
+            address = IPAddress.Parse(IP);
+            endPoint.Address = address;
         }
 
         public static void sendData(string data)
@@ -40,6 +47,7 @@ namespace BattleBabs_Client
                 //attempt to send data
                 commSocket.SendTo(sendBuffer, endPoint);
                 Console.WriteLine("Data {0} send", data);
+                commSocket.
             } catch (Exception e)
             {
                 Console.WriteLine("Exception! {0}", e.Message);

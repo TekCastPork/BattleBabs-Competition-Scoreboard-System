@@ -168,7 +168,7 @@
             // connectButton
             // 
             this.connectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.connectButton.Location = new System.Drawing.Point(102, 497);
+            this.connectButton.Location = new System.Drawing.Point(195, 526);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(87, 23);
             this.connectButton.TabIndex = 14;
@@ -178,8 +178,8 @@
             // 
             // aboutButton
             // 
-            this.aboutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.aboutButton.Location = new System.Drawing.Point(9, 468);
+            this.aboutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.aboutButton.Location = new System.Drawing.Point(792, 526);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(87, 23);
             this.aboutButton.TabIndex = 15;
@@ -190,7 +190,7 @@
             // settingsButton
             // 
             this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.settingsButton.Location = new System.Drawing.Point(9, 497);
+            this.settingsButton.Location = new System.Drawing.Point(288, 526);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(87, 23);
             this.settingsButton.TabIndex = 16;
@@ -205,7 +205,7 @@
             this.networkButton.Name = "networkButton";
             this.networkButton.Size = new System.Drawing.Size(87, 23);
             this.networkButton.TabIndex = 17;
-            this.networkButton.Text = "Connect...";
+            this.networkButton.Text = "Network...";
             this.networkButton.UseVisualStyleBackColor = true;
             this.networkButton.Click += new System.EventHandler(this.networkButton_Click);
             // 

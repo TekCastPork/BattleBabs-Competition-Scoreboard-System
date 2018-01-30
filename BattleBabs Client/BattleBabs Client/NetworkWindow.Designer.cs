@@ -35,7 +35,7 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.listIPButton = new System.Windows.Forms.Button();
             this.IPBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.defaultButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // portBox
@@ -85,9 +85,9 @@
             // 
             // listIPButton
             // 
-            this.listIPButton.Location = new System.Drawing.Point(93, 78);
+            this.listIPButton.Location = new System.Drawing.Point(180, 107);
             this.listIPButton.Name = "listIPButton";
-            this.listIPButton.Size = new System.Drawing.Size(81, 23);
+            this.listIPButton.Size = new System.Drawing.Size(75, 23);
             this.listIPButton.TabIndex = 7;
             this.listIPButton.Text = "IP";
             this.listIPButton.UseVisualStyleBackColor = true;
@@ -100,21 +100,22 @@
             this.IPBox.Size = new System.Drawing.Size(137, 20);
             this.IPBox.TabIndex = 8;
             // 
-            // label3
+            // defaultButton
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(102, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Press for IP";
+            this.defaultButton.Location = new System.Drawing.Point(12, 107);
+            this.defaultButton.Name = "defaultButton";
+            this.defaultButton.Size = new System.Drawing.Size(75, 23);
+            this.defaultButton.TabIndex = 9;
+            this.defaultButton.Text = "Default IP";
+            this.defaultButton.UseVisualStyleBackColor = true;
+            this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
             // 
             // NetworkWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 113);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(267, 141);
+            this.Controls.Add(this.defaultButton);
             this.Controls.Add(this.IPBox);
             this.Controls.Add(this.listIPButton);
             this.Controls.Add(this.cancelButton);
@@ -138,6 +139,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button listIPButton;
         private System.Windows.Forms.TextBox IPBox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button defaultButton;
     }
 }

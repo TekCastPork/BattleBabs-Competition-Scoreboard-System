@@ -71,6 +71,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.aboutButton = new System.Windows.Forms.Button();
+            this.ipLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -678,11 +679,22 @@
             this.aboutButton.UseVisualStyleBackColor = true;
             this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
+            // ipLabel
+            // 
+            this.ipLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ipLabel.Location = new System.Drawing.Point(12, 9);
+            this.ipLabel.Name = "ipLabel";
+            this.ipLabel.Size = new System.Drawing.Size(237, 23);
+            this.ipLabel.TabIndex = 3;
+            this.ipLabel.Text = "IP: 255.255.255.255";
+            this.ipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.ipLabel);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.titleLabel);
@@ -742,6 +754,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button aboutButton;
+        private System.Windows.Forms.Label ipLabel;
     }
 }
 

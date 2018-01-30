@@ -62,7 +62,6 @@
     </Compile>
     <Compile Include="GameUtility.cs" />
     <Compile Include="Networking.cs" />
-    <Compile Include="PipeServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.resx">

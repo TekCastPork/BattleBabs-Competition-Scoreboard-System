@@ -24,7 +24,10 @@ namespace BattleBabs_Client
 
         private void connectButton_Click(object sender, EventArgs e)
         {
-
+            Networking.IP = IPBox.Text;
+            Networking.update();
+            isOpen = false;
+            this.Hide();
         }
 
         private void listIPButton_Click(object sender, EventArgs e)
@@ -35,13 +38,21 @@ namespace BattleBabs_Client
                 if(ip.AddressFamily == AddressFamily.InterNetwork)
                 {
                     Console.WriteLine("An available IP: {0}.", ip.ToString()) ;
-                    MessageBox.Show("IP: " + ip.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Available IP: " + ip.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            isOpen = false;
+        }
+
+        private void defaultButton_Click(object sender, EventArgs e)
+        {
+            Networking.IP = "127.0.0.1";
+            Networking.update();
             this.Hide();
             isOpen = false;
         }

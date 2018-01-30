@@ -8,19 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Net;
+using System.Net.Sockets;
 
 namespace BattleBabs_Server
 {
     public partial class Display : Form
     {
         AboutBox about = new AboutBox();
-     //   Thread guiUpdate;
+        //   Thread guiUpdate;
         public Display()
         {
             InitializeComponent();
-      //      PipeServer.openServer();
+            //      PipeServer.openServer();
             Networking.create();
-     //       guiUpdate = new Thread(new ThreadStart(updateComponents));
+            //       guiUpdate = new Thread(new ThreadStart(updateComponents));
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    Console.WriteLine("An available IP: {0}.", ip.ToString());
+                    ipLabel.Text = "IP: " + ip.ToString();
+                }
+            }
         }
         delegate void SetTextCallback(string text);
 
@@ -43,7 +54,7 @@ namespace BattleBabs_Server
         }
         private void Display_FormClosing(object sender, FormClosingEventArgs e)
         {
-            PipeServer.closeServers();
+
         }
 
         private void aboutButton_Click(object sender, EventArgs e)

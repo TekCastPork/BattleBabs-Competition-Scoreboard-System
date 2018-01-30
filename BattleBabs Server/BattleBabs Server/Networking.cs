@@ -14,14 +14,14 @@ namespace BattleBabs_Server
     {
         private const int port = 5800;
         static UdpClient listener;
-       // static IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
-        static IPEndPoint endPoint;
+        static IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
+     //   static IPEndPoint endPoint;
         static string message;
         static byte[] receiveBuffer;
         static Thread serverThread = new Thread(new ThreadStart(receive));
         public static void create()
         {
-            endPoint = new IPEndPoint(IPAddress.Parse("192.168.2.255"), port);
+         //   endPoint = new IPEndPoint(IPAddress.Parse("192.168.2.255"), port);
             listener = new UdpClient(port);
             serverThread.IsBackground = true;
             serverThread.Start();
