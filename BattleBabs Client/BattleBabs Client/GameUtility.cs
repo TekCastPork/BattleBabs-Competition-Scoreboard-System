@@ -16,7 +16,7 @@ namespace BattleBabs_Client
         public static int gameTime = 75; // default match time will be 1 minute 15 seconds, as requested
         public static int matchState = 0;
         public static int SEED = 1337; // seed for random number generation via specified seed
-        public static Boolean useSeeded = true; // enables random override
+        public static Boolean useSeeded = false; // enables random override
         static float currentTime = 0.0f; // current time used for match times
         static Random RNGesus = new Random(); // Pray to him! Kappa, this one does not have a pre-set seed, so it will seed based on the time
         static Random RNGesusSeed;
@@ -34,6 +34,12 @@ namespace BattleBabs_Client
             gameTimer.AutoReset = true; //keep resetting timer as it goes off
             gameTimer.Elapsed += handleTimerTicks;
             setRandomSong();
+            Networking.create();
+        }
+
+        public static void setSeed()
+        {
+            RNGesusSeed = new Random(SEED); // use if you want to debug via seeding
         }
 
         public static void setRandomSong() // uses RNG to pick a new song to play, so long as it wasnt just played
@@ -44,7 +50,6 @@ namespace BattleBabs_Client
             {
                 if (useSeeded)
                 {
-                    RNGesusSeed = new Random(SEED); // use if you want to debug via seeding
                     RNGResult = RNGesusSeed.Next(0, 7);
                 }
                 else
@@ -152,6 +157,7 @@ namespace BattleBabs_Client
                 buzzer.Play();
                 setRandomSong(); // pick a new song randomly
                 matchState = 0;
+                Networking.sendData("Test");
             }
         }
 

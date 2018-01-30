@@ -17,6 +17,7 @@ namespace BattleBabs_Client
         public static Boolean teamOpen = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
         AboutBox about = new AboutBox();
+        NetworkWindow networking = new NetworkWindow();
         Settings settingWindow = new Settings();
         Thread GUIupdate;
 
@@ -39,7 +40,7 @@ namespace BattleBabs_Client
             GUIupdate.Start(); // start the GUI updating thread
             referee.Show(); // create the referee window so that points can be allocated and team names set
             GoFullscreen(false); // set the fullscreen mode
-            PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
+       //     PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
         }
 
 
@@ -213,6 +214,15 @@ namespace BattleBabs_Client
         private void settingsButton_Click(object sender, EventArgs e)
         {
             settingWindow.Show();
+        }
+
+        private void networkButton_Click(object sender, EventArgs e)
+        {
+            if(NetworkWindow.isOpen == false)
+            {
+                networking.Show();
+                NetworkWindow.isOpen = true;
+            }
         }
     }
 }

@@ -99,6 +99,13 @@
     </Compile>
     <Compile Include="GameUtility.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Networking.cs" />
+    <Compile Include="NetworkWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NetworkWindow.Designer.cs">
+      <DependentUpon>NetworkWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="PipeClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetworkWindow.resx">
+      <DependentUpon>NetworkWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

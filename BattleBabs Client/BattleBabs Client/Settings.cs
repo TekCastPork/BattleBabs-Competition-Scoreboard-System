@@ -18,6 +18,7 @@ namespace BattleBabs_Client
             try // this try will keep the parsing of the SEED value from crashing the program incase the user enters a letter or symbol
             {
                 GameUtility.SEED = int.Parse(seedText.Text);
+                GameUtility.setSeed();
             } catch (Exception e1)
             {
                 Console.WriteLine("Exception! {0}", e1.ToString());

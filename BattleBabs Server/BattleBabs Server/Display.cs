@@ -14,11 +14,13 @@ namespace BattleBabs_Server
     public partial class Display : Form
     {
         AboutBox about = new AboutBox();
-        Thread guiUpdate = new Thread(new ThreadStart(updateComponents));
+     //   Thread guiUpdate;
         public Display()
         {
             InitializeComponent();
-            PipeServer.openServer();
+      //      PipeServer.openServer();
+            Networking.create();
+     //       guiUpdate = new Thread(new ThreadStart(updateComponents));
         }
         delegate void SetTextCallback(string text);
 
