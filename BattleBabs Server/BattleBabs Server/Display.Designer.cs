@@ -72,6 +72,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.aboutButton = new System.Windows.Forms.Button();
             this.ipLabel = new System.Windows.Forms.Label();
+            this.loadButton = new System.Windows.Forms.Button();
+            this.loadfile = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -689,11 +691,28 @@
             this.ipLabel.Text = "IP: 255.255.255.255";
             this.ipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // loadButton
+            // 
+            this.loadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.loadButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.loadButton.Location = new System.Drawing.Point(807, 6);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(84, 23);
+            this.loadButton.TabIndex = 4;
+            this.loadButton.Text = "Load Teams...";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
+            // loadfile
+            // 
+            this.loadfile.FileOk += new System.ComponentModel.CancelEventHandler(this.loadfile_FileOk);
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.ipLabel);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -755,6 +774,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.Label ipLabel;
+        private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.OpenFileDialog loadfile;
     }
 }
 

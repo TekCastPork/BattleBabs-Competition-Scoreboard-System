@@ -42,7 +42,7 @@ namespace BattleBabs_Client
             Console.Write("Sending data bytes: \"");
             for(int i =0;i<sendBuffer.Length; i++)
             {
-                Console.Write("{0:X}[{0}],", sendBuffer[i]);
+                Console.Write("{0:X} ", sendBuffer[i]);
             }
             Console.WriteLine("\" to \"{0}\" on port {1}.", endPoint.Address, endPoint.Port);
             try

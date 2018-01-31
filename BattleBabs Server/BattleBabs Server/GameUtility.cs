@@ -10,7 +10,7 @@ namespace BattleBabs_Server
 {
     class GameUtility
     {
-        public static string[] names =  { "", "", "", "", "", "", "", "", "" };
+        public static string[] names =  { "", "", "", "", "", "", "", "", "" }; // names used on leaderboard, name names for clent program
         public static int[] round =     { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] points =    { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] rank =      { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9  };
@@ -18,6 +18,7 @@ namespace BattleBabs_Server
                static int[] previousScores;
         public static int[] parsedScores = { 0, 0 };
         public static string[] receivedNames = { "", "", };
+
         public static void sortLists()
         {
             Console.WriteLine("Now sorting ranks of each team.");

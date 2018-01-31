@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
 
 namespace BattleBabs_Server
 {
@@ -34,6 +35,19 @@ namespace BattleBabs_Server
             }
         }
         delegate void SetTextCallback(string text);
+
+        private void name1Load(string text) //TODO: figure out how to update text stuff
+        {
+            if (this.name1.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(name1Load);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.name1.Text = text;
+            }
+        }
 
         private void place1Update(string text)
         {
@@ -64,6 +78,25 @@ namespace BattleBabs_Server
                 AboutBox.isShowing = true;
                 about.Show();
             }
+        }
+
+        private void loadfile_FileOk(object sender, CancelEventArgs e)
+        {
+            Console.WriteLine("File Selected.");
+            Console.WriteLine("File is: " + loadfile.FileName);
+            Console.WriteLine("placing team names into name array");
+            try
+            {
+                GameUtility.names = File.ReadAllLines(loadfile.FileName);
+            } catch(Exception e1)
+            {
+                Console.WriteLine("Exception! {0}", e1.Message);
+            }
+        }
+
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            loadfile.ShowDialog(); // show the load dialog window
         }
     }
 }
