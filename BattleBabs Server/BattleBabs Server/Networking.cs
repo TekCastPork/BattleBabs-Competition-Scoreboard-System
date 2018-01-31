@@ -13,7 +13,7 @@ namespace BattleBabs_Server
     class Networking
     {
         private const int port = 5800;
-        static UdpClient listener;
+        
         static IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
      //   static IPEndPoint endPoint;
         static string message;
@@ -22,7 +22,6 @@ namespace BattleBabs_Server
         public static void create()
         {
          //   endPoint = new IPEndPoint(IPAddress.Parse("192.168.2.255"), port);
-            listener = new UdpClient(port);
             serverThread.IsBackground = true;
             serverThread.Start();
         }
@@ -33,10 +32,13 @@ namespace BattleBabs_Server
             {
                 try
                 {
+                    UdpClient listener = new UdpClient(port);
                     Console.WriteLine("Waiting for broadcast.");
+                    receiveBuffer = new byte[20];
                     receiveBuffer = listener.Receive(ref endPoint);
-                    message = Encoding.ASCII.GetString(receiveBuffer, 0, receiveBuffer.Length);
+                    message = Encoding.ASCII.GetString(receiveBuffer, 0, receiveBuffer.Length - 1);
                     Console.WriteLine("Received data: {0}", message);
+                    listener.Close();
                 }
                 catch (Exception e)
                 {

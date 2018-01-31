@@ -17,8 +17,6 @@ namespace BattleBabs_Client
         static StringBuilder sb = new StringBuilder();
         public static void create()
         {
-            //Lets use a UDP socket for communication
-            commSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //We need a IP to communicate on
             address = IPAddress.Parse(IP);
             endPoint = new IPEndPoint(address, 5800);
@@ -33,9 +31,12 @@ namespace BattleBabs_Client
 
         public static void sendData(string data)
         {
+            commSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             //exchange string for byte[]
-            string message = sb.AppendLine(data).ToString();
-            byte[] sendBuffer = Encoding.ASCII.GetBytes(message);
+            //   string message = sb.AppendLine(data).ToString();
+            string message = data + "\n";
+            byte[] sendBuffer = new byte[20];
+            sendBuffer = Encoding.ASCII.GetBytes(message);
             Console.Write("Sending data: \"");
             for(int i =0;i<sendBuffer.Length; i++)
             {
@@ -46,8 +47,8 @@ namespace BattleBabs_Client
             {
                 //attempt to send data
                 commSocket.SendTo(sendBuffer, endPoint);
+                commSocket.Close();
                 Console.WriteLine("Data {0} send", data);
-                commSocket.
             } catch (Exception e)
             {
                 Console.WriteLine("Exception! {0}", e.Message);
