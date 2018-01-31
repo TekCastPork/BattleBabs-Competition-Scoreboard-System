@@ -12,7 +12,12 @@ namespace BattleBabs_Client
         public static string receivedData;
         public static string selectedPort = "";
         public static Thread heartBeat = new Thread(new ThreadStart(isConnectionAlive));
+        string lastTeam1; // used for broadcasting
+        string lastTeam2; // used for broadcasting
         Thread guiUpdate;
+        //These are used for subtraction mode on team scores, these can only be toggled via the checkboxes on the GUI
+        Boolean subtractModeTeam1 = false;
+        Boolean subtractModeTeam2 = false;
 
         //FUNCTIONS//
         public RefForm()
@@ -48,7 +53,7 @@ namespace BattleBabs_Client
                     break;
 
                 }
-                Thread.Sleep(200);
+                Thread.Sleep(100);
             }
         }
 
@@ -57,7 +62,9 @@ namespace BattleBabs_Client
             while (true)
             {
                 setTimeProgress(GameUtility.gameTime, true);
-                setTimeProgress(GameUtility.getGameTime(), false);                
+                setTimeProgress(GameUtility.getGameTime(), false);
+                subtractModeTeam1 = team1Toggle.Checked;
+                subtractModeTeam2 = team2Toggle.Checked;
                 Thread.Sleep(100);
             }
         }
@@ -111,7 +118,15 @@ namespace BattleBabs_Client
                             setDataText("Team 1 Rubber Bands");
                             if(GameUtility.matchState==1)
                             {
-                                Display.team1Score += 20;
+                                if (subtractModeTeam1)
+                                {
+                                    Console.WriteLine("Subtraction mode is activated on team 1! Subtracting instead of adding.");
+                                    Display.team1Score -= 20;
+                                }
+                                else
+                                {
+                                    Display.team1Score += 20;
+                                }
                             }
                             break;
                         case 2:
@@ -119,7 +134,15 @@ namespace BattleBabs_Client
                             setDataText("Team 1 Ping Pong");
                             if (GameUtility.matchState == 1)
                             {
-                                Display.team1Score += 40;
+                                if (subtractModeTeam1)
+                                {
+                                    Console.WriteLine("Subtraction mode is activated on team 1! Subtracting instead of adding.");
+                                    Display.team1Score -= 40;
+                                }
+                                else
+                                {
+                                    Display.team1Score += 40;
+                                }
                             }
                             break;
                         case 3:
@@ -127,7 +150,15 @@ namespace BattleBabs_Client
                             setDataText("Team 1 Pushing");
                             if (GameUtility.matchState == 1)
                             {
-                                Display.team1Score += 30;
+                                if (subtractModeTeam1)
+                                {
+                                    Console.WriteLine("Subtraction mode is activated on team 1! Subtracting instead of adding.");
+                                    Display.team1Score -= 30;
+                                }
+                                else
+                                {
+                                    Display.team1Score += 30;
+                                }
                             }
                             break;
                         case 4:
@@ -135,23 +166,48 @@ namespace BattleBabs_Client
                             setDataText("Team 1 Disable");
                             if (GameUtility.matchState == 1)
                             {
-                                Display.team1Score += 60;
+                                if (subtractModeTeam1)
+                                {
+                                    Console.WriteLine("Subtraction mode is activated on team 1! Subtracting instead of adding.");
+                                    Display.team1Score -= 60;
+                                }
+                                else
+                                {
+                                    Display.team1Score += 60;
+                                }
                             }
                             break;
                         case 5:
                             Console.WriteLine("Command received was a team 2 band score.");
                             setDataText("Team 2 Rubber Bands");
                             if (GameUtility.matchState == 1)
-                            {
-                                Display.team2Score += 20;
-                            }
+                                if (GameUtility.matchState == 1)
+                                {
+                                    if (subtractModeTeam2)
+                                    {
+                                        Console.WriteLine("Subtraction mode is activated on team 2! Subtracting instead of adding.");
+                                        Display.team2Score -= 20;
+                                    }
+                                    else
+                                    {
+                                        Display.team2Score += 20;
+                                    }
+                                }
                             break;
                         case 6:
                             Console.WriteLine("Command received was a team 2 ping pong score.");
                             setDataText("Team 2 Ping Pong");
                             if (GameUtility.matchState == 1)
                             {
-                                Display.team2Score += 40;
+                                if (subtractModeTeam2)
+                                {
+                                    Console.WriteLine("Subtraction mode is activated on team 2! Subtracting instead of adding.");
+                                    Display.team2Score -= 40;
+                                }
+                                else
+                                {
+                                    Display.team2Score += 40;
+                                }
                             }
                             break;
                         case 7:
@@ -159,7 +215,15 @@ namespace BattleBabs_Client
                             setDataText("Team 2 Pushing");
                             if (GameUtility.matchState == 1)
                             {
-                                Display.team2Score += 30;
+                                if (subtractModeTeam2)
+                                {
+                                    Console.WriteLine("Subtraction mode is activated on team 2! Subtracting instead of adding.");
+                                    Display.team2Score -= 30;
+                                }
+                                else
+                                {
+                                    Display.team2Score += 30;
+                                }
                             }
                             break;
                         case 8:
@@ -167,7 +231,15 @@ namespace BattleBabs_Client
                             setDataText("Team 2 Disable");
                             if (GameUtility.matchState == 1)
                             {
-                                Display.team2Score += 60;
+                                if (subtractModeTeam2)
+                                {
+                                    Console.WriteLine("Subtraction mode is activated on team 2! Subtracting instead of adding.");
+                                    Display.team2Score -= 60;
+                                }
+                                else
+                                {
+                                    Display.team2Score += 60;
+                                }
                             }
                             break;
                         default:
@@ -262,25 +334,21 @@ namespace BattleBabs_Client
             }
         }
 
-        private void startButton_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Start Match button pressed.");
-            GameUtility.beginMatch();
 
-        }
-
-        /*
-         * kOp1 = new GButton(this,1,50,80,30,"Incapacitated +60");
-           pOff1 = new GButton(this,85,50,70,30,"Pushed Off +30");
-           band1 = new GButton(this,1,90,80,30,"Rubber Band +20");
-           ball1 = new GButton(this,85,90,70,30,"Ping Pong +40");
-         */
         private void team1Ping_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via a ping pong ball. +40 points!");
             if (GameUtility.matchState == 1)
             {
-                Display.team1Score += 40;
+                if (subtractModeTeam1)
+                {
+                    Console.WriteLine("Subtraction mode is activated on team 1! Subtracting instead of adding.");
+                    Display.team1Score -= 40;
+                }
+                else
+                {
+                    Display.team1Score += 40;
+                }
             }
         }
 
@@ -289,7 +357,15 @@ namespace BattleBabs_Client
             Console.WriteLine("Team 1 scored via a rubber band. +20 points!");
             if (GameUtility.matchState == 1)
             {
-                Display.team1Score += 20;
+                if (subtractModeTeam1)
+                {
+                    Console.WriteLine("Subtraction mode is activated on team 1! Subtracting instead of adding.");
+                    Display.team1Score -= 20;
+                }
+                else
+                {
+                    Display.team1Score += 20;
+                }
             }
         }
 
@@ -298,7 +374,15 @@ namespace BattleBabs_Client
             Console.WriteLine("Team 1 scored via disabling team 2. +60 points!");
             if (GameUtility.matchState == 1)
             {
-                Display.team1Score += 60;
+                if (subtractModeTeam1)
+                {
+                    Console.WriteLine("Subtraction mode is activated on team 1! Subtracting instead of adding.");
+                    Display.team1Score -= 60;
+                }
+                else
+                {
+                    Display.team1Score += 60;
+                }
             }
         }
 
@@ -307,16 +391,34 @@ namespace BattleBabs_Client
             Console.WriteLine("Team 1 scored via shoving team 2. +30 points!");
             if (GameUtility.matchState == 1)
             {
-                Display.team1Score += 30;
+                if (subtractModeTeam1)
+                {
+                    Console.WriteLine("Subtraction mode is activated on team 1! Subtracting instead of adding.");
+                    Display.team1Score -= 30;
+                }
+                else
+                {
+                    Display.team1Score += 30;
+                }
             }
         }
+
+
 
         private void team2Ping_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 2 scored via a ping pong ball. +40 points!");
             if (GameUtility.matchState == 1)
             {
-                Display.team2Score += 40;
+                if (subtractModeTeam2)
+                {
+                    Console.WriteLine("Subtraction mode is activated on team 2! Subtracting instead of adding.");
+                    Display.team2Score -= 40;
+                }
+                else
+                {
+                    Display.team2Score += 40;
+                }
             }
         }
 
@@ -325,7 +427,15 @@ namespace BattleBabs_Client
             Console.WriteLine("Team 2 scored via a rubber band. +20 points!");
             if (GameUtility.matchState == 1)
             {
-                Display.team2Score += 20;
+                if (subtractModeTeam2)
+                {
+                    Console.WriteLine("Subtraction mode is activated on team 2! Subtracting instead of adding.");
+                    Display.team2Score -= 20;
+                }
+                else
+                {
+                    Display.team2Score += 20;
+                }
             }
         }
 
@@ -334,7 +444,15 @@ namespace BattleBabs_Client
             Console.WriteLine("Team 2 scored via disabling team 2. +60 points!");
             if (GameUtility.matchState == 1)
             {
-                Display.team2Score += 60;
+                if (subtractModeTeam2)
+                {
+                    Console.WriteLine("Subtraction mode is activated on team 2! Subtracting instead of adding.");
+                    Display.team2Score -= 60;
+                }
+                else
+                {
+                    Display.team2Score += 60;
+                }
             }
         }
 
@@ -343,28 +461,49 @@ namespace BattleBabs_Client
             Console.WriteLine("Team 2 scored via shoving team 2. +30 points!");
             if (GameUtility.matchState == 1)
             {
-                Display.team2Score += 30;
+                if (subtractModeTeam2)
+                {
+                    Console.WriteLine("Subtraction mode is activated on team 2! Subtracting instead of adding.");
+                    Display.team2Score -= 30;
+                }
+                else
+                {
+                    Display.team2Score += 30;
+                }
             }
         }
 
 
-        private void team1Toggle_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void team1Override_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Display.team1Score = int.Parse(team1Score.Text);
+            } catch (Exception e1)
+            {
+                Console.WriteLine("Exception! {0}", e1.Message);
+            }
+        } // when the override button is clicked lets override team 1's score with whats in the textbox
 
+        private void team2Override_Click(object sender, EventArgs e)// when the override button is clicked lets override team 2's score with whats in the textbox
+        {
+            try
+            {
+                Display.team2Score = int.Parse(team2Score.Text);
+            }
+            catch (Exception e1)
+            {
+                Console.WriteLine("Exception! {0}", e1.Message);
+            }
         }
 
-        private void team2Toggle_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void team2Override_Click(object sender, EventArgs e)
+        private void startButton_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Start Match button pressed.");
+            GameUtility.beginMatch();
+            lastTeam1 = Display.team1;
+            lastTeam2 = Display.team2;
 
         }
 
@@ -373,6 +512,7 @@ namespace BattleBabs_Client
             Console.WriteLine("Stop button is pushed!");
             GameUtility.endMatch();
             GameUtility.makeSpeech("The match was stopped by the referee.");
+            GameUtility.doSend = false;
         }
 
         private void resumeButton_Click(object sender, EventArgs e)
@@ -386,5 +526,10 @@ namespace BattleBabs_Client
             Console.WriteLine("pause button pushed");
             GameUtility.pauseMatch();
         }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            Networking.sendData(Display.team1Score + ":" + Display.team2Score + ":" + lastTeam1 + ":" + lastTeam2);
+        } // used to force send data to the leaderboard
     }
 }

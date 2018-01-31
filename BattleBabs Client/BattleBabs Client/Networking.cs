@@ -10,16 +10,20 @@ namespace BattleBabs_Client
 {
     class Networking
     {
+        public static int port = 5800;
         static Socket commSocket;
         static IPAddress address;
         static IPEndPoint endPoint;
+        static byte[] sendBuffer;
         public static string IP = "1.1.1.1";
         static StringBuilder sb = new StringBuilder();
         public static void create()
         {
+            Console.WriteLine("now creating UDP settings.");
             //We need a IP to communicate on
             address = IPAddress.Parse(IP);
-            endPoint = new IPEndPoint(address, 5800);
+            endPoint = new IPEndPoint(address, port);
+            commSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             Console.WriteLine("UDP Settings and socket created.");
         }
 
@@ -30,24 +34,21 @@ namespace BattleBabs_Client
         }
 
         public static void sendData(string data)
-        {
-            commSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+        {            
             //exchange string for byte[]
-            //   string message = sb.AppendLine(data).ToString();
             string message = data + "\n";
-            byte[] sendBuffer = new byte[20];
+
             sendBuffer = Encoding.ASCII.GetBytes(message);
-            Console.Write("Sending data: \"");
+            Console.Write("Sending data bytes: \"");
             for(int i =0;i<sendBuffer.Length; i++)
             {
-                Console.Write("{0} ", sendBuffer[i]);
+                Console.Write("{0:X}[{0}],", sendBuffer[i]);
             }
             Console.WriteLine("\" to \"{0}\" on port {1}.", endPoint.Address, endPoint.Port);
             try
             {
                 //attempt to send data
                 commSocket.SendTo(sendBuffer, endPoint);
-                commSocket.Close();
                 Console.WriteLine("Data {0} send", data);
             } catch (Exception e)
             {

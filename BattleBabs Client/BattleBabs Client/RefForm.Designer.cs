@@ -52,6 +52,7 @@
             this.stopButton = new System.Windows.Forms.Button();
             this.resumeButton = new System.Windows.Forms.Button();
             this.pauseButton = new System.Windows.Forms.Button();
+            this.sendButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startButton
@@ -190,7 +191,6 @@
             this.team1Toggle.Text = "Subtract Mode";
             this.team1Toggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.team1Toggle.UseVisualStyleBackColor = true;
-            this.team1Toggle.CheckedChanged += new System.EventHandler(this.team1Toggle_CheckedChanged);
             // 
             // team2Toggle
             // 
@@ -202,7 +202,6 @@
             this.team2Toggle.Text = "Subtract Mode";
             this.team2Toggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.team2Toggle.UseVisualStyleBackColor = true;
-            this.team2Toggle.CheckedChanged += new System.EventHandler(this.team2Toggle_CheckedChanged);
             // 
             // timeBar
             // 
@@ -300,11 +299,24 @@
             this.pauseButton.UseVisualStyleBackColor = true;
             this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
+            // sendButton
+            // 
+            this.sendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.sendButton.Location = new System.Drawing.Point(243, 23);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(41, 23);
+            this.sendButton.TabIndex = 23;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
             // RefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.sendButton);
             this.Controls.Add(this.pauseButton);
             this.Controls.Add(this.resumeButton);
             this.Controls.Add(this.stopButton);
@@ -364,5 +376,6 @@
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button resumeButton;
         private System.Windows.Forms.Button pauseButton;
+        private System.Windows.Forms.Button sendButton;
     }
 }

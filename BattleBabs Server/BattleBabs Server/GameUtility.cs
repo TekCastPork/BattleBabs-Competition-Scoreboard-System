@@ -16,6 +16,8 @@ namespace BattleBabs_Server
         public static int[] rank =      { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9  };
         public static int[] index =     { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8  };
                static int[] previousScores;
+        public static int[] parsedScores = { 0, 0 };
+        public static string[] receivedNames = { "", "", };
         public static void sortLists()
         {
             Console.WriteLine("Now sorting ranks of each team.");
