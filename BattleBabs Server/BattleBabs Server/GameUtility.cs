@@ -10,14 +10,17 @@ namespace BattleBabs_Server
 {
     class GameUtility
     {
-        public static string[] names =  { "", "", "", "", "", "", "", "", "" }; // names used on leaderboard, name names for clent program
+        public static string[] names =  { "TestName", "Team2", "ImmaTeam3", "Haiku", "Bab", "Bhab", "Robitz", "LulBot", "TAS" }; // names used on leaderboard, name names for clent program
         public static int[] round =     { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
-        public static int[] points =    { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
+        public static int[] points =    { 1337 , 25843 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] rank =      { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9  };
         public static int[] index =     { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8  };
                static int[] previousScores;
         public static int[] parsedScores = { 0, 0 };
         public static string[] receivedNames = { "", "", };
+
+        //TODO Finish sorting process
+        //NOTE May need redoing due to new label system
 
         public static void sortLists()
         {
