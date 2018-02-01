@@ -18,9 +18,11 @@ namespace BattleBabs_Server
     {
         AboutBox about = new AboutBox();
         Thread guiUpdate;
+        public static int sessionId = 0;
         public Display()
         {
             InitializeComponent();
+            
             Networking.create();
             guiUpdate = new Thread(new ThreadStart(updateComponents));
             guiUpdate.IsBackground = true;            
@@ -34,6 +36,14 @@ namespace BattleBabs_Server
                 }
             }
             guiUpdate.Start();
+            try
+            {
+                Peristence.load();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception! {0}", e.Message);
+            }
         }
         delegate void SetTextCallback(string text);
 
@@ -43,39 +53,80 @@ namespace BattleBabs_Server
             {
                 Console.WriteLine("Updating screen components");
                 Thread.Sleep(500);
-                try
+                if (sessionId == 0)
                 {
-                    place1Update(String.Format("{0,8}", "Team: " + GameUtility.names[0]));
-                    score1Update(String.Format("{0}", "Points: " + GameUtility.points[0].ToString("000,000")));
+                    try
+                    {
+                        sessionLabelUpdate("1");
+                        place1Update(String.Format("{0,8}", "Team: " + GameUtility.names[0]));
+                        score1Update(String.Format("{0}", "Points: " + GameUtility.points[0].ToString("000,000")));
 
-                    place2Update(String.Format("{0,8}","Team: " + GameUtility.names[1]));
-                    score2Update(String.Format("{0}", "Points: " + GameUtility.points[1].ToString("000,000")));
+                        place2Update(String.Format("{0,8}", "Team: " + GameUtility.names[1]));
+                        score2Update(String.Format("{0}", "Points: " + GameUtility.points[1].ToString("000,000")));
 
-                    place3Update(String.Format("{0,8}", "Team: " + GameUtility.names[2]));
-                    score3Update(String.Format("{0}", "Points: " + GameUtility.points[2].ToString("000,000")));
+                        place3Update(String.Format("{0,8}", "Team: " + GameUtility.names[2]));
+                        score3Update(String.Format("{0}", "Points: " + GameUtility.points[2].ToString("000,000")));
 
-                    place4Update(String.Format("{0,8}", "Team: " + GameUtility.names[3]));
-                    score4Update(String.Format("{0}", "Points: " + GameUtility.points[3].ToString("000,000")));
+                        place4Update(String.Format("{0,8}", "Team: " + GameUtility.names[3]));
+                        score4Update(String.Format("{0}", "Points: " + GameUtility.points[3].ToString("000,000")));
 
-                    place5Update(String.Format("{0,8}", "Team: " + GameUtility.names[4]));
-                    score5Update(String.Format("{0}", "Points: " + GameUtility.points[4].ToString("000,000")));
+                        place5Update(String.Format("{0,8}", "Team: " + GameUtility.names[4]));
+                        score5Update(String.Format("{0}", "Points: " + GameUtility.points[4].ToString("000,000")));
 
-                    place6Update(String.Format("{0,8}", "Team: " + GameUtility.names[5]));
-                    score6Update(String.Format("{0}", "Points: " + GameUtility.points[5].ToString("000,000")));
+                        place6Update(String.Format("{0,8}", "Team: " + GameUtility.names[5]));
+                        score6Update(String.Format("{0}", "Points: " + GameUtility.points[5].ToString("000,000")));
 
-                    place7Update(String.Format("{0,8}", "Team: " + GameUtility.names[6]));
-                    score7Update(String.Format("{0}", "Points: " + GameUtility.points[6].ToString("000,000")));
+                        place7Update(String.Format("{0,8}", "Team: " + GameUtility.names[6]));
+                        score7Update(String.Format("{0}", "Points: " + GameUtility.points[6].ToString("000,000")));
 
-                    place8Update(String.Format("{0,8}", "Team: " + GameUtility.names[7]));
-                    score8Update(String.Format("{0}", "Points: " + GameUtility.points[7].ToString("000,000")));
+                        place8Update(String.Format("{0,8}", "Team: " + GameUtility.names[7]));
+                        score8Update(String.Format("{0}", "Points: " + GameUtility.points[7].ToString("000,000")));
 
-                    place9Update(String.Format("{0,8}", "Team: " + GameUtility.names[8]));
-                    score9Update(String.Format("{0}", "Points: " + GameUtility.points[8].ToString("000,000")));
+                        place9Update(String.Format("{0,8}", "Team: " + GameUtility.names[8]));
+                        score9Update(String.Format("{0}", "Points: " + GameUtility.points[8].ToString("000,000")));
 
-                }
-                catch (Exception e)
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Exception! {0}", e.Message);
+                    }
+                } else
                 {
-                    Console.WriteLine("Exception! {0}", e.Message);
+                    try
+                    {
+                        sessionLabelUpdate("2");
+                        place1Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[0]));
+                        score1Update(String.Format("{0}", "Points: " + GameUtility.session2Points[0].ToString("000,000")));
+
+                        place2Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[1]));
+                        score2Update(String.Format("{0}", "Points: " + GameUtility.session2Points[1].ToString("000,000")));
+
+                        place3Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[2]));
+                        score3Update(String.Format("{0}", "Points: " + GameUtility.session2Points[2].ToString("000,000")));
+
+                        place4Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[3]));
+                        score4Update(String.Format("{0}", "Points: " + GameUtility.session2Points[3].ToString("000,000")));
+
+                        place5Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[4]));
+                        score5Update(String.Format("{0}", "Points: " + GameUtility.session2Points[4].ToString("000,000")));
+
+                        place6Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[5]));
+                        score6Update(String.Format("{0}", "Points: " + GameUtility.session2Points[5].ToString("000,000")));
+
+                        place7Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[6]));
+                        score7Update(String.Format("{0}", "Points: " + GameUtility.session2Points[6].ToString("000,000")));
+
+                        place8Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[7]));
+                        score8Update(String.Format("{0}", "Points: " + GameUtility.session2Points[7].ToString("000,000")));
+
+                        place9Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[8]));
+                        score9Update(String.Format("{0}", "Points: " + GameUtility.session2Points[8].ToString("000,000")));
+
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Exception! {0}", e.Message);
+                    }
                 }
             }
             
@@ -84,7 +135,8 @@ namespace BattleBabs_Server
 
         private void Display_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Console.WriteLine("FORM CLOSING, RUN SAVE PROCEDURE");
+            Peristence.saveAll();
         }
 
         private void aboutButton_Click(object sender, EventArgs e)
@@ -103,7 +155,13 @@ namespace BattleBabs_Server
             Console.WriteLine("placing team names into name array");
             try
             {
-                GameUtility.names = File.ReadAllLines(loadfile.FileName);
+                if (sessionId == 0)
+                {
+                    GameUtility.names = File.ReadAllLines(loadfile.FileName);
+                } else
+                {
+                    GameUtility.session2Names = File.ReadAllLines(loadfile.FileName);
+                }
             } catch(Exception e1)
             {
                 Console.WriteLine("Exception! {0}", e1.Message);
@@ -123,14 +181,36 @@ namespace BattleBabs_Server
 
             if(result == DialogResult.Yes)
             {
-                for(int i = 0; i < GameUtility.points.Length; i++)
+                if (sessionId == 0)
                 {
-                    GameUtility.points[i] = 0;
+                    for (int i = 0; i < GameUtility.points.Length; i++)
+                    {
+                        GameUtility.points[i] = 0;
+                    }
+                } else
+                {
+                    for (int i = 0; i < GameUtility.session2Points.Length; i++)
+                    {
+                        GameUtility.session2Points[i] = 0;
+                    }
                 }
             }
         }
 
         //All of these functions relate to updating the GUI. NO TOUCHIE
+
+        private void sessionLabelUpdate(string text)
+        {
+            if (this.sessionLabel.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(sessionLabelUpdate);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.sessionLabel.Text = text;
+            }
+        }
 
         private void place1Update(string text)
         {
@@ -347,6 +427,18 @@ namespace BattleBabs_Server
             else
             {
                 this.score9.Text = text;
+            }
+        }
+
+        private void sessionButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Changing Session!");
+            if(sessionId == 0)
+            {
+                sessionId = 1;
+            } else
+            {
+                sessionId = 0;
             }
         }
     }

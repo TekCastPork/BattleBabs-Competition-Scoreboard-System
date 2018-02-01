@@ -61,6 +61,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
+            this.sessionButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sessionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -327,6 +330,7 @@
             this.label8.Size = new System.Drawing.Size(54, 35);
             this.label8.TabIndex = 23;
             this.label8.Text = "1st";
+            this.label8.Visible = false;
             // 
             // label9
             // 
@@ -338,6 +342,7 @@
             this.label9.Size = new System.Drawing.Size(63, 35);
             this.label9.TabIndex = 24;
             this.label9.Text = "2nd";
+            this.label9.Visible = false;
             // 
             // label10
             // 
@@ -349,6 +354,7 @@
             this.label10.Size = new System.Drawing.Size(57, 35);
             this.label10.TabIndex = 25;
             this.label10.Text = "3rd";
+            this.label10.Visible = false;
             // 
             // label11
             // 
@@ -360,6 +366,7 @@
             this.label11.Size = new System.Drawing.Size(57, 35);
             this.label11.TabIndex = 26;
             this.label11.Text = "4th";
+            this.label11.Visible = false;
             // 
             // label12
             // 
@@ -371,6 +378,7 @@
             this.label12.Size = new System.Drawing.Size(57, 35);
             this.label12.TabIndex = 27;
             this.label12.Text = "5th";
+            this.label12.Visible = false;
             // 
             // label13
             // 
@@ -382,6 +390,7 @@
             this.label13.Size = new System.Drawing.Size(57, 35);
             this.label13.TabIndex = 28;
             this.label13.Text = "6th";
+            this.label13.Visible = false;
             // 
             // label14
             // 
@@ -393,6 +402,7 @@
             this.label14.Size = new System.Drawing.Size(57, 35);
             this.label14.TabIndex = 29;
             this.label14.Text = "7th";
+            this.label14.Visible = false;
             // 
             // label15
             // 
@@ -404,6 +414,7 @@
             this.label15.Size = new System.Drawing.Size(57, 35);
             this.label15.TabIndex = 30;
             this.label15.Text = "8th";
+            this.label15.Visible = false;
             // 
             // label16
             // 
@@ -415,6 +426,7 @@
             this.label16.Size = new System.Drawing.Size(57, 35);
             this.label16.TabIndex = 31;
             this.label16.Text = "9th";
+            this.label16.Visible = false;
             // 
             // resetButton
             // 
@@ -428,12 +440,43 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
+            // sessionButton
+            // 
+            this.sessionButton.Location = new System.Drawing.Point(713, 6);
+            this.sessionButton.Name = "sessionButton";
+            this.sessionButton.Size = new System.Drawing.Size(88, 23);
+            this.sessionButton.TabIndex = 33;
+            this.sessionButton.Text = "Switch Session";
+            this.sessionButton.UseVisualStyleBackColor = true;
+            this.sessionButton.Click += new System.EventHandler(this.sessionButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(710, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Session:";
+            // 
+            // sessionLabel
+            // 
+            this.sessionLabel.AutoSize = true;
+            this.sessionLabel.Location = new System.Drawing.Point(754, 32);
+            this.sessionLabel.Name = "sessionLabel";
+            this.sessionLabel.Size = new System.Drawing.Size(14, 13);
+            this.sessionLabel.TabIndex = 35;
+            this.sessionLabel.Text = "X";
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.sessionLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.sessionButton);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -511,6 +554,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button sessionButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label sessionLabel;
     }
 }
 

@@ -37,6 +37,7 @@ namespace BattleBabs_Server
                     message = Encoding.ASCII.GetString(receiveBuffer, 0, receiveBuffer.Length - 1);
                     Console.WriteLine("Data received: \"{0}\"", message);
                     GameUtility.parsedScores = parseMessage();
+                    GameUtility.addScores();
                 }
                 catch (Exception e)
                 {

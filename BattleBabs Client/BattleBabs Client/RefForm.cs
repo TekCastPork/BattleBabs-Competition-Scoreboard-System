@@ -65,6 +65,8 @@ namespace BattleBabs_Client
                 setTimeProgress(GameUtility.getGameTime(), false);
                 subtractModeTeam1 = team1Toggle.Checked;
                 subtractModeTeam2 = team2Toggle.Checked;
+                lastTeam1 = Display.team1;
+                lastTeam2 = Display.team2;
                 Thread.Sleep(100);
             }
         }
