@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
-using System.IO;
 using System.Threading;
 
 namespace BattleBabs_Server
 {
     class Networking
     {
-        private const int port = 5800;
+        private const int port = 27035;
         
         static IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
         static string message;

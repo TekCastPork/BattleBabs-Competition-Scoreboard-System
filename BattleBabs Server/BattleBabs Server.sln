@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleBabs Server", "BattleBabs Server\BattleBabs Server.csproj", "{21940A1A-FA58-49E1-A306-788EAE64A49B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{C320AD2C-5E10-4BDE-8865-4D676F8F2312}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,13 @@ Global
 		{21940A1A-FA58-49E1-A306-788EAE64A49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21940A1A-FA58-49E1-A306-788EAE64A49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21940A1A-FA58-49E1-A306-788EAE64A49B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C320AD2C-5E10-4BDE-8865-4D676F8F2312}.Debug|Any CPU.ActiveCfg = Debug
+		{C320AD2C-5E10-4BDE-8865-4D676F8F2312}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DF6FF4C-3A3A-450B-84B7-15ACA3844E28}
 	EndGlobalSection
 EndGlobal

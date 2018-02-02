@@ -28,22 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.portBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.connectButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.listIPButton = new System.Windows.Forms.Button();
             this.IPBox = new System.Windows.Forms.TextBox();
             this.defaultButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // portBox
-            // 
-            this.portBox.Location = new System.Drawing.Point(155, 25);
-            this.portBox.Name = "portBox";
-            this.portBox.Size = new System.Drawing.Size(100, 20);
-            this.portBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -53,15 +44,6 @@
             this.label1.Size = new System.Drawing.Size(17, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "IP";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Port";
             // 
             // connectButton
             // 
@@ -75,7 +57,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(180, 78);
+            this.cancelButton.Location = new System.Drawing.Point(97, 78);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 6;
@@ -85,7 +67,7 @@
             // 
             // listIPButton
             // 
-            this.listIPButton.Location = new System.Drawing.Point(180, 107);
+            this.listIPButton.Location = new System.Drawing.Point(97, 106);
             this.listIPButton.Name = "listIPButton";
             this.listIPButton.Size = new System.Drawing.Size(75, 23);
             this.listIPButton.TabIndex = 7;
@@ -97,7 +79,7 @@
             // 
             this.IPBox.Location = new System.Drawing.Point(12, 25);
             this.IPBox.Name = "IPBox";
-            this.IPBox.Size = new System.Drawing.Size(137, 20);
+            this.IPBox.Size = new System.Drawing.Size(160, 20);
             this.IPBox.TabIndex = 8;
             // 
             // defaultButton
@@ -114,15 +96,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 141);
+            this.ClientSize = new System.Drawing.Size(184, 141);
             this.Controls.Add(this.defaultButton);
             this.Controls.Add(this.IPBox);
             this.Controls.Add(this.listIPButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.connectButton);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.portBox);
             this.Name = "NetworkWindow";
             this.Text = "NetworkWindow";
             this.ResumeLayout(false);
@@ -131,10 +111,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox portBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button listIPButton;

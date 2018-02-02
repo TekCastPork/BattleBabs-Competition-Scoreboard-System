@@ -72,6 +72,8 @@ namespace BattleBabs_Client
             } catch(Exception e)
             {
                 Console.WriteLine("Exception! {0}. The file may not exist or may be corrupt.", e.ToString());
+                MessageBox.Show("Configuration file was unable to be loaded, it may be missing or corrupt.\n" +
+                    "IP settings, match duration, and RNG seed settings will not load for this session.", "NON-FATAL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 loadSuccess = false;
                 return null;
             }

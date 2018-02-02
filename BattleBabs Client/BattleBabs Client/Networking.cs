@@ -10,13 +10,12 @@ namespace BattleBabs_Client
 {
     class Networking
     {
-        public static int port = 5800;
+        public static int port = 27035;
         static Socket commSocket;
         static IPAddress address;
         static IPEndPoint endPoint;
         static byte[] sendBuffer;
-        public static string IP = "1.1.1.1";
-        static StringBuilder sb = new StringBuilder();
+        public static string IP = "127.0.0.1"; // default to local host incase of network setting failure
         public static void create()
         {
             Console.WriteLine("now creating UDP settings.");

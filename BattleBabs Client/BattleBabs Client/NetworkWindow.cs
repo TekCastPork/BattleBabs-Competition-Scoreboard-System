@@ -32,15 +32,30 @@ namespace BattleBabs_Client
 
         private void listIPButton_Click(object sender, EventArgs e)
         {
+            NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
+
             var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach(var ip in host.AddressList)
+            int index = 0;
+            string[] IPs = new string[50]; // if a user has more than 50 network adapters god help them
+            foreach (var ip in host.AddressList)
             {
-                if(ip.AddressFamily == AddressFamily.InterNetwork)
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
-                    Console.WriteLine("An available IP: {0}.", ip.ToString()) ;
-                    MessageBox.Show("Available IP: " + ip.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Console.WriteLine("An available IP: {0}.", ip.ToString());
+                    try
+                    {
+                        IPs[index] = ip.ToString();
+                        index++;
+                    }
+                    catch (Exception e1)
+                    {
+                        Console.WriteLine("Exception! {1} {2} User has more than 50 network adapters. I can't handle this! Godspeed user!", e1.ToString(), e1.Message);
+                    }
                 }
             }
+            IPs = IPs.Where(x => !string.IsNullOrEmpty(x)).ToArray(); // Take out the old air, freshen it up a little, and put it back in!
+            string allIps = String.Join(Environment.NewLine, IPs);
+            MessageBox.Show("All Available IPs: (Each IP is on it's own network adapter. This shows for the local machine only, these are not the IPs of the server!)" + Environment.NewLine + allIps, "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.IO;
 
@@ -22,18 +19,25 @@ namespace BattleBabs_Server
         public Display()
         {
             InitializeComponent();
-            
+            ipInfoLabelUpdate(false);
             Networking.create();
             guiUpdate = new Thread(new ThreadStart(updateComponents));
             guiUpdate.IsBackground = true;            
             var host = Dns.GetHostEntry(Dns.GetHostName());
+            int IPCount = 0; // used for determininbg some label stuff
             foreach (var ip in host.AddressList)
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
                 {
                     Console.WriteLine("An available IP: {0}.", ip.ToString());
                     ipLabel.Text = "IP: " + ip.ToString();
+                    IPCount++; // yo we found a new IP that can communicate
                 }
+            }
+            if(IPCount > 1)
+            {
+                Console.WriteLine("More than 1 IP was found, enabling the label.");
+                ipInfoLabelUpdate(true);
             }
             guiUpdate.Start();
             try
@@ -46,6 +50,7 @@ namespace BattleBabs_Server
             }
         }
         delegate void SetTextCallback(string text);
+        delegate void SetBoolCallback(Boolean logic);
 
         private void updateComponents()
         {
@@ -139,6 +144,8 @@ namespace BattleBabs_Server
             Peristence.saveAll();
         }
 
+        
+
         private void aboutButton_Click(object sender, EventArgs e)
         {
             if (AboutBox.isShowing == false)
@@ -153,14 +160,20 @@ namespace BattleBabs_Server
             Console.WriteLine("File Selected.");
             Console.WriteLine("File is: " + loadfile.FileName);
             Console.WriteLine("placing team names into name array");
+            string[] loadedNames = null;
             try
             {
-                if (sessionId == 0)
+                loadedNames = File.ReadAllLines(loadfile.FileName);
+                for(int i = 0; i < loadedNames.Length; i++)
                 {
-                    GameUtility.names = File.ReadAllLines(loadfile.FileName);
-                } else
-                {
-                    GameUtility.session2Names = File.ReadAllLines(loadfile.FileName);
+                    try
+                    {
+                        GameUtility.names[i] = loadedNames[i];
+                        GameUtility.session2Names[i] = loadedNames[i + 9];
+                    } catch(Exception e2)
+                    {
+                        Console.WriteLine("Exception! {0}", e2.Message);
+                    }
                 }
             } catch(Exception e1)
             {
@@ -209,6 +222,20 @@ namespace BattleBabs_Server
             else
             {
                 this.sessionLabel.Text = text;
+            }
+        }
+
+        private void ipInfoLabelUpdate(Boolean logic)
+        {
+            if (this.sessionLabel.InvokeRequired)
+            {
+                SetBoolCallback d = new SetBoolCallback(ipInfoLabelUpdate);
+                this.Invoke(d, new object[] { logic });
+            }
+            else
+            {
+                this.ipInfoLabel.Visible = logic;
+                this.ipInfoLabel.Enabled = logic;
             }
         }
 
@@ -440,6 +467,34 @@ namespace BattleBabs_Server
             {
                 sessionId = 0;
             }
+        }
+
+        private void ipInfoLabel_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("IP info label was clicked. Gathering and Displaying All IPs.");
+            NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
+
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            int index = 0;
+            string[] IPs = new string[50]; // if a user has more than 50 network adapters god help them
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    Console.WriteLine("An available IP: {0}.", ip.ToString());
+                    try
+                    {
+                        IPs[index] = ip.ToString();
+                        index++;
+                    } catch(Exception e1)
+                    {
+                        Console.WriteLine("Exception! {1} {2} User has more than 50 network adapters. I can't handle this! Godspeed user!", e1.ToString(), e1.Message);
+                    }
+                }
+            }
+            IPs = IPs.Where(x => !string.IsNullOrEmpty(x)).ToArray(); // Take out the old air, freshen it up a little, and put it back in!
+            string allIps = String.Join(Environment.NewLine, IPs);
+            MessageBox.Show("All Available IPs: (Each IP is on it's own network adapter." + Environment.NewLine + allIps, "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

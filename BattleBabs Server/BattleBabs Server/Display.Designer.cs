@@ -64,6 +64,7 @@
             this.sessionButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.sessionLabel = new System.Windows.Forms.Label();
+            this.ipInfoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -468,12 +469,26 @@
             this.sessionLabel.TabIndex = 35;
             this.sessionLabel.Text = "X";
             // 
+            // ipInfoLabel
+            // 
+            this.ipInfoLabel.AutoSize = true;
+            this.ipInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ipInfoLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ipInfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ipInfoLabel.Location = new System.Drawing.Point(13, 29);
+            this.ipInfoLabel.Name = "ipInfoLabel";
+            this.ipInfoLabel.Size = new System.Drawing.Size(276, 19);
+            this.ipInfoLabel.TabIndex = 36;
+            this.ipInfoLabel.Text = "Multiple IPs are avaiable! Press for more info.";
+            this.ipInfoLabel.Click += new System.EventHandler(this.ipInfoLabel_Click);
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.ipInfoLabel);
             this.Controls.Add(this.sessionLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sessionButton);
@@ -557,6 +572,7 @@
         private System.Windows.Forms.Button sessionButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sessionLabel;
+        private System.Windows.Forms.Label ipInfoLabel;
     }
 }
 

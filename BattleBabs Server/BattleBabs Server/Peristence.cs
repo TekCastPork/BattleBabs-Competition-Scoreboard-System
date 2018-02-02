@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace BattleBabs_Server
@@ -30,10 +26,16 @@ namespace BattleBabs_Server
             string[] savingPoints = new string[18];
             for(int i = 0; i < GameUtility.names.Length; i++)
             {
-                savingNames[i] = GameUtility.names[i];
-                savingNames[i + 9] = GameUtility.session2Names[i];
-                savingPoints[i] = GameUtility.points[i].ToString();
-                savingPoints[i + 9] = GameUtility.session2Points[i].ToString();
+                try
+                {
+                    savingNames[i] = GameUtility.names[i];
+                    savingNames[i + 9] = GameUtility.session2Names[i];
+                    savingPoints[i] = GameUtility.points[i].ToString();
+                    savingPoints[i + 9] = GameUtility.session2Points[i].ToString();
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Exception! {0} {1}", e.Message, e.TargetSite);
+                }
             }
             File.WriteAllLines("names.persist", savingNames);
             File.WriteAllLines("scores.persist", savingPoints);
