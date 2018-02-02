@@ -10,7 +10,7 @@ namespace BattleBabs_Client
 {
     class Networking
     {
-        public static int port = 27035;
+        public static int port = 5800;
         static Socket commSocket;
         static IPAddress address;
         static IPEndPoint endPoint;
@@ -18,7 +18,7 @@ namespace BattleBabs_Client
         public static string IP = "127.0.0.1"; // default to local host incase of network setting failure
         public static void create()
         {
-            Console.WriteLine("now creating UDP settings.");
+            Console.WriteLine("Now creating UDP settings.");
             //We need a IP to communicate on
             address = IPAddress.Parse(IP);
             endPoint = new IPEndPoint(address, port);

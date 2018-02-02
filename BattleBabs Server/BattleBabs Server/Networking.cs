@@ -8,7 +8,7 @@ namespace BattleBabs_Server
 {
     class Networking
     {
-        private const int port = 27035;
+        private const int port = 5800;
         
         static IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
         static string message;

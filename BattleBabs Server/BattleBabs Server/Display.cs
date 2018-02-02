@@ -56,7 +56,6 @@ namespace BattleBabs_Server
         {
             while (true)
             {
-                Console.WriteLine("Updating screen components");
                 Thread.Sleep(500);
                 if (sessionId == 0)
                 {

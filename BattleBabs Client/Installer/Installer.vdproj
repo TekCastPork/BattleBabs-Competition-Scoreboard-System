@@ -27,7 +27,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6447BAAAEEF94C468C7E054D79A02AA8"
+        "MsmKey" = "8:_211FF3094927410CA5F81769DDD08BE0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -171,11 +171,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_120E76CAF27DCBF322D16F12B3F6F6DD"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -195,10 +190,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6447BAAAEEF94C468C7E054D79A02AA8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_211FF3094927410CA5F81769DDD08BE0"
             {
-            "SourcePath" = "8:..\\BattleBabs Client\\battlebabs_temp_icon_cl4_icon.ico"
-            "TargetName" = "8:battlebabs_temp_icon_cl4_icon.ico"
+            "SourcePath" = "8:..\\BattleBabs Client\\Icon.ico"
+            "TargetName" = "8:Icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_1474F814EDC24475AA22BE1578047E45"
             "Condition" = "8:"
@@ -289,7 +284,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_211FF3094927410CA5F81769DDD08BE0"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -403,7 +398,7 @@
             "Target" = "8:_E28BF7E5BF504CEC85C95C8D40CAC0DC"
             "Folder" = "8:_9676303BCE6F4113BFDCECE228515099"
             "WorkingFolder" = "8:_1474F814EDC24475AA22BE1578047E45"
-            "Icon" = "8:_6447BAAAEEF94C468C7E054D79A02AA8"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }

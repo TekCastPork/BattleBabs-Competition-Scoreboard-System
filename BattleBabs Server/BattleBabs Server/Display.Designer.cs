@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Display));
             this.titleLabel = new System.Windows.Forms.Label();
             this.aboutButton = new System.Windows.Forms.Button();
             this.ipLabel = new System.Windows.Forms.Label();
@@ -524,6 +525,7 @@
             this.Controls.Add(this.ipLabel);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.titleLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Display";

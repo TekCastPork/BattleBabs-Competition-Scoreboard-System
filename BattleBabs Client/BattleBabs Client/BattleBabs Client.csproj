@@ -126,6 +126,9 @@
     <Compile Include="Team Entry.Designer.cs">
       <DependentUpon>Team Entry.cs</DependentUpon>
     </Compile>
+    <Content Include="Icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,7 +160,6 @@
     <EmbeddedResource Include="Team Entry.resx">
       <DependentUpon>Team Entry.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="battlebabs_temp_icon_cl4_icon.ico" />
     <Content Include="erbos_draco_1st_open_nbp.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

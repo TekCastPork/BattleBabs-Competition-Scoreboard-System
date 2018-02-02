@@ -94,6 +94,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icon.ico" />
     <Content Include="scores.persist">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
