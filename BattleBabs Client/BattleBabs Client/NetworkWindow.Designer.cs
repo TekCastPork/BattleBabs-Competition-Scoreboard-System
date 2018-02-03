@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.connectButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.listIPButton = new System.Windows.Forms.Button();
             this.IPBox = new System.Windows.Forms.TextBox();
             this.defaultButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -66,16 +65,6 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // listIPButton
-            // 
-            this.listIPButton.Location = new System.Drawing.Point(97, 106);
-            this.listIPButton.Name = "listIPButton";
-            this.listIPButton.Size = new System.Drawing.Size(75, 23);
-            this.listIPButton.TabIndex = 7;
-            this.listIPButton.Text = "IP?";
-            this.listIPButton.UseVisualStyleBackColor = true;
-            this.listIPButton.Click += new System.EventHandler(this.listIPButton_Click);
-            // 
             // IPBox
             // 
             this.IPBox.Location = new System.Drawing.Point(12, 25);
@@ -87,9 +76,9 @@
             // 
             this.defaultButton.Location = new System.Drawing.Point(12, 107);
             this.defaultButton.Name = "defaultButton";
-            this.defaultButton.Size = new System.Drawing.Size(75, 23);
+            this.defaultButton.Size = new System.Drawing.Size(160, 23);
             this.defaultButton.TabIndex = 9;
-            this.defaultButton.Text = "Default IP";
+            this.defaultButton.Text = "Local Machine";
             this.defaultButton.UseVisualStyleBackColor = true;
             this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
             // 
@@ -100,7 +89,6 @@
             this.ClientSize = new System.Drawing.Size(184, 141);
             this.Controls.Add(this.defaultButton);
             this.Controls.Add(this.IPBox);
-            this.Controls.Add(this.listIPButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.label1);
@@ -119,7 +107,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button listIPButton;
         private System.Windows.Forms.TextBox IPBox;
         private System.Windows.Forms.Button defaultButton;
     }

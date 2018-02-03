@@ -29,11 +29,16 @@ namespace BattleBabs_Client
             InitializeComponent();
             System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
             privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "erbos_draco_1st_open_nbp.ttf"));
+            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
             System.Drawing.Font scoreFont = new Font(privateFonts.Families[0], 27);
             System.Drawing.Font timeFont = new Font(privateFonts.Families[0], 40);
+            System.Drawing.Font titleFont = new Font(privateFonts.Families[1], 36);
+            team1Name.Font = titleFont;
+            team2Name.Font = titleFont;
             team2ScoreLbl.Font = scoreFont;
             team1ScoreLbl.Font = scoreFont;
             timerLabel.Font = timeFont;
+            titleLabel.Font = titleFont;
             GameUtility.setupObjects();
             GUIupdate = new Thread(new ThreadStart(updateComponents)); // create a GUI updating thread
             GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
