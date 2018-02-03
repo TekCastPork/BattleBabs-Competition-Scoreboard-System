@@ -232,7 +232,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "Display";
-            this.Text = "BattleBabs";
+            this.Text = "BattleBabs Scoreboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Display_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).EndInit();
             this.ResumeLayout(false);

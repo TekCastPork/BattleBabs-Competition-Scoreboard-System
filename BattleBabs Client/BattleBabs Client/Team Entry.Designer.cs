@@ -49,7 +49,7 @@
             // teamBox2
             // 
             this.teamBox2.FormattingEnabled = true;
-            this.teamBox2.Location = new System.Drawing.Point(12, 163);
+            this.teamBox2.Location = new System.Drawing.Point(12, 109);
             this.teamBox2.Name = "teamBox2";
             this.teamBox2.Size = new System.Drawing.Size(160, 21);
             this.teamBox2.TabIndex = 1;
@@ -57,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 147);
+            this.label1.Location = new System.Drawing.Point(12, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 2;
@@ -75,7 +75,7 @@
             // okbutton
             // 
             this.okbutton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.okbutton.Location = new System.Drawing.Point(0, 207);
+            this.okbutton.Location = new System.Drawing.Point(0, 138);
             this.okbutton.Name = "okbutton";
             this.okbutton.Size = new System.Drawing.Size(188, 23);
             this.okbutton.TabIndex = 4;
@@ -103,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(188, 230);
+            this.ClientSize = new System.Drawing.Size(188, 161);
             this.Controls.Add(this.loadbutton);
             this.Controls.Add(this.okbutton);
             this.Controls.Add(this.label2);
@@ -116,6 +116,7 @@
             this.Name = "Team_Entry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Team Entry";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Team_Entry_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

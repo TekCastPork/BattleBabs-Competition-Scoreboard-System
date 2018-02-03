@@ -478,9 +478,9 @@
             this.ipInfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ipInfoLabel.Location = new System.Drawing.Point(13, 29);
             this.ipInfoLabel.Name = "ipInfoLabel";
-            this.ipInfoLabel.Size = new System.Drawing.Size(276, 19);
+            this.ipInfoLabel.Size = new System.Drawing.Size(301, 19);
             this.ipInfoLabel.TabIndex = 36;
-            this.ipInfoLabel.Text = "Multiple IPs are avaiable! Press for more info.";
+            this.ipInfoLabel.Text = "Multiple IPs are avaiable! Click here for more info.";
             this.ipInfoLabel.Click += new System.EventHandler(this.ipInfoLabel_Click);
             // 
             // Display

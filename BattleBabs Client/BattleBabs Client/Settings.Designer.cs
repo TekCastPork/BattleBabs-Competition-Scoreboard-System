@@ -36,6 +36,7 @@
             this.seedBox = new System.Windows.Forms.CheckBox();
             this.seedText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.fullScreenBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.timerCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +68,7 @@
             // 
             // applyButton
             // 
-            this.applyButton.Location = new System.Drawing.Point(12, 87);
+            this.applyButton.Location = new System.Drawing.Point(12, 97);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(75, 23);
             this.applyButton.TabIndex = 2;
@@ -77,7 +78,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(96, 87);
+            this.cancelButton.Location = new System.Drawing.Point(99, 97);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 3;
@@ -111,11 +112,22 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "RNG Seed";
             // 
+            // fullScreenBox
+            // 
+            this.fullScreenBox.AutoSize = true;
+            this.fullScreenBox.Location = new System.Drawing.Point(15, 74);
+            this.fullScreenBox.Name = "fullScreenBox";
+            this.fullScreenBox.Size = new System.Drawing.Size(163, 17);
+            this.fullScreenBox.TabIndex = 7;
+            this.fullScreenBox.Text = "Fullscreen? (Requires restart)";
+            this.fullScreenBox.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 122);
+            this.ClientSize = new System.Drawing.Size(183, 128);
+            this.Controls.Add(this.fullScreenBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.seedText);
             this.Controls.Add(this.seedBox);
@@ -129,6 +141,7 @@
             this.MinimizeBox = false;
             this.Name = "Settings";
             this.Text = "Settings";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.timerCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -144,5 +157,6 @@
         private System.Windows.Forms.CheckBox seedBox;
         private System.Windows.Forms.TextBox seedText;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox fullScreenBox;
     }
 }

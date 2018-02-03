@@ -209,6 +209,7 @@
             this.timeBar.Location = new System.Drawing.Point(0, 0);
             this.timeBar.Maximum = 75;
             this.timeBar.Name = "timeBar";
+            this.timeBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.timeBar.Size = new System.Drawing.Size(284, 23);
             this.timeBar.TabIndex = 13;
             this.timeBar.Value = 50;

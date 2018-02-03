@@ -7,8 +7,8 @@ namespace BattleBabs_Client
     public partial class Settings : Form
     {
         Boolean loadSuccess = false;
-        string[] settings = { "", "", "", "", "" };
-        string[] loadedSettings = { "", "", "", "", "" };
+        string[] settings = { "", "", "", "", "","" };
+        string[] loadedSettings = { "", "", "", "", "","" };
         /*
          * Settings as follows:
          * [0] IP
@@ -16,6 +16,7 @@ namespace BattleBabs_Client
          * [2] Match Duration
          * [3] Seed
          * [4] Use seed?
+         * [5] Fullscreen state
          */
 
         public Settings()
@@ -31,14 +32,25 @@ namespace BattleBabs_Client
                     Networking.port = int.Parse(loadedSettings[1]);
                     GameUtility.gameTime = int.Parse(loadedSettings[2]);
                     GameUtility.SEED = int.Parse(loadedSettings[3]);
+                    if(int.Parse(loadedSettings[5]) == 1)
+                    {
+                        Display.screenMode = true;
+                        fullScreenBox.Checked = true;
+                    } else
+                    {
+                        Display.screenMode = false;
+                        fullScreenBox.Checked = false;
+                    }
                     if (int.Parse(loadedSettings[4]) == 1)
                     {
                         GameUtility.useSeeded = true;
+                        seedBox.Checked = true;
                         GameUtility.setSeed();
                     }
                     else
                     {
                         GameUtility.useSeeded = false;
+                        seedBox.Checked = false;
                     }
                 }
                 catch (Exception e)
@@ -84,6 +96,7 @@ namespace BattleBabs_Client
             Console.WriteLine("Applying setting changes.");
             GameUtility.alterGameTime((int)timerCount.Value);
             GameUtility.useSeeded = seedBox.Checked;
+            Display.screenMode = fullScreenBox.Checked;
             try // this try will keep the parsing of the SEED value from crashing the program incase the user enters a letter or symbol
             {
                 GameUtility.SEED = int.Parse(seedText.Text);
@@ -98,6 +111,13 @@ namespace BattleBabs_Client
             } else
             {
                 settings[4] = "0";
+            }
+            if(fullScreenBox.Checked)
+            {
+                settings[5] = "1";
+            } else
+            {
+                settings[5] = "0";
             }
             settings[3] = GameUtility.SEED.ToString();
             settings[2] = GameUtility.gameTime.ToString();

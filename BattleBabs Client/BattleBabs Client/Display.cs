@@ -20,6 +20,7 @@ namespace BattleBabs_Client
         NetworkWindow networking = new NetworkWindow();
         Settings settingWindow = new Settings();
         Thread GUIupdate;
+        public static Boolean screenMode = false;
 
 
 
@@ -27,8 +28,7 @@ namespace BattleBabs_Client
         {
             InitializeComponent();
             System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
-        //    privateFonts.AddFontFile("C:\\Users\\TekCastPork\\Source\\Repos\\BattleBabs\\Display\\BattleBabs Client\\BattleBabs Client\\Resources\\erbos_draco_1st_open_nbp.ttf");
-            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "erbos_draco_1st_open_nbp.ttf")); //uncomment when exporting, use top for debugging
+            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "erbos_draco_1st_open_nbp.ttf"));
             System.Drawing.Font scoreFont = new Font(privateFonts.Families[0], 27);
             System.Drawing.Font timeFont = new Font(privateFonts.Families[0], 40);
             team2ScoreLbl.Font = scoreFont;
@@ -39,7 +39,7 @@ namespace BattleBabs_Client
             GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
             GUIupdate.Start(); // start the GUI updating thread
             referee.Show(); // create the referee window so that points can be allocated and team names set
-            GoFullscreen(false); // set the fullscreen mode
+            GoFullscreen(screenMode); // set the fullscreen mode
        //     PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
         }
 
@@ -89,6 +89,7 @@ namespace BattleBabs_Client
         {
             while (true)
             {
+             //   GoFullscreen(screenMode);
                 SetTeam1Text(team1);
                 SetTeam2Text(team2);
                 SetTeam1Score(team1Score.ToString());

@@ -110,6 +110,7 @@
             this.Name = "ArduinoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select COM Port";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ArduinoForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
