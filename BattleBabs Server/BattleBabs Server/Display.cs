@@ -50,6 +50,7 @@ namespace BattleBabs_Server
             guiUpdate.IsBackground = true;            
             var host = Dns.GetHostEntry(Dns.GetHostName());
             int IPCount = 0; // used for determininbg some label stuff
+            
             foreach (var ip in host.AddressList)
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
@@ -519,6 +520,22 @@ namespace BattleBabs_Server
             IPs = IPs.Where(x => !string.IsNullOrEmpty(x)).ToArray(); // Take out the old air, freshen it up a little, and put it back in!
             string allIps = String.Join(Environment.NewLine, IPs);
             MessageBox.Show("All Available IPs: (Each IP is on it's own network adapter." + Environment.NewLine + allIps, "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        int arenaNumber = 0;
+        private void matchupButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Matchup button was pressed!");
+           /* string[] receivedMatch = Bracket.getNextMatch();
+            GameUtility.makeSpeech("The next match is " + receivedMatch[0] + " VS " + receivedMatch[1] + " on arena " + (arenaNumber+1));
+            MessageBox.Show("The next match is " + receivedMatch[0] + " VS " + receivedMatch[1] + " on arena " + (arenaNumber+1), "NEXT MATCH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(arenaNumber == 0)
+            {
+                arenaNumber = 1;
+            } else
+            {
+                arenaNumber = 0;
+            } */
         }
     }
 }

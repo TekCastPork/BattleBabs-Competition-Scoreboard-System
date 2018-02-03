@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Speech.Synthesis;
 
 namespace BattleBabs_Server
 {
     class GameUtility
     {
+        static SpeechSynthesizer synth = new SpeechSynthesizer(); // make a TTS instance so we can so text to speech
         public static string[] names =  { "TestName", "Team2", "ImmaTeam3", "Haiku", "Bab", "Bhab", "Robitz", "LulBot", "TAS" }; // names used on leaderboard, name names for clent program
         public static string[] session2Names = { "", "", "", "", "", "", "", "", "" };
    //     public static int[] round =     { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
@@ -12,6 +14,11 @@ namespace BattleBabs_Server
    //     public static int[] rank =      { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9  };
         public static int[] parsedScores = { 0, 0 };
         public static string[] receivedNames = { "", "", };
+
+        public static void makeSpeech(string msg) // uses the TTS engine to talk
+        {
+            synth.SpeakAsync(msg); // do some robit speak stuff
+        }
 
         public static void addScores()
         {
