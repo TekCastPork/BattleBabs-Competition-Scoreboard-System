@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.IO;
+using System.Drawing.Text;
+using System.Drawing;
 
 namespace BattleBabs_Server
 {
@@ -18,7 +20,30 @@ namespace BattleBabs_Server
         public static int sessionId = 0;
         public Display()
         {
+            PrivateFontCollection privateFonts = new PrivateFontCollection();
+            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
+            Font titleFont = new Font(privateFonts.Families[0], 22);
+            Font leaderBoardFont = new Font(privateFonts.Families[0], 20);
             InitializeComponent();
+            titleLabel.Font = leaderBoardFont;
+            team1.Font = titleFont;
+            team2.Font = titleFont;
+            team3.Font = titleFont;
+            team4.Font = titleFont;
+            team5.Font = titleFont;
+            team6.Font = titleFont;
+            team7.Font = titleFont;
+            team8.Font = titleFont;
+            team9.Font = titleFont;
+            score1.Font = titleFont;
+            score2.Font = titleFont;
+            score3.Font = titleFont;
+            score4.Font = titleFont;
+            score5.Font = titleFont;
+            score6.Font = titleFont;
+            score7.Font = titleFont;
+            score8.Font = titleFont;
+            score9.Font = titleFont;
             ipInfoLabelUpdate(false);
             Networking.create();
             guiUpdate = new Thread(new ThreadStart(updateComponents));
