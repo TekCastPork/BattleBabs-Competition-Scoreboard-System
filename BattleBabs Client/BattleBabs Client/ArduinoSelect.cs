@@ -1,26 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
-using System.Timers;
 using System.Threading;
 
 namespace BattleBabs_Client
 {
     public partial class ArduinoForm : Form
     {
-        System.Timers.Timer timer = new System.Timers.Timer();
-        Thread updateThread = new Thread(new ThreadStart(updateText));
+        System.Timers.Timer timer = new System.Timers.Timer();        
         public static Boolean showRefreshString = false;
         public string[] portList;
         public ArduinoForm()
         {
+            Thread updateThread = new Thread(new ThreadStart(updateText));
             InitializeComponent();
             updateThread.IsBackground = true;
             updateThread.Start();
@@ -34,7 +26,7 @@ namespace BattleBabs_Client
 
         delegate void SetCallback(Boolean mode);
 
-        public static void updateText()
+        public void updateText()
         {
             while (true)
             {
@@ -43,7 +35,7 @@ namespace BattleBabs_Client
             }
         }
 
-        private static void SetRefreshMode(Boolean mode)
+        private void SetRefreshMode(Boolean mode)
         {
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.

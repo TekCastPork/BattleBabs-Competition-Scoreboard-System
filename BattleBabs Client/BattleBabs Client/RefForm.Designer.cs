@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RefForm));
             this.startButton = new System.Windows.Forms.Button();
             this.team1Ping = new System.Windows.Forms.Button();
             this.team1Band = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.stopButton = new System.Windows.Forms.Button();
             this.resumeButton = new System.Windows.Forms.Button();
             this.pauseButton = new System.Windows.Forms.Button();
+            this.sendButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startButton
@@ -189,7 +191,6 @@
             this.team1Toggle.Text = "Subtract Mode";
             this.team1Toggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.team1Toggle.UseVisualStyleBackColor = true;
-            this.team1Toggle.CheckedChanged += new System.EventHandler(this.team1Toggle_CheckedChanged);
             // 
             // team2Toggle
             // 
@@ -201,7 +202,6 @@
             this.team2Toggle.Text = "Subtract Mode";
             this.team2Toggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.team2Toggle.UseVisualStyleBackColor = true;
-            this.team2Toggle.CheckedChanged += new System.EventHandler(this.team2Toggle_CheckedChanged);
             // 
             // timeBar
             // 
@@ -209,6 +209,7 @@
             this.timeBar.Location = new System.Drawing.Point(0, 0);
             this.timeBar.Maximum = 75;
             this.timeBar.Name = "timeBar";
+            this.timeBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.timeBar.Size = new System.Drawing.Size(284, 23);
             this.timeBar.TabIndex = 13;
             this.timeBar.Value = 50;
@@ -299,11 +300,24 @@
             this.pauseButton.UseVisualStyleBackColor = true;
             this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
+            // sendButton
+            // 
+            this.sendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.sendButton.Location = new System.Drawing.Point(243, 23);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(41, 23);
+            this.sendButton.TabIndex = 23;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
             // RefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.sendButton);
             this.Controls.Add(this.pauseButton);
             this.Controls.Add(this.resumeButton);
             this.Controls.Add(this.stopButton);
@@ -327,6 +341,8 @@
             this.Controls.Add(this.team1Band);
             this.Controls.Add(this.team1Ping);
             this.Controls.Add(this.startButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RefForm";
@@ -361,5 +377,6 @@
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button resumeButton;
         private System.Windows.Forms.Button pauseButton;
+        private System.Windows.Forms.Button sendButton;
     }
 }

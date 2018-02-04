@@ -17,6 +17,26 @@ namespace BattleBabs_Client
         public Team_Entry()
         {
             InitializeComponent();
+            Console.WriteLine("Loading team names from persist file");
+            try
+            {
+                teamNames = File.ReadAllLines("./Teamnames.persist");
+                for (int i = 0; i < teamNames.Length; i++)
+                {
+                    teamBox1.Items.Remove(i);
+                    teamBox2.Items.Remove(i);
+                }
+                Console.WriteLine("Adding team names.");
+                for (int i = 0; i < teamNames.Length; i++)
+                {
+                    teamBox1.Items.Insert(i, teamNames[i]);
+                    teamBox2.Items.Insert(i, teamNames[i]);
+                }
+            } catch (Exception e)
+            {
+                Console.WriteLine("Exception! {0} {1}", e.Message, e.TargetSite);
+            }
+            Console.WriteLine("Complete.");
 
         }
 
@@ -66,6 +86,7 @@ namespace BattleBabs_Client
             Console.WriteLine("File Selected.");
             Console.WriteLine("File is: " + loadNamesFile.FileName);
             teamNames = File.ReadAllLines(loadNamesFile.FileName);
+            File.WriteAllLines("./Teamnames.persist", teamNames);
             Console.WriteLine("Adding team names to the drop down boxes.");
             Console.WriteLine("Clearing drop down box values.");
             for (int i = 0; i < teamNames.Length; i++)

@@ -8,10 +8,26 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BattleBabs_Client</RootNamespace>
-    <AssemblyName>BattleBabs Client</AssemblyName>
+    <AssemblyName>BattleBabs Scoreboard</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\User Folders\Desktop\Publishes\Client\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +47,25 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>
+    </ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>
+    </GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>
+    </SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,7 +102,13 @@
     </Compile>
     <Compile Include="GameUtility.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="PipeClient.cs" />
+    <Compile Include="Networking.cs" />
+    <Compile Include="NetworkWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NetworkWindow.Designer.cs">
+      <DependentUpon>NetworkWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefForm.cs">
@@ -76,12 +117,27 @@
     <Compile Include="RefForm.Designer.cs">
       <DependentUpon>RefForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Team Entry.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Team Entry.Designer.cs">
       <DependentUpon>Team Entry.cs</DependentUpon>
     </Compile>
+    <Content Include="HorizBanner.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VertBanner.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetworkWindow.resx">
+      <DependentUpon>NetworkWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,9 +163,18 @@
     <EmbeddedResource Include="RefForm.resx">
       <DependentUpon>RefForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Team Entry.resx">
       <DependentUpon>Team Entry.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="erbos_draco_1st_open_nbp.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GODOFWAR.TTF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,7 +185,15 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\erbos_draco_1st_nbp.ttf" />
-    <None Include="Resources\erbos_draco_1st_open_nbp.ttf" />
+    <Content Include="config.cfg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Teamnames.persist">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\erbos_draco_1st_open_nbp.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -126,31 +202,44 @@
     <None Include="Resources\Battle.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Guile%27s Theme.wav" />
+    <Content Include="Resources\Buzzer.wav" />
+    <Content Include="Resources\Guile%27s Theme.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Heart of Courage.wav" />
+    <Content Include="Resources\Heart of Courage.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Ken%27s Theme.wav" />
+    <Content Include="Resources\Ken%27s Theme.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Popcorn Techno.wav" />
+    <Content Include="Resources\Popcorn Techno.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RobbyRotten.wav" />
+    <Content Include="Resources\RobbyRotten.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Ryu%27s Theme.wav" />
+    <Content Include="Resources\Ryu%27s Theme.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Sonic2 Zone.wav" />
+    <Content Include="Resources\Sonic2 Zone.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Tetris B.wav" />
+    <Content Include="Resources\Tetris B.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Trainer Battle.wav" />
+    <Content Include="Resources\Trainer Battle.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

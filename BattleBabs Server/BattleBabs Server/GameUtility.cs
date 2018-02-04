@@ -1,45 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Speech.Synthesis;
 
 namespace BattleBabs_Server
 {
     class GameUtility
     {
-        public static string[] names =  { "", "", "", "", "", "", "", "", "" };
-        public static int[] round =     { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
-        public static int[] points =    { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
-        public static int[] rank =      { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9  };
-        public static int[] index =     { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8  };
-               static int[] previousScores;
-        public static void sortLists()
-        {
-            Console.WriteLine("Now sorting ranks of each team.");
-            Console.WriteLine("Beginning by putting each team's current score into a temporary holding array for later use.");
-            
-            for(int i = 0; i < points.Length; i++)
-            {
-                previousScores[i] = points[i];
-                Console.WriteLine("Score {0} now in temp array at index {1}", points[i], i);
-            }
-            Console.WriteLine("Scores now put into holding variable. Points array is now being sorted.");
-            Array.Sort(points); // sort the points array
-            Console.WriteLine("Now using some searching to locate new locations for sorting purposes.");
-            for(int i = 0; i < points.Length; i++)
-            {
-                for(int j = 0; j < previousScores.Length; j++)
-                {
-                    if(points[i].Equals(previousScores[j])) // if the points array indexed with i matches the previous scores array indexed with j ( a simple scan search really)
-                    {
-                        Console.WriteLine("We have found a match for the scores.");
-                        Console.WriteLine("points[{0}] matches previousScores[{1}]. their scores were: {2} and {3}", i, j, points[i], previousScores[j]);
-                        int difference = j - i;
-                        Console.WriteLine("The difference between places is {0}.", difference);
-                        Console.WriteLine("Now moving items.");
-                        rank[i] = rank[i] + difference;
+        static SpeechSynthesizer synth = new SpeechSynthesizer(); // make a TTS instance so we can so text to speech
+        public static string[] names =  { "TestName", "Team2", "ImmaTeam3", "Haiku", "Bab", "Bhab", "Robitz", "LulBot", "TAS" }; // names used on leaderboard, name names for clent program
+        public static string[] session2Names = { "", "", "", "", "", "", "", "", "" };
+   //     public static int[] round =     { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
+        public static int[] points =    { 1337 , 25843 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
+        public static int[] session2Points = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+   //     public static int[] rank =      { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9  };
+        public static int[] parsedScores = { 0, 0 };
+        public static string[] receivedNames = { "", "", };
 
+        public static void makeSpeech(string msg) // uses the TTS engine to talk
+        {
+            synth.SpeakAsync(msg); // do some robit speak stuff
+        }
+
+        public static void addScores()
+        {
+            Console.WriteLine("Finding names and adding scores");
+            for(int i = 0; i < names.Length; i++)
+            {
+                if (Display.sessionId == 0)
+                {
+                    if (names[i].Equals(receivedNames[0]))
+                    {
+                        Console.WriteLine("input name {0} matches name {1} at index {2}", receivedNames[0], names[i], i);
+                        Console.WriteLine("Adding score.");
+                        points[i] += parsedScores[0];
+                    }
+                    else if (names[i].Equals(receivedNames[1]))
+                    {
+                        Console.WriteLine("input name {0} matches name {1} at index {2}", receivedNames[1], names[i], i);
+                        Console.WriteLine("Adding score.");
+                        points[i] += parsedScores[1];
+                    }
+                } else
+                {
+                    if (session2Names[i].Equals(receivedNames[0]))
+                    {
+                        Console.WriteLine("input name {0} matches name {1} at index {2}", receivedNames[0], session2Names[i], i);
+                        Console.WriteLine("Adding score.");
+                        session2Points[i] += parsedScores[0];
+                    }
+                    else if (session2Names[i].Equals(receivedNames[1]))
+                    {
+                        Console.WriteLine("input name {0} matches name {1} at index {2}", receivedNames[1], session2Names[i], i);
+                        Console.WriteLine("Adding score.");
+                        session2Points[i] += parsedScores[1];
                     }
                 }
             }

@@ -37,12 +37,11 @@
             this.VSpicture = new System.Windows.Forms.PictureBox();
             this.teamchangeButton = new System.Windows.Forms.Button();
             this.timerLabel = new System.Windows.Forms.Label();
-            this.Team1Rank = new System.Windows.Forms.Label();
-            this.team2Rank = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.connectButton = new System.Windows.Forms.Button();
             this.aboutButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.networkButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,32 +154,6 @@
             this.timerLabel.Text = "TimerCountIsHere";
             this.timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Team1Rank
-            // 
-            this.Team1Rank.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Team1Rank.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Team1Rank.Location = new System.Drawing.Point(12, 288);
-            this.Team1Rank.MaximumSize = new System.Drawing.Size(330, 50);
-            this.Team1Rank.Name = "Team1Rank";
-            this.Team1Rank.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Team1Rank.Size = new System.Drawing.Size(330, 50);
-            this.Team1Rank.TabIndex = 11;
-            this.Team1Rank.Text = "Team1Rank";
-            this.Team1Rank.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // team2Rank
-            // 
-            this.team2Rank.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.team2Rank.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.team2Rank.Location = new System.Drawing.Point(642, 288);
-            this.team2Rank.MaximumSize = new System.Drawing.Size(330, 50);
-            this.team2Rank.Name = "team2Rank";
-            this.team2Rank.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.team2Rank.Size = new System.Drawing.Size(330, 50);
-            this.team2Rank.TabIndex = 12;
-            this.team2Rank.Text = "Team2Rank";
-            this.team2Rank.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // exitButton
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -195,31 +168,46 @@
             // connectButton
             // 
             this.connectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.connectButton.Location = new System.Drawing.Point(9, 497);
+            this.connectButton.Location = new System.Drawing.Point(195, 526);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(87, 23);
             this.connectButton.TabIndex = 14;
-            this.connectButton.Text = "Connect...";
+            this.connectButton.Text = "Arduino...";
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
             // aboutButton
             // 
-            this.aboutButton.Location = new System.Drawing.Point(9, 439);
+            this.aboutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.aboutButton.Location = new System.Drawing.Point(792, 526);
             this.aboutButton.Name = "aboutButton";
             this.aboutButton.Size = new System.Drawing.Size(87, 23);
             this.aboutButton.TabIndex = 15;
             this.aboutButton.Text = "About";
             this.aboutButton.UseVisualStyleBackColor = true;
+            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
             // settingsButton
             // 
-            this.settingsButton.Location = new System.Drawing.Point(9, 468);
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.settingsButton.Location = new System.Drawing.Point(288, 526);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(87, 23);
             this.settingsButton.TabIndex = 16;
             this.settingsButton.Text = "Settings...";
             this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            // 
+            // networkButton
+            // 
+            this.networkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.networkButton.Location = new System.Drawing.Point(102, 526);
+            this.networkButton.Name = "networkButton";
+            this.networkButton.Size = new System.Drawing.Size(87, 23);
+            this.networkButton.TabIndex = 17;
+            this.networkButton.Text = "Network...";
+            this.networkButton.UseVisualStyleBackColor = true;
+            this.networkButton.Click += new System.EventHandler(this.networkButton_Click);
             // 
             // Display
             // 
@@ -227,12 +215,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.networkButton);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.team2Rank);
-            this.Controls.Add(this.Team1Rank);
             this.Controls.Add(this.timerLabel);
             this.Controls.Add(this.teamchangeButton);
             this.Controls.Add(this.VSpicture);
@@ -241,9 +228,11 @@
             this.Controls.Add(this.team1Name);
             this.Controls.Add(this.team2Name);
             this.Controls.Add(this.titleLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "Display";
-            this.Text = "BattleBabs";
+            this.Text = "BattleBabs Scoreboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Display_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).EndInit();
             this.ResumeLayout(false);
@@ -259,12 +248,11 @@
         private System.Windows.Forms.PictureBox VSpicture;
         private System.Windows.Forms.Button teamchangeButton;
         private System.Windows.Forms.Label timerLabel;
-        private System.Windows.Forms.Label Team1Rank;
-        private System.Windows.Forms.Label team2Rank;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.Button networkButton;
     }
 }
 

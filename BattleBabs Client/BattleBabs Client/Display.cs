@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.IO;
@@ -22,25 +16,36 @@ namespace BattleBabs_Client
         public static int team2Score = 0;
         public static Boolean teamOpen = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
+        AboutBox about = new AboutBox();
+        NetworkWindow networking = new NetworkWindow();
+        Settings settingWindow = new Settings();
         Thread GUIupdate;
+        public static Boolean screenMode = false;
+
+
 
         public Display()
         {
             InitializeComponent();
             System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
-            privateFonts.AddFontFile("C:\\Users\\674623\\source\\repos\\BattleBabs-Competition-Scoreboard-System\\BattleBabs Client\\BattleBabs Client\\Resources\\erbos_draco_1st_open_nbp.ttf");
+            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "erbos_draco_1st_open_nbp.ttf"));
+            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
             System.Drawing.Font scoreFont = new Font(privateFonts.Families[0], 27);
             System.Drawing.Font timeFont = new Font(privateFonts.Families[0], 40);
+            System.Drawing.Font titleFont = new Font(privateFonts.Families[1], 36);
+            team1Name.Font = titleFont;
+            team2Name.Font = titleFont;
             team2ScoreLbl.Font = scoreFont;
             team1ScoreLbl.Font = scoreFont;
             timerLabel.Font = timeFont;
+            titleLabel.Font = titleFont;
             GameUtility.setupObjects();
             GUIupdate = new Thread(new ThreadStart(updateComponents)); // create a GUI updating thread
             GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
             GUIupdate.Start(); // start the GUI updating thread
             referee.Show(); // create the referee window so that points can be allocated and team names set
-            GoFullscreen(false); // set the fullscreen mode
-            PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
+            GoFullscreen(screenMode); // set the fullscreen mode
+       //     PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
         }
 
 
@@ -89,6 +94,7 @@ namespace BattleBabs_Client
         {
             while (true)
             {
+             //   GoFullscreen(screenMode);
                 SetTeam1Text(team1);
                 SetTeam2Text(team2);
                 SetTeam1Score(team1Score.ToString());
@@ -200,6 +206,28 @@ namespace BattleBabs_Client
             {
                 arduinoForm.Show();
                 connectOpen = true;
+            }
+        }
+
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+           if(AboutBox.isShowing == false) {
+                about.Show();
+                AboutBox.isShowing = true;
+            } 
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            settingWindow.Show();
+        }
+
+        private void networkButton_Click(object sender, EventArgs e)
+        {
+            if(NetworkWindow.isOpen == false)
+            {
+                networking.Show();
+                NetworkWindow.isOpen = true;
             }
         }
     }
