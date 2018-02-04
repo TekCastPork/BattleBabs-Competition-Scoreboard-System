@@ -177,11 +177,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_120E76CAF27DCBF322D16F12B3F6F6DD"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -298,7 +293,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BattleBabs Scoreboard"
         "ProductCode" = "8:{25670DAD-33E6-4086-A06A-01D46BA18A19}"
-        "PackageCode" = "8:{E0EA4B91-1339-4C18-9389-6A5E9C87014C}"
+        "PackageCode" = "8:{C9B16976-38DA-4B70-AE89-0335A29B4B97}"
         "UpgradeCode" = "8:{5084BCC0-E984-4314-BF09-86F2B39025DF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -429,7 +424,7 @@
             "Target" = "8:_E28BF7E5BF504CEC85C95C8D40CAC0DC"
             "Folder" = "8:_9676303BCE6F4113BFDCECE228515099"
             "WorkingFolder" = "8:_1474F814EDC24475AA22BE1578047E45"
-            "Icon" = "8:"
+            "Icon" = "8:_211FF3094927410CA5F81769DDD08BE0"
             "Feature" = "8:"
             }
         }
@@ -508,7 +503,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:This program was made in 2018 for use with the BattleBabs competition."
+                            "Value" = "8:This program was made in 2018 for use with the BattleBabs competition.  Warning! This program CANNOT be installed to Program Files or Program Files (x86) It MUST be installed elsewhere."
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -753,7 +748,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:This program was made in 2018 for use with the BattleBabs competition."
+                            "Value" = "8:This program was made in 2018 for use with the BattleBabs competition.  Warning! This program CANNOT be installed to Program Files or Program Files (x86) It MUST be installed elsewhere."
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }

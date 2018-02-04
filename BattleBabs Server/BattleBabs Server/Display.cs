@@ -522,7 +522,7 @@ namespace BattleBabs_Server
             MessageBox.Show("All Available IPs: (Each IP is on it's own network adapter." + Environment.NewLine + allIps, "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        int arenaNumber = 0;
+        //int arenaNumber = 0;
         private void matchupButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Matchup button was pressed!");
