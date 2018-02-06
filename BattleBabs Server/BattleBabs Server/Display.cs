@@ -74,13 +74,6 @@ namespace BattleBabs_Server
             {
                 Console.WriteLine("Exception! {0}", e.Message);
             }
-            if (sessionId == 0)
-            {
-                Bracket.getCombinations(GameUtility.names);
-            } else
-            {
-                Bracket.getCombinations(GameUtility.session2Names);
-            }
         }
         delegate void SetTextCallback(string text);
         delegate void SetBoolCallback(Boolean logic);

@@ -83,7 +83,12 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bracket.cs" />
+    <Compile Include="Bracketeers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bracketeers.Designer.cs">
+      <DependentUpon>Bracketeers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Display.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +102,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bracketeers.resx">
+      <DependentUpon>Bracketeers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
