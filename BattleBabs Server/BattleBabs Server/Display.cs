@@ -75,6 +75,7 @@ namespace BattleBabs_Server
             {
                 Console.WriteLine("Exception! {0}", e.Message);
             }
+
             if (sessionId == 0)
             {
                 bracketWindow = new Bracketeers(GameUtility.names);
@@ -496,9 +497,11 @@ namespace BattleBabs_Server
             if(sessionId == 0)
             {
                 sessionId = 1;
+                Bracketeers.getCombinations(GameUtility.session2Names);
             } else
             {
                 sessionId = 0;
+                Bracketeers.getCombinations(GameUtility.names);
             }
         }
 

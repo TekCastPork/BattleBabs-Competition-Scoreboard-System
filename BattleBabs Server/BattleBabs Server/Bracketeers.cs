@@ -16,8 +16,8 @@ namespace BattleBabs_Server
 {
     public partial class Bracketeers : Form
     {
-        static string[] allCombinations = new string[36]; // We can only run this class for one session! DO NOT PASS BOTH SESSION NAMESETS
-        static Boolean[] isChosen = new Boolean[36]; // used with random to make sure dupes arent picked, since going one by one is the combinations would make many teams have multiple battles side by side
+        public static string[] allCombinations = new string[36]; // We can only run this class for one session! DO NOT PASS BOTH SESSION NAMESETS
+        public static Boolean[] isChosen = new Boolean[36]; // used with random to make sure dupes arent picked, since going one by one is the combinations would make many teams have multiple battles side by side
         static int index = 0;
         public static Boolean isShowing = false;
         Thread updateThread;
