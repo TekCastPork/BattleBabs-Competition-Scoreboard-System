@@ -490,9 +490,8 @@
             this.matchupButton.Name = "matchupButton";
             this.matchupButton.Size = new System.Drawing.Size(82, 23);
             this.matchupButton.TabIndex = 37;
-            this.matchupButton.Text = "Next Matchup";
+            this.matchupButton.Text = "Matches";
             this.matchupButton.UseVisualStyleBackColor = true;
-            this.matchupButton.Visible = false;
             this.matchupButton.Click += new System.EventHandler(this.matchupButton_Click);
             // 
             // Display

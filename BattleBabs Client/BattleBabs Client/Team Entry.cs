@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace BattleBabs_Client
 {
     public partial class Team_Entry : Form
     {
-        string[] teamNames = new string[15];
+        string[] teamNames = new string[16];
         public Team_Entry()
         {
             InitializeComponent();
@@ -32,6 +33,8 @@ namespace BattleBabs_Client
                     teamBox1.Items.Insert(i, teamNames[i]);
                     teamBox2.Items.Insert(i, teamNames[i]);
                 }
+                teamBox1.Items.Insert(8, "[[[------Session Splitter------]]]");
+                teamBox2.Items.Insert(8, "[[[------Session Splitter------]]]");
             } catch (Exception e)
             {
                 Console.WriteLine("Exception! {0} {1}", e.Message, e.TargetSite);

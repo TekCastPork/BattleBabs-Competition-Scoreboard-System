@@ -16,6 +16,7 @@ namespace BattleBabs_Server
     public partial class Display : Form
     {
         AboutBox about = new AboutBox();
+        Bracketeers bracketWindow;
         Thread guiUpdate;
         public static int sessionId = 0;
         public Display()
@@ -73,6 +74,13 @@ namespace BattleBabs_Server
             catch (Exception e)
             {
                 Console.WriteLine("Exception! {0}", e.Message);
+            }
+            if (sessionId == 0)
+            {
+                bracketWindow = new Bracketeers(GameUtility.names);
+            } else
+            {
+                bracketWindow = new Bracketeers(GameUtility.session2Names);
             }
         }
         delegate void SetTextCallback(string text);
@@ -526,16 +534,15 @@ namespace BattleBabs_Server
         private void matchupButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Matchup button was pressed!");
-           /* string[] receivedMatch = Bracket.getNextMatch();
-            GameUtility.makeSpeech("The next match is " + receivedMatch[0] + " VS " + receivedMatch[1] + " on arena " + (arenaNumber+1));
-            MessageBox.Show("The next match is " + receivedMatch[0] + " VS " + receivedMatch[1] + " on arena " + (arenaNumber+1), "NEXT MATCH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if(arenaNumber == 0)
+            if(Bracketeers.isShowing)
             {
-                arenaNumber = 1;
+
             } else
             {
-                arenaNumber = 0;
-            } */
+                bracketWindow.Show();
+                Bracketeers.isShowing = true;
+            }
+           
         }
     }
 }

@@ -503,18 +503,19 @@ namespace BattleBabs_Client
         private void startButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Start Match button pressed.");
-            GameUtility.beginMatch();
             lastTeam1 = Display.team1;
             lastTeam2 = Display.team2;
+            GameUtility.beginMatch();          
 
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Stop button is pushed!");
+            GameUtility.doSend = false;
             GameUtility.endMatch();
             GameUtility.makeSpeech("The match was stopped by the referee.");
-            GameUtility.doSend = false;
+            
         }
 
         private void resumeButton_Click(object sender, EventArgs e)
@@ -532,6 +533,7 @@ namespace BattleBabs_Client
         private void sendButton_Click(object sender, EventArgs e)
         {
             Networking.sendData(Display.team1Score + ":" + Display.team2Score + ":" + lastTeam1 + ":" + lastTeam2);
+            GameUtility.doSend = false; // make the start button not send in order to prevent dupes
         } // used to force send data to the leaderboard
     }
 }

@@ -34,6 +34,7 @@ namespace BattleBabs_Server
                     Console.WriteLine("Data received: \"{0}\"", message);
                     GameUtility.parsedScores = parseMessage();
                     GameUtility.addScores();
+                    
                 }
                 catch (Exception e)
                 {
@@ -59,6 +60,7 @@ namespace BattleBabs_Server
             GameUtility.receivedNames[0] = splitMessage[2]; // team 1 name
             GameUtility.receivedNames[1] = splitMessage[3]; // team 2 name
             Console.WriteLine("Success.");
+            Bracketeers.updateBoolean(GameUtility.receivedNames[0], GameUtility.receivedNames[1], true);
             return returnArray;
         }
     }
