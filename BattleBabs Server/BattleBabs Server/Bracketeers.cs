@@ -16,6 +16,7 @@ namespace BattleBabs_Server
 {
     public partial class Bracketeers : Form
     {
+        
         public static string[] allCombinations = new string[36]; // We can only run this class for one session! DO NOT PASS BOTH SESSION NAMESETS
         public static Boolean[] isChosen = new Boolean[36]; // used with random to make sure dupes arent picked, since going one by one is the combinations would make many teams have multiple battles side by side
         static int index = 0;
@@ -165,6 +166,60 @@ namespace BattleBabs_Server
                 isChosen[i] = false;
                 Console.WriteLine("flag at index {0} reset.", i);
             }
+        }
+
+        private void save()
+        {
+            File.WriteAllLines("./rounds.persist", allCombinations);
+            string[] booleanWrite = new string[36];
+            for (int i = 0; i < booleanWrite.Length; i++)
+            {
+                if (isChosen[i] == true)
+                {
+                    booleanWrite[i] = "1";
+                }
+                else
+                {
+                    booleanWrite[i] = "0";
+                }
+            }
+            File.WriteAllLines("./flags.persist", booleanWrite);
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Save button hit, attempting to save to persist files. Note: this only saves the current session currently.");
+            save();
+        }
+
+        private void load()
+        {
+            string[] loadedNames = new string[36];
+            string[] loadedFlags = new string[36];
+            loadedNames = File.ReadAllLines("./rounds.persist");
+            loadedFlags = File.ReadAllLines("./flags.persist");
+            for(int i = 0; i < loadedNames.Length; i++)
+            {
+                allCombinations[i] = loadedNames[i];
+            }
+            Console.WriteLine("Name combinations loaded, beginning to load played flags");
+            for(int i = 0; i < loadedFlags.Length; i++)
+            {
+                if(loadedFlags[i].Equals("1"))
+                {
+                    isChosen[i] = true;
+                } else
+                {
+                    isChosen[i] = false;
+                }
+            }
+            Console.WriteLine("Played flags have been loaded.");
+        }
+
+        private void loadButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Load button hit, attempting to load from persist files.");
+            load();
         }
     }
 }
