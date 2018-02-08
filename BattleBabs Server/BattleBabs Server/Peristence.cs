@@ -10,13 +10,14 @@ namespace BattleBabs_Server
             Console.WriteLine("[Pre] Loading scores and names");
             string[] loadedScores = File.ReadAllLines("./scores.persist");
             string[] loadedNames = File.ReadAllLines("./names.persist");
+            
             for(int i = 0; i < 19; i++)
             {
                 GameUtility.points[i] = int.Parse(loadedScores[i]);
                 GameUtility.names[i] = loadedNames[i];
                 GameUtility.session2Points[i] = int.Parse(loadedScores[i+9]);
                 GameUtility.session2Names[i] = loadedNames[i + 9];
-            }
+            }           
         }
 
         public static void saveAll()

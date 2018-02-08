@@ -16,6 +16,7 @@ namespace BattleBabs_Server
     public partial class Display : Form
     {
         AboutBox about = new AboutBox();
+        Bracketeers bracketWindow;
         Thread guiUpdate;
         public static int sessionId = 0;
         public Display()
@@ -26,24 +27,11 @@ namespace BattleBabs_Server
             Font leaderBoardFont = new Font(privateFonts.Families[0], 20);
             InitializeComponent();
             titleLabel.Font = leaderBoardFont;
-            team1.Font = titleFont;
-            team2.Font = titleFont;
-            team3.Font = titleFont;
-            team4.Font = titleFont;
-            team5.Font = titleFont;
-            team6.Font = titleFont;
-            team7.Font = titleFont;
-            team8.Font = titleFont;
-            team9.Font = titleFont;
-            score1.Font = titleFont;
-            score2.Font = titleFont;
-            score3.Font = titleFont;
-            score4.Font = titleFont;
-            score5.Font = titleFont;
-            score6.Font = titleFont;
-            score7.Font = titleFont;
-            score8.Font = titleFont;
-            score9.Font = titleFont;
+            object[] labelsToUpdate = { team1, team2, team3, team4, team5, team6, team7, team8, team9, score1, score2, score3, score4, score5, score6, score7, score8, score9 };
+            foreach(Label c in labelsToUpdate)
+            {
+                c.Font = titleFont;
+            }
             ipInfoLabelUpdate(false);
             Networking.create();
             guiUpdate = new Thread(new ThreadStart(updateComponents));
@@ -74,84 +62,66 @@ namespace BattleBabs_Server
             {
                 Console.WriteLine("Exception! {0}", e.Message);
             }
+
+            if (sessionId == 0)
+            {
+                bracketWindow = new Bracketeers(GameUtility.names);
+            } else
+            {
+                bracketWindow = new Bracketeers(GameUtility.session2Names);
+            }
         }
-        delegate void SetTextCallback(string text);
+
         delegate void SetBoolCallback(Boolean logic);
 
         private void updateComponents()
         {
+            object[] labelsToUpdate = { team1, team2, team3, team4, team5, team6, team7, team8, team9 };
+            object[] scoresToUpdate = { score1, score2, score3, score4, score5, score6, score7, score8, score9 };
             while (true)
             {
+                int index = 0;
                 Thread.Sleep(500);
                 if (sessionId == 0)
                 {
                     try
                     {
                         sessionLabelUpdate("1");
-                        place1Update(String.Format("{0,8}", "Team: " + GameUtility.names[0]));
-                        score1Update(String.Format("{0}", "Points: " + GameUtility.points[0].ToString("000,000")));
-
-                        place2Update(String.Format("{0,8}", "Team: " + GameUtility.names[1]));
-                        score2Update(String.Format("{0}", "Points: " + GameUtility.points[1].ToString("000,000")));
-
-                        place3Update(String.Format("{0,8}", "Team: " + GameUtility.names[2]));
-                        score3Update(String.Format("{0}", "Points: " + GameUtility.points[2].ToString("000,000")));
-
-                        place4Update(String.Format("{0,8}", "Team: " + GameUtility.names[3]));
-                        score4Update(String.Format("{0}", "Points: " + GameUtility.points[3].ToString("000,000")));
-
-                        place5Update(String.Format("{0,8}", "Team: " + GameUtility.names[4]));
-                        score5Update(String.Format("{0}", "Points: " + GameUtility.points[4].ToString("000,000")));
-
-                        place6Update(String.Format("{0,8}", "Team: " + GameUtility.names[5]));
-                        score6Update(String.Format("{0}", "Points: " + GameUtility.points[5].ToString("000,000")));
-
-                        place7Update(String.Format("{0,8}", "Team: " + GameUtility.names[6]));
-                        score7Update(String.Format("{0}", "Points: " + GameUtility.points[6].ToString("000,000")));
-
-                        place8Update(String.Format("{0,8}", "Team: " + GameUtility.names[7]));
-                        score8Update(String.Format("{0}", "Points: " + GameUtility.points[7].ToString("000,000")));
-
-                        place9Update(String.Format("{0,8}", "Team: " + GameUtility.names[8]));
-                        score9Update(String.Format("{0}", "Points: " + GameUtility.points[8].ToString("000,000")));
-
+                        foreach (Label c in labelsToUpdate)
+                        {
+                            updateTextLabel(c, String.Format("{0,8}", "Team: " + GameUtility.names[index]));
+                            index++;
+                        }
+                        index = 0;
+                        foreach(Label c in scoresToUpdate)
+                        {
+                            updateTextLabel(c, String.Format("{0}", "Points: " + GameUtility.points[index].ToString("000,000")));
+                            index++;
+                        }
+                        index = 0;
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine("Exception! {0}", e.Message);
                     }
-                } else
+                }
+                else
                 {
                     try
                     {
                         sessionLabelUpdate("2");
-                        place1Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[0]));
-                        score1Update(String.Format("{0}", "Points: " + GameUtility.session2Points[0].ToString("000,000")));
-
-                        place2Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[1]));
-                        score2Update(String.Format("{0}", "Points: " + GameUtility.session2Points[1].ToString("000,000")));
-
-                        place3Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[2]));
-                        score3Update(String.Format("{0}", "Points: " + GameUtility.session2Points[2].ToString("000,000")));
-
-                        place4Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[3]));
-                        score4Update(String.Format("{0}", "Points: " + GameUtility.session2Points[3].ToString("000,000")));
-
-                        place5Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[4]));
-                        score5Update(String.Format("{0}", "Points: " + GameUtility.session2Points[4].ToString("000,000")));
-
-                        place6Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[5]));
-                        score6Update(String.Format("{0}", "Points: " + GameUtility.session2Points[5].ToString("000,000")));
-
-                        place7Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[6]));
-                        score7Update(String.Format("{0}", "Points: " + GameUtility.session2Points[6].ToString("000,000")));
-
-                        place8Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[7]));
-                        score8Update(String.Format("{0}", "Points: " + GameUtility.session2Points[7].ToString("000,000")));
-
-                        place9Update(String.Format("{0,8}", "Team: " + GameUtility.session2Names[8]));
-                        score9Update(String.Format("{0}", "Points: " + GameUtility.session2Points[8].ToString("000,000")));
-
+                        foreach (Label c in labelsToUpdate)
+                        {
+                            updateTextLabel(c, String.Format("{0,8}", "Team: " + GameUtility.session2Names[index]));
+                            index++;
+                        }
+                        index = 0;
+                        foreach (Label c in scoresToUpdate)
+                        {
+                            updateTextLabel(c, String.Format("{0}", "Points: " + GameUtility.session2Points[index].ToString("000,000")));
+                            index++;
+                        }
+                        index = 0;
                     }
                     catch (Exception e)
                     {
@@ -159,7 +129,7 @@ namespace BattleBabs_Server
                     }
                 }
             }
-            
+
 
         }
 
@@ -167,9 +137,7 @@ namespace BattleBabs_Server
         {
             Console.WriteLine("FORM CLOSING, RUN SAVE PROCEDURE");
             Peristence.saveAll();
-        }
-
-        
+        }        
 
         private void aboutButton_Click(object sender, EventArgs e)
         {
@@ -236,7 +204,7 @@ namespace BattleBabs_Server
         }
 
         //All of these functions relate to updating the GUI. NO TOUCHIE
-
+        delegate void SetTextCallback(string text);
         private void sessionLabelUpdate(string text)
         {
             if (this.sessionLabel.InvokeRequired)
@@ -264,221 +232,18 @@ namespace BattleBabs_Server
             }
         }
 
-        private void place1Update(string text)
-        {
-            if (this.team1.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place1Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team1.Text = text;
-            }
-        }
-        private void place2Update(string text)
-        {
-            if (this.team2.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place2Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team2.Text = text;
-            }
-        }
-        private void place3Update(string text)
-        {
-            if (this.team3.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place3Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team3.Text = text;
-            }
-        }
-        private void place4Update(string text)
-        {
-            if (this.team4.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place4Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team4.Text = text;
-            }
-        }
-        private void place5Update(string text)
-        {
-            if (this.team5.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place5Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team5.Text = text;
-            }
-        }
-        private void place6Update(string text)
-        {
-            if (this.team6.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place6Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team6.Text = text;
-            }
-        }
-        private void place7Update(string text)
-        {
-            if (this.team7.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place7Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team7.Text = text;
-            }
-        }
-        private void place8Update(string text)
-        {
-            if (this.team8.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place8Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team8.Text = text;
-            }
-        }
-        private void place9Update(string text)
-        {
-            if (this.team9.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(place9Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.team9.Text = text;
-            }
-        }
+        delegate void SetUpdateCallback(Label c, string text);
 
-        private void score1Update(string text)
+        private void updateTextLabel(Label c, string text)
         {
-            if (this.score1.InvokeRequired)
+            if (c.InvokeRequired)
             {
-                SetTextCallback d = new SetTextCallback(score1Update);
-                this.Invoke(d, new object[] { text });
+                SetUpdateCallback d = new SetUpdateCallback(updateTextLabel);
+                c.Invoke(d, new object[] { c, text });
             }
             else
             {
-                this.score1.Text = text;
-            }
-        }
-        private void score2Update(string text)
-        {
-            if (this.score2.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(score2Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.score2.Text = text;
-            }
-        }
-        private void score3Update(string text)
-        {
-            if (this.score3.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(score3Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.score3.Text = text;
-            }
-        }
-        private void score4Update(string text)
-        {
-            if (this.score4.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(score4Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.score4.Text = text;
-            }
-        }
-        private void score5Update(string text)
-        {
-            if (this.score5.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(score5Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.score5.Text = text;
-            }
-        }
-        private void score6Update(string text)
-        {
-            if (this.score6.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(score6Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.score6.Text = text;
-            }
-        }
-        private void score7Update(string text)
-        {
-            if (this.score7.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(score7Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.score7.Text = text;
-            }
-        }
-        private void score8Update(string text)
-        {
-            if (this.score8.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(score8Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.score8.Text = text;
-            }
-        }
-        private void score9Update(string text)
-        {
-            if (this.score9.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(score9Update);
-                this.Invoke(d, new object[] { text });
-            }
-            else
-            {
-                this.score9.Text = text;
+                c.Text = text;
             }
         }
 
@@ -488,9 +253,11 @@ namespace BattleBabs_Server
             if(sessionId == 0)
             {
                 sessionId = 1;
+                Bracketeers.getCombinations(GameUtility.session2Names);
             } else
             {
                 sessionId = 0;
+                Bracketeers.getCombinations(GameUtility.names);
             }
         }
 
@@ -522,20 +289,18 @@ namespace BattleBabs_Server
             MessageBox.Show("All Available IPs: (Each IP is on it's own network adapter." + Environment.NewLine + allIps, "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        //int arenaNumber = 0;
         private void matchupButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Matchup button was pressed!");
-           /* string[] receivedMatch = Bracket.getNextMatch();
-            GameUtility.makeSpeech("The next match is " + receivedMatch[0] + " VS " + receivedMatch[1] + " on arena " + (arenaNumber+1));
-            MessageBox.Show("The next match is " + receivedMatch[0] + " VS " + receivedMatch[1] + " on arena " + (arenaNumber+1), "NEXT MATCH", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if(arenaNumber == 0)
+            if(Bracketeers.isShowing)
             {
-                arenaNumber = 1;
+
             } else
             {
-                arenaNumber = 0;
-            } */
+                bracketWindow.Show();
+                Bracketeers.isShowing = true;
+            }
+           
         }
     }
 }

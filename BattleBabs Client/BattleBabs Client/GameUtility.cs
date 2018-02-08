@@ -137,12 +137,14 @@ namespace BattleBabs_Client
                 if(doSend)
                 {
                     Console.WriteLine("Broadcasting previous match's data before clearing");
-                    Networking.sendData(Display.team1Score + ":" + Display.team2Score + ":" + lastTeam1 + ":" + lastTeam2);
+                    Networking.sendData("0:0" + ":" + Display.team1 + ":" + Display.team2);
                     //Send data like: "000:000:team1:team2"
                 }
                 else
                 {
-                    Console.WriteLine("Was told not to send.");
+                    Console.WriteLine("Do Send was false, still will send data so robin is updated but will send with scores of 0\n" +
+                        "This usually happens when send was clicked or when the program first runs.");
+                    Networking.sendData("0:0" + ":" + Display.team1 + ":" + Display.team2);
                     doSend = true;
                 }
                 Console.WriteLine("Game timer started since the match is starting");
@@ -172,13 +174,17 @@ namespace BattleBabs_Client
             if (matchState != 0) // this will run as long as the match state isnt already 0
             {
                 gameTimer.Stop(); // stop the game timer
-                Console.WriteLine("Game timer stopped since match is ending.");
+                Console.WriteLine("Game timer stopped since match is ending.");                
                 music.Stop(); // stop the audio from playing
                 buzzer.Play(); // play that sicc buzzer sound
                 matchState = 0; // set the match state to 0
                 currentTime = 0.0f; // set match time to 0
                 lastTeam1 = Display.team1; // move the name of Team 1 to a internal variable within this class so that it is sent with the score data, since the user may change it before that happens
                 lastTeam2 = Display.team2; // move the name of Team 2 to a internal variable within this class so that it is sent with the score data, since the user may change it before that happens
+                if (doSend)
+                {
+                    Networking.sendData(Display.team1Score + ":" + Display.team2Score + ":" + lastTeam1 + ":" + lastTeam2);
+                }
             }
         }
 
