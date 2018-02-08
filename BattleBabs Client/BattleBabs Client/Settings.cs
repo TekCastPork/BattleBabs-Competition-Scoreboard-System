@@ -32,6 +32,7 @@ namespace BattleBabs_Client
                     Networking.port = int.Parse(loadedSettings[1]);
                     GameUtility.gameTime = int.Parse(loadedSettings[2]);
                     GameUtility.SEED = int.Parse(loadedSettings[3]);
+                    timerCount.Value = GameUtility.gameTime;
                     if(int.Parse(loadedSettings[5]) == 1)
                     {
                         Display.screenMode = true;
