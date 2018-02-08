@@ -38,7 +38,7 @@ namespace BattleBabs_Server
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Exception! {0}", e.Message);
+                    Console.WriteLine("Exception! {0} at location {1}", e.Message, e.TargetSite);
                 }
                 Thread.Sleep(20);
             }

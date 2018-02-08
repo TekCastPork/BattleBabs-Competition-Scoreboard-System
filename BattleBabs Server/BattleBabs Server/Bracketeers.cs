@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Combinatorics.Collections;
 using System.Drawing.Text;
@@ -129,7 +125,8 @@ namespace BattleBabs_Server
 
         private void Bracketeers_Load(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Bracket loading.");
+            load();
         }
 
         /// <summary>
@@ -153,7 +150,9 @@ namespace BattleBabs_Server
 
         private void Bracketeers_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Console.WriteLine("Cancelling close operation, hiding instead");
             e.Cancel = true;
+            save();
             this.Hide();
             isShowing = false;
         }
