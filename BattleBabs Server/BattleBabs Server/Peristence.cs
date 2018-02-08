@@ -25,19 +25,6 @@ namespace BattleBabs_Server
             Console.WriteLine("[Post] Saving names & scores to names.persist");
             string[] savingNames = new string[18];
             string[] savingPoints = new string[18];
-            string[] saveRounds = new string[36];
-            string[] saveFlags = new string[36];
-            for(int i = 0; i < saveRounds.Length; i++)
-            {
-                saveRounds[i] = Bracketeers.allCombinations[i];
-                if(Bracketeers.isChosen[i] == true)
-                {
-                    saveFlags[i] = "1";
-                } else
-                {
-                    saveFlags[i] = "0";
-                }
-            }
             for(int i = 0; i < GameUtility.names.Length; i++)
             {
                 try
@@ -51,8 +38,6 @@ namespace BattleBabs_Server
                     Console.WriteLine("Exception! {0} {1}", e.Message, e.TargetSite);
                 }
             }
-            File.WriteAllLines("flags.persist", saveFlags);
-            File.WriteAllLines("rounds.persist", saveRounds);
             File.WriteAllLines("names.persist", savingNames);
             File.WriteAllLines("scores.persist", savingPoints);
             Console.WriteLine("Complete");
