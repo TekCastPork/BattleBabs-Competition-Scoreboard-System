@@ -67,6 +67,7 @@
             this.sessionLabel = new System.Windows.Forms.Label();
             this.ipInfoLabel = new System.Windows.Forms.Label();
             this.matchupButton = new System.Windows.Forms.Button();
+            this.bugButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -494,12 +495,23 @@
             this.matchupButton.UseVisualStyleBackColor = true;
             this.matchupButton.Click += new System.EventHandler(this.matchupButton_Click);
             // 
+            // bugButton
+            // 
+            this.bugButton.Location = new System.Drawing.Point(12, 0);
+            this.bugButton.Name = "bugButton";
+            this.bugButton.Size = new System.Drawing.Size(75, 23);
+            this.bugButton.TabIndex = 38;
+            this.bugButton.Text = "Report Bug";
+            this.bugButton.UseVisualStyleBackColor = true;
+            this.bugButton.Click += new System.EventHandler(this.bugButton_Click);
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(984, 585);
+            this.Controls.Add(this.bugButton);
             this.Controls.Add(this.matchupButton);
             this.Controls.Add(this.ipInfoLabel);
             this.Controls.Add(this.sessionLabel);
@@ -589,6 +601,7 @@
         private System.Windows.Forms.Label sessionLabel;
         private System.Windows.Forms.Label ipInfoLabel;
         private System.Windows.Forms.Button matchupButton;
+        private System.Windows.Forms.Button bugButton;
     }
 }
 

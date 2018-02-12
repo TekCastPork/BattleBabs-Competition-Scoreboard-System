@@ -42,6 +42,7 @@
             this.aboutButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
             this.networkButton = new System.Windows.Forms.Button();
+            this.bugButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,12 +210,24 @@
             this.networkButton.UseVisualStyleBackColor = true;
             this.networkButton.Click += new System.EventHandler(this.networkButton_Click);
             // 
+            // bugButton
+            // 
+            this.bugButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bugButton.Location = new System.Drawing.Point(885, 497);
+            this.bugButton.Name = "bugButton";
+            this.bugButton.Size = new System.Drawing.Size(87, 23);
+            this.bugButton.TabIndex = 18;
+            this.bugButton.Text = "Report Bug";
+            this.bugButton.UseVisualStyleBackColor = true;
+            this.bugButton.Click += new System.EventHandler(this.bugButton_Click);
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.bugButton);
             this.Controls.Add(this.networkButton);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.aboutButton);
@@ -253,6 +266,7 @@
         private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Button networkButton;
+        private System.Windows.Forms.Button bugButton;
     }
 }
 

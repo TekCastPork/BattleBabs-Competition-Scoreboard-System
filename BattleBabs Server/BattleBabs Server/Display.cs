@@ -302,5 +302,20 @@ namespace BattleBabs_Server
             }
            
         }
+
+        /// <summary>
+        /// Let us hope this event handling function is never called
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bugButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Report bug button clicked.");
+            MessageBox.Show("Now opening bug report page. Please include the following: \n" +
+                "Which program experienced the bug (Scoreboard, Leaderboard, or both). \n" +
+                "What you were trying to do when the bug occurred.\n" +
+                "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
+        }
     }
 }
