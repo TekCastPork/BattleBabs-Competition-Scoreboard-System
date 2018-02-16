@@ -69,6 +69,7 @@
             this.loadButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -492,12 +493,23 @@
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
             // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(272, 592);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(86, 23);
+            this.refreshButton.TabIndex = 40;
+            this.refreshButton.Text = "Force Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // Bracketeers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1358, 637);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
@@ -594,5 +606,6 @@
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

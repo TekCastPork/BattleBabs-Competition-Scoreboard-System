@@ -96,6 +96,7 @@
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
     <Compile Include="GameUtility.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Networking.cs" />
     <Compile Include="Peristence.cs" />
     <Compile Include="Program.cs" />
@@ -125,6 +126,9 @@
     <Content Include="flags.persist">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="flags2.persist">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -140,6 +144,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="rounds.persist">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="rounds2.persist">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

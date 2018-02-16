@@ -33,8 +33,8 @@ namespace BattleBabs_Client
                     teamBox1.Items.Insert(i, teamNames[i]);
                     teamBox2.Items.Insert(i, teamNames[i]);
                 }
-                teamBox1.Items.Insert(8, "[[[------Session Splitter------]]]");
-                teamBox2.Items.Insert(8, "[[[------Session Splitter------]]]");
+                teamBox1.Items.Insert(9, "[[[------Session Splitter------]]]");
+                teamBox2.Items.Insert(9, "[[[------Session Splitter------]]]");
             } catch (Exception e)
             {
                 Console.WriteLine("Exception! {0} {1}", e.Message, e.TargetSite);

@@ -237,6 +237,7 @@ namespace BattleBabs_Client
             MessageBox.Show("Now opening bug report page. Please include the following: \n" +
                 "Which program experienced the bug (Scoreboard, Leaderboard, or both). \n" +
                 "What you were trying to do when the bug occurred.\n" +
+                "The log file located in the Logs folder located in the installation folder (close the program before uploading the log)\n" +
                 "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
             System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
         }

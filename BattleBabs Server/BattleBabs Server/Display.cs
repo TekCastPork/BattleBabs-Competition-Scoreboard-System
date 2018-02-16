@@ -21,6 +21,7 @@ namespace BattleBabs_Server
         public static int sessionId = 0;
         public Display()
         {
+            Logger.createLogFile();
             PrivateFontCollection privateFonts = new PrivateFontCollection();
             privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
             Font titleFont = new Font(privateFonts.Families[0], 22);
@@ -51,6 +52,7 @@ namespace BattleBabs_Server
             if(IPCount > 1)
             {
                 Console.WriteLine("More than 1 IP was found, enabling the label.");
+                Logger.writeWarningLog("More than 1 IP was discovered! Will enable IP list label");
                 ipInfoLabelUpdate(true);
             }
             guiUpdate.Start();
@@ -61,6 +63,7 @@ namespace BattleBabs_Server
             catch (Exception e)
             {
                 Console.WriteLine("Exception! {0}", e.Message);
+                Logger.writeExceptionLog(e);
             }
 
             if (sessionId == 0)
@@ -103,6 +106,7 @@ namespace BattleBabs_Server
                     catch (Exception e)
                     {
                         Console.WriteLine("Exception! {0}", e.Message);
+                        Logger.writeExceptionLog(e);
                     }
                 }
                 else
@@ -126,6 +130,7 @@ namespace BattleBabs_Server
                     catch (Exception e)
                     {
                         Console.WriteLine("Exception! {0}", e.Message);
+                        Logger.writeExceptionLog(e);
                     }
                 }
             }
@@ -137,6 +142,7 @@ namespace BattleBabs_Server
         {
             Console.WriteLine("FORM CLOSING, RUN SAVE PROCEDURE");
             Peristence.saveAll();
+            Logger.closeLog();
         }        
 
         private void aboutButton_Click(object sender, EventArgs e)
@@ -145,6 +151,7 @@ namespace BattleBabs_Server
             {
                 AboutBox.isShowing = true;
                 about.Show();
+                Logger.writeGeneralLog("About button was clicked, showing the about box");
             }
         }
 
@@ -166,17 +173,20 @@ namespace BattleBabs_Server
                     } catch(Exception e2)
                     {
                         Console.WriteLine("Exception! {0}", e2.Message);
+                        Logger.writeExceptionLog(e2);
                     }
                 }
             } catch(Exception e1)
             {
                 Console.WriteLine("Exception! {0}", e1.Message);
+                Logger.writeExceptionLog(e1);
             }
         }
 
         private void loadButton_Click(object sender, EventArgs e)
         {
             loadfile.ShowDialog(); // show the load dialog window
+            Logger.writeGeneralLog("Showing load dialog since load button was clicked");
         }
 
         private void resetButton_Click(object sender, EventArgs e)
@@ -250,6 +260,8 @@ namespace BattleBabs_Server
         private void sessionButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Changing Session!");
+            Logger.writeGeneralLog("Session button was clicked, changing session number");
+            Logger.writeWarningLog("This will cause all combinations to be re-calculated");
             if(sessionId == 0)
             {
                 sessionId = 1;
@@ -264,6 +276,7 @@ namespace BattleBabs_Server
         private void ipInfoLabel_Click(object sender, EventArgs e)
         {
             Console.WriteLine("IP info label was clicked. Gathering and Displaying All IPs.");
+            Logger.writeGeneralLog("IP info label was clicked, now gathering all available IPs to display");
             NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
 
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -280,7 +293,12 @@ namespace BattleBabs_Server
                         index++;
                     } catch(Exception e1)
                     {
-                        Console.WriteLine("Exception! {1} {2} User has more than 50 network adapters. I can't handle this! Godspeed user!", e1.ToString(), e1.Message);
+                  //      Console.WriteLine("Exception! {1} {2} User has more than 50 network adapters. I can't handle this! Godspeed user!", e1.ToString(), e1.Message);
+                        Logger.writeExceptionLog(e1);
+                        MessageBox.Show("ERROR! THE AMOUNT OF NETWORK ADAPTERS PLUGGED INTO THIS MACHINE EXCEEDS WHAT MY PROGRAMMER GIFTED ME!\n" +
+                            "NORMALLY YOU SHOULDN'T SEE THIS ERROR!\n" +
+                            "IF YOU'RE A USER AND YOU'RE SEEING THIS: GODSPEED!\n" +
+                            "(TLDR: Theres more IPs than what I can list)", "DEAR GOD WHY!!!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -311,7 +329,8 @@ namespace BattleBabs_Server
         private void bugButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Report bug button clicked.");
-            MessageBox.Show("Now opening bug report page. Please include the following: \n" +
+            Logger.writeWarningLog("Report button was clicked, expect an issue to be raised on github.");
+            MessageBox.Show("Now opening bug report page. Please include the following: \n\n" +
                 "Which program experienced the bug (Scoreboard, Leaderboard, or both). \n" +
                 "What you were trying to do when the bug occurred.\n" +
                 "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
