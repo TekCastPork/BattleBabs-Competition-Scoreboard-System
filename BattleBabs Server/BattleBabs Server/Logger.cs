@@ -29,7 +29,7 @@ namespace BattleBabs_Server
             DateTime time = DateTime.UtcNow;
             Console.WriteLine("Creating a log file.");
             sw = Stopwatch.StartNew();
-            writer = new StreamWriter(String.Format("./Logs/{0}.log", time.ToString().Replace(':','-') + "UTC"));
+            writer = new StreamWriter(String.Format("./Logs/{0}.log", time.ToString().Replace(':','-').Replace('\\','-').Replace('/','-') + " UTC"));
             Console.WriteLine("Log file created as {0}.log",time.ToString().Replace(':', '-') + "UTC");
             writer.WriteLine("[BEGIN] Log File started");
         }
