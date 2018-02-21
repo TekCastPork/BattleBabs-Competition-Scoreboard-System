@@ -38,8 +38,8 @@
             this.team2Disable = new System.Windows.Forms.Button();
             this.team2Band = new System.Windows.Forms.Button();
             this.team2Ping = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.teamLabel1 = new System.Windows.Forms.Label();
+            this.teamLabel2 = new System.Windows.Forms.Label();
             this.team1Toggle = new System.Windows.Forms.CheckBox();
             this.team2Toggle = new System.Windows.Forms.CheckBox();
             this.timeBar = new System.Windows.Forms.ProgressBar();
@@ -163,23 +163,22 @@
             this.team2Ping.UseVisualStyleBackColor = true;
             this.team2Ping.Click += new System.EventHandler(this.team2Ping_Click);
             // 
-            // label1
+            // teamLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Team 1";
+            this.teamLabel1.Location = new System.Drawing.Point(12, 49);
+            this.teamLabel1.Name = "teamLabel1";
+            this.teamLabel1.Size = new System.Drawing.Size(86, 13);
+            this.teamLabel1.TabIndex = 9;
+            this.teamLabel1.Text = "Team 1";
             // 
-            // label2
+            // teamLabel2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(208, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Team 2";
+            this.teamLabel2.Location = new System.Drawing.Point(186, 49);
+            this.teamLabel2.Name = "teamLabel2";
+            this.teamLabel2.Size = new System.Drawing.Size(86, 13);
+            this.teamLabel2.TabIndex = 10;
+            this.teamLabel2.Text = "Team 2";
+            this.teamLabel2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // team1Toggle
             // 
@@ -330,8 +329,8 @@
             this.Controls.Add(this.timeBar);
             this.Controls.Add(this.team2Toggle);
             this.Controls.Add(this.team1Toggle);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.teamLabel2);
+            this.Controls.Add(this.teamLabel1);
             this.Controls.Add(this.team2Shove);
             this.Controls.Add(this.team2Disable);
             this.Controls.Add(this.team2Band);
@@ -363,8 +362,8 @@
         private System.Windows.Forms.Button team2Disable;
         private System.Windows.Forms.Button team2Band;
         private System.Windows.Forms.Button team2Ping;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label teamLabel1;
+        private System.Windows.Forms.Label teamLabel2;
         private System.Windows.Forms.CheckBox team1Toggle;
         private System.Windows.Forms.CheckBox team2Toggle;
         private System.Windows.Forms.ProgressBar timeBar;

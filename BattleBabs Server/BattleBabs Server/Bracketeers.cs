@@ -130,6 +130,7 @@ namespace BattleBabs_Server
             load();
         }
 
+        static Boolean firstRun = true;
         /// <summary>
         /// Get all possible combinations of the names. ONLY PASS 1 SESSION TO THIS FUNCTION AND ENSURE IT IS IN A TRY CATCH
         /// TODO: change getCombinations so that when the session is changed it saves the current bracket to respective session persistence,
@@ -140,48 +141,99 @@ namespace BattleBabs_Server
         /// <returns></returns>
         public static void getCombinations(string[] names)
         {
-            string[] loadedTestingNames = new string[18];
+            string[] loadedTestingNames = new string[36];
+            if (firstRun)
+            {
+                Logger.writeWarningLog("First Run! Skipping initial save");
+                firstRun = false;
+            }
+            else
+            {
+                Logger.writeGeneralLog("Session changing, saving current session!");
+                save(true);
+            }            
+            Boolean namesSame = true;
             Logger.writeGeneralLog("getCombinations has been called.");
-            Logger.writeWarningLog("Given names may be the same as the opposite persistence file, a check will be performed first.");
+            Logger.writeWarningLog("Given names may be the same as the opposite persistence file, a check will be performed.");
             if(Display.sessionId == 1)
             {
                 Logger.writeGeneralLog("New session is session 1(2), reading from rounds2.persist");
                 loadedTestingNames = File.ReadAllLines("./rounds2.persist");
+                for(int i = 0; i < loadedTestingNames.Length; i++)
+                {
+                    Logger.writeGeneralLog(loadedTestingNames[i]);
+                }
             } else
             {
                 Logger.writeGeneralLog("New session is session 0(1), reading from rounds.persist");
                 loadedTestingNames = File.ReadAllLines("./rounds.persist");
+                for (int i = 0; i < loadedTestingNames.Length; i++)
+                {
+                    Logger.writeGeneralLog(loadedTestingNames[i]);
+                }
             }
-            Boolean namesSame = true;
-            for(int i = 0; i < loadedTestingNames.Length; i++)
+            string[] loadedCombos;
+            string[] loadedFlags;
+            if(Display.sessionId == 1)
             {
-                if (loadedTestingNames[i].Equals(names[i]))
+                Logger.writeGeneralLog("Reading from Session 2 persistence files (rounds2 and flags2");
+                loadedCombos = File.ReadAllLines("./rounds2.persist");
+                loadedFlags = File.ReadAllLines("./flags2.persist");
+            } else
+            {
+                Logger.writeGeneralLog("Reading from Session 1 persistence files (rounds and flags)");
+                loadedFlags = File.ReadAllLines("./flags.persist");
+                loadedCombos = File.ReadAllLines("./rounds.persist");
+            }
+            Logger.writeGeneralLog("Creating all possible combinations of teams: " + String.Join(", ", names));
+            index = 0;
+            var teamNames = new List<string>(names.ToList<string>());
+            var c = new Combinations<string>(teamNames, 2);
+            foreach (var v in c)
+            {
+                allCombinations[index] = string.Join(",", v);
+                isChosen[index] = false;
+                index++;
+            }
+            Console.WriteLine("All combinations generated.");
+            Logger.writeGeneralLog("Generated all possible combinations successfully.");
+            for (int i = 0; i < isChosen.Length; i++)
+            {
+                isChosen[i] = false;
+                Console.WriteLine("flag at index {0} reset.", i);
+            }
+            //CHECK IF SAME
+            Logger.writeGeneralLog("Printing out names");
+            for (int i = 0; i < loadedTestingNames.Length; i++)
+            {
+                Logger.writeGeneralLog(String.Format("{0} : {1}", loadedTestingNames[i], allCombinations[i]));
+                if (loadedTestingNames[i].Equals(allCombinations[i]))
                 {
-                    //Do nothing
-                } else
+                    Logger.writeGeneralLog(String.Format("[{0}] Names matched",i));
+                }
+                else
                 {
-                    Logger.writeGeneralLog("Name was different, setting sameName to false and breaking for loop.");
+                    Logger.writeWarningLog("Name was different, setting sameName to false and breaking for loop.");
                     namesSame = false;
-                    break;
                 }
             }
-            if (namesSame)
+            if(namesSame == true)
             {
-                Logger.writeGeneralLog("The names were the same, loading from persistence files instead");
-                string[] loadedCombos;
-                string[] loadedFlags;
-                if(Display.sessionId == 1)
+                Logger.writeGeneralLog("Names were matched! Overridding with peristents.");
+                for(int i = 0; i < allCombinations.Length; i++)
                 {
-                    loadedCombos = File.ReadAllLines("./rounds2.persist");
-                    loadedFlags = File.ReadAllLines("./flags2.persist");
-                } else
-                {
-                    loadedFlags = File.ReadAllLines("./flags.persist");
-                    loadedCombos = File.ReadAllLines("./rounds.persist");
+                    try
+                    {
+                        allCombinations[i] = loadedTestingNames[i];
+                    } catch (Exception e)
+                    {
+                        Logger.writeExceptionLog(e);
+                        break;
+                    }
                 }
-                for(int i = 0; i < loadedFlags.Length; i++)
+                for(int i = 0; i < isChosen.Length; i++)
                 {
-                    if(loadedFlags[i].Equals("1"))
+                   if(loadedFlags[i].Equals("1"))
                     {
                         isChosen[i] = true;
                     } else
@@ -189,30 +241,19 @@ namespace BattleBabs_Server
                         isChosen[i] = false;
                     }
                 }
-                for(int i = 0; i < loadedCombos.Length; i++)
-                {
-                    allCombinations[i] = loadedCombos[i];
-                }
-            }
-            else
+            } else
             {
-                Logger.writeGeneralLog("Names were different, making combinations and resetting played flags for this session");
-                Logger.writeGeneralLog("Creating all possible combinations of teams: " + String.Join(", ", names));
-                index = 0;
-                var teamNames = new List<string>(names.ToList<string>());
-                var c = new Combinations<string>(teamNames, 2);
-                foreach (var v in c)
+                Logger.writeGeneralLog("Names werent matched, not overriding.");
+                for (int i = 0; i < loadedFlags.Length; i++)
                 {
-                    allCombinations[index] = string.Join(",", v);
-                    isChosen[index] = false;
-                    index++;
-                }
-                Console.WriteLine("All combinations generated.");
-                Logger.writeGeneralLog("Generated all possible combinations successfully.");
-                for (int i = 0; i < isChosen.Length; i++)
-                {
-                    isChosen[i] = false;
-                    Console.WriteLine("flag at index {0} reset.", i);
+                    if (loadedFlags[i].Equals("1"))
+                    {
+                        isChosen[i] = true;
+                    }
+                    else
+                    {
+                        isChosen[i] = false;
+                    }
                 }
             }
         }
@@ -222,7 +263,7 @@ namespace BattleBabs_Server
             Console.WriteLine("Cancelling close operation, hiding instead");
             Logger.writeWarningLog("Bracket form was told to close, but closing would dispose its object! Cancelling close operation and hiding instead.");
             e.Cancel = true;
-            save();
+            save(false);
             this.Hide();
             isShowing = false;
         }
@@ -237,51 +278,110 @@ namespace BattleBabs_Server
             }
         }
 
-        private static void save()
+        private static void save(Boolean sub1)
         {
-            Logger.writeGeneralLog("Saving combinations to persistence file incase the program crashes");
-            try
+            if (sub1 == false)
             {
-                if (Display.sessionId == 0)
+                Logger.writeGeneralLog("Saving combinations to persistence file incase the program crashes");
+                try
                 {
-                    Logger.writeGeneralLog("The session was 0, saving to rounds.persist");
-                    File.WriteAllLines("./rounds.persist", allCombinations);
-                } else
-                {
-                    Logger.writeGeneralLog("The session was 1, saving to rounds2.persist");
-                    File.WriteAllLines("./rounds2.persist", allCombinations);
+                    if (Display.sessionId == 0)
+                    {
+                        Logger.writeGeneralLog("The session was 0, saving to rounds.persist");
+                        File.WriteAllLines("./rounds.persist", allCombinations);
+                    }
+                    else
+                    {
+                        Logger.writeGeneralLog("The session was 1, saving to rounds2.persist");
+                        File.WriteAllLines("./rounds2.persist", allCombinations);
+                    }
                 }
-            } catch(Exception e)
-            {
-                Logger.writeExceptionLog(e);
-            }
-            string[] booleanWrite = new string[36];
-            for (int i = 0; i < booleanWrite.Length; i++)
-            {
-                if (isChosen[i] == true)
+                catch (Exception e)
                 {
-                    booleanWrite[i] = "1";
+                    Logger.writeExceptionLog(e);
                 }
-                else
+                string[] booleanWrite = new string[36];
+                for (int i = 0; i < booleanWrite.Length; i++)
                 {
-                    booleanWrite[i] = "0";
+                    if (isChosen[i] == true)
+                    {
+                        booleanWrite[i] = "1";
+                    }
+                    else
+                    {
+                        booleanWrite[i] = "0";
+                    }
                 }
-            }
-            Logger.writeGeneralLog("Complete, now saving played flags to persistence file.");
-            try
-            {
-                if (Display.sessionId == 0)
+                Logger.writeGeneralLog("Complete, now saving played flags to persistence file.");
+                try
                 {
-                    Logger.writeGeneralLog("The session was 0, saving to flags.persist");
-                    File.WriteAllLines("./flags.persist", booleanWrite);
-                } else
-                {
-                    Logger.writeGeneralLog("The session was 1, saving to flags2.persist");
-                    File.WriteAllLines("./flags2.persist", booleanWrite);
+                    if (Display.sessionId == 0)
+                    {
+                        Logger.writeGeneralLog("The session was 0, saving to flags.persist");
+                        File.WriteAllLines("./flags.persist", booleanWrite);
+                    }
+                    else
+                    {
+                        Logger.writeGeneralLog("The session was 1, saving to flags2.persist");
+                        File.WriteAllLines("./flags2.persist", booleanWrite);
+                    }
                 }
-            } catch(Exception e)
+                catch (Exception e)
+                {
+                    Logger.writeExceptionLog(e);
+                }
+            } else
             {
-                Logger.writeExceptionLog(e);
+                Logger.writeGeneralLog("Saving combinations to persistence file incase the program crashes");
+                Logger.writeWarningLog("sub1 flag is true! subtracting 1 from session ID for saving!");
+                try
+                {
+                    if (Display.sessionId -1 == 0)
+                    {
+                        Logger.writeGeneralLog("The session was 0, saving to rounds.persist");
+                        File.WriteAllLines("./rounds.persist", allCombinations);
+                    }
+                    else
+                    {
+                        Logger.writeGeneralLog("The session was 1, saving to rounds2.persist");
+                        File.WriteAllLines("./rounds2.persist", allCombinations);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Logger.writeExceptionLog(e);
+                }
+                string[] booleanWrite = new string[36];
+                for (int i = 0; i < booleanWrite.Length; i++)
+                {
+                    if (isChosen[i] == true)
+                    {
+                        booleanWrite[i] = "1";
+                    }
+                    else
+                    {
+                        booleanWrite[i] = "0";
+                    }
+                }
+                Logger.writeGeneralLog("Complete, now saving played flags to persistence file.");
+                try
+                {
+                    if (Display.sessionId -1 == 0)
+                    {
+                        Logger.writeGeneralLog("The session was 0, saving to flags.persist");
+                        File.WriteAllLines("./flags.persist", booleanWrite);
+                    }
+                    else
+                    {
+                        Logger.writeGeneralLog("The session was 1, saving to flags2.persist");
+                        File.WriteAllLines("./flags2.persist", booleanWrite);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Logger.writeExceptionLog(e);
+                }
+
             }
         }
 
@@ -290,7 +390,7 @@ namespace BattleBabs_Server
             Console.WriteLine("Save button hit, attempting to save to persist files. Note: this only saves the current session currently.");
             Logger.writeGeneralLog("Save button on the bracket frm was clicked, saving current combinations and played flags to persistence files");
             Logger.writeWarningLog("This will only save the current session!");
-            save();
+            save(false);
         }
 
         private void load()

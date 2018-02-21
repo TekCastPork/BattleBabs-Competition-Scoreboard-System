@@ -484,8 +484,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.ImageLocation = "C:\\Users\\674623\\Source\\Repos\\BattleBabs-Competition-Scoreboard-System\\BattleBabs " +
-    "Server\\BattleBabs Server\\RoundRobin.png";
+            this.pictureBox1.Image = global::BattleBabs_Server.Properties.Resources.RoundRobin;
+            this.pictureBox1.ImageLocation = "";
             this.pictureBox1.Location = new System.Drawing.Point(589, 240);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 200);
