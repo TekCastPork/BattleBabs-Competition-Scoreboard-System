@@ -57,6 +57,40 @@ namespace BattleBabs_Client
             }
         }
 
+        delegate void SetTextCallback(string text);
+
+        private void SetTeam1Text(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.teamLabel1.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetTeam1Text);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.teamLabel1.Text = text;
+            }
+        }
+
+        private void SetTeam2Text(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.teamLabel2.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetTeam2Text);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.teamLabel2.Text = text;
+            }
+        }
+
         private void updateComponents()
         {
             while (true)
@@ -67,6 +101,8 @@ namespace BattleBabs_Client
                 subtractModeTeam2 = team2Toggle.Checked;
                 lastTeam1 = Display.team1;
                 lastTeam2 = Display.team2;
+                SetTeam1Text(Display.team1);
+                SetTeam2Text(Display.team2);
                 Thread.Sleep(100);
             }
         }
@@ -282,7 +318,6 @@ namespace BattleBabs_Client
         /// Delegate used for editing event label's text
         /// </summary>
         /// <param name="text"></param>
-        delegate void SetTextCallback(string text);
         delegate void SetIntCallback(float number, Boolean statement);
 
         /// <summary>

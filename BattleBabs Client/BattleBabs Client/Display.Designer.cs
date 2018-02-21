@@ -36,12 +36,13 @@
             this.team2ScoreLbl = new System.Windows.Forms.Label();
             this.VSpicture = new System.Windows.Forms.PictureBox();
             this.teamchangeButton = new System.Windows.Forms.Button();
-            this.timerLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.connectButton = new System.Windows.Forms.Button();
             this.aboutButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
             this.networkButton = new System.Windows.Forms.Button();
+            this.bugButton = new System.Windows.Forms.Button();
+            this.timerLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             this.titleLabel.Location = new System.Drawing.Point(0, 0);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(984, 50);
+            this.titleLabel.Size = new System.Drawing.Size(984, 104);
             this.titleLabel.TabIndex = 2;
             this.titleLabel.Text = "Robert Thirsk High School\'s Bi-Annual Battlebabs Competition";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -141,19 +142,6 @@
             this.teamchangeButton.UseVisualStyleBackColor = true;
             this.teamchangeButton.Click += new System.EventHandler(this.teamChange_Click);
             // 
-            // timerLabel
-            // 
-            this.timerLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.timerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerLabel.Location = new System.Drawing.Point(0, 50);
-            this.timerLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Padding = new System.Windows.Forms.Padding(0, 80, 0, 0);
-            this.timerLabel.Size = new System.Drawing.Size(984, 135);
-            this.timerLabel.TabIndex = 10;
-            this.timerLabel.Text = "TimerCountIsHere";
-            this.timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // exitButton
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -209,18 +197,44 @@
             this.networkButton.UseVisualStyleBackColor = true;
             this.networkButton.Click += new System.EventHandler(this.networkButton_Click);
             // 
+            // bugButton
+            // 
+            this.bugButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bugButton.Location = new System.Drawing.Point(885, 497);
+            this.bugButton.Name = "bugButton";
+            this.bugButton.Size = new System.Drawing.Size(87, 23);
+            this.bugButton.TabIndex = 18;
+            this.bugButton.Text = "Report Bug";
+            this.bugButton.UseVisualStyleBackColor = true;
+            this.bugButton.Click += new System.EventHandler(this.bugButton_Click);
+            // 
+            // timerLabel
+            // 
+            this.timerLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.timerLabel.BackColor = System.Drawing.Color.Black;
+            this.timerLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.timerLabel.Font = new System.Drawing.Font("Erbos Draco 1st Open NBP", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.timerLabel.Location = new System.Drawing.Point(324, 104);
+            this.timerLabel.Name = "timerLabel";
+            this.timerLabel.Size = new System.Drawing.Size(333, 81);
+            this.timerLabel.TabIndex = 19;
+            this.timerLabel.Text = "000.00";
+            this.timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.timerLabel);
+            this.Controls.Add(this.bugButton);
             this.Controls.Add(this.networkButton);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.connectButton);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.timerLabel);
             this.Controls.Add(this.teamchangeButton);
             this.Controls.Add(this.VSpicture);
             this.Controls.Add(this.team2ScoreLbl);
@@ -231,6 +245,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1004, 604);
             this.Name = "Display";
             this.Text = "BattleBabs Scoreboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Display_FormClosing);
@@ -247,12 +262,13 @@
         private System.Windows.Forms.Label team2ScoreLbl;
         private System.Windows.Forms.PictureBox VSpicture;
         private System.Windows.Forms.Button teamchangeButton;
-        private System.Windows.Forms.Label timerLabel;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Button networkButton;
+        private System.Windows.Forms.Button bugButton;
+        private System.Windows.Forms.Label timerLabel;
     }
 }
 
