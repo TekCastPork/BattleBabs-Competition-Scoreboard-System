@@ -472,5 +472,43 @@ namespace BattleBabs_Server
                 getCombinations(GameUtility.session2Names);
             }
         }
+
+        private void forceSaveSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Save button hit, attempting to save to persist files. Note: this only saves the current session currently.");
+            Logger.writeGeneralLog("Save button on the bracket frm was clicked, saving current combinations and played flags to persistence files");
+            Logger.writeWarningLog("This will only save the current session!");
+            save(false);
+        }
+
+        private void forceLoadSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Load button hit, attempting to load from persist files.");
+            Logger.writeGeneralLog("The load button was clicked on the brackets form, loading from persistence file");
+            load();
+        }
+
+        private void resetPlayedMatchesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Resetting flags");
+            for (int i = 0; i < isChosen.Length; i++)
+            {
+                isChosen[i] = false;
+                Console.WriteLine("flag at index {0} reset.", i);
+            }
+        }
+
+        private void forceRefreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Logger.writeWarningLog("Refresh button for bracket window was clicked. Forcibly refreshing the screen via re-calculating the combinations.");
+            if (Display.sessionId == 0)
+            {
+                getCombinations(GameUtility.names);
+            }
+            else
+            {
+                getCombinations(GameUtility.session2Names);
+            }
+        }
     }
 }

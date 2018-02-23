@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("TekCastPork")]
 [assembly: AssemblyProduct("BattleBabs Scoreboard")]
-[assembly: AssemblyCopyright("Made in 2018")]
+[assembly: AssemblyCopyright("Copyright 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

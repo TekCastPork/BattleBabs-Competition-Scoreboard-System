@@ -336,5 +336,83 @@ namespace BattleBabs_Server
                 "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
             System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
         }
+
+        private void aboutThisSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AboutBox.isShowing == false)
+            {
+                AboutBox.isShowing = true;
+                about.Show();
+                Logger.writeGeneralLog("About button was clicked, showing the about box");
+            }
+        }
+
+        private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
+        }
+
+        private void switchSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Changing Session!");
+            Logger.writeGeneralLog("Session button was clicked, changing session number");
+            Logger.writeWarningLog("This will cause all combinations to be re-calculated");
+            if (sessionId == 0)
+            {
+                sessionId = 1;
+                Bracketeers.getCombinations(GameUtility.session2Names);
+            }
+            else
+            {
+                sessionId = 0;
+                Bracketeers.getCombinations(GameUtility.names);
+            }
+        }
+
+        private void matchListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Matchup button was pressed!");
+            if (Bracketeers.isShowing)
+            {
+
+            }
+            else
+            {
+                bracketWindow.Show();
+                Bracketeers.isShowing = true;
+            }
+        }
+
+        private void loadTeamNamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadfile.ShowDialog(); // show the load dialog window
+            Logger.writeGeneralLog("Showing load dialog since load button was clicked");
+        }
+
+        private void resetScoresCANNOTBEUNDONEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Warning! You are about to reset ALL scores for BOTH session 1 AND session 2!\n" +
+                "This action CANNOT be undone!\n" +
+                "The current scores for BOTH sessions WILL be PERMAMENTLY forgotten!\n" +
+                "Are you sure you want to continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+                if (sessionId == 0)
+                {
+                    for (int i = 0; i < GameUtility.points.Length; i++)
+                    {
+                        GameUtility.points[i] = 0;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < GameUtility.session2Points.Length; i++)
+                    {
+                        GameUtility.session2Points[i] = 0;
+                    }
+                }
+            }
+        }
     }
 }
