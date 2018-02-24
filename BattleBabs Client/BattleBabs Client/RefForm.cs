@@ -12,6 +12,13 @@ namespace BattleBabs_Client
         public static string receivedData;
         public static string selectedPort = "";
         public static Thread heartBeat = new Thread(new ThreadStart(isConnectionAlive));
+
+        //Variables related to point system (things like methods and worth)
+        public static string[] team1ScoreNames  = { "Ping Pong", "Rubber Band", "Disable", "Shove" };
+        public static string[] team2ScoreNames  = { "Ping Pong", "Rubber Band", "Disable", "Shove" };
+        public static int[] team1ScoreValues    = {  40, 20, 60, 20 };
+        public static int[] team2ScoreValues    = {  40, 20, 60, 20 };
+
         string lastTeam1; // used for broadcasting
         string lastTeam2; // used for broadcasting
         Thread guiUpdate;
@@ -32,6 +39,38 @@ namespace BattleBabs_Client
             setTimeProgress(GameUtility.gameTime, true);
         }
 
+        public void updateScoreNames()
+        {
+            Button[] team1Buttons = { team1Ping, team1Band, team1Disable, team1Shove };
+            Button[] team2Buttons = { team2Ping, team2Band, team2Disable, team2Shove };
+            //Begin updating
+            for(int i = 0; i < team1Buttons.Length; i++)
+            {
+                updateButton(team1Buttons[i], team1ScoreNames[i]);
+            }
+            for(int i = 0; i < team2Buttons.Length; i++)
+            {
+                updateButton(team2Buttons[i], team2ScoreNames[i]);
+            }
+        }
+
+        delegate void SetButtonCallback(Button button, string text);
+        private void updateButton(Button button, string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (button.InvokeRequired)
+            {
+                SetButtonCallback d = new SetButtonCallback(updateButton);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                button.Text = text;
+            }
+        }
+
         /// <summary>
         /// This function is threaded and just checks to see if the COm port is still connected,
         /// aka, if the arduino is still plugged in after connection has been established
@@ -48,8 +87,10 @@ namespace BattleBabs_Client
                 {
                     Console.WriteLine("Comms port is dead");
                     GameUtility.makeSpeech("Warning: connection with arduino controller lost! Match Auto-pausing!");
-                    MessageBox.Show("Lost Connection with Arduino Controller.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     GameUtility.pauseMatch();
+                    MessageBox.Show("Lost Connection with Arduino Controller.\n" +
+                        "Please ensure the cable is fully plugged in and the arduino is on,\n" +
+                        "then reconnect the arduino using the Arduino button.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
 
                 }

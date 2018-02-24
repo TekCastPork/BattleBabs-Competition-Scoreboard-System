@@ -18,6 +18,7 @@ namespace BattleBabs_Client
         public static Team_Entry teamEntryForm = new Team_Entry();
         AboutBox about = new AboutBox();
         NetworkWindow networking = new NetworkWindow();
+        RefFormSettings refSettings = new RefFormSettings();
         Settings settingWindow = new Settings();
         Thread GUIupdate;
         public static Boolean screenMode = false;
@@ -240,6 +241,15 @@ namespace BattleBabs_Client
                 "The log file located in the Logs folder located in the installation folder (close the program before uploading the log)\n" +
                 "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
             System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
+        }
+
+        private void scoringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(RefFormSettings.isShowing == false)
+            {
+                refSettings.Show();
+                RefFormSettings.isShowing = true;
+            }
         }
     }
 }

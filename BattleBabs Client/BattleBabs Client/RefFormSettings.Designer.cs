@@ -251,6 +251,7 @@
             this.MinimizeBox = false;
             this.Name = "RefFormSettings";
             this.Text = "Scoring Methods Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RefFormSettings_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.Score1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Score3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Score4)).EndInit();

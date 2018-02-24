@@ -108,7 +108,7 @@ namespace BattleBabs_Client
                 Display.connectOpen = false;
                 Console.WriteLine("OK button was hit, handing selected port [{0}] to RefForm", comPortBox.Text);
                 RefForm.selectedPort = comPortBox.Text;
-                RefForm.connectArduinoPort();
+                RefForm.connectArduinoPort(); // connect to the arduino and begin a connection checking thread
                 Display.arduinoForm.Hide();
             } else
             {

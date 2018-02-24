@@ -43,14 +43,25 @@
             this.networkButton = new System.Windows.Forms.Button();
             this.bugButton = new System.Windows.Forms.Button();
             this.timerLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.networkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectToArduinoControllerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.scoringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // titleLabel
             // 
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titleLabel.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Location = new System.Drawing.Point(0, 24);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(984, 104);
@@ -215,12 +226,89 @@
             this.timerLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.timerLabel.Font = new System.Drawing.Font("Erbos Draco 1st Open NBP", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.timerLabel.Location = new System.Drawing.Point(324, 104);
+            this.timerLabel.Location = new System.Drawing.Point(324, 341);
             this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Size = new System.Drawing.Size(333, 81);
+            this.timerLabel.Size = new System.Drawing.Size(338, 81);
             this.timerLabel.TabIndex = 19;
             this.timerLabel.Text = "000.00";
             this.timerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generalToolStripMenuItem,
+            this.connectionsToolStripMenuItem,
+            this.settingsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.TabIndex = 20;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // generalToolStripMenuItem
+            // 
+            this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.reportBugToolStripMenuItem});
+            this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.generalToolStripMenuItem.Text = "General";
+            // 
+            // connectionsToolStripMenuItem
+            // 
+            this.connectionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.networkingToolStripMenuItem,
+            this.connectToArduinoControllerToolStripMenuItem});
+            this.connectionsToolStripMenuItem.Name = "connectionsToolStripMenuItem";
+            this.connectionsToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.connectionsToolStripMenuItem.Text = "Connections";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generalToolStripMenuItem1,
+            this.scoringToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // reportBugToolStripMenuItem
+            // 
+            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
+            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reportBugToolStripMenuItem.Text = "Report Bug";
+            // 
+            // networkingToolStripMenuItem
+            // 
+            this.networkingToolStripMenuItem.Name = "networkingToolStripMenuItem";
+            this.networkingToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.networkingToolStripMenuItem.Text = "Networking";
+            // 
+            // connectToArduinoControllerToolStripMenuItem
+            // 
+            this.connectToArduinoControllerToolStripMenuItem.Name = "connectToArduinoControllerToolStripMenuItem";
+            this.connectToArduinoControllerToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.connectToArduinoControllerToolStripMenuItem.Text = "Connect to Arduino Controller";
+            // 
+            // generalToolStripMenuItem1
+            // 
+            this.generalToolStripMenuItem1.Name = "generalToolStripMenuItem1";
+            this.generalToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.generalToolStripMenuItem1.Text = "General";
+            // 
+            // scoringToolStripMenuItem
+            // 
+            this.scoringToolStripMenuItem.Name = "scoringToolStripMenuItem";
+            this.scoringToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scoringToolStripMenuItem.Text = "Scoring";
+            this.scoringToolStripMenuItem.Click += new System.EventHandler(this.scoringToolStripMenuItem_Click);
             // 
             // Display
             // 
@@ -242,15 +330,20 @@
             this.Controls.Add(this.team1Name);
             this.Controls.Add(this.team2Name);
             this.Controls.Add(this.titleLabel);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1004, 604);
             this.Name = "Display";
             this.Text = "BattleBabs Scoreboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Display_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -269,6 +362,16 @@
         private System.Windows.Forms.Button networkButton;
         private System.Windows.Forms.Button bugButton;
         private System.Windows.Forms.Label timerLabel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem connectionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportBugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem networkingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem connectToArduinoControllerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem scoringToolStripMenuItem;
     }
 }
 
