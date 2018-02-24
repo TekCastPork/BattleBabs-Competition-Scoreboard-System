@@ -158,7 +158,7 @@ namespace BattleBabs_Server
             if(Display.sessionId == 1)
             {
                 Logger.writeGeneralLog("New session is session 1(2), reading from rounds2.persist");
-                loadedTestingNames = File.ReadAllLines("./rounds2.persist");
+                loadedTestingNames = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds2.persist"));
                 for(int i = 0; i < loadedTestingNames.Length; i++)
                 {
                     Logger.writeGeneralLog(loadedTestingNames[i]);
@@ -166,7 +166,7 @@ namespace BattleBabs_Server
             } else
             {
                 Logger.writeGeneralLog("New session is session 0(1), reading from rounds.persist");
-                loadedTestingNames = File.ReadAllLines("./rounds.persist");
+                loadedTestingNames = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds.persist"));
                 for (int i = 0; i < loadedTestingNames.Length; i++)
                 {
                     Logger.writeGeneralLog(loadedTestingNames[i]);
@@ -177,13 +177,13 @@ namespace BattleBabs_Server
             if(Display.sessionId == 1)
             {
                 Logger.writeGeneralLog("Reading from Session 2 persistence files (rounds2 and flags2");
-                loadedCombos = File.ReadAllLines("./rounds2.persist");
-                loadedFlags = File.ReadAllLines("./flags2.persist");
+                loadedCombos = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds2.persist"));
+                loadedFlags = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags2.persist"));
             } else
             {
                 Logger.writeGeneralLog("Reading from Session 1 persistence files (rounds and flags)");
-                loadedFlags = File.ReadAllLines("./flags.persist");
-                loadedCombos = File.ReadAllLines("./rounds.persist");
+                loadedFlags = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags.persist"));
+                loadedCombos = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds.persist"));
             }
             Logger.writeGeneralLog("Creating all possible combinations of teams: " + String.Join(", ", names));
             index = 0;
@@ -288,12 +288,12 @@ namespace BattleBabs_Server
                     if (Display.sessionId == 0)
                     {
                         Logger.writeGeneralLog("The session was 0, saving to rounds.persist");
-                        File.WriteAllLines("./rounds.persist", allCombinations);
+                        File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds.persist"), allCombinations);
                     }
                     else
                     {
                         Logger.writeGeneralLog("The session was 1, saving to rounds2.persist");
-                        File.WriteAllLines("./rounds2.persist", allCombinations);
+                        File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds2.persist"), allCombinations);
                     }
                 }
                 catch (Exception e)
@@ -318,12 +318,12 @@ namespace BattleBabs_Server
                     if (Display.sessionId == 0)
                     {
                         Logger.writeGeneralLog("The session was 0, saving to flags.persist");
-                        File.WriteAllLines("./flags.persist", booleanWrite);
+                        File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags.persist"), booleanWrite);
                     }
                     else
                     {
                         Logger.writeGeneralLog("The session was 1, saving to flags2.persist");
-                        File.WriteAllLines("./flags2.persist", booleanWrite);
+                        File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags2.persist"), booleanWrite);
                     }
                 }
                 catch (Exception e)
@@ -339,12 +339,12 @@ namespace BattleBabs_Server
                     if (Display.sessionId -1 == 0)
                     {
                         Logger.writeGeneralLog("The session was 0, saving to rounds.persist");
-                        File.WriteAllLines("./rounds.persist", allCombinations);
+                        File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds.persist"), allCombinations);
                     }
                     else
                     {
                         Logger.writeGeneralLog("The session was 1, saving to rounds2.persist");
-                        File.WriteAllLines("./rounds2.persist", allCombinations);
+                        File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds2.persist"), allCombinations);
                     }
                 }
                 catch (Exception e)
@@ -369,12 +369,12 @@ namespace BattleBabs_Server
                     if (Display.sessionId -1 == 0)
                     {
                         Logger.writeGeneralLog("The session was 0, saving to flags.persist");
-                        File.WriteAllLines("./flags.persist", booleanWrite);
+                        File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags.persist"), booleanWrite);
                     }
                     else
                     {
                         Logger.writeGeneralLog("The session was 1, saving to flags2.persist");
-                        File.WriteAllLines("./flags2.persist", booleanWrite);
+                        File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags2.persist"), booleanWrite);
                     }
                 }
                 catch (Exception e)
@@ -404,13 +404,13 @@ namespace BattleBabs_Server
                 if (Display.sessionId == 0)
                 {
                     Logger.writeGeneralLog("Session is 0, loading from rounds.persist and flags.persist");
-                    loadedNames = File.ReadAllLines("./rounds.persist");
-                    loadedFlags = File.ReadAllLines("./flags.persist");
+                    loadedNames = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds.persist"));
+                    loadedFlags = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags.persist"));
                 } else
                 {
                     Logger.writeGeneralLog("Session is 1, loading from rounds2.persist and flags2.persist");
-                    loadedNames = File.ReadAllLines("./rounds2.persist");
-                    loadedFlags = File.ReadAllLines("./flags2.persist");
+                    loadedNames = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds2.persist"));
+                    loadedFlags = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags.persist"));
                 }
                 Logger.writeGeneralLog("Read from persistence files successfully. Setting can continue flag to true");
                 canContinue = true;

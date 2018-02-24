@@ -17,6 +17,7 @@ namespace BattleBabs_Server
             Console.WriteLine("Appdata location: {0}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             Application.EnableVisualStyles();
             Updater.checkForUpdates();
+            Updater.validateFiles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Display());
         }

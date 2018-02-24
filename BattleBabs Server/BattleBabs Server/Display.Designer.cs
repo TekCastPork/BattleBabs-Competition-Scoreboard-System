@@ -64,14 +64,14 @@
             this.ipInfoLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutThisSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.switchSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matchListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadTeamNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetScoresCANNOTBEUNDONEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutThisSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -469,6 +469,20 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             // 
+            // aboutThisSoftwareToolStripMenuItem
+            // 
+            this.aboutThisSoftwareToolStripMenuItem.Name = "aboutThisSoftwareToolStripMenuItem";
+            this.aboutThisSoftwareToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.aboutThisSoftwareToolStripMenuItem.Text = "About This Software";
+            this.aboutThisSoftwareToolStripMenuItem.Click += new System.EventHandler(this.aboutThisSoftwareToolStripMenuItem_Click);
+            // 
+            // reportBugToolStripMenuItem
+            // 
+            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
+            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.reportBugToolStripMenuItem.Text = "Report Bug";
+            this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
+            // 
             // generalToolStripMenuItem
             // 
             this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -481,14 +495,14 @@
             // switchSessionToolStripMenuItem
             // 
             this.switchSessionToolStripMenuItem.Name = "switchSessionToolStripMenuItem";
-            this.switchSessionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.switchSessionToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.switchSessionToolStripMenuItem.Text = "Switch Session";
             this.switchSessionToolStripMenuItem.Click += new System.EventHandler(this.switchSessionToolStripMenuItem_Click);
             // 
             // matchListToolStripMenuItem
             // 
             this.matchListToolStripMenuItem.Name = "matchListToolStripMenuItem";
-            this.matchListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.matchListToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.matchListToolStripMenuItem.Text = "Match List";
             this.matchListToolStripMenuItem.Click += new System.EventHandler(this.matchListToolStripMenuItem_Click);
             // 
@@ -514,20 +528,6 @@
             this.resetScoresCANNOTBEUNDONEToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
             this.resetScoresCANNOTBEUNDONEToolStripMenuItem.Text = "Reset Scores (CANNOT BE UNDONE)";
             this.resetScoresCANNOTBEUNDONEToolStripMenuItem.Click += new System.EventHandler(this.resetScoresCANNOTBEUNDONEToolStripMenuItem_Click);
-            // 
-            // aboutThisSoftwareToolStripMenuItem
-            // 
-            this.aboutThisSoftwareToolStripMenuItem.Name = "aboutThisSoftwareToolStripMenuItem";
-            this.aboutThisSoftwareToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.aboutThisSoftwareToolStripMenuItem.Text = "About This Software";
-            this.aboutThisSoftwareToolStripMenuItem.Click += new System.EventHandler(this.aboutThisSoftwareToolStripMenuItem_Click);
-            // 
-            // reportBugToolStripMenuItem
-            // 
-            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
-            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.reportBugToolStripMenuItem.Text = "Report Bug";
-            this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
             // 
             // Display
             // 

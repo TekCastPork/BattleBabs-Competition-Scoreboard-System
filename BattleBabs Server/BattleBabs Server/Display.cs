@@ -374,7 +374,7 @@ namespace BattleBabs_Server
             Console.WriteLine("Matchup button was pressed!");
             if (Bracketeers.isShowing)
             {
-
+                
             }
             else
             {

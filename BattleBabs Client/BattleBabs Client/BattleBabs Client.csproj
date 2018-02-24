@@ -120,6 +120,12 @@
     <Compile Include="RefForm.Designer.cs">
       <DependentUpon>RefForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RefFormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RefFormSettings.Designer.cs">
+      <DependentUpon>RefFormSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </Compile>
     <EmbeddedResource Include="RefForm.resx">
       <DependentUpon>RefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RefFormSettings.resx">
+      <DependentUpon>RefFormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>

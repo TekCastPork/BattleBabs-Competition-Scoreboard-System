@@ -15,6 +15,8 @@ namespace BattleBabs_Client
         static void Main()
         {
             Application.EnableVisualStyles();
+            Updater.checkForUpdates();
+            Updater.validateFiles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Display());
         }

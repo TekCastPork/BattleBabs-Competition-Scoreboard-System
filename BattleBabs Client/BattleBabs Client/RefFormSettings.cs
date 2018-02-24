@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace BattleBabs_Client
+{
+    public partial class RefFormSettings : Form
+    {
+        public RefFormSettings()
+        {
+            InitializeComponent();
+        }
+
+        private void applyTeam1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void applyTeam2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
