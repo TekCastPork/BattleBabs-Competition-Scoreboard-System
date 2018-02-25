@@ -251,5 +251,30 @@ namespace BattleBabs_Client
                 RefFormSettings.isShowing = true;
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void networkingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void connectToArduinoControllerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void generalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

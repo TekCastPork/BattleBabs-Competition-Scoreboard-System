@@ -45,12 +45,12 @@
             this.timerLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.networkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToArduinoControllerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scoringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
@@ -255,6 +255,20 @@
             this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.generalToolStripMenuItem.Text = "General";
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // reportBugToolStripMenuItem
+            // 
+            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
+            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reportBugToolStripMenuItem.Text = "Report Bug";
+            this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
+            // 
             // connectionsToolStripMenuItem
             // 
             this.connectionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -263,6 +277,20 @@
             this.connectionsToolStripMenuItem.Name = "connectionsToolStripMenuItem";
             this.connectionsToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.connectionsToolStripMenuItem.Text = "Connections";
+            // 
+            // networkingToolStripMenuItem
+            // 
+            this.networkingToolStripMenuItem.Name = "networkingToolStripMenuItem";
+            this.networkingToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.networkingToolStripMenuItem.Text = "Networking";
+            this.networkingToolStripMenuItem.Click += new System.EventHandler(this.networkingToolStripMenuItem_Click);
+            // 
+            // connectToArduinoControllerToolStripMenuItem
+            // 
+            this.connectToArduinoControllerToolStripMenuItem.Name = "connectToArduinoControllerToolStripMenuItem";
+            this.connectToArduinoControllerToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.connectToArduinoControllerToolStripMenuItem.Text = "Connect to Arduino Controller";
+            this.connectToArduinoControllerToolStripMenuItem.Click += new System.EventHandler(this.connectToArduinoControllerToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -273,40 +301,17 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // reportBugToolStripMenuItem
-            // 
-            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
-            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reportBugToolStripMenuItem.Text = "Report Bug";
-            // 
-            // networkingToolStripMenuItem
-            // 
-            this.networkingToolStripMenuItem.Name = "networkingToolStripMenuItem";
-            this.networkingToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.networkingToolStripMenuItem.Text = "Networking";
-            // 
-            // connectToArduinoControllerToolStripMenuItem
-            // 
-            this.connectToArduinoControllerToolStripMenuItem.Name = "connectToArduinoControllerToolStripMenuItem";
-            this.connectToArduinoControllerToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.connectToArduinoControllerToolStripMenuItem.Text = "Connect to Arduino Controller";
-            // 
             // generalToolStripMenuItem1
             // 
             this.generalToolStripMenuItem1.Name = "generalToolStripMenuItem1";
             this.generalToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.generalToolStripMenuItem1.Text = "General";
+            this.generalToolStripMenuItem1.Click += new System.EventHandler(this.generalToolStripMenuItem1_Click);
             // 
             // scoringToolStripMenuItem
             // 
             this.scoringToolStripMenuItem.Name = "scoringToolStripMenuItem";
-            this.scoringToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scoringToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.scoringToolStripMenuItem.Text = "Scoring";
             this.scoringToolStripMenuItem.Click += new System.EventHandler(this.scoringToolStripMenuItem_Click);
             // 

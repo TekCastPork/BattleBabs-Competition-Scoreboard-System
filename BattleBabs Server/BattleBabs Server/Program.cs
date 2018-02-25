@@ -19,7 +19,14 @@ namespace BattleBabs_Server
             Updater.checkForUpdates();
             Updater.validateFiles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ThreadExit += isExiting;
             Application.Run(new Display());
+        }
+
+        static void isExiting(object sender, System.EventArgs e)
+        {
+            Console.WriteLine("Main thread is exiting!");
+            Logger.closeLog();
         }
     }
 }

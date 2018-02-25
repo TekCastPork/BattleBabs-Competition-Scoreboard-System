@@ -142,7 +142,6 @@ namespace BattleBabs_Server
         {
             Console.WriteLine("FORM CLOSING, RUN SAVE PROCEDURE");
             Peristence.saveAll();
-            Logger.closeLog();
         }        
 
         private void aboutButton_Click(object sender, EventArgs e)

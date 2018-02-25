@@ -173,7 +173,7 @@ namespace BattleBabs_Server
                 }
             }
             string[] loadedCombos;
-            string[] loadedFlags;
+            string[] loadedFlags = new string[36];
             if(Display.sessionId == 1)
             {
                 Logger.writeGeneralLog("Reading from Session 2 persistence files (rounds2 and flags2");
@@ -184,6 +184,23 @@ namespace BattleBabs_Server
                 Logger.writeGeneralLog("Reading from Session 1 persistence files (rounds and flags)");
                 loadedFlags = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags.persist"));
                 loadedCombos = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "rounds.persist"));
+            }
+            Logger.writeGeneralLog("Testing loaded flags to make sure there is data.");
+            if(loadedFlags.Length == 0)
+            {
+                Logger.writeCriticalLog("Loaded flags loaded with length 0! NO FLAGS WERE LOADED! Loading default flags into memory and file");
+                string[] defaultFlags = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" };
+                if (Display.sessionId == 1)
+                {
+                    File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags2.persist"), defaultFlags);
+                    loadedFlags = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags2.persist"));
+                }
+                else
+                {
+                    File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags.persist"), defaultFlags);
+                    loadedFlags = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "flags.persist"));
+                }
+                
             }
             Logger.writeGeneralLog("Creating all possible combinations of teams: " + String.Join(", ", names));
             index = 0;
