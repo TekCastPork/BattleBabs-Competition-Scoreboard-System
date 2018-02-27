@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="GameUtility.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Networking.cs" />
     <Compile Include="NetworkWindow.cs">
       <SubType>Form</SubType>

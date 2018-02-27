@@ -67,7 +67,7 @@ namespace BattleBabs_Client
             try
             {
                 Console.WriteLine("Saving settings to config.");
-                File.WriteAllLines("./config.cfg", settings);
+                File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "config.cfg"), settings);
             } catch (Exception e)
             {
                 Console.WriteLine("Exception! {0}", e.Message);
@@ -80,7 +80,7 @@ namespace BattleBabs_Client
             try
             {
                 loadSuccess = true;
-                return File.ReadAllLines("./config.cfg");
+                return File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "config.cfg"));
                 
             } catch(Exception e)
             {

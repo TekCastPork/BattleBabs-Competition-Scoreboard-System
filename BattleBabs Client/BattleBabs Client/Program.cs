@@ -27,8 +27,6 @@ namespace BattleBabs_Client
         static void hasExited(object sender, System.EventArgs e)
         {
             Console.WriteLine("Application main thread is exiting");
-
-
         }
     }
 }
