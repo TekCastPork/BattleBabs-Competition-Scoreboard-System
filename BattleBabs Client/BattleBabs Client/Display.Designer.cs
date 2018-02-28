@@ -35,13 +35,7 @@
             this.team1ScoreLbl = new System.Windows.Forms.Label();
             this.team2ScoreLbl = new System.Windows.Forms.Label();
             this.VSpicture = new System.Windows.Forms.PictureBox();
-            this.teamchangeButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.connectButton = new System.Windows.Forms.Button();
-            this.aboutButton = new System.Windows.Forms.Button();
-            this.settingsButton = new System.Windows.Forms.Button();
-            this.networkButton = new System.Windows.Forms.Button();
-            this.bugButton = new System.Windows.Forms.Button();
             this.timerLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,17 +136,6 @@
             this.VSpicture.TabIndex = 8;
             this.VSpicture.TabStop = false;
             // 
-            // teamchangeButton
-            // 
-            this.teamchangeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.teamchangeButton.Location = new System.Drawing.Point(9, 526);
-            this.teamchangeButton.Name = "teamchangeButton";
-            this.teamchangeButton.Size = new System.Drawing.Size(87, 23);
-            this.teamchangeButton.TabIndex = 9;
-            this.teamchangeButton.Text = "Change Teams";
-            this.teamchangeButton.UseVisualStyleBackColor = true;
-            this.teamchangeButton.Click += new System.EventHandler(this.teamChange_Click);
-            // 
             // exitButton
             // 
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -163,61 +146,6 @@
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // connectButton
-            // 
-            this.connectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.connectButton.Location = new System.Drawing.Point(195, 526);
-            this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(87, 23);
-            this.connectButton.TabIndex = 14;
-            this.connectButton.Text = "Arduino...";
-            this.connectButton.UseVisualStyleBackColor = true;
-            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
-            // 
-            // aboutButton
-            // 
-            this.aboutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.aboutButton.Location = new System.Drawing.Point(792, 526);
-            this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(87, 23);
-            this.aboutButton.TabIndex = 15;
-            this.aboutButton.Text = "About";
-            this.aboutButton.UseVisualStyleBackColor = true;
-            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.settingsButton.Location = new System.Drawing.Point(288, 526);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(87, 23);
-            this.settingsButton.TabIndex = 16;
-            this.settingsButton.Text = "Settings...";
-            this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
-            // 
-            // networkButton
-            // 
-            this.networkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.networkButton.Location = new System.Drawing.Point(102, 526);
-            this.networkButton.Name = "networkButton";
-            this.networkButton.Size = new System.Drawing.Size(87, 23);
-            this.networkButton.TabIndex = 17;
-            this.networkButton.Text = "Network...";
-            this.networkButton.UseVisualStyleBackColor = true;
-            this.networkButton.Click += new System.EventHandler(this.networkButton_Click);
-            // 
-            // bugButton
-            // 
-            this.bugButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bugButton.Location = new System.Drawing.Point(885, 497);
-            this.bugButton.Name = "bugButton";
-            this.bugButton.Size = new System.Drawing.Size(87, 23);
-            this.bugButton.TabIndex = 18;
-            this.bugButton.Text = "Report Bug";
-            this.bugButton.UseVisualStyleBackColor = true;
-            this.bugButton.Click += new System.EventHandler(this.bugButton_Click);
             // 
             // timerLabel
             // 
@@ -258,14 +186,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // reportBugToolStripMenuItem
             // 
             this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
-            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.reportBugToolStripMenuItem.Text = "Report Bug";
             this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
             // 
@@ -311,7 +239,7 @@
             // scoringToolStripMenuItem
             // 
             this.scoringToolStripMenuItem.Name = "scoringToolStripMenuItem";
-            this.scoringToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.scoringToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.scoringToolStripMenuItem.Text = "Scoring";
             this.scoringToolStripMenuItem.Click += new System.EventHandler(this.scoringToolStripMenuItem_Click);
             // 
@@ -322,13 +250,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.timerLabel);
-            this.Controls.Add(this.bugButton);
-            this.Controls.Add(this.networkButton);
-            this.Controls.Add(this.settingsButton);
-            this.Controls.Add(this.aboutButton);
-            this.Controls.Add(this.connectButton);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.teamchangeButton);
             this.Controls.Add(this.VSpicture);
             this.Controls.Add(this.team2ScoreLbl);
             this.Controls.Add(this.team1ScoreLbl);
@@ -359,13 +281,7 @@
         private System.Windows.Forms.Label team1ScoreLbl;
         private System.Windows.Forms.Label team2ScoreLbl;
         private System.Windows.Forms.PictureBox VSpicture;
-        private System.Windows.Forms.Button teamchangeButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Button connectButton;
-        private System.Windows.Forms.Button aboutButton;
-        private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.Button networkButton;
-        private System.Windows.Forms.Button bugButton;
         private System.Windows.Forms.Label timerLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;

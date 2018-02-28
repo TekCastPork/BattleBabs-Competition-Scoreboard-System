@@ -46,7 +46,6 @@ namespace BattleBabs_Client
             GUIupdate.Start(); // start the GUI updating thread
             referee.Show(); // create the referee window so that points can be allocated and team names set
             GoFullscreen(screenMode); // set the fullscreen mode
-       //     PipeClient.connectToPipe(System.IO.Pipes.PipeDirection.InOut); // call the method that attempts to connect to the server's network pipe
         }
 
 
@@ -66,21 +65,6 @@ namespace BattleBabs_Client
             {
                 this.WindowState = FormWindowState.Maximized;
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-            }
-        }
-
-        /// <summary>
-        /// This function handles team change button click events
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void teamChange_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("teamChange button was clicked.");
-            if (teamOpen == false)
-            {
-                teamEntryForm.Show();
-                teamOpen = true;
             }
         }
 
@@ -200,49 +184,6 @@ namespace BattleBabs_Client
 
         public static Boolean connectOpen = false;
 
-        private void connectButton_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("connect button was clicked.");
-            if (connectOpen == false)
-            {
-                arduinoForm.Show();
-                connectOpen = true;
-            }
-        }
-
-        private void aboutButton_Click(object sender, EventArgs e)
-        {
-           if(AboutBox.isShowing == false) {
-                about.Show();
-                AboutBox.isShowing = true;
-            } 
-        }
-
-        private void settingsButton_Click(object sender, EventArgs e)
-        {
-            settingWindow.Show();
-        }
-
-        private void networkButton_Click(object sender, EventArgs e)
-        {
-            if(NetworkWindow.isOpen == false)
-            {
-                networking.Show();
-                NetworkWindow.isOpen = true;
-            }
-        }
-
-        private void bugButton_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Report bug button clicked.");
-            MessageBox.Show("Now opening bug report page. Please include the following: \n" +
-                "Which program experienced the bug (Scoreboard, Leaderboard, or both). \n" +
-                "What you were trying to do when the bug occurred.\n" +
-                "The log file located in the Logs folder located in the installation folder (close the program before uploading the log)\n" +
-                "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
-        }
-
         private void scoringToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(RefFormSettings.isShowing == false)
@@ -254,27 +195,50 @@ namespace BattleBabs_Client
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (AboutBox.isShowing == false)
+            {
+                about.Show();
+                AboutBox.isShowing = true;
+            }
         }
 
         private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("Report bug button clicked.");
+            MessageBox.Show("Now opening bug report page. Please include the following: \n" +
+                "Which program experienced the bug (Scoreboard, Leaderboard, or both). \n" +
+                "What you were trying to do when the bug occurred.\n" +
+                "The log file located in the Logs folder located in the installation folder (close the program before uploading the log)\n" +
+                "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
         }
 
         private void networkingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (NetworkWindow.isOpen == false)
+            {
+                networking.Show();
+                NetworkWindow.isOpen = true;
+            }
         }
 
         private void connectToArduinoControllerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("connect button was clicked.");
+            if (connectOpen == false)
+            {
+                arduinoForm.Show();
+                connectOpen = true;
+            }
         }
 
         private void generalToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            if (Settings.isShowing == false)
+            {
+                settingWindow.Show();
+                Settings.isShowing = true;
+            }
         }
     }
 }

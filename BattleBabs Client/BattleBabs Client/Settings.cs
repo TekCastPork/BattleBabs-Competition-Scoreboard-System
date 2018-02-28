@@ -7,6 +7,7 @@ namespace BattleBabs_Client
     public partial class Settings : Form
     {
         Boolean loadSuccess = false;
+        public static Boolean isShowing = false;
         string[] settings = { "", "", "", "", "","" };
         string[] loadedSettings = { "", "", "", "", "","" };
         /*
@@ -127,6 +128,7 @@ namespace BattleBabs_Client
             GameUtility.setSeed();
             this.Hide();
             saveSettings();
+            isShowing = false;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
