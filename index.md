@@ -6,7 +6,7 @@ layout: alternate
 
 # It's been rewritten!
 
-Originially written in java through the processing IDE in my grade 12 year, version 1.0 of the BattleBots Scoreboard System was hastly coded in about 1 day, but this haste shows. The entire system was made up of 3 programs and an arduino controller, and had about 15 steps just to start the system. This complexity was overlooked since I was there to set it up and use it as one of the referees, but helping set it up this year made me consider rewritting the program from the ground up.
+Originially written in java through the processing IDE in my grade 12 year, version 1.0 of the BattleBots Scoreboard System was hastly coded in about 1 day, but this haste showed. The entire system was made up of 3 programs and an arduino controller, and had about 15 steps just to start the system. This complexity was overlooked since I was there to set it up and use it as one of the referees, but helping set it up this year made me consider rewritting the program from the ground up.
 
 Now, after just over 1 month of coding in my free time, there are downloadable, working versions of the scoreboard system that have been re-written entirely!
 
