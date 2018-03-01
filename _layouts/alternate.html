@@ -21,10 +21,11 @@
       <div id="header">
         <nav>
           <li class="fork"><a href="{{ site.github.repository_url }}">View On GitHub</a></li>
-          <li class="fork"> </li>
-          <li class="fork"><a href="https://tekcastpork.github.io">Home</a></li>
-          <li class="fork"> </li>
-          <li class="fork"><a href="https://tekcastpork.github.io/BattleBabs-Competition-Scoreboard-System/">Scoreboard System</a></li>
+          {% if site.show_downloads %}
+            <li class="downloads">DOWNLOADS:</li>    
+            <li class="downloads"><a href="https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases/latest">Latest</a></li>
+            <li class="downloads"><a href="https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases">All Releases</a></li>
+          {% endif %}
         </nav>
       </div><!-- end header -->
 
@@ -35,11 +36,8 @@
           <h1>BattleBots Scoreboard System</h1>
           <p>{{ site.description | default: site.github.project_tagline }}</p>
           <hr>
-          <span class="credits left">
-            {% if site.show_downloads %}
-            DOWNLOADS:    <li class="downloads"><a href="https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases/latest">Latest</a></li>    <li class="downloads"><a href="https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases">All Releases</a></li>
-            {% endif %}
-          </span>
+          <span class="credits left">Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
         {{ content }}
