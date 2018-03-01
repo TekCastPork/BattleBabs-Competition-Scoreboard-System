@@ -213,15 +213,6 @@ namespace BattleBabs_Client
             System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
         }
 
-        private void networkingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (NetworkWindow.isOpen == false)
-            {
-                networking.Show();
-                NetworkWindow.isOpen = true;
-            }
-        }
-
         private void connectToArduinoControllerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Console.WriteLine("connect button was clicked.");
@@ -238,6 +229,15 @@ namespace BattleBabs_Client
             {
                 settingWindow.Show();
                 Settings.isShowing = true;
+            }
+        }
+
+        private void networkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (NetworkWindow.isOpen == false)
+            {
+                networking.Show();
+                NetworkWindow.isOpen = true;
             }
         }
     }

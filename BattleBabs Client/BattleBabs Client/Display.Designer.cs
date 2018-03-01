@@ -42,11 +42,11 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.networkingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToArduinoControllerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scoringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.networkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -200,18 +200,10 @@
             // connectionsToolStripMenuItem
             // 
             this.connectionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.networkingToolStripMenuItem,
             this.connectToArduinoControllerToolStripMenuItem});
             this.connectionsToolStripMenuItem.Name = "connectionsToolStripMenuItem";
             this.connectionsToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.connectionsToolStripMenuItem.Text = "Connections";
-            // 
-            // networkingToolStripMenuItem
-            // 
-            this.networkingToolStripMenuItem.Name = "networkingToolStripMenuItem";
-            this.networkingToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.networkingToolStripMenuItem.Text = "Networking";
-            this.networkingToolStripMenuItem.Click += new System.EventHandler(this.networkingToolStripMenuItem_Click);
             // 
             // connectToArduinoControllerToolStripMenuItem
             // 
@@ -224,7 +216,8 @@
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.generalToolStripMenuItem1,
-            this.scoringToolStripMenuItem});
+            this.scoringToolStripMenuItem,
+            this.networkToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -233,15 +226,22 @@
             // 
             this.generalToolStripMenuItem1.Name = "generalToolStripMenuItem1";
             this.generalToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.generalToolStripMenuItem1.Text = "General";
+            this.generalToolStripMenuItem1.Text = "General...";
             this.generalToolStripMenuItem1.Click += new System.EventHandler(this.generalToolStripMenuItem1_Click);
             // 
             // scoringToolStripMenuItem
             // 
             this.scoringToolStripMenuItem.Name = "scoringToolStripMenuItem";
             this.scoringToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.scoringToolStripMenuItem.Text = "Scoring";
+            this.scoringToolStripMenuItem.Text = "Scoring...";
             this.scoringToolStripMenuItem.Click += new System.EventHandler(this.scoringToolStripMenuItem_Click);
+            // 
+            // networkToolStripMenuItem
+            // 
+            this.networkToolStripMenuItem.Name = "networkToolStripMenuItem";
+            this.networkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.networkToolStripMenuItem.Text = "Network...";
+            this.networkToolStripMenuItem.Click += new System.EventHandler(this.networkToolStripMenuItem_Click);
             // 
             // Display
             // 
@@ -289,10 +289,10 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportBugToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem networkingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectToArduinoControllerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem scoringToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem networkToolStripMenuItem;
     }
 }
 
