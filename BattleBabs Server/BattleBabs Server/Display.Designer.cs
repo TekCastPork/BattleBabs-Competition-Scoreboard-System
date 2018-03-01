@@ -83,7 +83,7 @@
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(984, 32);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "BattleBab Competition Leaderboard";
+            this.titleLabel.Text = "BattleBot Competition Leaderboard";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ipLabel
@@ -441,9 +441,9 @@
             this.ipInfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ipInfoLabel.Location = new System.Drawing.Point(12, 55);
             this.ipInfoLabel.Name = "ipInfoLabel";
-            this.ipInfoLabel.Size = new System.Drawing.Size(301, 19);
+            this.ipInfoLabel.Size = new System.Drawing.Size(381, 19);
             this.ipInfoLabel.TabIndex = 36;
-            this.ipInfoLabel.Text = "Multiple IPs are avaiable! Click here for more info.";
+            this.ipInfoLabel.Text = "This machine has multiple possible IPs! Click here for more info.";
             this.ipInfoLabel.Click += new System.EventHandler(this.ipInfoLabel_Click);
             // 
             // menuStrip1
