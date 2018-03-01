@@ -333,12 +333,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BC0D383AB1484C5BB2CD24176C400A64"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C30246899B4667DD02D3C50D8A2766CE"
         "OwnerKey" = "8:_9261202A05B64DD48446AE03ED2AA1FE"
         "MsmSig" = "8:_UNDEFINED"
@@ -377,6 +371,12 @@
         {
         "MsmKey" = "8:_DD3328441ABB50B60BE8D937EDA5B814"
         "OwnerKey" = "8:_9261202A05B64DD48446AE03ED2AA1FE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DE1348C738EA4E0E84520E945E3EAD72"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -466,6 +466,12 @@
         "Entry"
         {
         "MsmKey" = "8:_FE0BDAABA90D4DA79E6B618E9CF5B6D0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FEA860F5EDEC4B9181C103B49F33DEF0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2335,26 +2341,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC0D383AB1484C5BB2CD24176C400A64"
-            {
-            "SourcePath" = "8:..\\BattleBabs Server\\license.txt"
-            "TargetName" = "8:license.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_F802EB24BF2948D7A20DF3849B525B1F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C30246899B4667DD02D3C50D8A2766CE"
             {
             "AssemblyRegister" = "3:1"
@@ -2539,6 +2525,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DE1348C738EA4E0E84520E945E3EAD72"
+            {
+            "SourcePath" = "8:..\\BattleBabs Server\\license.rtf"
+            "TargetName" = "8:license.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_F802EB24BF2948D7A20DF3849B525B1F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E15AC32B0D87E6D398073A7FA73D1421"
@@ -2880,6 +2886,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FEA860F5EDEC4B9181C103B49F33DEF0"
+            {
+            "SourcePath" = "8:..\\BattleBabs Server\\license.rtf"
+            "TargetName" = "8:license.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_F802EB24BF2948D7A20DF3849B525B1F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FEA9614B046481989F435FC16AD87F4B"
             {
             "AssemblyRegister" = "3:1"
@@ -3032,7 +3058,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BattleBabs Leaderboard"
         "ProductCode" = "8:{DF67E187-6353-4AD0-8386-8F135D05FAD3}"
-        "PackageCode" = "8:{9727AA3D-A3DE-4C5B-AA7B-D4036AD534BD}"
+        "PackageCode" = "8:{E6A61AFC-3A8B-4BBE-A43C-C486698464A4}"
         "UpgradeCode" = "8:{D3B5DFF9-D417-4721-A550-EC1433BA494F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -3489,7 +3515,7 @@
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
                             "Setting" = "3:2"
-                            "Value" = "8:_BC0D383AB1484C5BB2CD24176C400A64"
+                            "Value" = "8:_FEA860F5EDEC4B9181C103B49F33DEF0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "Sunken"
