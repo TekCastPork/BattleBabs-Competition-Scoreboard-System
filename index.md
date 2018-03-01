@@ -14,12 +14,13 @@ Now, after just over 1 month of coding in my free time, there are downloadable, 
 # Features:
 
 * Written in C#!
-* Uses the .NET framework for making nice looking GUIs
+* Uses the .NET framework
 * Scoreboard and Leaderboard system
 * Program intercommunication via LAN UDP connections
-* Leaderboard and Scoreboard are independent of eachother! One is not needed for the other to run! (Upgrade from 1.0)
+* Leaderboard and Scoreboard are independent of eachother! One is not needed for the other to run! (Upgrade from original 1.0 version)
 * Arduino controllers built for the originaly java 1.0 version are still compatible with the C# version
 * IN PROGRESS: Customization to allow use for nearly anything someone would need a scoreboard system for.
+* 2 independent sessions, each capable of holding up to 9 teams.
 
 # Downloads
 
