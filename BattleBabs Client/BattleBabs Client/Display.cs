@@ -15,6 +15,7 @@ namespace BattleBabs_Client
         public static int team1Score = 0;
         public static int team2Score = 0;
         public static Boolean teamOpen = false;
+        Boolean lastScreenState = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
         AboutBox about = new AboutBox();
         NetworkWindow networking = new NetworkWindow();
@@ -48,6 +49,7 @@ namespace BattleBabs_Client
             GoFullscreen(screenMode); // set the fullscreen mode
         }
 
+        delegate void SetBooleanCallback(Boolean state);
 
         /// <summary>
         /// Allows the toggling of fullscreen for this display
@@ -55,16 +57,24 @@ namespace BattleBabs_Client
         /// <param name="fullscreen"></param>
         private void GoFullscreen(bool fullscreen)
         {
-            if (fullscreen)
+            if (this.InvokeRequired)
             {
-                this.WindowState = FormWindowState.Normal;
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                this.Bounds = Screen.PrimaryScreen.Bounds;
+                SetBooleanCallback d = new SetBooleanCallback(GoFullscreen);
+                this.Invoke(d, new object[] { fullscreen });
             }
             else
             {
-                this.WindowState = FormWindowState.Maximized;
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                if (fullscreen)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                    this.Bounds = Screen.PrimaryScreen.Bounds;
+                }
+                else
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                }
             }
         }
 
@@ -79,11 +89,16 @@ namespace BattleBabs_Client
         {
             while (true)
             {
-             //   GoFullscreen(screenMode);
                 SetTeam1Text(team1);
                 SetTeam2Text(team2);
                 SetTeam1Score(team1Score.ToString());
                 SetTeam2Score(team2Score.ToString());
+                SetTitleText(GameUtility.compName);
+                if(screenMode != lastScreenState)
+                {
+                    lastScreenState = screenMode;
+                    GoFullscreen(lastScreenState);
+                }
                 if (GameUtility.gameTime <= 99)
                 {
                     SetTimerText(GameUtility.getGameTime().ToString("00.00"));
@@ -110,6 +125,22 @@ namespace BattleBabs_Client
             else
             {
                 this.team1Name.Text = text;
+            }
+        }
+
+        private void SetTitleText(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.titleLabel.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetTitleText);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.titleLabel.Text = text;
             }
         }
 

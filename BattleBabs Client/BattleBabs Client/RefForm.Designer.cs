@@ -345,7 +345,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RefForm";
-            this.Text = "Referee Control";
+            this.Text = "Referee Controls";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RefForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

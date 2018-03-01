@@ -59,18 +59,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Team 2";
+            this.label1.Text = "Competing Team 2";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Team 1";
+            this.label2.Text = "Competing Team 1";
             // 
             // okbutton
             // 
@@ -115,7 +115,7 @@
             this.MinimizeBox = false;
             this.Name = "Team_Entry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Team Entry";
+            this.Text = "Enter competing teams";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Team_Entry_FormClosing);
             this.ResumeLayout(false);

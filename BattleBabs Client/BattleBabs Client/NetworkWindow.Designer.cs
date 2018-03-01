@@ -78,7 +78,7 @@
             this.defaultButton.Name = "defaultButton";
             this.defaultButton.Size = new System.Drawing.Size(160, 23);
             this.defaultButton.TabIndex = 9;
-            this.defaultButton.Text = "Local Machine";
+            this.defaultButton.Text = "Connect to Local Machine";
             this.defaultButton.UseVisualStyleBackColor = true;
             this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
             // 
