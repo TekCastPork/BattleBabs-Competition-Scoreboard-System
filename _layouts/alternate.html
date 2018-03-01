@@ -21,7 +21,9 @@
       <div id="header">
         <nav>
           <li class="fork"><a href="{{ site.github.repository_url }}">View On GitHub</a></li>
+          
           <li class="fork"><a href="https://tekcastpork.github.io">Home</a></li>
+          
           <li class="fork"><a href="https://tekcastpork.github.io/BattleBabs-Competition-Scoreboard-System/">Scoreboard System</a></li>
         </nav>
       </div><!-- end header -->
@@ -35,14 +37,9 @@
           <hr>
           <span class="credits left">
             {% if site.show_downloads %}
-            DOWNLOADS
-            <li class="downloads"><a href="https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases/latest">Latest</a></li>
+            DOWNLOADS:    <li class="downloads"><a href="https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases/latest">Latest</a></li>    <li class="downloads"><a href="https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases">All Releases</a></li>
             {% endif %}
           </span>
-          <span class="credits right">
-            {% if site.show_downloads %}
-            <li class="downloads"><a href="https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases">All Releases</a></li>            
-            {% endif %}</span>
         </div>
 
         {{ content }}
