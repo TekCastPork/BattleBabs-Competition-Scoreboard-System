@@ -19,14 +19,16 @@ namespace BattleBabs_Client
             Application.EnableVisualStyles();
             Updater.checkForUpdates();
             Updater.validateFiles();
+            Logger.createLogFile();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.ThreadExit += hasExited;
+            Application.ApplicationExit += hasExited;
             Application.Run(new Display());
         }
 
         static void hasExited(object sender, System.EventArgs e)
         {
-            Console.WriteLine("Application main thread is exiting");
+            Console.WriteLine("Application main thread is exiting, closing log");
+            Logger.closeLog();
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Diagnostics;
 
-namespace BattleBabs_Server
+namespace BattleBabs_Client
 {
     /// <summary>
     /// This class will handle log file creation and exception logging to make debugging a little easier hopefully.

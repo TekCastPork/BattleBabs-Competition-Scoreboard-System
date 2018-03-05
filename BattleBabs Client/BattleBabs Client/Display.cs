@@ -28,25 +28,34 @@ namespace BattleBabs_Client
 
         public Display()
         {
+            Logger.writeGeneralLog("Beginning startup functions.");
             InitializeComponent();
+            Logger.writeGeneralLog("Screen objects created");
             System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
             privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "erbos_draco_1st_open_nbp.ttf"));
             privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
+            Logger.writeGeneralLog("Fonts added to private fonts array");
             System.Drawing.Font scoreFont = new Font(privateFonts.Families[0], 27);
             System.Drawing.Font timeFont = new Font(privateFonts.Families[0], 40);
             System.Drawing.Font titleFont = new Font(privateFonts.Families[1], 36);
+            Logger.writeGeneralLog("Font objects created");
             team1Name.Font = titleFont;
             team2Name.Font = titleFont;
             team2ScoreLbl.Font = scoreFont;
             team1ScoreLbl.Font = scoreFont;
             timerLabel.Font = timeFont;
             titleLabel.Font = titleFont;
+            Logger.writeGeneralLog("Fonts applied to labels");
             GameUtility.setupObjects();
+            Logger.writeGeneralLog("Game objects setup complete");
             GUIupdate = new Thread(new ThreadStart(updateComponents)); // create a GUI updating thread
             GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
             GUIupdate.Start(); // start the GUI updating thread
+            Logger.writeGeneralLog("GUI updating thread created and started");
             referee.Show(); // create the referee window so that points can be allocated and team names set
+            Logger.writeGeneralLog("Referee window is now shown");
             GoFullscreen(screenMode); // set the fullscreen mode
+            Logger.writeGeneralLog("Fullscreen setting applied");
         }
 
         delegate void SetBooleanCallback(Boolean state);
@@ -57,13 +66,16 @@ namespace BattleBabs_Client
         /// <param name="fullscreen"></param>
         private void GoFullscreen(bool fullscreen)
         {
+            Logger.writeGeneralLog("Setting display form's fullscreen mode");
             if (this.InvokeRequired)
             {
+                Logger.writeWarningLog("An invoke is required on this function to change fullscreen settings!");
                 SetBooleanCallback d = new SetBooleanCallback(GoFullscreen);
                 this.Invoke(d, new object[] { fullscreen });
             }
             else
             {
+                Logger.writeGeneralLog("Invoke either not required or just executing, setting fullscreen settings");
                 if (fullscreen)
                 {
                     this.WindowState = FormWindowState.Normal;
