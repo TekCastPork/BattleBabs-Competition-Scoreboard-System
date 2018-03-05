@@ -45,8 +45,6 @@
             this.Score2 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.Name2 = new System.Windows.Forms.TextBox();
-            this.applyTeam1 = new System.Windows.Forms.Button();
-            this.applyTeam2 = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Score1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Score3)).BeginInit();
@@ -188,32 +186,10 @@
             this.Name2.Size = new System.Drawing.Size(100, 20);
             this.Name2.TabIndex = 9;
             // 
-            // applyTeam1
-            // 
-            this.applyTeam1.Location = new System.Drawing.Point(12, 183);
-            this.applyTeam1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.applyTeam1.Name = "applyTeam1";
-            this.applyTeam1.Size = new System.Drawing.Size(111, 35);
-            this.applyTeam1.TabIndex = 17;
-            this.applyTeam1.Text = "Apply Scoring Methods to Team 1";
-            this.applyTeam1.UseVisualStyleBackColor = true;
-            this.applyTeam1.Click += new System.EventHandler(this.applyTeam1_Click);
-            // 
-            // applyTeam2
-            // 
-            this.applyTeam2.Location = new System.Drawing.Point(194, 183);
-            this.applyTeam2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.applyTeam2.Name = "applyTeam2";
-            this.applyTeam2.Size = new System.Drawing.Size(111, 35);
-            this.applyTeam2.TabIndex = 18;
-            this.applyTeam2.Text = "Apply Scoring Methods to Team 2\r\n";
-            this.applyTeam2.UseVisualStyleBackColor = true;
-            this.applyTeam2.Click += new System.EventHandler(this.applyTeam2_Click);
-            // 
             // okButton
             // 
             this.okButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.okButton.Location = new System.Drawing.Point(0, 238);
+            this.okButton.Location = new System.Drawing.Point(0, 182);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(317, 23);
             this.okButton.TabIndex = 19;
@@ -225,10 +201,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 261);
+            this.ClientSize = new System.Drawing.Size(317, 205);
             this.Controls.Add(this.okButton);
-            this.Controls.Add(this.applyTeam2);
-            this.Controls.Add(this.applyTeam1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Score4);
             this.Controls.Add(this.label6);
@@ -279,8 +253,6 @@
         private System.Windows.Forms.NumericUpDown Score2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox Name2;
-        private System.Windows.Forms.Button applyTeam1;
-        private System.Windows.Forms.Button applyTeam2;
         private System.Windows.Forms.Button okButton;
     }
 }
