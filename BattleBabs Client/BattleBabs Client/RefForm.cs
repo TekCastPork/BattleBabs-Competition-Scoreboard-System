@@ -28,19 +28,21 @@ namespace BattleBabs_Client
         public RefForm()
         {
             InitializeComponent();
-            heartBeat.IsBackground = true;
-            arduinoport = new SerialPort();
-            arduinoport.DataReceived += arduinoport_DataReceived;
+            heartBeat.IsBackground = true; // make the arduino connection tester a background thread so it will exit when the program exits
+            arduinoport = new SerialPort(); // create a SerialPort object to use with the arduino
+            arduinoport.DataReceived += arduinoport_DataReceived; //Attach a function to the data received event
             guiUpdate = new Thread(new ThreadStart(updateComponents));
-            guiUpdate.IsBackground = true;
-            guiUpdate.Start();
-            setTimeProgress(GameUtility.gameTime, true);
+            guiUpdate.IsBackground = true; // make the GUI updating thread a background thread so it exits with the program
+            guiUpdate.Start(); // start the GUI updater
+            setTimeProgress(GameUtility.gameTime, true); // set the initial max game time
         }
 
         public void updateScoreNames()
         {
+            //these button arrays allow me to use a for loop making updating easier
             Button[] team1Buttons = { team1Ping, team1Band, team1Disable, team1Shove };
             Button[] team2Buttons = { team2Ping, team2Band, team2Disable, team2Shove };
+
             //Begin updating
             for(int i = 0; i < team1Buttons.Length; i++)
             {
@@ -50,14 +52,13 @@ namespace BattleBabs_Client
             {
                 updateButton(team2Buttons[i], ScoreNames[i]);
             }
+            //Updating complete
         }
 
         delegate void SetButtonCallback(Button button, string text);
         private void updateButton(Button button, string text)
         {
-            // InvokeRequired required compares the thread ID of the
-            // calling thread to the thread ID of the creating thread.
-            // If these threads are different, it returns true.
+            
             if (button.InvokeRequired)
             {
                 SetButtonCallback d = new SetButtonCallback(updateButton);
