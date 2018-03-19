@@ -37,6 +37,9 @@ namespace BattleBabs_Client
             setTimeProgress(GameUtility.gameTime, true); // set the initial max game time
         }
 
+        /// <summary>
+        /// Updates the buttons for team 1 and 2 based on the stored scoring method names.
+        /// </summary>
         public void updateScoreNames()
         {
             //these button arrays allow me to use a for loop making updating easier
@@ -56,6 +59,12 @@ namespace BattleBabs_Client
         }
 
         delegate void SetButtonCallback(Button button, string text);
+
+        /// <summary>
+        /// Updates the text on the buttons
+        /// </summary>
+        /// <param name="button"></param>
+        /// <param name="text"></param>
         private void updateButton(Button button, string text)
         {
             
@@ -195,7 +204,7 @@ namespace BattleBabs_Client
         }
 
         /// <summary>
-        /// Parses data received from the arduino
+        /// Parses data received from the arduino and fires off the proper event based on the parsed data
         /// </summary>
         /// <param name="data"></param>
         void parseReceivedData(string data)
@@ -343,19 +352,19 @@ namespace BattleBabs_Client
         }
 
         /// <summary>
-        /// This fuction will establish communication with the arduino by "auto-detecting" the COM port the arduino is on
+        /// This fuction will establish communication with the arduino by connecting to the user specified COM port
         /// </summary>
         public static void connectArduinoPort()
         {
             try
             {
-                arduinoport.BaudRate = 9600; // set the baud rate to the default for arduinos.
+                arduinoport.BaudRate = 9600; // set the baud rate to 9600. The Arduino MUST be using this baud rate.
                 arduinoport.PortName = selectedPort; // set the COM port to use
-                arduinoport.ReceivedBytesThreshold = 1;
-                arduinoport.NewLine = "\n";
-                arduinoport.Open(); // assume direct control
+                arduinoport.ReceivedBytesThreshold = 1; // set how many bytes are needed before a event is thrown from the port
+                arduinoport.NewLine = "\n"; // set the new line carrier
+                arduinoport.Open(); // Open the COM port for communications
                 Console.WriteLine("Connected to arduino via COM port {0}", selectedPort);
-                heartBeat.Start();
+                heartBeat.Start(); // start a watcher that checks the status of the connection.
 
             }
             catch (Exception e)
@@ -364,10 +373,6 @@ namespace BattleBabs_Client
             }
         }
 
-        /// <summary>
-        /// Delegate used for editing event label's text
-        /// </summary>
-        /// <param name="text"></param>
         delegate void SetIntCallback(float number, Boolean statement);
 
         /// <summary>
@@ -376,9 +381,6 @@ namespace BattleBabs_Client
         /// <param name="text"></param>
         private void setDataText(string text)
         {
-            // InvokeRequired required compares the thread ID of the
-            // calling thread to the thread ID of the creating thread.
-            // If these threads are different, it returns true.
             if (this.arduinoDataLbl.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(setDataText);
@@ -421,7 +423,18 @@ namespace BattleBabs_Client
             }
         }
 
+        /* PLEASE NOTE:
+         * Below are the functions that handle adding points to each team.
+         * The button references (button 0, button 1, ETC) are referring to the Referee Window GUI,
+         * actual button position may vary based on the design of your controllers
+         */
 
+
+        /// <summary>
+        /// Adds points to team 1 based off of the stored point settings for button 0 (topmost)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team1Ping_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via a ping pong ball. +40 points!");
@@ -439,6 +452,11 @@ namespace BattleBabs_Client
             }
         }
 
+        /// <summary>
+        /// Adds points to team 1 based off of the stored point settings for button 1 (second from top)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team1Band_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via a rubber band. +20 points!");
@@ -456,6 +474,11 @@ namespace BattleBabs_Client
             }
         }
 
+        /// <summary>
+        /// Adds points to team 1 based off of the stored point settings for button 2 (second from bottom)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team1Disable_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via disabling team 2. +60 points!");
@@ -473,6 +496,11 @@ namespace BattleBabs_Client
             }
         }
 
+        /// <summary>
+        /// Adds points to team 1 based off the stored point settings for button 3 (bottom-most)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team1Shove_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 1 scored via shoving team 2. +30 points!");
@@ -490,8 +518,11 @@ namespace BattleBabs_Client
             }
         }
 
-
-
+        /// <summary>
+        /// Adds points to team 2 based off the stored point settings for button 0 (topmost)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team2Ping_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 2 scored via a ping pong ball. +40 points!");
@@ -509,6 +540,11 @@ namespace BattleBabs_Client
             }
         }
 
+        /// <summary>
+        /// Adds points to team 2 based off of the stored point settings for button 1 (second from top)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team2Band_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 2 scored via a rubber band. +20 points!");
@@ -526,6 +562,11 @@ namespace BattleBabs_Client
             }
         }
 
+        /// <summary>
+        /// Adds points to team 2 based off of the stored point settings for button 2 (second from bottom)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team2Disable_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 2 scored via disabling team 2. +60 points!");
@@ -543,6 +584,11 @@ namespace BattleBabs_Client
             }
         }
 
+        /// <summary>
+        /// Adds points to team 2 based off of the stored point settings for button 3 (bottom-most)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team2Shove_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Team 2 scored via shoving team 2. +30 points!");
@@ -560,7 +606,11 @@ namespace BattleBabs_Client
             }
         }
 
-
+        /// <summary>
+        /// Overrides team 1's score based on what is in the textbox for team 1 in the referee window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team1Override_Click(object sender, EventArgs e)
         {
             try
@@ -572,6 +622,11 @@ namespace BattleBabs_Client
             }
         } // when the override button is clicked lets override team 1's score with whats in the textbox
 
+        /// <summary>
+        /// Overrides team 2's score based on what is in the textbox for team 2 in the referee window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void team2Override_Click(object sender, EventArgs e)// when the override button is clicked lets override team 2's score with whats in the textbox
         {
             try
@@ -584,7 +639,17 @@ namespace BattleBabs_Client
             }
         }
 
+        /* PLEASE NOTE:
+         * The functions below handle the starting, stopping, pausing, and resuming of the match.
+         * The send score override function is also here.
+         */
 
+
+        /// <summary>
+        /// Starts the match and allows the score buttons to be used
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void startButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Start Match button pressed.");
@@ -594,6 +659,12 @@ namespace BattleBabs_Client
 
         }
 
+        /// <summary>
+        /// Stops the match early and does not send the results to the leaderboard for that match unless the override send button is pressed
+        /// Useful for overriding scores of teams because of fouls or penalties
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void stopButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Stop button is pushed!");
@@ -603,18 +674,34 @@ namespace BattleBabs_Client
             
         }
 
+        /// <summary>
+        /// Resumes a paused match
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void resumeButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Resume button pushed.");
             GameUtility.resumeMatch();
         }
 
+        /// <summary>
+        /// Pauses a match, a paused match can only be resumed or stopped, not restarted
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pauseButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("pause button pushed");
             GameUtility.pauseMatch();
         }
 
+        /// <summary>
+        /// Overrides the send function, to be used in combination with the stop match button.
+        /// Useful for overriding scores because of penalties or fouls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sendButton_Click(object sender, EventArgs e)
         {
             Networking.sendData(Display.team1Score + ":" + Display.team2Score + ":" + lastTeam1 + ":" + lastTeam2);
