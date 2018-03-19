@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BattleBabs_Client
@@ -17,18 +10,6 @@ namespace BattleBabs_Client
         {
             InitializeComponent();
         }
-
-/*        private void applyTeam1_Click(object sender, EventArgs e)
-        {
-            RefForm.team1ScoreNames[0] = Name1.Text;
-            RefForm.team1ScoreNames[1] = Name2.Text;
-            RefForm.team1ScoreNames[2] = Name3.Text;
-            RefForm.team1ScoreNames[3] = Name4.Text;
-            RefForm.team1ScoreValues[0] = (int) Score1.Value;
-            RefForm.team1ScoreValues[1] = (int) Score2.Value;
-            RefForm.team1ScoreValues[2] = (int) Score3.Value;
-            RefForm.team1ScoreValues[3] = (int) Score4.Value;
-        } */
 
         private void okButton_Click(object sender, EventArgs e)
         {
