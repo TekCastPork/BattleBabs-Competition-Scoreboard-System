@@ -20,14 +20,28 @@ namespace BattleBabs_Client
             int index = 0;
             foreach(TextBox c in names)
             {
-                RefForm.ScoreNames[index] = c.Text;
+                try
+                {
+                    RefForm.ScoreNames[index] = c.Text;
+                } catch (Exception e1)
+                {
+                    Logger.writeExceptionLog(e1);
+                    Logger.writeCriticalLog("IF YOU SEE THIS THEN SCORENAMES HAS A LENGTH OF 0 AND STUFF CANT BE STORED IN IT!");
+                }
                 index++;
 
             }
             index = 0;
             foreach(NumericUpDown c in points)
             {
-                RefForm.ScoreValues[index] = (int) c.Value;
+                try
+                {
+                    RefForm.ScoreValues[index] = (int)c.Value;
+                } catch (Exception e2)
+                {
+                    Logger.writeExceptionLog(e2);
+                    Logger.writeCriticalLog("IF YOU SEE THIS THEN SCOREVALUES HAS A LENGTH OF 0 AND STUFF CANT BE STORED IN IT!");
+                }
                 index++;
             }
             isShowing = false;

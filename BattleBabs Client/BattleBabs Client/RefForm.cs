@@ -14,8 +14,8 @@ namespace BattleBabs_Client
         public static Thread heartBeat = new Thread(new ThreadStart(isConnectionAlive));
 
         //Variables related to point system (things like methods and worth)
-        public static string[]  ScoreNames      = { "Ping Pong", "Rubber Band", "Disable", "Shove" };
-        public static int[]     ScoreValues     = {          40,            20,        60,      30 };
+        public static string[]  ScoreNames = { "Ping Pong", "Rubber Band", "Disable", "Shove" };
+        public static int[]     ScoreValues = {          40,            20,        60,      30 };
 
         string lastTeam1; // used for broadcasting
         string lastTeam2; // used for broadcasting
@@ -45,15 +45,31 @@ namespace BattleBabs_Client
             //these button arrays allow me to use a for loop making updating easier
             Button[] team1Buttons = { team1Ping, team1Band, team1Disable, team1Shove };
             Button[] team2Buttons = { team2Ping, team2Band, team2Disable, team2Shove };
+            string errorText = "CORRUPT";
 
             //Begin updating
             for(int i = 0; i < team1Buttons.Length; i++)
             {
-                updateButton(team1Buttons[i], ScoreNames[i]);
+                try
+                {
+                    updateButton(team1Buttons[i], ScoreNames[i]);
+                } catch (Exception e)
+                {
+                    Logger.writeExceptionLog(e);
+                    updateButton(team1Buttons[i], errorText);
+                }
             }
             for(int i = 0; i < team2Buttons.Length; i++)
             {
-                updateButton(team2Buttons[i], ScoreNames[i]);
+                try
+                {
+                    updateButton(team2Buttons[i], ScoreNames[i]);
+                }
+                catch (Exception e)
+                {
+                    Logger.writeExceptionLog(e);
+                    updateButton(team2Buttons[i], errorText);
+                }
             }
             //Updating complete
         }
