@@ -93,6 +93,7 @@ namespace BattleBabs_Client
         private void Display_FormClosing(object sender, FormClosingEventArgs e)
         {
             GUIupdate.Abort();
+            Persistence.saveScoringData(); // save referee scoring data when the main form is closing
             referee.Close();
             referee.Dispose();
         }
