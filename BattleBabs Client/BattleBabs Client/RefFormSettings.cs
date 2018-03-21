@@ -9,7 +9,6 @@ namespace BattleBabs_Client
         public RefFormSettings()
         {
             InitializeComponent();
-            Persistence.loadScoringData();
         }
 
         private void okButton_Click(object sender, EventArgs e)

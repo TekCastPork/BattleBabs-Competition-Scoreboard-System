@@ -14,8 +14,8 @@ namespace BattleBabs_Client
         public static Thread heartBeat = new Thread(new ThreadStart(isConnectionAlive));
 
         //Variables related to point system (things like methods and worth)
-        public static string[]  ScoreNames = { "Ping Pong", "Rubber Band", "Disable", "Shove" };
-        public static int[]     ScoreValues = {          40,            20,        60,      30 };
+        public static string[] ScoreNames = { "null", "null", "null", "null" };
+        public static int[] ScoreValues = { 0, 0, 0, 0 };
 
         string lastTeam1; // used for broadcasting
         string lastTeam2; // used for broadcasting
@@ -28,6 +28,27 @@ namespace BattleBabs_Client
         public RefForm()
         {
             InitializeComponent();
+            Persistence.loadScoringData();
+            if(ScoreNames.Length == 0)
+            {
+                Logger.writeWarningLog("ScoreNames length was 0! Writing defaults");
+                updateButton(team1Band, "Rubber Band");
+                updateButton(team1Ping, "Ping Pong");
+                updateButton(team1Disable, "Disabled");
+                updateButton(team1Shove, "Shove");
+                updateButton(team2Band, "Rubber Band");
+                updateButton(team2Ping, "Ping Pong");
+                updateButton(team2Disable, "Disabled");
+                updateButton(team2Shove, "Shove");
+            }
+            if(ScoreValues.Length == 0)
+            {
+                Logger.writeWarningLog("ScoreValues length was 0! Writing defaults");
+                ScoreValues[0] = 1;
+                ScoreValues[1] = 2;
+                ScoreValues[2] = 3;
+                ScoreValues[3] = 4;
+            }
             heartBeat.IsBackground = true; // make the arduino connection tester a background thread so it will exit when the program exits
             arduinoport = new SerialPort(); // create a SerialPort object to use with the arduino
             arduinoport.DataReceived += arduinoport_DataReceived; //Attach a function to the data received event

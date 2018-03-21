@@ -107,17 +107,40 @@ namespace BattleBabs_Client
             else
             {
                 Console.WriteLine("Directory didnt exist! None of the files will be validated as they do not exist!");
-                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard"));
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard"));
                 Console.WriteLine("Replacing lost files.");
-                string[] files = { "rounds.persist", "rounds2.persist", "scores.persist", "names.persist", "flags.persist", "flags2.persist" };
+                string[] files = { "config.cfg", "Teamnames.persist", "ScoringMethods.persist", "ScoringValues.persist" };
                 for (int i = 0; i < files.Length; i++)
                 {
-                    File.Create(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", files[i]));
+                    File.Create(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", files[i]));
                     Console.WriteLine("Created file {0}", files[i]);
                 }
                 Console.WriteLine("There were missing files, we should let the user know that they may have lost competition data.");
                 MessageBox.Show("6 files were missinng and failed to be validated.\n" +
                     "These files were re-created. Competition data may have been lost.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            Console.WriteLine("Verifying ScoringMethods and ScoringValues...");
+            string[] validateMethods;
+            string[] validateValues;
+            validateMethods = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "ScoringMethods.persist"));
+            validateValues = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "ScoringValues.persist"));
+
+            string[] defaultMethods = { "Rubber Band", "Ping Pong", "Disable", "Shove" };
+            string[] defaultValues = { "20", "40", "60", "30" };
+            if(validateMethods.Length == 0)
+            {
+                Console.WriteLine("Methods data failed to validate, entering default values.");
+                File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "ScoringMethods.persist"), defaultMethods);
+                MessageBox.Show("Scoring Methods for the referee window failed to validate.\n" +
+                    "writing default values", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if(validateValues.Length == 0)
+            {
+                Console.WriteLine("Values data failed to validate, entering default values.");
+                File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "ScoringValues.persist"), defaultValues);
+                MessageBox.Show("Scoring Values for the referee window failed to validate.\n" +
+                    "writing default values", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
