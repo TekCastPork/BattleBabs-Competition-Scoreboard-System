@@ -71,7 +71,7 @@ namespace BattleBabs_Client
             if (button.InvokeRequired)
             {
                 SetButtonCallback d = new SetButtonCallback(updateButton);
-                this.Invoke(d, new object[] { text });
+                this.Invoke(d, new object[] { button,text });
             }
             else
             {
