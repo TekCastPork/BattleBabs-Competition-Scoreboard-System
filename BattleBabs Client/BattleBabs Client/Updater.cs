@@ -68,43 +68,56 @@ namespace BattleBabs_Client
             if (Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard")))
             {
                 Console.WriteLine("Appdata folder exists, checking for persistence files");
-                Boolean filesExist = true;
+                Boolean[] filesExist = { true, true, true, true };
                 int missingFiles = 0;
-                if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "Teamnames.persist")))
+                string[] files = { "config.cfg", "Teamnames.persist", "ScoringMethods.persist", "ScoringValues.persist" };
+                for (int i = 0; i < files.Length; i++)
                 {
-                    Console.WriteLine("The file exists.");
-                }
-                else
-                {
-                    Console.WriteLine("The file does not exist!");
-                    filesExist = false;
-                    missingFiles++;
+                    if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", files[i])))
+                    {
+                        Console.WriteLine("The file {0} exists.", files[i]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("The file {0} does not exist!", files[i]);
+                        filesExist[i] = false;
+                        missingFiles++;
+                    }
                 }
                 Console.WriteLine("Replacing lost files.");
-                if (filesExist)
+                for (int i = 0; i < files.Length; i++)
                 {
-                    // No need
+                    if (filesExist[i])
+                    {
+                        // No need
+                    }
+                    else
+                    {
+                        File.Create(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", files[i]));
+                        Console.WriteLine("Created file {0}");
+                    }
                 }
-                else
+                if (filesExist.Contains(false))
                 {
-                    File.Create(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "Teamnames.persist"));
-                    Console.WriteLine("Created file");
                     Console.WriteLine("There were missing files, we should let the user know that they may have lost competition data.");
-                    MessageBox.Show("1 file was missinng and failed to be validated.\n" +
-                        "This file was re-created. Stored team names have been lost.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("{0} files were missinng and failed to be validated.\n" +
+                        "These files were re-created. Competition data may have been lost.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                   
             }
             else
             {
                 Console.WriteLine("Directory didnt exist! None of the files will be validated as they do not exist!");
-                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard"));
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard"));
                 Console.WriteLine("Replacing lost files.");
-                    File.Create(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "Teamnames.persist"));
-                    Console.WriteLine("Created file");
+                string[] files = { "rounds.persist", "rounds2.persist", "scores.persist", "names.persist", "flags.persist", "flags2.persist" };
+                for (int i = 0; i < files.Length; i++)
+                {
+                    File.Create(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", files[i]));
+                    Console.WriteLine("Created file {0}", files[i]);
+                }
                 Console.WriteLine("There were missing files, we should let the user know that they may have lost competition data.");
-                MessageBox.Show("1 file was missing and failed to be validated.\n" +
-                    "This file was re-created. Stored team names have been lost.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("6 files were missinng and failed to be validated.\n" +
+                    "These files were re-created. Competition data may have been lost.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

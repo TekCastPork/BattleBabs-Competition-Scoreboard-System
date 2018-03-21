@@ -17,8 +17,8 @@ namespace BattleBabs_Client
         static void Main()
         {
             Application.EnableVisualStyles();
-            Updater.checkForUpdates();
             Updater.validateFiles();
+            Updater.checkForUpdates();            
             Logger.createLogFile();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ApplicationExit += hasExited;
