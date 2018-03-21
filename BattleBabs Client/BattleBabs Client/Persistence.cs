@@ -24,7 +24,7 @@ namespace BattleBabs_Client
             Logger.writeGeneralLog("Loading scoring data for the referee form...");
             RefForm.ScoreNames = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "ScoringMethods.persist"));
             string[] inputScoreValues = new string[RefForm.ScoreValues.Length];
-            inputScoreValues = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "ScoringMethods.persist"));
+            inputScoreValues = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "ScoringValues.persist"));
             for(int i = 0; i < inputScoreValues.Length; i++)
             {
                 RefForm.ScoreValues[i] = int.Parse(inputScoreValues[i]);

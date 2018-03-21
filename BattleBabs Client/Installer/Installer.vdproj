@@ -39,6 +39,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6D103D7DE9E741398C2B6A5504F98578"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C7773F650B17411FB38C2DB98FACBF33"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CEE67BB139D447D497B9FF9D0B8CEE59"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -259,6 +271,46 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6D103D7DE9E741398C2B6A5504F98578"
+            {
+            "SourcePath" = "8:..\\BattleBabs Client\\ScoringMethods.persist"
+            "TargetName" = "8:ScoringMethods.persist"
+            "Tag" = "8:"
+            "Folder" = "8:_D254E750033F43C1892BB41080C57F54"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C7773F650B17411FB38C2DB98FACBF33"
+            {
+            "SourcePath" = "8:..\\BattleBabs Client\\ScoringValues.persist"
+            "TargetName" = "8:ScoringValues.persist"
+            "Tag" = "8:"
+            "Folder" = "8:_D254E750033F43C1892BB41080C57F54"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CEE67BB139D447D497B9FF9D0B8CEE59"
             {
             "SourcePath" = "8:..\\BattleBabs Client\\HorizBanner.jpg"
@@ -346,6 +398,17 @@
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
+                "Folders"
+                {
+                }
+            }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_D254E750033F43C1892BB41080C57F54"
+            {
+            "Name" = "8:#1915"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:AppDataFolder"
                 "Folders"
                 {
                 }
