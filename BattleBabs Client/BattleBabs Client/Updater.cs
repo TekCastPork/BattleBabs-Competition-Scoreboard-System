@@ -75,11 +75,11 @@ namespace BattleBabs_Client
                 {
                     if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", files[i])))
                     {
-                        Console.WriteLine("The file {0} exists.", files[i]);
+                        Console.WriteLine("The file \"{0}\" exists.", files[i]);
                     }
                     else
                     {
-                        Console.WriteLine("The file {0} does not exist!", files[i]);
+                        Console.WriteLine("The file \"{0}\" does not exist!", files[i]);
                         filesExist[i] = false;
                         missingFiles++;
                     }
@@ -100,8 +100,8 @@ namespace BattleBabs_Client
                 if (filesExist.Contains(false))
                 {
                     Console.WriteLine("There were missing files, we should let the user know that they may have lost competition data.");
-                    MessageBox.Show("{0} files were missinng and failed to be validated.\n" +
-                        "These files were re-created. Competition data may have been lost.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(String.Format("{0} files were missinng and failed to be validated.\n" +
+                        "These files were re-created. Competition data may have been lost.",missingFiles), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
@@ -116,7 +116,7 @@ namespace BattleBabs_Client
                     Console.WriteLine("Created file {0}", files[i]);
                 }
                 Console.WriteLine("There were missing files, we should let the user know that they may have lost competition data.");
-                MessageBox.Show("6 files were missinng and failed to be validated.\n" +
+                MessageBox.Show("4 files were missinng and failed to be validated.\n" +
                     "These files were re-created. Competition data may have been lost.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
