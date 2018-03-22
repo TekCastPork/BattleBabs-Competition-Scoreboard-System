@@ -110,6 +110,7 @@ namespace BattleBabs_Server
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Hide();
+            isShowing = false;
         }
     }
 }

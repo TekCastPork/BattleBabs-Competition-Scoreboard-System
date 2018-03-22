@@ -14,14 +14,31 @@ namespace BattleBabs_Client
 {
     public partial class Team_Entry : Form
     {
-        string[] teamNames = new string[16];
+        string[] teamNames = new string[18];
         public Team_Entry()
         {
-            InitializeComponent();
+            InitializeComponent();            
             Console.WriteLine("Loading team names from persist file");
             try
             {
-                teamNames = File.ReadAllLines("./Teamnames.persist");
+                
+                string[] loadedTeamNames = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "Teamnames.persist"));
+                string[] defaultNames = { "Johhny-5", "Iron Giant", "Rodney CopperBottom", "Bender", "WALL-E", "EVE", "MO", "Chappy", "Crimson Typhoon", "Gypsy Danger", "Voyager", "CanadaArm2", "T-800", "T-1000", "SkyNet", "NS-5", "Sonny", "V.I.K.I" };
+                if (loadedTeamNames.Length == 0)
+                {
+                    Console.WriteLine("Teamnames length was 0! writing defaults");
+                    for(int i = 0; i < teamNames.Length; i++)
+                    {
+                        teamNames[i] = defaultNames[i];
+                    }
+                    File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "Teamnames.persist"), defaultNames);
+                } else
+                {
+                    for (int i = 0; i < teamNames.Length; i++)
+                    {
+                        teamNames[i] = loadedTeamNames[i];
+                    }
+                }
                 for (int i = 0; i < teamNames.Length; i++)
                 {
                     teamBox1.Items.Remove(i);
@@ -50,7 +67,8 @@ namespace BattleBabs_Client
         /// <param name="e"></param>
         private void Team_Entry_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Console.WriteLine("Team Entry Form is closing");
+            Console.WriteLine("Team Entry Form is closing, deny it!");
+            e.Cancel = true;
         }
 
         /// <summary>
@@ -89,7 +107,7 @@ namespace BattleBabs_Client
             Console.WriteLine("File Selected.");
             Console.WriteLine("File is: " + loadNamesFile.FileName);
             teamNames = File.ReadAllLines(loadNamesFile.FileName);
-            File.WriteAllLines("./Teamnames.persist", teamNames);
+            File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "Teamnames.persist"), teamNames);
             Console.WriteLine("Adding team names to the drop down boxes.");
             Console.WriteLine("Clearing drop down box values.");
             for (int i = 0; i < teamNames.Length; i++)
@@ -103,6 +121,8 @@ namespace BattleBabs_Client
                 teamBox1.Items.Insert(i, teamNames[i]);
                 teamBox2.Items.Insert(i, teamNames[i]);
             }
+            teamBox1.Items.Insert(9, "[[[------Session Splitter------]]]");
+            teamBox2.Items.Insert(9, "[[[------Session Splitter------]]]");
             Console.WriteLine("Complete.");
         }
     }

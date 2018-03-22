@@ -8,11 +8,32 @@ namespace BattleBabs_Server
         public static void load()
         {
             Console.WriteLine("[Pre] Loading scores and names");
+            string[] defaultNames = { "Johhny-5", "Iron Giant", "Rodney CopperBottom", "Bender", "WALL-E", "EVE", "MO", "Chappy", "Crimson Typhoon", "Gypsy Danger", "Voyager", "CanadaArm2", "T-800", "T-1000", "SkyNet", "NS-5", "Sonny", "V.I.K.I" };
+            string[] defaultScores = { "0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"};
             Logger.writeGeneralLog("Program starting, loading names and scores from their respective persistence files");
-            string[] loadedScores = File.ReadAllLines("./scores.persist");
-            string[] loadedNames = File.ReadAllLines("./names.persist");
-            
-            for(int i = 0; i < GameUtility.names.Length; i++)
+            string[] loadedScores = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard","scores.persist"));
+            string[] loadedNames = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "names.persist"));
+            if(loadedNames.Length == 0)
+            {
+                Logger.writeCriticalLog("Names persist file was EMPTY, writing default names to it and overwritting laoded names with default names");
+                File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "names.persist"), defaultNames);
+                for(int i = 0; i < loadedNames.Length; i++)
+                {
+                    loadedNames[i] = defaultNames[i];
+                    Console.WriteLine("Default name {0} loaded", defaultNames[i]);
+                }
+            }
+            if (loadedScores.Length == 0)
+            {
+                Logger.writeCriticalLog("Scores persist file was EMPTY, writing default scores to it and overwritting laoded names with default scores");
+                File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "scores.persist"), defaultScores);
+                for (int i = 0; i < loadedScores.Length; i++)
+                {
+                    loadedScores[i] = defaultScores[i];
+                    Console.WriteLine("Default score {0} loaded", defaultScores[i]);
+                }
+            }
+            for (int i = 0; i < GameUtility.names.Length; i++)
             {
                 GameUtility.points[i] = int.Parse(loadedScores[i]);
                 GameUtility.names[i] = loadedNames[i];
@@ -43,8 +64,8 @@ namespace BattleBabs_Server
                     Logger.writeExceptionLog(e);
                 }
             }
-            File.WriteAllLines("names.persist", savingNames);
-            File.WriteAllLines("scores.persist", savingPoints);
+            File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "names.persist"), savingNames);
+            File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "scores.persist"), savingPoints);
             Console.WriteLine("Complete");
             Logger.writeGeneralLog("Saving complete.");
         }

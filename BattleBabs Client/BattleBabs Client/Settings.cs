@@ -7,8 +7,9 @@ namespace BattleBabs_Client
     public partial class Settings : Form
     {
         Boolean loadSuccess = false;
-        string[] settings = { "", "", "", "", "","" };
-        string[] loadedSettings = { "", "", "", "", "","" };
+        public static Boolean isShowing = false;
+        string[] settings = { "", "", "", "", "","","" };
+        string[] loadedSettings = { "", "", "", "", "","","" };
         /*
          * Settings as follows:
          * [0] IP
@@ -17,6 +18,7 @@ namespace BattleBabs_Client
          * [3] Seed
          * [4] Use seed?
          * [5] Fullscreen state
+         * [6] Competition Name
          */
 
         public Settings()
@@ -32,7 +34,9 @@ namespace BattleBabs_Client
                     Networking.port = int.Parse(loadedSettings[1]);
                     GameUtility.gameTime = int.Parse(loadedSettings[2]);
                     GameUtility.SEED = int.Parse(loadedSettings[3]);
+                    GameUtility.compName = loadedSettings[6];
                     timerCount.Value = GameUtility.gameTime;
+                    compName.Text = GameUtility.compName;
                     if(int.Parse(loadedSettings[5]) == 1)
                     {
                         Display.screenMode = true;
@@ -67,7 +71,7 @@ namespace BattleBabs_Client
             try
             {
                 Console.WriteLine("Saving settings to config.");
-                File.WriteAllLines("./config.cfg", settings);
+                File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "config.cfg"), settings);
             } catch (Exception e)
             {
                 Console.WriteLine("Exception! {0}", e.Message);
@@ -80,7 +84,7 @@ namespace BattleBabs_Client
             try
             {
                 loadSuccess = true;
-                return File.ReadAllLines("./config.cfg");
+                return File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Scoreboard", "config.cfg"));
                 
             } catch(Exception e)
             {
@@ -120,6 +124,14 @@ namespace BattleBabs_Client
             {
                 settings[5] = "0";
             }
+            if(compName.Text.Equals(GameUtility.compName))
+            {
+                //no action needed
+            } else
+            {
+                settings[6] = compName.Text;
+                GameUtility.compName = compName.Text;
+            }
             settings[3] = GameUtility.SEED.ToString();
             settings[2] = GameUtility.gameTime.ToString();
             settings[1] = Networking.port.ToString();
@@ -127,6 +139,7 @@ namespace BattleBabs_Client
             GameUtility.setSeed();
             this.Hide();
             saveSettings();
+            isShowing = false;
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

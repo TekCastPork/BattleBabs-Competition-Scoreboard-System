@@ -142,18 +142,9 @@ namespace BattleBabs_Server
         {
             Console.WriteLine("FORM CLOSING, RUN SAVE PROCEDURE");
             Peristence.saveAll();
-            Logger.closeLog();
         }        
 
-        private void aboutButton_Click(object sender, EventArgs e)
-        {
-            if (AboutBox.isShowing == false)
-            {
-                AboutBox.isShowing = true;
-                about.Show();
-                Logger.writeGeneralLog("About button was clicked, showing the about box");
-            }
-        }
+        
 
         private void loadfile_FileOk(object sender, CancelEventArgs e)
         {
@@ -183,35 +174,6 @@ namespace BattleBabs_Server
             }
         }
 
-        private void loadButton_Click(object sender, EventArgs e)
-        {
-            loadfile.ShowDialog(); // show the load dialog window
-            Logger.writeGeneralLog("Showing load dialog since load button was clicked");
-        }
-
-        private void resetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Warning! You are about to reset ALL scores!\n" +
-                "This action CANNOT be undone!\n" +
-                "Are you sure you want to continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning,defaultButton:MessageBoxDefaultButton.Button2);
-
-            if(result == DialogResult.Yes)
-            {
-                if (sessionId == 0)
-                {
-                    for (int i = 0; i < GameUtility.points.Length; i++)
-                    {
-                        GameUtility.points[i] = 0;
-                    }
-                } else
-                {
-                    for (int i = 0; i < GameUtility.session2Points.Length; i++)
-                    {
-                        GameUtility.session2Points[i] = 0;
-                    }
-                }
-            }
-        }
 
         //All of these functions relate to updating the GUI. NO TOUCHIE
         delegate void SetTextCallback(string text);
@@ -257,22 +219,6 @@ namespace BattleBabs_Server
             }
         }
 
-        private void sessionButton_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Changing Session!");
-            Logger.writeGeneralLog("Session button was clicked, changing session number");
-            Logger.writeWarningLog("This will cause all combinations to be re-calculated");
-            if(sessionId == 0)
-            {
-                sessionId = 1;
-                Bracketeers.getCombinations(GameUtility.session2Names);
-            } else
-            {
-                sessionId = 0;
-                Bracketeers.getCombinations(GameUtility.names);
-            }
-        }
-
         private void ipInfoLabel_Click(object sender, EventArgs e)
         {
             Console.WriteLine("IP info label was clicked. Gathering and Displaying All IPs.");
@@ -307,34 +253,82 @@ namespace BattleBabs_Server
             MessageBox.Show("All Available IPs: (Each IP is on it's own network adapter." + Environment.NewLine + allIps, "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void matchupButton_Click(object sender, EventArgs e)
+        private void aboutThisSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AboutBox.isShowing == false)
+            {
+                AboutBox.isShowing = true;
+                about.Show();
+                Logger.writeGeneralLog("About button was clicked, showing the about box");
+            }
+        }
+
+        private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
+        }
+
+        private void switchSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Changing Session!");
+            Logger.writeGeneralLog("Session button was clicked, changing session number");
+            Logger.writeWarningLog("This will cause all combinations to be re-calculated");
+            if (sessionId == 0)
+            {
+                sessionId = 1;
+                Bracketeers.getCombinations(GameUtility.session2Names);
+            }
+            else
+            {
+                sessionId = 0;
+                Bracketeers.getCombinations(GameUtility.names);
+            }
+        }
+
+        private void matchListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Matchup button was pressed!");
-            if(Bracketeers.isShowing)
+            if (Bracketeers.isShowing)
             {
-
-            } else
+                
+            }
+            else
             {
                 bracketWindow.Show();
                 Bracketeers.isShowing = true;
             }
-           
         }
 
-        /// <summary>
-        /// Let us hope this event handling function is never called
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bugButton_Click(object sender, EventArgs e)
+        private void loadTeamNamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Report bug button clicked.");
-            Logger.writeWarningLog("Report button was clicked, expect an issue to be raised on github.");
-            MessageBox.Show("Now opening bug report page. Please include the following: \n\n" +
-                "Which program experienced the bug (Scoreboard, Leaderboard, or both). \n" +
-                "What you were trying to do when the bug occurred.\n" +
-                "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
+            loadfile.ShowDialog(); // show the load dialog window
+            Logger.writeGeneralLog("Showing load dialog since load button was clicked");
+        }
+
+        private void resetScoresCANNOTBEUNDONEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Warning! You are about to reset ALL scores for BOTH session 1 AND session 2!\n" +
+                "This action CANNOT be undone!\n" +
+                "The current scores for BOTH sessions WILL be PERMAMENTLY forgotten!\n" +
+                "Are you sure you want to continue?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, defaultButton: MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Yes)
+            {
+                if (sessionId == 0)
+                {
+                    for (int i = 0; i < GameUtility.points.Length; i++)
+                    {
+                        GameUtility.points[i] = 0;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < GameUtility.session2Points.Length; i++)
+                    {
+                        GameUtility.session2Points[i] = 0;
+                    }
+                }
+            }
         }
     }
 }

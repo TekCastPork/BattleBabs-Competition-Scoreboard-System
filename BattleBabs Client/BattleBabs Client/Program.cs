@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using System.Diagnostics;
 
 namespace BattleBabs_Client
 {
@@ -15,8 +17,18 @@ namespace BattleBabs_Client
         static void Main()
         {
             Application.EnableVisualStyles();
+            Updater.validateFiles();
+            Updater.checkForUpdates();            
+            Logger.createLogFile();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ApplicationExit += hasExited;
             Application.Run(new Display());
+        }
+
+        static void hasExited(object sender, System.EventArgs e)
+        {
+            Console.WriteLine("Application main thread is exiting, closing log");
+            Logger.closeLog();
         }
     }
 }

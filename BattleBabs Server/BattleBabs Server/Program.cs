@@ -14,9 +14,19 @@ namespace BattleBabs_Server
         [STAThread]
         static void Main()
         {
+            Console.WriteLine("Appdata location: {0}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             Application.EnableVisualStyles();
+            Updater.checkForUpdates();
+            Updater.validateFiles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ThreadExit += isExiting;
             Application.Run(new Display());
+        }
+
+        static void isExiting(object sender, System.EventArgs e)
+        {
+            Console.WriteLine("Main thread is exiting!");
+            Logger.closeLog();
         }
     }
 }

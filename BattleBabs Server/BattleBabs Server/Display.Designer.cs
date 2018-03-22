@@ -30,9 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Display));
             this.titleLabel = new System.Windows.Forms.Label();
-            this.aboutButton = new System.Windows.Forms.Button();
             this.ipLabel = new System.Windows.Forms.Label();
-            this.loadButton = new System.Windows.Forms.Button();
             this.loadfile = new System.Windows.Forms.OpenFileDialog();
             this.team1 = new System.Windows.Forms.Label();
             this.team2 = new System.Windows.Forms.Label();
@@ -61,57 +59,42 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.resetButton = new System.Windows.Forms.Button();
-            this.sessionButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.sessionLabel = new System.Windows.Forms.Label();
             this.ipInfoLabel = new System.Windows.Forms.Label();
-            this.matchupButton = new System.Windows.Forms.Button();
-            this.bugButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutThisSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.switchSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matchListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadTeamNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetScoresCANNOTBEUNDONEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // titleLabel
             // 
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titleLabel.Font = new System.Drawing.Font("Modern No. 20", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Location = new System.Drawing.Point(0, 24);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(984, 32);
             this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "BattleBab Competition Leaderboard";
+            this.titleLabel.Text = "BattleBot Competition Leaderboard";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // aboutButton
-            // 
-            this.aboutButton.Location = new System.Drawing.Point(890, 27);
-            this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(82, 23);
-            this.aboutButton.TabIndex = 2;
-            this.aboutButton.Text = "About...";
-            this.aboutButton.UseVisualStyleBackColor = true;
-            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
             // ipLabel
             // 
             this.ipLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ipLabel.Location = new System.Drawing.Point(12, 27);
             this.ipLabel.Name = "ipLabel";
-            this.ipLabel.Size = new System.Drawing.Size(237, 23);
+            this.ipLabel.Size = new System.Drawing.Size(142, 23);
             this.ipLabel.TabIndex = 3;
             this.ipLabel.Text = "IP: 255.255.255.255";
             this.ipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // loadButton
-            // 
-            this.loadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.loadButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.loadButton.Location = new System.Drawing.Point(807, 27);
-            this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(77, 23);
-            this.loadButton.TabIndex = 4;
-            this.loadButton.Text = "Load Teams";
-            this.loadButton.UseVisualStyleBackColor = true;
-            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // loadfile
             // 
@@ -432,32 +415,10 @@
             this.label16.Text = "9th";
             this.label16.Visible = false;
             // 
-            // resetButton
-            // 
-            this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.resetButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.resetButton.Location = new System.Drawing.Point(165, 27);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(84, 23);
-            this.resetButton.TabIndex = 32;
-            this.resetButton.Text = "Reset Scores";
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
-            // 
-            // sessionButton
-            // 
-            this.sessionButton.Location = new System.Drawing.Point(713, 28);
-            this.sessionButton.Name = "sessionButton";
-            this.sessionButton.Size = new System.Drawing.Size(88, 23);
-            this.sessionButton.TabIndex = 33;
-            this.sessionButton.Text = "Switch Session";
-            this.sessionButton.UseVisualStyleBackColor = true;
-            this.sessionButton.Click += new System.EventHandler(this.sessionButton_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(710, 54);
+            this.label1.Location = new System.Drawing.Point(902, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 34;
@@ -466,7 +427,7 @@
             // sessionLabel
             // 
             this.sessionLabel.AutoSize = true;
-            this.sessionLabel.Location = new System.Drawing.Point(754, 54);
+            this.sessionLabel.Location = new System.Drawing.Point(955, 38);
             this.sessionLabel.Name = "sessionLabel";
             this.sessionLabel.Size = new System.Drawing.Size(14, 13);
             this.sessionLabel.TabIndex = 35;
@@ -480,30 +441,93 @@
             this.ipInfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ipInfoLabel.Location = new System.Drawing.Point(12, 55);
             this.ipInfoLabel.Name = "ipInfoLabel";
-            this.ipInfoLabel.Size = new System.Drawing.Size(301, 19);
+            this.ipInfoLabel.Size = new System.Drawing.Size(381, 19);
             this.ipInfoLabel.TabIndex = 36;
-            this.ipInfoLabel.Text = "Multiple IPs are avaiable! Click here for more info.";
+            this.ipInfoLabel.Text = "This machine has multiple possible IPs! Click here for more info.";
             this.ipInfoLabel.Click += new System.EventHandler(this.ipInfoLabel_Click);
             // 
-            // matchupButton
+            // menuStrip1
             // 
-            this.matchupButton.Location = new System.Drawing.Point(890, 55);
-            this.matchupButton.Name = "matchupButton";
-            this.matchupButton.Size = new System.Drawing.Size(82, 23);
-            this.matchupButton.TabIndex = 37;
-            this.matchupButton.Text = "Matches";
-            this.matchupButton.UseVisualStyleBackColor = true;
-            this.matchupButton.Click += new System.EventHandler(this.matchupButton_Click);
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem,
+            this.generalToolStripMenuItem,
+            this.settingsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.TabIndex = 39;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // bugButton
+            // aboutToolStripMenuItem
             // 
-            this.bugButton.Location = new System.Drawing.Point(12, 0);
-            this.bugButton.Name = "bugButton";
-            this.bugButton.Size = new System.Drawing.Size(75, 23);
-            this.bugButton.TabIndex = 38;
-            this.bugButton.Text = "Report Bug";
-            this.bugButton.UseVisualStyleBackColor = true;
-            this.bugButton.Click += new System.EventHandler(this.bugButton_Click);
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutThisSoftwareToolStripMenuItem,
+            this.reportBugToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // aboutThisSoftwareToolStripMenuItem
+            // 
+            this.aboutThisSoftwareToolStripMenuItem.Name = "aboutThisSoftwareToolStripMenuItem";
+            this.aboutThisSoftwareToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.aboutThisSoftwareToolStripMenuItem.Text = "About This Software";
+            this.aboutThisSoftwareToolStripMenuItem.Click += new System.EventHandler(this.aboutThisSoftwareToolStripMenuItem_Click);
+            // 
+            // reportBugToolStripMenuItem
+            // 
+            this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
+            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.reportBugToolStripMenuItem.Text = "Report Bug";
+            this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
+            // 
+            // generalToolStripMenuItem
+            // 
+            this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.switchSessionToolStripMenuItem,
+            this.matchListToolStripMenuItem});
+            this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.generalToolStripMenuItem.Text = "General";
+            // 
+            // switchSessionToolStripMenuItem
+            // 
+            this.switchSessionToolStripMenuItem.Name = "switchSessionToolStripMenuItem";
+            this.switchSessionToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.switchSessionToolStripMenuItem.Text = "Switch Session";
+            this.switchSessionToolStripMenuItem.Click += new System.EventHandler(this.switchSessionToolStripMenuItem_Click);
+            // 
+            // matchListToolStripMenuItem
+            // 
+            this.matchListToolStripMenuItem.Name = "matchListToolStripMenuItem";
+            this.matchListToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.matchListToolStripMenuItem.Text = "Match List";
+            this.matchListToolStripMenuItem.Click += new System.EventHandler(this.matchListToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadTeamNamesToolStripMenuItem,
+            this.resetScoresCANNOTBEUNDONEToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // loadTeamNamesToolStripMenuItem
+            // 
+            this.loadTeamNamesToolStripMenuItem.Name = "loadTeamNamesToolStripMenuItem";
+            this.loadTeamNamesToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.loadTeamNamesToolStripMenuItem.Text = "Load Team Names";
+            this.loadTeamNamesToolStripMenuItem.Click += new System.EventHandler(this.loadTeamNamesToolStripMenuItem_Click);
+            // 
+            // resetScoresCANNOTBEUNDONEToolStripMenuItem
+            // 
+            this.resetScoresCANNOTBEUNDONEToolStripMenuItem.Name = "resetScoresCANNOTBEUNDONEToolStripMenuItem";
+            this.resetScoresCANNOTBEUNDONEToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.resetScoresCANNOTBEUNDONEToolStripMenuItem.Text = "Reset Scores (CANNOT BE UNDONE)";
+            this.resetScoresCANNOTBEUNDONEToolStripMenuItem.Click += new System.EventHandler(this.resetScoresCANNOTBEUNDONEToolStripMenuItem_Click);
             // 
             // Display
             // 
@@ -511,13 +535,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(984, 585);
-            this.Controls.Add(this.bugButton);
-            this.Controls.Add(this.matchupButton);
             this.Controls.Add(this.ipInfoLabel);
             this.Controls.Add(this.sessionLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.sessionButton);
-            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -545,17 +565,21 @@
             this.Controls.Add(this.team3);
             this.Controls.Add(this.team2);
             this.Controls.Add(this.team1);
-            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.ipLabel);
-            this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.titleLabel);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1004, 628);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1004, 628);
             this.Name = "Display";
             this.Text = "BattleBab\'s Leaderboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Display_FormClosing);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,9 +588,7 @@
         #endregion
 
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Button aboutButton;
         private System.Windows.Forms.Label ipLabel;
-        private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.OpenFileDialog loadfile;
         private System.Windows.Forms.Label team1;
         private System.Windows.Forms.Label team2;
@@ -595,13 +617,19 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.Button sessionButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sessionLabel;
         private System.Windows.Forms.Label ipInfoLabel;
-        private System.Windows.Forms.Button matchupButton;
-        private System.Windows.Forms.Button bugButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutThisSoftwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportBugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem switchSessionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem matchListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadTeamNamesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetScoresCANNOTBEUNDONEToolStripMenuItem;
     }
 }
 

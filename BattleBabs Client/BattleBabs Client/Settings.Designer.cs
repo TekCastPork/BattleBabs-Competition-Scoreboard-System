@@ -37,6 +37,8 @@
             this.seedText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.fullScreenBox = new System.Windows.Forms.CheckBox();
+            this.compName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.timerCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@
             // 
             // applyButton
             // 
-            this.applyButton.Location = new System.Drawing.Point(12, 97);
+            this.applyButton.Location = new System.Drawing.Point(12, 138);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(75, 23);
             this.applyButton.TabIndex = 2;
@@ -78,7 +80,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(99, 97);
+            this.cancelButton.Location = new System.Drawing.Point(149, 138);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 3;
@@ -117,16 +119,34 @@
             this.fullScreenBox.AutoSize = true;
             this.fullScreenBox.Location = new System.Drawing.Point(15, 74);
             this.fullScreenBox.Name = "fullScreenBox";
-            this.fullScreenBox.Size = new System.Drawing.Size(163, 17);
+            this.fullScreenBox.Size = new System.Drawing.Size(80, 17);
             this.fullScreenBox.TabIndex = 7;
-            this.fullScreenBox.Text = "Fullscreen? (Requires restart)";
+            this.fullScreenBox.Text = "Fullscreen?";
             this.fullScreenBox.UseVisualStyleBackColor = true;
+            // 
+            // compName
+            // 
+            this.compName.Location = new System.Drawing.Point(15, 110);
+            this.compName.Name = "compName";
+            this.compName.Size = new System.Drawing.Size(209, 20);
+            this.compName.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Competition Name";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 128);
+            this.ClientSize = new System.Drawing.Size(236, 173);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.compName);
             this.Controls.Add(this.fullScreenBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.seedText);
@@ -140,7 +160,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";
-            this.Text = "Settings";
+            this.Text = "General Settings";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.timerCount)).EndInit();
             this.ResumeLayout(false);
@@ -158,5 +178,7 @@
         private System.Windows.Forms.TextBox seedText;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox fullScreenBox;
+        private System.Windows.Forms.TextBox compName;
+        private System.Windows.Forms.Label label3;
     }
 }
