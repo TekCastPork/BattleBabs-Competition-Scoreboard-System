@@ -47,6 +47,7 @@
             this.generalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scoringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.networkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeTeamsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -178,7 +179,8 @@
             // 
             this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
-            this.reportBugToolStripMenuItem});
+            this.reportBugToolStripMenuItem,
+            this.changeTeamsToolStripMenuItem});
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
             this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.generalToolStripMenuItem.Text = "General";
@@ -186,14 +188,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // reportBugToolStripMenuItem
             // 
             this.reportBugToolStripMenuItem.Name = "reportBugToolStripMenuItem";
-            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.reportBugToolStripMenuItem.Text = "Report Bug";
             this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
             // 
@@ -242,6 +244,13 @@
             this.networkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.networkToolStripMenuItem.Text = "Network...";
             this.networkToolStripMenuItem.Click += new System.EventHandler(this.networkToolStripMenuItem_Click);
+            // 
+            // changeTeamsToolStripMenuItem
+            // 
+            this.changeTeamsToolStripMenuItem.Name = "changeTeamsToolStripMenuItem";
+            this.changeTeamsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.changeTeamsToolStripMenuItem.Text = "Change Teams...";
+            this.changeTeamsToolStripMenuItem.Click += new System.EventHandler(this.changeTeamsToolStripMenuItem_Click);
             // 
             // Display
             // 
@@ -293,6 +302,7 @@
         private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem scoringToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem networkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeTeamsToolStripMenuItem;
     }
 }
 

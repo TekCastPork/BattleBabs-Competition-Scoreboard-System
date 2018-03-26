@@ -14,6 +14,7 @@ namespace BattleBabs_Client
 {
     public partial class Team_Entry : Form
     {
+        public static Boolean isShowing = false;
         string[] teamNames = new string[18];
         public Team_Entry()
         {
@@ -84,7 +85,7 @@ namespace BattleBabs_Client
             Console.WriteLine("Team 1 is: " + Display.team1);
             Console.WriteLine("Team 2 is: " + Display.team2);
             Display.teamEntryForm.Hide();
-            Display.teamOpen = false;
+            isShowing = false;
         }
 
         /// <summary>

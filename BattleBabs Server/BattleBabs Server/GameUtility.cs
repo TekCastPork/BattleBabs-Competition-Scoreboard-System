@@ -55,6 +55,14 @@ namespace BattleBabs_Server
                     }
                 }
             }
+            Logger.writeGeneralLog("Now calling sorting algorithm");
+            if(Display.sessionId == 0)
+            {
+                object[][] results = Sorter.sortNames(names, points);
+            } else
+            {
+                object[][] results = Sorter.sortNames(session2Names, session2Points);
+            }
         }
     }
 }

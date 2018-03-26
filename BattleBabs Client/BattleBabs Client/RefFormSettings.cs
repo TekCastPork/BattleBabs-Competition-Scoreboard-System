@@ -51,5 +51,50 @@ namespace BattleBabs_Client
         {
             e.Cancel = true;
         }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            TextBox[] names = { Name1, Name2, Name3, Name4 };
+            NumericUpDown[] points = { Score1, Score2, Score3, Score4 };
+            string[] defaultMethods = { "Ping Pong", "Rubber Band", "Disable", "Shove" };
+            string[] defaultValues = { "40", "20", "60", "30" };
+            int index = 0;
+            foreach (TextBox c in names)
+            {
+                try
+                {
+                    RefForm.ScoreNames[index] = defaultMethods[index];
+                }
+                catch (Exception e1)
+                {
+                    Logger.writeExceptionLog(e1);
+                    Logger.writeCriticalLog("IF YOU SEE THIS THEN SCORENAMES HAS A LENGTH OF 0 AND STUFF CANT BE STORED IN IT!");
+                }
+                index++;
+
+            }
+            index = 0;
+            foreach (NumericUpDown c in points)
+            {
+                try
+                {
+                    RefForm.ScoreValues[index] = int.Parse(defaultValues[index]);
+                }
+                catch (Exception e2)
+                {
+                    Logger.writeExceptionLog(e2);
+                    Logger.writeCriticalLog("IF YOU SEE THIS THEN SCOREVALUES HAS A LENGTH OF 0 AND STUFF CANT BE STORED IN IT!");
+                }
+                index++;
+            }
+            Persistence.saveScoringData();
+
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            isShowing = false;
+        }
     }
 }
