@@ -18,7 +18,7 @@ namespace BattleBabs_Server
         /// <param name="inputNames"></param>
         /// <param name="scores"></param>
         /// <returns></returns>
-        public static object[][] sortNames (string[] inputNames, int[] scores)
+        public static object[] sortNames (string[] inputNames, int[] scores)
         {
             Logger.writeGeneralLog("Performing a sort.");
             string[] sortedNames = new string[inputNames.Length]; // array to hold names after sorting
@@ -28,6 +28,7 @@ namespace BattleBabs_Server
             {
                 inputScores[i] = scores[i]; // load in the scores to the input
                 sortedNames[i] = inputNames[i];
+                Logger.writeGeneralLog(String.Format("Input [{0}]  Score: {1}   Name: {2}", i, inputScores[i], sortedNames[i]));
             }
             // We will perform a bubble sort on the scores.
             // Doing so by coding it rather than a built in function will also allow the sorting of team names with
@@ -40,6 +41,8 @@ namespace BattleBabs_Server
                     if(inputScores[j] > inputScores[j + 1]) // if the current value is bigger than the one ahead
                     { //Swap them around
                         //make some holding variables
+                        Logger.writeGeneralLog(String.Format("Swapping {0} with {1}", inputScores[j], inputScores[j + 1]));
+                        Logger.writeGeneralLog(String.Format("Swapping {0} with {1}", sortedNames[j], sortedNames[j + 1]));
                         int swappedValue = inputScores[j];
                         string swappedName = inputNames[j];
                         //swap the scores around
@@ -49,19 +52,27 @@ namespace BattleBabs_Server
                         sortedNames[j] = sortedNames[j + 1];
                         sortedNames[j + 1] = swappedName;
                         //continue on
+                        Logger.writeGeneralLog(String.Format("New Name in location [{0}] is: {1}", j, sortedNames[j]));
+                        Logger.writeGeneralLog(String.Format("New Value in location [{0}] is: {1}", j, inputScores[j]));
+                        
+                        
                     }
                 }
             }
-
-            Logger.writeGeneralLog("Sorting complete. Returning a 2D object array");
-            object[][] returnArray = new object[2][];
-            for(int i = 0; i < inputNames.Length; i++) // create and fill the return array
+            Logger.writeGeneralLog("Final output of sort:\n\n");
+            for (int k = 0; k < inputScores.Length; k++)
             {
-                returnArray[0][i] = inputNames[i];
-                returnArray[1][i] = inputScores[i];
-                Logger.writeGeneralLog(String.Format("Original: {0} , {1}    Sorted: {2} , {3}", inputNames, scores, sortedNames, inputScores));
+                Logger.writeGeneralLog(String.Format("[{0}] Name: {1}   Score {2}", k, sortedNames[k], inputScores[k]));
             }
-            Logger.writeGeneralLog("now returning...");
+            Logger.writeGeneralLog("Sorting complete. Returning a object array");
+            object[] returnArray = new object[18]; // a 18 object array, first 9 will be names, last 9 are scores
+            Logger.writeGeneralLog("Created return array object");
+            for(int i = 0; i < 9; i++) // create and fill the return array
+            {
+                returnArray[i] = sortedNames[i];
+                returnArray[i + 9] = inputScores[i];
+            }
+            Logger.writeGeneralLog("Now returning...");
             
             return returnArray; // return
         }
