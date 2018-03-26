@@ -8,6 +8,8 @@ namespace BattleBabs_Server
         static SpeechSynthesizer synth = new SpeechSynthesizer(); // make a TTS instance so we can so text to speech
         public static string[] names =  { "TestName", "Team2", "ImmaTeam3", "Haiku", "Bab", "Bhab", "Robitz", "LulBot", "TAS" }; // names used on leaderboard, name names for clent program
         public static string[] session2Names = { "", "", "", "", "", "", "", "", "" };
+        public static string[] sortedNames = new string[9];
+        public static int[] sortedScores = new int[9];
    //     public static int[] round =     { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] points =    { 1337 , 25843 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] session2Points = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -56,19 +58,24 @@ namespace BattleBabs_Server
                 }
             }
             Logger.writeGeneralLog("Now calling sorting algorithm");
+            object[] results = new object[18];
             if(Display.sessionId == 0)
             {
-                object[] results = Sorter.sortNames(names, points);
-                for(int i = 0; i < 9; i++)
-                {
-                    Logger.writeGeneralLog(String.Format("[{0}]  Name: {1}    Score: {2}", i, results[i], results[i + 9]));
-                }
-            } else
-            {
-                object[] results = Sorter.sortNames(session2Names, session2Points);
+                results = Sorter.sortNames(names, points);
                 for (int i = 0; i < 9; i++)
                 {
                     Logger.writeGeneralLog(String.Format("[{0}]  Name: {1}    Score: {2}", i, results[i], results[i + 9]));
+                    sortedScores[i] = int.Parse(results[i + 9].ToString());
+                    sortedNames[i] = results[i].ToString();
+                }
+            } else
+            {
+                results = Sorter.sortNames(session2Names, session2Points);
+                for (int i = 0; i < 9; i++)
+                {
+                    Logger.writeGeneralLog(String.Format("[{0}]  Name: {1}    Score: {2}", i, results[i], results[i + 9]));
+                    sortedScores[i] = int.Parse(results[i + 9].ToString());
+                    sortedNames[i] = results[i].ToString();
                 }
             }
             Logger.writeGeneralLog("Done.");

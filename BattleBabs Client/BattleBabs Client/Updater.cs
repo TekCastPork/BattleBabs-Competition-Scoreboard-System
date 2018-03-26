@@ -27,35 +27,40 @@ namespace BattleBabs_Client
 
             client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            Stream data = client.OpenRead("http://api.github.com/repos/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases/latest");
-            StreamReader reader = new StreamReader(data);
-            string receivedData = reader.ReadToEnd();
-            Console.WriteLine(receivedData);
-            data.Close();
-            reader.Close();
-            JObject versionData = JObject.Parse(receivedData);
-            string receivedVersionInfo = versionData.GetValue("tag_name").ToString();
-            string currentVersionInfo = Assembly.GetEntryAssembly().GetName().Version.ToString();
-            //Now compare the values
-            if (receivedVersionInfo.Equals(currentVersionInfo))
+            try
             {
-                Console.WriteLine("This software is up to date.");
-            }
-            else
-            {
-                Console.WriteLine("The software is not up to date! Notifying user");
-                DialogResult update = MessageBox.Show(String.Format("A new update is available for download.\n\n" +
-                    "You have version: {0}\n" +
-                    "Latest version: {1}\n\n" +
-                    "Changes:\n\n" +
-                    "{2}\n\n" +
-                    "Would you like to download the latest version?", currentVersionInfo, receivedVersionInfo, versionData.GetValue("body")), "UPDATE AVAILABLE", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (update == DialogResult.Yes)
+                Stream data = client.OpenRead("http://api.github.com/repos/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases/latest");
+                StreamReader reader = new StreamReader(data);
+                string receivedData = reader.ReadToEnd();
+                Console.WriteLine(receivedData);
+                data.Close();
+                reader.Close();
+                JObject versionData = JObject.Parse(receivedData);
+                string receivedVersionInfo = versionData.GetValue("tag_name").ToString();
+                string currentVersionInfo = Assembly.GetEntryAssembly().GetName().Version.ToString();
+                //Now compare the values
+                if (receivedVersionInfo.Equals(currentVersionInfo))
                 {
-                    System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases/latest");
+                    Console.WriteLine("This software is up to date.");
                 }
+                else
+                {
+                    Console.WriteLine("The software is not up to date! Notifying user");
+                    DialogResult update = MessageBox.Show(String.Format("A new update is available for download.\n\n" +
+                        "You have version: {0}\n" +
+                        "Latest version: {1}\n\n" +
+                        "Changes:\n\n" +
+                        "{2}\n\n" +
+                        "Would you like to download the latest version?", currentVersionInfo, receivedVersionInfo, versionData.GetValue("body")), "UPDATE AVAILABLE", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (update == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/releases/latest");
+                    }
+                }
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
-
         }
 
         /// <summary>
