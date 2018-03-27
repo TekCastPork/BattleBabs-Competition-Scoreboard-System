@@ -81,6 +81,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_394C28F855514BBA915CAE3DB8DF8248"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3CE1644A8B43DDE83B4D92642457743C"
         "OwnerKey" = "8:_9261202A05B64DD48446AE03ED2AA1FE"
         "MsmSig" = "8:_UNDEFINED"
@@ -1161,6 +1167,26 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_394C28F855514BBA915CAE3DB8DF8248"
+            {
+            "SourcePath" = "8:..\\BattleBabs Server\\GODOFWAR.TTF"
+            "TargetName" = "8:GODOFWAR.TTF"
+            "Tag" = "8:"
+            "Folder" = "8:_AF94A5AA7C3F4F398743EF4A327290D1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:5"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
@@ -2992,6 +3018,17 @@
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
+                "Folders"
+                {
+                }
+            }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_AF94A5AA7C3F4F398743EF4A327290D1"
+            {
+            "Name" = "8:#1911"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:FontsFolder"
                 "Folders"
                 {
                 }

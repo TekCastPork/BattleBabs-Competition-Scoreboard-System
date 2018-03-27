@@ -21,18 +21,18 @@ namespace BattleBabs_Server
         public static int sessionId = 0;
         public Display()
         {
-            Logger.createLogFile();
+            InitializeComponent();
+            Logger.createLogFile();/*
             PrivateFontCollection privateFonts = new PrivateFontCollection();
             privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
             Font titleFont = new Font(privateFonts.Families[0], 22);
             Font leaderBoardFont = new Font(privateFonts.Families[0], 20);
-            InitializeComponent();
             titleLabel.Font = leaderBoardFont;
             object[] labelsToUpdate = { team1, team2, team3, team4, team5, team6, team7, team8, team9, score1, score2, score3, score4, score5, score6, score7, score8, score9, rank1, rank2, rank3, rank4, rank5, rank6, rank7, rank8, rank9 };
             foreach(Label c in labelsToUpdate)
             {
                 c.Font = titleFont;
-            }
+            }*/
             ipInfoLabelUpdate(false);
             Networking.create();
             guiUpdate = new Thread(new ThreadStart(updateComponents));
