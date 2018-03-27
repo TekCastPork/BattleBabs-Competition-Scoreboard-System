@@ -83,6 +83,24 @@ namespace BattleBabs_Server
             object[] scoresToUpdate = { score1, score2, score3, score4, score5, score6, score7, score8, score9 };
             while (true)
             {
+                object[] results = new object[18];
+                if(sessionId == 0)
+                {
+                    results = Sorter.sortNames(GameUtility.names, GameUtility.points);
+                    for(int i = 0; i < 9; i++)
+                    {
+                        GameUtility.sortedNames[i] = results[i].ToString();
+                        GameUtility.sortedScores[i] = int.Parse(results[i+9].ToString());                        
+                    }
+                } else
+                {
+                    results = Sorter.sortNames(GameUtility.session2Names, GameUtility.session2Points);
+                    for (int i = 0; i < 9; i++)
+                    {
+                        GameUtility.sortedNames[i] = results[i].ToString();
+                        GameUtility.sortedScores[i] = int.Parse(results[i+9].ToString());
+                    }
+                }
                 int index = 8;
                 Thread.Sleep(500);
                 if (sessionId == 0)
@@ -98,7 +116,7 @@ namespace BattleBabs_Server
                         index = 8;
                         foreach(Label c in scoresToUpdate)
                         {
-                            updateTextLabel(c, String.Format("{0}", "Points: " + GameUtility.sortedScores[index].ToString("000,000")));
+                            updateTextLabel(c, String.Format("{0,7}", GameUtility.sortedScores[index].ToString("000,000")));
                             index--;
                         }
                         index = 8;
@@ -116,16 +134,16 @@ namespace BattleBabs_Server
                         sessionLabelUpdate("2");
                         foreach (Label c in labelsToUpdate)
                         {
-                            updateTextLabel(c, String.Format("{0,8}", "Team: " + GameUtility.session2Names[index]));
-                            index++;
+                            updateTextLabel(c, String.Format("{0,8}", "Team: " + GameUtility.sortedNames[index]));
+                            index--;
                         }
-                        index = 0;
+                        index = 8;
                         foreach (Label c in scoresToUpdate)
                         {
-                            updateTextLabel(c, String.Format("{0}", "Points: " + GameUtility.session2Points[index].ToString("000,000")));
-                            index++;
+                            updateTextLabel(c, String.Format("{0,7}", GameUtility.sortedScores[index].ToString("000,000")));
+                            index--;
                         }
-                        index = 0;
+                        index = 8;
                     }
                     catch (Exception e)
                     {

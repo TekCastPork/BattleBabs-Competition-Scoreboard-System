@@ -43,26 +43,6 @@ namespace BattleBabs_Server
                 GameUtility.session2Names[i] = loadedNames[i + 9];
                 Logger.writeGeneralLog(String.Format("Loaded following data into arrays: names[{0}]: {1}  |  points[{0}]: {2}  |  session2Names[{3}]: {4}  |  session2Points[{3}]: {5}", i, loadedNames[i], loadedScores[i], i + 9, loadedNames[i + 9], loadedScores[i + 9]));
             }
-            Logger.writeGeneralLog("Names and scores loaded, running sort now.");
-            if(Display.sessionId == 0)
-            {
-                object[] result = new object[18];
-                result = Sorter.sortNames(GameUtility.names, GameUtility.points);
-                for(int i = 0; i < 9; i++)
-                {
-                    GameUtility.sortedNames[i] = result[i].ToString();
-                    GameUtility.sortedScores[i] = int.Parse(result[i + 9].ToString());
-                }
-            } else
-            {
-                object[] result = new object[18];
-                result = Sorter.sortNames(GameUtility.session2Names, GameUtility.session2Points);
-                for (int i = 0; i < 9; i++)
-                {
-                    GameUtility.sortedNames[i] = result[i].ToString();
-                    GameUtility.sortedScores[i] = int.Parse(result[i + 9].ToString());
-                }
-            }
         }
 
         public static void saveAll()

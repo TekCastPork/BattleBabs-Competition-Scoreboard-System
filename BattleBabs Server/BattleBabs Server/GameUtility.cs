@@ -57,28 +57,6 @@ namespace BattleBabs_Server
                     }
                 }
             }
-            Logger.writeGeneralLog("Now calling sorting algorithm");
-            object[] results = new object[18];
-            if(Display.sessionId == 0)
-            {
-                results = Sorter.sortNames(names, points);
-                for (int i = 0; i < 9; i++)
-                {
-                    Logger.writeGeneralLog(String.Format("[{0}]  Name: {1}    Score: {2}", i, results[i], results[i + 9]));
-                    sortedScores[i] = int.Parse(results[i + 9].ToString());
-                    sortedNames[i] = results[i].ToString();
-                }
-            } else
-            {
-                results = Sorter.sortNames(session2Names, session2Points);
-                for (int i = 0; i < 9; i++)
-                {
-                    Logger.writeGeneralLog(String.Format("[{0}]  Name: {1}    Score: {2}", i, results[i], results[i + 9]));
-                    sortedScores[i] = int.Parse(results[i + 9].ToString());
-                    sortedNames[i] = results[i].ToString();
-                }
-            }
-            Logger.writeGeneralLog("Done.");
         }
     }
 }
