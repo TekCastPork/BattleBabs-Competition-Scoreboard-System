@@ -38,13 +38,15 @@ namespace BattleBabs_Server
             {
                 for(int j = 0; j < bubbleLength - i - 1; j++)
                 {
+                    Logger.writeGeneralLog(String.Format("Pass: {0} in rotation {1}\n", j, i));
+                    Logger.writeGeneralLog(String.Format("Inputs:\n[0] Name: {0}\t\t\t Score: {1}\n" +
+                        "[1] Name: {2}\t\t\t Score: {3}\n", sortedNames[j], inputScores[j], sortedNames[j + 1], inputScores[j + 1]));
                     if(inputScores[j] > inputScores[j + 1]) // if the current value is bigger than the one ahead
                     { //Swap them around
+                        Logger.writeGeneralLog("Inputs were swapped.");
                         //make some holding variables
-                        Logger.writeGeneralLog(String.Format("Swapping {0} with {1}", inputScores[j], inputScores[j + 1]));
-                        Logger.writeGeneralLog(String.Format("Swapping {0} with {1}", sortedNames[j], sortedNames[j + 1]));
                         int swappedValue = inputScores[j];
-                        string swappedName = inputNames[j];
+                        string swappedName = sortedNames[j];
                         //swap the scores around
                         inputScores[j] = inputScores[j + 1];
                         inputScores[j + 1] = swappedValue;
@@ -52,10 +54,18 @@ namespace BattleBabs_Server
                         sortedNames[j] = sortedNames[j + 1];
                         sortedNames[j + 1] = swappedName;
                         //continue on
-                        Logger.writeGeneralLog(String.Format("New Name in location [{0}] is: {1}", j, sortedNames[j]));
-                        Logger.writeGeneralLog(String.Format("New Value in location [{0}] is: {1}", j, inputScores[j]));
-                        
-                        
+                        for (int k = 0; k < inputScores.Length; k++)
+                        {
+                            Logger.writeGeneralLog(String.Format("[{0}] Name: {1}\t\t\tScore: {2}", k, sortedNames[k], inputScores[k]));
+                        }
+                        Console.WriteLine("Running next pass...");
+                    } else
+                    {
+                        Logger.writeGeneralLog("Inputs werent swapped");
+                        for(int k = 0; k < inputScores.Length; k++)
+                        {
+                        Logger.writeGeneralLog(String.Format("[{0}] Name: {1}\t\t\tScore: {2}", k, sortedNames[k], inputScores[k]));
+                        }
                     }
                 }
             }
