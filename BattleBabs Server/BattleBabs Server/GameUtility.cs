@@ -8,6 +8,8 @@ namespace BattleBabs_Server
         static SpeechSynthesizer synth = new SpeechSynthesizer(); // make a TTS instance so we can so text to speech
         public static string[] names =  { "TestName", "Team2", "ImmaTeam3", "Haiku", "Bab", "Bhab", "Robitz", "LulBot", "TAS" }; // names used on leaderboard, name names for clent program
         public static string[] session2Names = { "", "", "", "", "", "", "", "", "" };
+        public static string[] sortedNames = new string[9];
+        public static int[] sortedScores = new int[9];
    //     public static int[] round =     { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] points =    { 1337 , 25843 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] session2Points = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };

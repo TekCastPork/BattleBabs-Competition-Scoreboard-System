@@ -284,5 +284,14 @@ namespace BattleBabs_Client
                 NetworkWindow.isOpen = true;
             }
         }
+
+        private void changeTeamsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Team_Entry.isShowing == false)
+            {
+                teamEntryForm.Show();
+                Team_Entry.isShowing = true;
+            }
+        }
     }
 }
