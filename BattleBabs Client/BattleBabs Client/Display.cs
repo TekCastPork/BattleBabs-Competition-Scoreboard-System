@@ -17,6 +17,7 @@ namespace BattleBabs_Client
         public static Boolean teamOpen = false;
         Boolean lastScreenState = false;
         public static Team_Entry teamEntryForm = new Team_Entry();
+        WhatsNewScreen newScreen = new WhatsNewScreen();
         AboutBox about = new AboutBox();
         NetworkWindow networking = new NetworkWindow();
         RefFormSettings refSettings = new RefFormSettings();
@@ -30,7 +31,7 @@ namespace BattleBabs_Client
         {
             Logger.writeGeneralLog("Beginning startup functions.");
             InitializeComponent();
-            Logger.writeGeneralLog("Screen objects created");
+            Logger.writeGeneralLog("Screen objects created"); /*
             System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
             privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "erbos_draco_1st_open_nbp.ttf"));
             privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
@@ -44,9 +45,10 @@ namespace BattleBabs_Client
             team2ScoreLbl.Font = scoreFont;
             team1ScoreLbl.Font = scoreFont;
             timerLabel.Font = timeFont;
-            titleLabel.Font = titleFont;
+            titleLabel.Font = titleFont;*/
             Logger.writeGeneralLog("Fonts applied to labels");
             GameUtility.setupObjects();
+            WhatsNewScreen.shouldPopOnStart();
             Logger.writeGeneralLog("Game objects setup complete");
             GUIupdate = new Thread(new ThreadStart(updateComponents)); // create a GUI updating thread
             GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
@@ -56,6 +58,10 @@ namespace BattleBabs_Client
             Logger.writeGeneralLog("Referee window is now shown");
             GoFullscreen(screenMode); // set the fullscreen mode
             Logger.writeGeneralLog("Fullscreen setting applied");
+            if(WhatsNewScreen.isShowing == true)
+            {
+                newScreen.Show();
+            }
         }
 
         delegate void SetBooleanCallback(Boolean state);
@@ -291,6 +297,15 @@ namespace BattleBabs_Client
             {
                 teamEntryForm.Show();
                 Team_Entry.isShowing = true;
+            }
+        }
+
+        private void changelogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(WhatsNewScreen.isShowing == false)
+            {
+                newScreen.Show();
+                WhatsNewScreen.isShowing = true;
             }
         }
     }

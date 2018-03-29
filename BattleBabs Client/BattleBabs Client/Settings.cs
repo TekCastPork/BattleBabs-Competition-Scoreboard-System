@@ -8,8 +8,8 @@ namespace BattleBabs_Client
     {
         Boolean loadSuccess = false;
         public static Boolean isShowing = false;
-        string[] settings = { "", "", "", "", "","","" };
-        string[] loadedSettings = { "", "", "", "", "","","" };
+        string[] settings = { "", "", "", "", "","","","" };
+        string[] loadedSettings = { "", "", "", "", "","","","" };
         /*
          * Settings as follows:
          * [0] IP
@@ -19,6 +19,7 @@ namespace BattleBabs_Client
          * [4] Use seed?
          * [5] Fullscreen state
          * [6] Competition Name
+         * [7] Show whats new popup
          */
 
         public Settings()
@@ -35,6 +36,15 @@ namespace BattleBabs_Client
                     GameUtility.gameTime = int.Parse(loadedSettings[2]);
                     GameUtility.SEED = int.Parse(loadedSettings[3]);
                     GameUtility.compName = loadedSettings[6];
+                    if(loadedSettings[7].Equals("true"))
+                    {
+                        GameUtility.showChanges = true;
+                        showChanges.Checked = true;
+                    } else
+                    {
+                        GameUtility.showChanges = false;
+                        showChanges.Checked = false;
+                    }
                     timerCount.Value = GameUtility.gameTime;
                     compName.Text = GameUtility.compName;
                     if(int.Parse(loadedSettings[5]) == 1)
@@ -137,6 +147,13 @@ namespace BattleBabs_Client
             settings[1] = Networking.port.ToString();
             settings[0] = Networking.IP;
             GameUtility.setSeed();
+            if(showChanges.Checked == true)
+            {
+                settings[7] = "true";
+            } else
+            {
+                settings[7] = "false";
+            }
             this.Hide();
             saveSettings();
             isShowing = false;

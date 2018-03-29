@@ -41,13 +41,14 @@
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportBugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeTeamsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToArduinoControllerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.scoringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.networkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeTeamsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.VSpicture)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             // titleLabel
             // 
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleLabel.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Font = new System.Drawing.Font("GodOfWar", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.Location = new System.Drawing.Point(0, 24);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.titleLabel.Name = "titleLabel";
@@ -67,7 +68,7 @@
             // team2Name
             // 
             this.team2Name.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.team2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2Name.Font = new System.Drawing.Font("GodOfWar", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team2Name.Location = new System.Drawing.Point(642, 188);
             this.team2Name.MaximumSize = new System.Drawing.Size(330, 50);
             this.team2Name.Name = "team2Name";
@@ -80,7 +81,7 @@
             // team1Name
             // 
             this.team1Name.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.team1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team1Name.Font = new System.Drawing.Font("GodOfWar", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team1Name.Location = new System.Drawing.Point(12, 188);
             this.team1Name.MaximumSize = new System.Drawing.Size(330, 50);
             this.team1Name.Name = "team1Name";
@@ -96,7 +97,7 @@
             this.team1ScoreLbl.BackColor = System.Drawing.Color.Black;
             this.team1ScoreLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.team1ScoreLbl.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.team1ScoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team1ScoreLbl.Font = new System.Drawing.Font("Erbos Draco 1st Open NBP", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team1ScoreLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.team1ScoreLbl.Location = new System.Drawing.Point(12, 238);
             this.team1ScoreLbl.MaximumSize = new System.Drawing.Size(330, 50);
@@ -113,7 +114,7 @@
             this.team2ScoreLbl.BackColor = System.Drawing.Color.Black;
             this.team2ScoreLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.team2ScoreLbl.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.team2ScoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2ScoreLbl.Font = new System.Drawing.Font("Erbos Draco 1st Open NBP", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team2ScoreLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.team2ScoreLbl.Location = new System.Drawing.Point(642, 238);
             this.team2ScoreLbl.MaximumSize = new System.Drawing.Size(330, 50);
@@ -180,7 +181,8 @@
             this.generalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
             this.reportBugToolStripMenuItem,
-            this.changeTeamsToolStripMenuItem});
+            this.changeTeamsToolStripMenuItem,
+            this.changelogToolStripMenuItem});
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
             this.generalToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.generalToolStripMenuItem.Text = "General";
@@ -198,6 +200,13 @@
             this.reportBugToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.reportBugToolStripMenuItem.Text = "Report Bug";
             this.reportBugToolStripMenuItem.Click += new System.EventHandler(this.reportBugToolStripMenuItem_Click);
+            // 
+            // changeTeamsToolStripMenuItem
+            // 
+            this.changeTeamsToolStripMenuItem.Name = "changeTeamsToolStripMenuItem";
+            this.changeTeamsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.changeTeamsToolStripMenuItem.Text = "Change Teams...";
+            this.changeTeamsToolStripMenuItem.Click += new System.EventHandler(this.changeTeamsToolStripMenuItem_Click);
             // 
             // connectionsToolStripMenuItem
             // 
@@ -227,30 +236,30 @@
             // generalToolStripMenuItem1
             // 
             this.generalToolStripMenuItem1.Name = "generalToolStripMenuItem1";
-            this.generalToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.generalToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
             this.generalToolStripMenuItem1.Text = "General...";
             this.generalToolStripMenuItem1.Click += new System.EventHandler(this.generalToolStripMenuItem1_Click);
             // 
             // scoringToolStripMenuItem
             // 
             this.scoringToolStripMenuItem.Name = "scoringToolStripMenuItem";
-            this.scoringToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scoringToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.scoringToolStripMenuItem.Text = "Scoring...";
             this.scoringToolStripMenuItem.Click += new System.EventHandler(this.scoringToolStripMenuItem_Click);
             // 
             // networkToolStripMenuItem
             // 
             this.networkToolStripMenuItem.Name = "networkToolStripMenuItem";
-            this.networkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.networkToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.networkToolStripMenuItem.Text = "Network...";
             this.networkToolStripMenuItem.Click += new System.EventHandler(this.networkToolStripMenuItem_Click);
             // 
-            // changeTeamsToolStripMenuItem
+            // changelogToolStripMenuItem
             // 
-            this.changeTeamsToolStripMenuItem.Name = "changeTeamsToolStripMenuItem";
-            this.changeTeamsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.changeTeamsToolStripMenuItem.Text = "Change Teams...";
-            this.changeTeamsToolStripMenuItem.Click += new System.EventHandler(this.changeTeamsToolStripMenuItem_Click);
+            this.changelogToolStripMenuItem.Name = "changelogToolStripMenuItem";
+            this.changelogToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.changelogToolStripMenuItem.Text = "Changelog";
+            this.changelogToolStripMenuItem.Click += new System.EventHandler(this.changelogToolStripMenuItem_Click);
             // 
             // Display
             // 
@@ -303,6 +312,7 @@
         private System.Windows.Forms.ToolStripMenuItem scoringToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem networkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeTeamsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changelogToolStripMenuItem;
     }
 }
 
