@@ -18,6 +18,7 @@ namespace BattleBabs_Client
         static string lastTeam1; // used for broadcasting
         static string lastTeam2; // used for broadcasting
         public static string compName = "Robert Thirsk's Bi-Annual BattleBots Competition"; // competition's name
+        public static Boolean showChanges = true;
         /// <summary>
         /// matchState has 3 states, 0, 1, 2.
         /// State 0 means the game is stopped. State 1 is match running State 2 is match is paused, and can only be resumed or stopped.

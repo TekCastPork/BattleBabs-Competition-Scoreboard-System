@@ -39,7 +39,25 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_506F2308EB5E428790C40E4D4FAC4DA9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54D9806FE1D9414B938BEAB142449930"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6D103D7DE9E741398C2B6A5504F98578"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BBB70795E62445F8A2967460A63EB266"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -271,6 +289,46 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_506F2308EB5E428790C40E4D4FAC4DA9"
+            {
+            "SourcePath" = "8:..\\BattleBabs Client\\GODOFWAR.TTF"
+            "TargetName" = "8:GODOFWAR.TTF"
+            "Tag" = "8:"
+            "Folder" = "8:_ED11B17D1F394B2C86A02A4BB4CFC1A0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:5"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_54D9806FE1D9414B938BEAB142449930"
+            {
+            "SourcePath" = "8:..\\BattleBabs Client\\license.rtf"
+            "TargetName" = "8:license.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_1474F814EDC24475AA22BE1578047E45"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6D103D7DE9E741398C2B6A5504F98578"
             {
             "SourcePath" = "8:..\\BattleBabs Client\\ScoringMethods.persist"
@@ -287,6 +345,26 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BBB70795E62445F8A2967460A63EB266"
+            {
+            "SourcePath" = "8:..\\BattleBabs Client\\erbos_draco_1st_open_nbp.ttf"
+            "TargetName" = "8:erbos_draco_1st_open_nbp.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_ED11B17D1F394B2C86A02A4BB4CFC1A0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:5"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
@@ -378,6 +456,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_8363DA9573444B7ABA3B32E4E219383A"
+                    {
+                    "Name" = "8:Logs"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_439ED2DB5CA0403AA44C42F428A61A14"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_340C5376A8F34425A617442FAEF7E708"
@@ -424,6 +513,17 @@
                     }
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_ED11B17D1F394B2C86A02A4BB4CFC1A0"
+            {
+            "Name" = "8:#1911"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:FontsFolder"
+                "Folders"
+                {
+                }
+            }
         }
         "LaunchCondition"
         {
@@ -441,7 +541,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BattleBabs Scoreboard"
         "ProductCode" = "8:{25670DAD-33E6-4086-A06A-01D46BA18A19}"
-        "PackageCode" = "8:{A78675B4-7161-4D38-A344-CCC45AB5F2B3}"
+        "PackageCode" = "8:{C196709D-B8DC-49A3-95D9-414414DE4F8C}"
         "UpgradeCode" = "8:{5084BCC0-E984-4314-BF09-86F2B39025DF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
