@@ -26,7 +26,7 @@
             function printRepoCount() {
               var responseObj = JSON.parse(this.responseText);
               console.log(responseObj.tag_name);
-              document.getElementById("versioninfo").innerHTML = "Latest Version: " + responseObj.tag_name;
+              document.getElementById("versioninfo").innerHTML = "  Latest Version: " + responseObj.tag_name;
             }
             var request = new XMLHttpRequest();
             request.onload = printRepoCount;
