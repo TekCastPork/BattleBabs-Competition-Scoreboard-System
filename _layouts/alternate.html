@@ -21,12 +21,12 @@
       <div id="header">
         <nav>
           <li class="fork"><a href="{{ site.github.repository_url }}">View On GitHub</a></li>
-          <li id="versioninfo" class="fork">Latest Version: X.X.X.XXX</li>
+          <li id="versioninfo" style="padding-left:5px" class="fork">Latest Version: X.X.X.XXX</li>
           <script>
             function printRepoCount() {
               var responseObj = JSON.parse(this.responseText);
               console.log(responseObj.tag_name);
-              document.getElementById("versioninfo").innerHTML = "  Latest Version: " + responseObj.tag_name;
+              document.getElementById("versioninfo").innerHTML = "Latest Version: " + responseObj.tag_name;
             }
             var request = new XMLHttpRequest();
             request.onload = printRepoCount;
