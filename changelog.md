@@ -7,6 +7,16 @@ layout: alternate
 
 # Changelog:
 
+## Version 2.4.0 Build 114
+
+Additions!
+
+### Additions:
+* Added a "Whats New" popup to the Scoreboard program, so you don't have to come here every time to see whats changed between the latest version and its previous.
+
+#### Notes:
+Somehow this broke the font system on the scoreboard much like how the sorter broke it on the leaderboard. I do not know why this happened again so like the leaderboard all required font files are going to be placed in your Windows Fonts folder instead of with the executable.
+
 ## Version 2.3.0 Build 109
 
 Bug fixes and Additions!
