@@ -7,6 +7,25 @@ layout: alternate
 
 # Changelog:
 
+## Version 2.3.0 Build 109
+
+Bug fixes and Additions!
+
+### Fixes:
+* The Change teams button on the scoreboard disappeared at some point. Its back and now found under the general tab on the toolbar.
+* The Leaderboard wouldn't show session 2 when I changed it up because of the new feature, that's fixed.
+* Fixed some typos on the updater on the scoreboard
+* Both the scoreboard and leaderboard would crash on startup if the computer did not have internet when it went to check for a new version. That's fixed...
+
+### Additions:
+* Leaderboard has a Rank system again! No longer do you need to manually look and see who is in first, the leaderboard does that for you now!
+
+### General Changes:
+* The font used in this program (GodOfWar.ttf) is now placed into the fonts folder on your Windows Machine. This is done because for some reason the just added sorter code broke the code that changes the font of the labels so I didn't have to specify a font on the GUI designer. So, for now, it's placed there instead of in the application folder and I will look into why that code is broken later.
+
+#### Notes:
+I'm working on making a splash screen that tells you the changes between versions so you don't have to read these while the installers download, and so that if you forget you don't have to navigate here.
+
 ## Version 2.2.1 Build 99
 
 General Fix Update
