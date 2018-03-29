@@ -8,8 +8,8 @@ namespace BattleBabs_Client
     {
         Boolean loadSuccess = false;
         public static Boolean isShowing = false;
-        string[] settings = { "", "", "", "", "","","","" };
-        string[] loadedSettings = { "", "", "", "", "","","","" };
+        string[] settings = { "", "", "", "", "","","","false" };
+        string[] loadedSettings = { "", "", "", "", "","","","false" };
         /*
          * Settings as follows:
          * [0] IP
@@ -40,10 +40,14 @@ namespace BattleBabs_Client
                     {
                         GameUtility.showChanges = true;
                         showChanges.Checked = true;
-                    } else
+                    } else if (loadedSettings[7].Equals("false"))
                     {
                         GameUtility.showChanges = false;
                         showChanges.Checked = false;
+                    } else
+                    {
+                        GameUtility.showChanges = true;
+                        showChanges.Checked = true;
                     }
                     timerCount.Value = GameUtility.gameTime;
                     compName.Text = GameUtility.compName;
@@ -136,7 +140,7 @@ namespace BattleBabs_Client
             }
             if(compName.Text.Equals(GameUtility.compName))
             {
-                //no action needed
+                settings[6] = compName.Text;
             } else
             {
                 settings[6] = compName.Text;
