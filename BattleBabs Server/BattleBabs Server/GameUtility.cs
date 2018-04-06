@@ -1,19 +1,40 @@
 ﻿using System;
 using System.Speech.Synthesis;
+using System.Collections.Generic;
 
 namespace BattleBabs_Server
 {
     class GameUtility
     {
+        public static int teamCount = 99;
+        /// <summary>
+        /// A structure to contain information about each team.
+        /// enterable data follows
+        /// <para>string name</para>
+        /// <para>int score</para>
+        /// <para>int rank</para>
+        /// <para>int ID</para>
+        /// </summary>
+        public struct teamData
+        {
+            public string name;
+            public int score;
+            public int rank;
+            public int ID;
+        };
+
+
+        /// <summary>
+        /// This list will hold all team entries
+        /// </summary>
+        public static List<teamData> teamEntries = new List<teamData>();
         static SpeechSynthesizer synth = new SpeechSynthesizer(); // make a TTS instance so we can so text to speech
         public static string[] names =  { "TestName", "Team2", "ImmaTeam3", "Haiku", "Bab", "Bhab", "Robitz", "LulBot", "TAS" }; // names used on leaderboard, name names for clent program
         public static string[] session2Names = { "", "", "", "", "", "", "", "", "" };
         public static string[] sortedNames = new string[9];
         public static int[] sortedScores = new int[9];
-   //     public static int[] round =     { 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] points =    { 1337 , 25843 , 0 , 0 , 0 , 0 , 0 , 0 , 0  };
         public static int[] session2Points = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-   //     public static int[] rank =      { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9  };
         public static int[] parsedScores = { 0, 0 };
         public static string[] receivedNames = { "", "", };
 
