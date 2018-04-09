@@ -463,10 +463,10 @@ namespace BattleBabs_Server
                 Logger.writeWarningLog("Can Continue flag for loading of combinations and played flags was set false! reading of persistence files must have failed. Loading names and combinations based on current sessionId");
                 if(Display.sessionId == 0)
                 {
-                    getCombinations(GameUtility.names);
+                    getCombinations(GameUtility.session1TeamNames);
                 } else
                 {
-                    getCombinations(GameUtility.session2Names);
+                    getCombinations(GameUtility.session2TeamNames);
                 }
             }
         }
@@ -483,10 +483,10 @@ namespace BattleBabs_Server
             Logger.writeWarningLog("Refresh button for bracket window was clicked. Forcibly refreshing the screen via re-calculating the combinations.");
             if(Display.sessionId == 0)
             {
-                getCombinations(GameUtility.names);
+                getCombinations(GameUtility.session1TeamNames);
             } else
             {
-                getCombinations(GameUtility.session2Names);
+                getCombinations(GameUtility.session2TeamNames);
             }
         }
 
@@ -520,11 +520,11 @@ namespace BattleBabs_Server
             Logger.writeWarningLog("Refresh button for bracket window was clicked. Forcibly refreshing the screen via re-calculating the combinations.");
             if (Display.sessionId == 0)
             {
-                getCombinations(GameUtility.names);
+                getCombinations(GameUtility.session1TeamNames);
             }
             else
             {
-                getCombinations(GameUtility.session2Names);
+                getCombinations(GameUtility.session2TeamNames);
             }
         }
     }

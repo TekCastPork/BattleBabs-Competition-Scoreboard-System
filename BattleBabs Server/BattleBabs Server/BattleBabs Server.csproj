@@ -163,7 +163,9 @@
     <Content Include="rounds2.persist">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="TeamData.persist" />
+    <Content Include="TeamData.persist">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

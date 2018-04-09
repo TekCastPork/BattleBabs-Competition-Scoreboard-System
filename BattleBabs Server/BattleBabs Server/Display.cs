@@ -22,20 +22,9 @@ namespace BattleBabs_Server
         public Display()
         {
             InitializeComponent();
-            /*
-            PrivateFontCollection privateFonts = new PrivateFontCollection();
-            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
-            Font titleFont = new Font(privateFonts.Families[0], 22);
-            Font leaderBoardFont = new Font(privateFonts.Families[0], 20);
-            titleLabel.Font = leaderBoardFont;
-            object[] labelsToUpdate = { team1, team2, team3, team4, team5, team6, team7, team8, team9, score1, score2, score3, score4, score5, score6, score7, score8, score9, rank1, rank2, rank3, rank4, rank5, rank6, rank7, rank8, rank9 };
-            foreach(Label c in labelsToUpdate)
-            {
-                c.Font = titleFont;
-            }*/
             ipInfoLabelUpdate(false);
             Networking.create();
-            guiUpdate = new Thread(new ThreadStart(updateComponents));
+            guiUpdate = new Thread(new ThreadStart(updateComponentData));
             guiUpdate.IsBackground = true;            
             var host = Dns.GetHostEntry(Dns.GetHostName());
             int IPCount = 0; // used for determininbg some label stuff
@@ -58,7 +47,7 @@ namespace BattleBabs_Server
             guiUpdate.Start();
             try
             {
-                Peristence.load();
+                // put load here
             }
             catch (Exception e)
             {
@@ -68,14 +57,15 @@ namespace BattleBabs_Server
 
             if (sessionId == 0)
             {
-                bracketWindow = new Bracketeers(GameUtility.names);
+                bracketWindow = new Bracketeers(GameUtility.session1TeamNames);
             } else
             {
-                bracketWindow = new Bracketeers(GameUtility.session2Names);
+                bracketWindow = new Bracketeers(GameUtility.session2TeamNames);
             }
         }
 
         delegate void SetBoolCallback(Boolean logic);
+        delegate void SetTextCallback(string text);
         delegate void SetUpCallback();
 
         /// <summary>
@@ -103,90 +93,10 @@ namespace BattleBabs_Server
 
         }
 
-        [Obsolete("Obsolete in this branch, please use updateComponentData() instead")]
-        private void updateComponents()
-        {
-            object[] labelsToUpdate = { team1, team2, team3, team4, team5, team6, team7, team8, team9 };
-            object[] scoresToUpdate = { score1, score2, score3, score4, score5, score6, score7, score8, score9 };
-            while (true)
-            {
-                object[] results = new object[18];
-                if(sessionId == 0)
-                {
-                    results = Sorter.sortNames(GameUtility.names, GameUtility.points);
-                    for(int i = 0; i < 9; i++) {
-                    
-                        GameUtility.sortedNames[i] = results[i].ToString();
-                        GameUtility.sortedScores[i] = int.Parse(results[i+9].ToString());                        
-                    }
-                } else
-                {
-                    results = Sorter.sortNames(GameUtility.session2Names, GameUtility.session2Points);
-                    for (int i = 0; i < 9; i++)
-                    {
-                        GameUtility.sortedNames[i] = results[i].ToString();
-                        GameUtility.sortedScores[i] = int.Parse(results[i+9].ToString());
-                    }
-                }
-                int index = 8;
-                Thread.Sleep(500);
-                if (sessionId == 0)
-                {
-                    try
-                    {
-                        sessionLabelUpdate("1");
-                        foreach (Label c in labelsToUpdate)
-                        {
-                            updateTextLabel(c, String.Format("{0,8}", "Team: " + GameUtility.sortedNames[index]));
-                            index--;
-                        }
-                        index = 8;
-                        foreach(Label c in scoresToUpdate)
-                        {
-                            updateTextLabel(c, String.Format("{0,7}", GameUtility.sortedScores[index].ToString("000,000")));
-                            index--;
-                        }
-                        index = 8;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Exception! {0}", e.Message);
-                        Logger.writeExceptionLog(e);
-                    }
-                }
-                else
-                {
-                    try
-                    {
-                        sessionLabelUpdate("2");
-                        foreach (Label c in labelsToUpdate)
-                        {
-                            updateTextLabel(c, String.Format("{0,8}", "Team: " + GameUtility.sortedNames[index]));
-                            index--;
-                        }
-                        index = 8;
-                        foreach (Label c in scoresToUpdate)
-                        {
-                            updateTextLabel(c, String.Format("{0,7}", GameUtility.sortedScores[index].ToString("000,000")));
-                            index--;
-                        }
-                        index = 8;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Exception! {0}", e.Message);
-                        Logger.writeExceptionLog(e);
-                    }
-                }
-            }
-
-
-        }
-
         private void Display_FormClosing(object sender, FormClosingEventArgs e)
         {
             Console.WriteLine("FORM CLOSING, RUN SAVE PROCEDURE");
-            Peristence.saveAll();
+            //Place saving of data here
         }                
 
         private void loadfile_FileOk(object sender, CancelEventArgs e)
@@ -198,17 +108,17 @@ namespace BattleBabs_Server
             try
             {
                 loadedNames = File.ReadAllLines(loadfile.FileName);
+                GameUtility.teamEntries.RemoveRange(0, GameUtility.teamEntries.Count);
                 for(int i = 0; i < loadedNames.Length; i++)
                 {
-                    try
-                    {
-                        GameUtility.names[i] = loadedNames[i];
-                        GameUtility.session2Names[i] = loadedNames[i + 9];
-                    } catch(Exception e2)
-                    {
-                        Console.WriteLine("Exception! {0}", e2.Message);
-                        Logger.writeExceptionLog(e2);
-                    }
+                    GameUtility.teamData teamInfo = new GameUtility.teamData();
+                    string[] splitTeamData = loadedNames[i].Split(':');
+                    teamInfo.name = splitTeamData[0];
+                    teamInfo.score = int.Parse(splitTeamData[1]);
+                    teamInfo.rank = int.Parse(splitTeamData[2]);
+                    teamInfo.sessionID = int.Parse(splitTeamData[3]);
+                    GameUtility.teamEntries.Insert(i, teamInfo);
+                    GameUtility.teamCount++;
                 }
             } catch(Exception e1)
             {
@@ -217,8 +127,7 @@ namespace BattleBabs_Server
             }
         }
 
-        //All of these functions relate to updating the GUI. NO TOUCHIE
-        delegate void SetTextCallback(string text);
+        //All of these functions relate to updating the GUI. NO TOUCHIE        
         private void sessionLabelUpdate(string text)
         {
             if (this.sessionLabel.InvokeRequired)
@@ -318,12 +227,12 @@ namespace BattleBabs_Server
             if (sessionId == 0)
             {
                 sessionId = 1;
-                Bracketeers.getCombinations(GameUtility.session2Names);
+                Bracketeers.getCombinations(GameUtility.session2TeamNames);
             }
             else
             {
                 sessionId = 0;
-                Bracketeers.getCombinations(GameUtility.names);
+                Bracketeers.getCombinations(GameUtility.session1TeamNames);
             }
         }
 
@@ -347,6 +256,7 @@ namespace BattleBabs_Server
             Logger.writeGeneralLog("Showing load dialog since load button was clicked");
         }
 
+
         private void resetScoresCANNOTBEUNDONEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Warning! You are about to reset ALL scores for BOTH session 1 AND session 2!\n" +
@@ -358,16 +268,36 @@ namespace BattleBabs_Server
             {
                 if (sessionId == 0)
                 {
-                    for (int i = 0; i < GameUtility.points.Length; i++)
+                    GameUtility.teamData teamInfo = new GameUtility.teamData();
+                    Logger.writeGeneralLog("Erasing scores for session 1 teams");
+                    for(int i = 0; i < GameUtility.teamEntries.Count; i++)
                     {
-                        GameUtility.points[i] = 0;
+                        teamInfo = GameUtility.teamEntries.ElementAt<GameUtility.teamData>(i);
+                        if(teamInfo.sessionID == 0)
+                        {
+                            Logger.writeGeneralLog(String.Format("sessionID of strucutre at location {0} matches sessionID that is being erased.", i));
+                            teamInfo.score = 0;
+                            Logger.writeGeneralLog("structure score reset, replacing structure in list");
+                            GameUtility.teamEntries.RemoveAt(i);
+                            GameUtility.teamEntries.Insert(i, teamInfo);
+                        }
                     }
                 }
                 else
                 {
-                    for (int i = 0; i < GameUtility.session2Points.Length; i++)
+                    GameUtility.teamData teamInfo = new GameUtility.teamData();
+                    Logger.writeGeneralLog("Erasing scores for session 2 teams");
+                    for (int i = 0; i < GameUtility.teamEntries.Count; i++)
                     {
-                        GameUtility.session2Points[i] = 0;
+                        teamInfo = GameUtility.teamEntries.ElementAt<GameUtility.teamData>(i);
+                        if (teamInfo.sessionID == 1)
+                        {
+                            Logger.writeGeneralLog(String.Format("sessionID of strucutre at location {0} matches sessionID that is being erased.", i));
+                            teamInfo.score = 0;
+                            Logger.writeGeneralLog("structure score reset, replacing structure in list");
+                            GameUtility.teamEntries.RemoveAt(i);
+                            GameUtility.teamEntries.Insert(i, teamInfo);
+                        }
                     }
                 }
             }
