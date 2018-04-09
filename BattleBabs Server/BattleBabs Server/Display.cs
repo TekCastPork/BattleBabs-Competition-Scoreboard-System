@@ -22,7 +22,7 @@ namespace BattleBabs_Server
         public Display()
         {
             InitializeComponent();
-            Logger.createLogFile();/*
+            /*
             PrivateFontCollection privateFonts = new PrivateFontCollection();
             privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
             Font titleFont = new Font(privateFonts.Families[0], 22);
@@ -76,7 +76,34 @@ namespace BattleBabs_Server
         }
 
         delegate void SetBoolCallback(Boolean logic);
+        delegate void SetUpCallback();
 
+        /// <summary>
+        /// Updates the score and name labels based on the structure array
+        /// </summary>
+        private void updateComponentData()
+        {
+            int entryIndex = 0;
+            GameUtility.teamData teamInfo = new GameUtility.teamData();
+            Label[] nameLabels = { team1, team2, team3, team4, team5, team6, team7, team8, team9 };
+            Label[] scoreLabels = { score1, score2, score3, score4, score5, score6, score7, score8, score9 };
+            foreach(Label c in nameLabels)
+            {
+                teamInfo = GameUtility.teamEntries.ElementAt<GameUtility.teamData>(entryIndex);
+                if(c.InvokeRequired)
+                {
+                    SetUpCallback d = new SetUpCallback(updateComponentData);
+                    this.Invoke(d, new object[] { });                    
+                } else
+                {
+                    c.Text = teamInfo.name;
+                    scoreLabels[entryIndex].Text = teamInfo.score.ToString();
+                }
+            }
+
+        }
+
+        [Obsolete("Obsolete in this branch, please use updateComponentData() instead")]
         private void updateComponents()
         {
             object[] labelsToUpdate = { team1, team2, team3, team4, team5, team6, team7, team8, team9 };
@@ -87,8 +114,8 @@ namespace BattleBabs_Server
                 if(sessionId == 0)
                 {
                     results = Sorter.sortNames(GameUtility.names, GameUtility.points);
-                    for(int i = 0; i < 9; i++)
-                    {
+                    for(int i = 0; i < 9; i++) {
+                    
                         GameUtility.sortedNames[i] = results[i].ToString();
                         GameUtility.sortedScores[i] = int.Parse(results[i+9].ToString());                        
                     }
@@ -160,9 +187,7 @@ namespace BattleBabs_Server
         {
             Console.WriteLine("FORM CLOSING, RUN SAVE PROCEDURE");
             Peristence.saveAll();
-        }        
-
-        
+        }                
 
         private void loadfile_FileOk(object sender, CancelEventArgs e)
         {
@@ -191,7 +216,6 @@ namespace BattleBabs_Server
                 Logger.writeExceptionLog(e1);
             }
         }
-
 
         //All of these functions relate to updating the GUI. NO TOUCHIE
         delegate void SetTextCallback(string text);

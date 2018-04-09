@@ -44,6 +44,12 @@ namespace BattleBabs_Server
             writer.WriteLine("({0})[INFO] " + msg,sw.ElapsedMilliseconds);
         }
 
+        public static void writeNetLog(string msg)
+        {
+            Console.WriteLine("Logging a network message: {0}", msg);
+            writer.WriteLine("({0})[SATCOMMS] " + msg, sw.ElapsedMilliseconds);
+        }
+
         /// <summary>
         /// Writes a warning level message to the log file, if arguments must be added String.Format must be used as the parameter
         /// </summary>

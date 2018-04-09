@@ -10,6 +10,7 @@ namespace BattleBabs_Server
         /// <summary>
         /// OBSOLETE IN THIS BRANCH
         /// </summary>
+        [Obsolete("In this branch please use loadTeamData()")]
         public static void load()
         {
             Console.WriteLine("[Pre] Loading scores and names");
@@ -53,6 +54,7 @@ namespace BattleBabs_Server
         /// <summary>
         /// OBSOLETE IN THIS BRANCH
         /// </summary>
+        [Obsolete("In this branch please use saveTeamData()")]
         public static void saveAll()
         {
             Console.WriteLine("[Post] Saving names & scores to names.persist");

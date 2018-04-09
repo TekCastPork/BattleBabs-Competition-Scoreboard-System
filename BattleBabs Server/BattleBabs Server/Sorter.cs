@@ -15,9 +15,10 @@ namespace BattleBabs_Server
         /// This function will take in team names and scores and sort then from highest to lowest,
         /// returning the results in a 2D object array with names in row 1 and scores in row 2.
         /// </summary>
-        /// <param name="inputNames"></param>
-        /// <param name="scores"></param>
+        /// <para name="inputNames"></para>
+        /// <para name="scores"></para>
         /// <returns></returns>
+        [Obsolete("Please use sortTeamData(List<GameUtility.teamData> teamData) instead in this branch")]
         public static object[] sortNames (string[] inputNames, int[] scores)
         {
             Logger.writeGeneralLog("Performing a sort.");
@@ -85,6 +86,21 @@ namespace BattleBabs_Server
             Logger.writeGeneralLog("Now returning...");
             
             return returnArray; // return
+        }
+
+        /// <summary>
+        /// Sorts a teamData list based on the score
+        /// </summary>
+        /// <remarks>CAN ONLY SORT LISTS OF TYPE 'GameUtility.teamData'</remarks>
+        /// <param name="teamData"></param>
+        /// <returns></returns>
+        public static List<GameUtility.teamData> sortTeamData(List<GameUtility.teamData> teamData)
+        {
+            Logger.writeGeneralLog("Now sorting team data based on score");
+            List<GameUtility.teamData> sortedData = new List<GameUtility.teamData>();
+            sortedData = GameUtility.teamEntries.OrderBy(x => x.score).ToList<GameUtility.teamData>();
+            Logger.writeGeneralLog("Data sorted, returning");
+            return sortedData;
         }
     }
 }

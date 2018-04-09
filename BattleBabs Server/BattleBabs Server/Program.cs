@@ -14,7 +14,10 @@ namespace BattleBabs_Server
         [STAThread]
         static void Main()
         {
+            Logger.createLogFile();
             Console.WriteLine("Appdata location: {0}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+         //   Peristence.loadTeamData();
+         //   Sorter.sortTeamData(GameUtility.teamEntries);
             Application.EnableVisualStyles();
             Updater.checkForUpdates();
             Updater.validateFiles();
