@@ -73,6 +73,7 @@ namespace BattleBabs_Server
         /// </summary>
         private void updateComponentData()
         {
+            Thread.Sleep(100);
             int entryIndex = 0;
             GameUtility.teamData teamInfo = new GameUtility.teamData();
             Label[] nameLabels = { team1, team2, team3, team4, team5, team6, team7, team8, team9 };
@@ -90,6 +91,7 @@ namespace BattleBabs_Server
                     scoreLabels[entryIndex].Text = teamInfo.score.ToString();
                 }
             }
+            entryIndex++;
 
         }
 
