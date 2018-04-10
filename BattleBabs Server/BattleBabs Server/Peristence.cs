@@ -15,8 +15,13 @@ namespace BattleBabs_Server
         {
             Logger.writeGeneralLog("Loading team data from persistence file");
             string[] loadedTeamData = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "TeamData.persist"));
+            Logger.writeGeneralLog("Data loaded:");
+            for(int i = 0; i < loadedTeamData.Length; i++)
+            {
+                Logger.writeGeneralLog(String.Format("\t{0}", loadedTeamData[i]));
+            }
             Logger.writeGeneralLog("Data loaded into holding string array, loading into list entries...");
-            GameUtility.teamCount = int.Parse(loadedTeamData[0]);
+          //  GameUtility.teamCount = int.Parse(loadedTeamData[0]);
             for(int i = 1; i < loadedTeamData.Length; i++)
             {
                 string[] splitTeamData = loadedTeamData[i].Split(':'); // split a single team's data
@@ -49,8 +54,9 @@ namespace BattleBabs_Server
         public static void saveTeamData()
         {
             string[] saveData = new string[GameUtility.teamCount];
+            saveData[0] = GameUtility.teamCount.ToString();
             Logger.writeGeneralLog("Now saving team data");
-            for(int i = 0; i < GameUtility.teamEntries.Count; i++)
+            for(int i = 1; i < GameUtility.teamEntries.Count; i++)
             {
                 Logger.writeGeneralLog(String.Format("Loading structure located at index {0} of the list...", i));
                 GameUtility.teamData teamEntry = new GameUtility.teamData();

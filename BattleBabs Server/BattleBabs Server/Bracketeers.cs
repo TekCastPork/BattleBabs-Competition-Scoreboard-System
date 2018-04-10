@@ -28,6 +28,7 @@ namespace BattleBabs_Server
             Font titleFont = new Font(privateFonts.Families[0], 20);
             updateThread = new Thread(new ThreadStart(updateComponents));
             updateThread.IsBackground = true;
+            updateThread.Name = "BracketUpdate";
             updateThread.Start();
         }        
 

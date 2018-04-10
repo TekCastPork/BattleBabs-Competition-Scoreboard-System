@@ -17,18 +17,20 @@ namespace BattleBabs_Server
     {
         AboutBox about = new AboutBox();
         Bracketeers bracketWindow;
-        Thread guiUpdate;
+        public static Thread guiUpdate;
         public static int sessionId = 0;
+        public static Boolean updateDisplay = true;
         public Display()
         {
             InitializeComponent();
             ipInfoLabelUpdate(false);
             Networking.create();
             guiUpdate = new Thread(new ThreadStart(updateComponentData));
-            guiUpdate.IsBackground = true;            
+            guiUpdate.IsBackground = true;
+            guiUpdate.Name = "DisplayUpdate";
+            guiUpdate.Start();            
             var host = Dns.GetHostEntry(Dns.GetHostName());
-            int IPCount = 0; // used for determininbg some label stuff
-            
+            int IPCount = 0; // used for determining some label stuff            
             foreach (var ip in host.AddressList)
             {
                 if (ip.AddressFamily == AddressFamily.InterNetwork)
@@ -44,10 +46,10 @@ namespace BattleBabs_Server
                 Logger.writeWarningLog("More than 1 IP was discovered! Will enable IP list label");
                 ipInfoLabelUpdate(true);
             }
-            guiUpdate.Start();
+            
             try
             {
-                // put load here
+                Peristence.loadTeamData();
             }
             catch (Exception e)
             {
@@ -66,39 +68,79 @@ namespace BattleBabs_Server
 
         delegate void SetBoolCallback(Boolean logic);
         delegate void SetTextCallback(string text);
-        delegate void SetUpCallback();
+        delegate void SetUpCallback(Label c, string text);
 
         /// <summary>
         /// Updates the score and name labels based on the structure array
         /// </summary>
         private void updateComponentData()
         {
-            Thread.Sleep(100);
-            int entryIndex = 0;
-            GameUtility.teamData teamInfo = new GameUtility.teamData();
-            Label[] nameLabels = { team1, team2, team3, team4, team5, team6, team7, team8, team9 };
-            Label[] scoreLabels = { score1, score2, score3, score4, score5, score6, score7, score8, score9 };
-            foreach(Label c in nameLabels)
+            while (true)
             {
-                teamInfo = GameUtility.teamEntries.ElementAt<GameUtility.teamData>(entryIndex);
-                if(c.InvokeRequired)
+                Thread.Sleep(200);
+                if (updateDisplay)
                 {
-                    SetUpCallback d = new SetUpCallback(updateComponentData);
-                    this.Invoke(d, new object[] { });                    
-                } else
-                {
-                    c.Text = teamInfo.name;
-                    scoreLabels[entryIndex].Text = teamInfo.score.ToString();
+                    updateDisplay = false;                    
+                    GameUtility.teamData teamInfo = new GameUtility.teamData();
+                    Label[] nameLabels = { team1, team2, team3, team4, team5, team6, team7, team8, team9 };
+                    
+                    Boolean goAhead = true;
+                    Label[] scoreLabels = { score1, score2, score3, score4, score5, score6, score7, score8, score9 };
+                    Logger.writeGeneralLog("Session 1 display update.");
+                    foreach (Label c in nameLabels)
+                    {
+                        for (int i = 0; i < GameUtility.teamEntries.Count; i++)
+                        {
+                            teamInfo = GameUtility.teamEntries.ElementAt<GameUtility.teamData>(i);
+                            for(int j = 0; j < nameLabels.Length; j++)
+                            {
+                                if(nameLabels[j].Text.Equals(teamInfo.name))
+                                {
+                                    goAhead = false;
+                                } else
+                                {
+                                    goAhead = true;
+                                }
+                            }
+                            if (teamInfo.sessionID == sessionId && goAhead)
+                            {
+                                updateLabel(c, teamInfo.name);
+                            }
+                        }
+                    }
+                    foreach (Label c in scoreLabels)
+                    {
+                        for (int i = 0; i < GameUtility.teamEntries.Count; i++)
+                        {
+                            teamInfo = GameUtility.teamEntries.ElementAt<GameUtility.teamData>(i);
+                            if (teamInfo.sessionID == sessionId)
+                            {
+                                updateLabel(c, teamInfo.score.ToString("000,000"));
+                            }
+                        }
+                    }
+                    sessionLabelUpdate((sessionId + 1).ToString());
                 }
             }
-            entryIndex++;
+        }
+        private void updateLabel(Label c, string text)
+        {
+            if (c.InvokeRequired)
+            {
+                SetUpCallback d = new SetUpCallback(updateLabel);
+                this.Invoke(d, new object[] { c, text });
+            }
+            else
+            {
+                c.Text = text;
+            }
 
         }
 
         private void Display_FormClosing(object sender, FormClosingEventArgs e)
         {
             Console.WriteLine("FORM CLOSING, RUN SAVE PROCEDURE");
-            //Place saving of data here
+            Peristence.saveTeamData();
         }                
 
         private void loadfile_FileOk(object sender, CancelEventArgs e)
@@ -236,6 +278,7 @@ namespace BattleBabs_Server
                 sessionId = 0;
                 Bracketeers.getCombinations(GameUtility.session1TeamNames);
             }
+            updateDisplay = true;
         }
 
         private void matchListToolStripMenuItem_Click(object sender, EventArgs e)

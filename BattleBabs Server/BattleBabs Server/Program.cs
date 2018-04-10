@@ -16,7 +16,6 @@ namespace BattleBabs_Server
         {
             Logger.createLogFile();
             Console.WriteLine("Appdata location: {0}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-            Peristence.loadTeamData();
             Sorter.sortTeamData(GameUtility.teamEntries);
             Application.EnableVisualStyles();
             Updater.checkForUpdates();

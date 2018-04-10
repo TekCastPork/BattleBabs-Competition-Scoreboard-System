@@ -19,6 +19,7 @@ namespace BattleBabs_Server
         public static void create()
         {
             serverThread.IsBackground = true;
+            serverThread.Name = "netComms";
             serverThread.Start();
         }
 
@@ -74,6 +75,7 @@ namespace BattleBabs_Server
                     Logger.writeNetLog(String.Format("Neither team had a match in the structure list at location {0}", i));
                 }
             }
+            Display.updateDisplay = true;
         }
     }
 }
