@@ -33,7 +33,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rank1 = new System.Windows.Forms.Label();
-            this.team1 = new System.Windows.Forms.Label();
+            this.name1 = new System.Windows.Forms.Label();
             this.score1 = new System.Windows.Forms.Label();
             this.rank2 = new System.Windows.Forms.Label();
             this.rank3 = new System.Windows.Forms.Label();
@@ -141,7 +141,7 @@
             this.tabPage1.Controls.Add(this.rank3);
             this.tabPage1.Controls.Add(this.rank2);
             this.tabPage1.Controls.Add(this.score1);
-            this.tabPage1.Controls.Add(this.team1);
+            this.tabPage1.Controls.Add(this.name1);
             this.tabPage1.Controls.Add(this.rank1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -199,16 +199,16 @@
             this.rank1.TabIndex = 0;
             this.rank1.Text = "1st";
             // 
-            // team1
+            // name1
             // 
-            this.team1.AutoSize = true;
-            this.team1.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.team1.Location = new System.Drawing.Point(73, 11);
-            this.team1.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.team1.Name = "team1";
-            this.team1.Size = new System.Drawing.Size(307, 25);
-            this.team1.TabIndex = 1;
-            this.team1.Text = "TeamNameGoesHere";
+            this.name1.AutoSize = true;
+            this.name1.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name1.Location = new System.Drawing.Point(73, 11);
+            this.name1.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name1.Name = "name1";
+            this.name1.Size = new System.Drawing.Size(307, 25);
+            this.name1.TabIndex = 1;
+            this.name1.Text = "TeamNameGoesHere";
             // 
             // score1
             // 
@@ -931,7 +931,7 @@
         private System.Windows.Forms.Label rank3;
         private System.Windows.Forms.Label rank2;
         private System.Windows.Forms.Label score1;
-        private System.Windows.Forms.Label team1;
+        private System.Windows.Forms.Label name1;
         private System.Windows.Forms.Label rank1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label score9;
