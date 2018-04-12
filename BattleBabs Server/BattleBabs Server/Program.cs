@@ -14,6 +14,7 @@ namespace BattleBabs_Server
         [STAThread]
         static void Main()
         {
+            Logger.createLogFile();
             Console.WriteLine("Appdata location: {0}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -24,7 +25,8 @@ namespace BattleBabs_Server
         static void isExiting(object sender, System.EventArgs e)
         {
             Console.WriteLine("Main thread is exiting!");
-           // Logger.closeLog();
+            PersistenceStruct.saveTeamData();
+            Logger.closeLog();
         }
     }
 }
