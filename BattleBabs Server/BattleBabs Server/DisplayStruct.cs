@@ -25,7 +25,7 @@ namespace BattleBabs_Server
             };
             guiUpdate.Start();
             PersistenceStruct.loadTeamData();
-            GameData.teamEntries = SorterStruct.sortStructure(GameData.teamEntries);
+            SorterStruct.sortStructure();
         }
 
         private void updateComponents()
@@ -45,19 +45,15 @@ namespace BattleBabs_Server
                 score1,score2,score3,score4,score5,score6,score7,score8,score9,score10,
                 score11,score12,score13,score14,score15,score16,score17,score18
             };
-                    Label[] rankLabels = {
-                rank1,rank2,rank3,rank4,rank5,rank6,rank7,rank8,rank9,rank10,
-                rank11,rank12,rank13,rank14,rank15,rank16,rank17,rank18
-            };
                     Thread.Sleep(200);
-                    GameData.teamEntries.OrderBy(x => x.sessionID).ToList<GameData.teamData>(); // organize by sessionID so that 9 appear in session 1 and 9 appear in session 2
+                    GameData.teamEntries = GameData.teamEntries.OrderBy(x => x.sessionID).ToList<GameData.teamData>(); // organize by sessionID so that 9 appear in session 1 and 9 appear in session 2
+                    Console.WriteLine("Ordered");
                     for (int i = 0; i < GameData.teamEntries.Count; i++)
                     {
-                        teamInfo = GameData.teamEntries.ElementAt(i);
+                        teamInfo = GameData.teamEntries.ElementAt(17-i);
                         updateLabel(nameLabels[i], teamInfo.name);
-                        updateLabel(scoreLabels[i], teamInfo.score.ToString());
-                        updateLabel(rankLabels[i], teamInfo.rank.ToString());
-                    }
+                        updateLabel(scoreLabels[i], teamInfo.score.ToString("000,000"));
+                     }
                 }
             }
 

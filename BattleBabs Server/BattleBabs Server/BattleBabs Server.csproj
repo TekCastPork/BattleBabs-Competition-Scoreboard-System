@@ -108,6 +108,7 @@
     <Compile Include="GameUtility.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Networking.cs" />
+    <Compile Include="NetworkStruct.cs" />
     <Compile Include="Peristence.cs" />
     <Compile Include="PersistenceStruct.cs" />
     <Compile Include="Program.cs" />

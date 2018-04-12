@@ -33,7 +33,6 @@ namespace BattleBabs_Server
                 StreamReader reader = new StreamReader(data);
                 string receivedData = reader.ReadToEnd();
                 Console.WriteLine(receivedData);
-                data.Close();
                 reader.Close();
                 JObject versionData = JObject.Parse(receivedData);
                 string receivedVersionInfo = versionData.GetValue("tag_name").ToString();
