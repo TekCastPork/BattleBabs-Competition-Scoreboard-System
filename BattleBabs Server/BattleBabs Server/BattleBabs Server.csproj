@@ -92,6 +92,12 @@
     <Compile Include="Bracketeers.Designer.cs">
       <DependentUpon>Bracketeers.cs</DependentUpon>
     </Compile>
+    <Compile Include="BracketeersStruct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BracketeersStruct.Designer.cs">
+      <DependentUpon>BracketeersStruct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Display.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bracketeers.resx">
       <DependentUpon>Bracketeers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BracketeersStruct.resx">
+      <DependentUpon>BracketeersStruct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>

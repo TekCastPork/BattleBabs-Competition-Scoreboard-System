@@ -14,6 +14,7 @@ namespace BattleBabs_Server
     public partial class DisplayStruct : Form
     {
         public static Boolean updateDisplay = false;
+        BracketeersStruct brackets = new BracketeersStruct();
         Thread guiUpdate;
         public DisplayStruct()
         {
@@ -68,6 +69,15 @@ namespace BattleBabs_Server
             } else
             {
                 label.Text = message;
+            }
+        }
+
+        private void showMatchListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(BracketeersStruct.isShowing == false)
+            {
+                BracketeersStruct.isShowing = true;
+                brackets.Show();
             }
         }
     }

@@ -92,8 +92,18 @@
             this.ipAlert = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.AboutDropDown = new System.Windows.Forms.ToolStripDropDownButton();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewChangelogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thisSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalDropDown = new System.Windows.Forms.ToolStripDropDownButton();
+            this.showMatchListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadTeamsFromSAVEFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadTeamsFromTextFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsDropDown = new System.Windows.Forms.ToolStripDropDownButton();
+            this.resetScoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSet.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -854,29 +864,103 @@
             // AboutDropDown
             // 
             this.AboutDropDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.AboutDropDown.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem,
+            this.bugToolStripMenuItem,
+            this.viewChangelogToolStripMenuItem,
+            this.checkForUpdatesToolStripMenuItem,
+            this.thisSoftwareToolStripMenuItem});
             this.AboutDropDown.Image = ((System.Drawing.Image)(resources.GetObject("AboutDropDown.Image")));
             this.AboutDropDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AboutDropDown.Name = "AboutDropDown";
             this.AboutDropDown.Size = new System.Drawing.Size(53, 20);
             this.AboutDropDown.Text = "About";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // bugToolStripMenuItem
+            // 
+            this.bugToolStripMenuItem.Name = "bugToolStripMenuItem";
+            this.bugToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.bugToolStripMenuItem.Text = "Report Bug";
+            // 
+            // viewChangelogToolStripMenuItem
+            // 
+            this.viewChangelogToolStripMenuItem.Name = "viewChangelogToolStripMenuItem";
+            this.viewChangelogToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.viewChangelogToolStripMenuItem.Text = "View Changelog";
+            // 
+            // checkForUpdatesToolStripMenuItem
+            // 
+            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.checkForUpdatesToolStripMenuItem.Text = "Check For Updates";
+            // 
+            // thisSoftwareToolStripMenuItem
+            // 
+            this.thisSoftwareToolStripMenuItem.Name = "thisSoftwareToolStripMenuItem";
+            this.thisSoftwareToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.thisSoftwareToolStripMenuItem.Text = "About";
+            // 
             // generalDropDown
             // 
             this.generalDropDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.generalDropDown.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showMatchListToolStripMenuItem,
+            this.loadTeamsFromSAVEFileToolStripMenuItem,
+            this.loadTeamsFromTextFileToolStripMenuItem});
             this.generalDropDown.Image = ((System.Drawing.Image)(resources.GetObject("generalDropDown.Image")));
             this.generalDropDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.generalDropDown.Name = "generalDropDown";
             this.generalDropDown.Size = new System.Drawing.Size(60, 20);
             this.generalDropDown.Text = "General";
             // 
+            // showMatchListToolStripMenuItem
+            // 
+            this.showMatchListToolStripMenuItem.Name = "showMatchListToolStripMenuItem";
+            this.showMatchListToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.showMatchListToolStripMenuItem.Text = "Show Match List";
+            this.showMatchListToolStripMenuItem.Click += new System.EventHandler(this.showMatchListToolStripMenuItem_Click);
+            // 
+            // loadTeamsFromSAVEFileToolStripMenuItem
+            // 
+            this.loadTeamsFromSAVEFileToolStripMenuItem.Name = "loadTeamsFromSAVEFileToolStripMenuItem";
+            this.loadTeamsFromSAVEFileToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.loadTeamsFromSAVEFileToolStripMenuItem.Text = "Load Teams from .SAVE File...";
+            // 
+            // loadTeamsFromTextFileToolStripMenuItem
+            // 
+            this.loadTeamsFromTextFileToolStripMenuItem.Name = "loadTeamsFromTextFileToolStripMenuItem";
+            this.loadTeamsFromTextFileToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.loadTeamsFromTextFileToolStripMenuItem.Text = "Load Teams from Text File...";
+            // 
             // settingsDropDown
             // 
             this.settingsDropDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.settingsDropDown.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetScoresToolStripMenuItem,
+            this.generalToolStripMenuItem});
             this.settingsDropDown.Image = ((System.Drawing.Image)(resources.GetObject("settingsDropDown.Image")));
             this.settingsDropDown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.settingsDropDown.Name = "settingsDropDown";
             this.settingsDropDown.Size = new System.Drawing.Size(62, 20);
             this.settingsDropDown.Text = "Settings";
+            // 
+            // resetScoresToolStripMenuItem
+            // 
+            this.resetScoresToolStripMenuItem.Name = "resetScoresToolStripMenuItem";
+            this.resetScoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.resetScoresToolStripMenuItem.Text = "Reset Scores";
+            // 
+            // generalToolStripMenuItem
+            // 
+            this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.generalToolStripMenuItem.Text = "General...";
             // 
             // DisplayStruct
             // 
@@ -977,5 +1061,15 @@
         private System.Windows.Forms.ToolStripDropDownButton AboutDropDown;
         private System.Windows.Forms.ToolStripDropDownButton generalDropDown;
         private System.Windows.Forms.ToolStripDropDownButton settingsDropDown;
+        private System.Windows.Forms.ToolStripMenuItem bugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thisSoftwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadTeamsFromSAVEFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadTeamsFromTextFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showMatchListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetScoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewChangelogToolStripMenuItem;
     }
 }
