@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Net;
+using System.Net.Sockets;
 
 namespace BattleBabs_Server
 {
@@ -19,6 +21,24 @@ namespace BattleBabs_Server
         public DisplayStruct()
         {
             InitializeComponent();
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            int IPCount = 0; // used for determininbg some label stuff
+            updateIPLabel(false);
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    Console.WriteLine("An available IP: {0}.", ip.ToString());
+                    ipLabel.Text = ip.ToString();
+                    IPCount++; // yo we found a new IP that can communicate
+                }
+            }
+            if (IPCount > 1)
+            {
+                Console.WriteLine("More than 1 IP was found, enabling the label.");
+                Logger.writeWarningLog("More than 1 IP was discovered! Will enable IP list label");;
+                updateIPLabel(true);
+            }
             guiUpdate = new Thread(new ThreadStart(updateComponents))
             {
                 Name = "DisplayUpdate",
@@ -27,6 +47,18 @@ namespace BattleBabs_Server
             guiUpdate.Start();
             PersistenceStruct.loadTeamData();
             SorterStruct.sortStructure();
+        }
+        delegate void SetBooleanCallback(Boolean isVisible);
+        private void updateIPLabel(Boolean isVisible)
+        {
+            if(ipAlert.InvokeRequired)
+            {
+                SetBooleanCallback d = new SetBooleanCallback(updateIPLabel);
+                this.Invoke(d, new object[] { isVisible });
+            } else
+            {
+                ipAlert.Visible = isVisible;
+            }
         }
 
         private void updateComponents()
