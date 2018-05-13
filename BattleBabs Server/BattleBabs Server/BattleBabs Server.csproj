@@ -48,7 +48,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Combinatorics, Version=1.1.0.19, Culture=neutral, PublicKeyToken=d5738f21cd5d2f66, processorArchitecture=MSIL">
@@ -80,62 +81,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bracketeers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bracketeers.Designer.cs">
-      <DependentUpon>Bracketeers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BracketeersStruct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BracketeersStruct.Designer.cs">
-      <DependentUpon>BracketeersStruct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Display.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Display.Designer.cs">
-      <DependentUpon>Display.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DisplayStruct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DisplayStruct.Designer.cs">
-      <DependentUpon>DisplayStruct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GameData.cs" />
-    <Compile Include="GameUtility.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="Networking.cs" />
-    <Compile Include="NetworkStruct.cs" />
-    <Compile Include="Peristence.cs" />
-    <Compile Include="PersistenceStruct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sorter.cs" />
-    <Compile Include="SorterStruct.cs" />
-    <Compile Include="Updater.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bracketeers.resx">
-      <DependentUpon>Bracketeers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BracketeersStruct.resx">
-      <DependentUpon>BracketeersStruct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Display.resx">
-      <DependentUpon>Display.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DisplayStruct.resx">
-      <DependentUpon>DisplayStruct.cs</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -147,16 +102,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="GODOFWAR.TTF">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="flags.persist">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="flags2.persist">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,31 +111,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RoundRobin.jpg" />
-    <Content Include="RoundRobin.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="rounds.persist">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="rounds2.persist">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="HorizBanner.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icon.ico" />
-    <Content Include="scores.persist">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="names.persist">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -204,9 +124,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
