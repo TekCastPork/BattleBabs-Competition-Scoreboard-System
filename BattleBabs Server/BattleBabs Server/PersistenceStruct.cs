@@ -29,6 +29,36 @@ namespace BattleBabs_Server
             
         }
 
+        public static string[] loadBracketData()
+        {
+            Console.WriteLine("Loading team data from persistence...");
+            string[] loadedLines = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "BracketData.SAVE"));
+            string[] returnLines = new string[loadedLines.Length];
+            for (int i = 0; i < loadedLines.Length; i++)
+            {
+                string decodedData = FromHexString(loadedLines[i]);
+                returnLines[i] = decodedData;
+                Console.WriteLine("Completed pass {0}. Data was {1}", i, decodedData);
+            }
+            return returnLines;
+        }
+
+        public static void saveBracketData(string[] data)
+        {
+            Console.WriteLine("Saving team data to persistence...");
+            string[] saveString = new string[data.Length];
+            for (int i = 0; i < data.Length; i++)
+            {
+                GameData.teamData teamInfo = new GameData.teamData();
+                teamInfo = GameData.teamEntries.ElementAt(i);
+                string saveData = ToHexString(data[i]);
+                saveString[i] = saveData;
+                Console.WriteLine("Pass {0} done. Data is {1}", i, saveData);
+            }
+            File.WriteAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBabs Leaderboard", "BracketData.SAVE"), saveString);
+
+        }
+
         public static void saveTeamData()
         {
             Console.WriteLine("Saving team data to persistence...");

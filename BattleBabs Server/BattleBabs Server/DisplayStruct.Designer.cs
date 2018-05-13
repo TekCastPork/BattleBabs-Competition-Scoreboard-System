@@ -30,34 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayStruct));
             this.tabSet = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.score9 = new System.Windows.Forms.Label();
-            this.score8 = new System.Windows.Forms.Label();
-            this.score7 = new System.Windows.Forms.Label();
-            this.score6 = new System.Windows.Forms.Label();
-            this.score5 = new System.Windows.Forms.Label();
-            this.score4 = new System.Windows.Forms.Label();
-            this.score3 = new System.Windows.Forms.Label();
-            this.score2 = new System.Windows.Forms.Label();
-            this.name9 = new System.Windows.Forms.Label();
-            this.name8 = new System.Windows.Forms.Label();
-            this.name7 = new System.Windows.Forms.Label();
-            this.name6 = new System.Windows.Forms.Label();
-            this.name5 = new System.Windows.Forms.Label();
-            this.name4 = new System.Windows.Forms.Label();
-            this.name3 = new System.Windows.Forms.Label();
-            this.name2 = new System.Windows.Forms.Label();
-            this.rank9 = new System.Windows.Forms.Label();
-            this.rank8 = new System.Windows.Forms.Label();
-            this.rank7 = new System.Windows.Forms.Label();
-            this.rank6 = new System.Windows.Forms.Label();
-            this.rank5 = new System.Windows.Forms.Label();
-            this.rank4 = new System.Windows.Forms.Label();
-            this.rank3 = new System.Windows.Forms.Label();
-            this.rank2 = new System.Windows.Forms.Label();
-            this.score1 = new System.Windows.Forms.Label();
-            this.name1 = new System.Windows.Forms.Label();
-            this.rank1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.score18 = new System.Windows.Forms.Label();
             this.score17 = new System.Windows.Forms.Label();
@@ -86,6 +58,34 @@
             this.score10 = new System.Windows.Forms.Label();
             this.name10 = new System.Windows.Forms.Label();
             this.rank10 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.score9 = new System.Windows.Forms.Label();
+            this.score8 = new System.Windows.Forms.Label();
+            this.score7 = new System.Windows.Forms.Label();
+            this.score6 = new System.Windows.Forms.Label();
+            this.score5 = new System.Windows.Forms.Label();
+            this.score4 = new System.Windows.Forms.Label();
+            this.score3 = new System.Windows.Forms.Label();
+            this.score2 = new System.Windows.Forms.Label();
+            this.name9 = new System.Windows.Forms.Label();
+            this.name8 = new System.Windows.Forms.Label();
+            this.name7 = new System.Windows.Forms.Label();
+            this.name6 = new System.Windows.Forms.Label();
+            this.name5 = new System.Windows.Forms.Label();
+            this.name4 = new System.Windows.Forms.Label();
+            this.name3 = new System.Windows.Forms.Label();
+            this.name2 = new System.Windows.Forms.Label();
+            this.rank9 = new System.Windows.Forms.Label();
+            this.rank8 = new System.Windows.Forms.Label();
+            this.rank7 = new System.Windows.Forms.Label();
+            this.rank6 = new System.Windows.Forms.Label();
+            this.rank5 = new System.Windows.Forms.Label();
+            this.rank4 = new System.Windows.Forms.Label();
+            this.rank3 = new System.Windows.Forms.Label();
+            this.rank2 = new System.Windows.Forms.Label();
+            this.score1 = new System.Windows.Forms.Label();
+            this.name1 = new System.Windows.Forms.Label();
+            this.rank1 = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ipLabel = new System.Windows.Forms.Label();
@@ -105,8 +105,8 @@
             this.resetScoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSet.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,350 +121,6 @@
             this.tabSet.SelectedIndex = 0;
             this.tabSet.Size = new System.Drawing.Size(879, 430);
             this.tabSet.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabPage1.Controls.Add(this.score9);
-            this.tabPage1.Controls.Add(this.score8);
-            this.tabPage1.Controls.Add(this.score7);
-            this.tabPage1.Controls.Add(this.score6);
-            this.tabPage1.Controls.Add(this.score5);
-            this.tabPage1.Controls.Add(this.score4);
-            this.tabPage1.Controls.Add(this.score3);
-            this.tabPage1.Controls.Add(this.score2);
-            this.tabPage1.Controls.Add(this.name9);
-            this.tabPage1.Controls.Add(this.name8);
-            this.tabPage1.Controls.Add(this.name7);
-            this.tabPage1.Controls.Add(this.name6);
-            this.tabPage1.Controls.Add(this.name5);
-            this.tabPage1.Controls.Add(this.name4);
-            this.tabPage1.Controls.Add(this.name3);
-            this.tabPage1.Controls.Add(this.name2);
-            this.tabPage1.Controls.Add(this.rank9);
-            this.tabPage1.Controls.Add(this.rank8);
-            this.tabPage1.Controls.Add(this.rank7);
-            this.tabPage1.Controls.Add(this.rank6);
-            this.tabPage1.Controls.Add(this.rank5);
-            this.tabPage1.Controls.Add(this.rank4);
-            this.tabPage1.Controls.Add(this.rank3);
-            this.tabPage1.Controls.Add(this.rank2);
-            this.tabPage1.Controls.Add(this.score1);
-            this.tabPage1.Controls.Add(this.name1);
-            this.tabPage1.Controls.Add(this.rank1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(871, 404);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Session 2";
-            // 
-            // score9
-            // 
-            this.score9.AutoSize = true;
-            this.score9.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score9.Location = new System.Drawing.Point(735, 339);
-            this.score9.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score9.Name = "score9";
-            this.score9.Size = new System.Drawing.Size(123, 25);
-            this.score9.TabIndex = 26;
-            this.score9.Text = "999,999";
-            this.score9.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // score8
-            // 
-            this.score8.AutoSize = true;
-            this.score8.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score8.Location = new System.Drawing.Point(735, 298);
-            this.score8.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score8.Name = "score8";
-            this.score8.Size = new System.Drawing.Size(123, 25);
-            this.score8.TabIndex = 25;
-            this.score8.Text = "999,999";
-            this.score8.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // score7
-            // 
-            this.score7.AutoSize = true;
-            this.score7.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score7.Location = new System.Drawing.Point(735, 257);
-            this.score7.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score7.Name = "score7";
-            this.score7.Size = new System.Drawing.Size(123, 25);
-            this.score7.TabIndex = 24;
-            this.score7.Text = "999,999";
-            this.score7.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // score6
-            // 
-            this.score6.AutoSize = true;
-            this.score6.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score6.Location = new System.Drawing.Point(735, 216);
-            this.score6.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score6.Name = "score6";
-            this.score6.Size = new System.Drawing.Size(123, 25);
-            this.score6.TabIndex = 23;
-            this.score6.Text = "999,999";
-            this.score6.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // score5
-            // 
-            this.score5.AutoSize = true;
-            this.score5.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score5.Location = new System.Drawing.Point(735, 175);
-            this.score5.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score5.Name = "score5";
-            this.score5.Size = new System.Drawing.Size(123, 25);
-            this.score5.TabIndex = 22;
-            this.score5.Text = "999,999";
-            this.score5.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // score4
-            // 
-            this.score4.AutoSize = true;
-            this.score4.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score4.Location = new System.Drawing.Point(735, 134);
-            this.score4.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score4.Name = "score4";
-            this.score4.Size = new System.Drawing.Size(123, 25);
-            this.score4.TabIndex = 21;
-            this.score4.Text = "999,999";
-            this.score4.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // score3
-            // 
-            this.score3.AutoSize = true;
-            this.score3.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score3.Location = new System.Drawing.Point(735, 93);
-            this.score3.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score3.Name = "score3";
-            this.score3.Size = new System.Drawing.Size(123, 25);
-            this.score3.TabIndex = 20;
-            this.score3.Text = "999,999";
-            this.score3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // score2
-            // 
-            this.score2.AutoSize = true;
-            this.score2.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score2.Location = new System.Drawing.Point(735, 52);
-            this.score2.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score2.Name = "score2";
-            this.score2.Size = new System.Drawing.Size(123, 25);
-            this.score2.TabIndex = 19;
-            this.score2.Text = "999,999";
-            this.score2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // name9
-            // 
-            this.name9.AutoSize = true;
-            this.name9.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name9.Location = new System.Drawing.Point(73, 339);
-            this.name9.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name9.Name = "name9";
-            this.name9.Size = new System.Drawing.Size(307, 25);
-            this.name9.TabIndex = 18;
-            this.name9.Text = "TeamNameGoesHere";
-            // 
-            // name8
-            // 
-            this.name8.AutoSize = true;
-            this.name8.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name8.Location = new System.Drawing.Point(73, 298);
-            this.name8.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name8.Name = "name8";
-            this.name8.Size = new System.Drawing.Size(307, 25);
-            this.name8.TabIndex = 17;
-            this.name8.Text = "TeamNameGoesHere";
-            // 
-            // name7
-            // 
-            this.name7.AutoSize = true;
-            this.name7.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name7.Location = new System.Drawing.Point(73, 257);
-            this.name7.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name7.Name = "name7";
-            this.name7.Size = new System.Drawing.Size(307, 25);
-            this.name7.TabIndex = 16;
-            this.name7.Text = "TeamNameGoesHere";
-            // 
-            // name6
-            // 
-            this.name6.AutoSize = true;
-            this.name6.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name6.Location = new System.Drawing.Point(73, 216);
-            this.name6.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name6.Name = "name6";
-            this.name6.Size = new System.Drawing.Size(307, 25);
-            this.name6.TabIndex = 15;
-            this.name6.Text = "TeamNameGoesHere";
-            // 
-            // name5
-            // 
-            this.name5.AutoSize = true;
-            this.name5.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name5.Location = new System.Drawing.Point(73, 175);
-            this.name5.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name5.Name = "name5";
-            this.name5.Size = new System.Drawing.Size(307, 25);
-            this.name5.TabIndex = 14;
-            this.name5.Text = "TeamNameGoesHere";
-            // 
-            // name4
-            // 
-            this.name4.AutoSize = true;
-            this.name4.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name4.Location = new System.Drawing.Point(73, 134);
-            this.name4.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name4.Name = "name4";
-            this.name4.Size = new System.Drawing.Size(307, 25);
-            this.name4.TabIndex = 13;
-            this.name4.Text = "TeamNameGoesHere";
-            // 
-            // name3
-            // 
-            this.name3.AutoSize = true;
-            this.name3.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name3.Location = new System.Drawing.Point(73, 93);
-            this.name3.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name3.Name = "name3";
-            this.name3.Size = new System.Drawing.Size(307, 25);
-            this.name3.TabIndex = 12;
-            this.name3.Text = "TeamNameGoesHere";
-            // 
-            // name2
-            // 
-            this.name2.AutoSize = true;
-            this.name2.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name2.Location = new System.Drawing.Point(73, 52);
-            this.name2.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name2.Name = "name2";
-            this.name2.Size = new System.Drawing.Size(307, 25);
-            this.name2.TabIndex = 11;
-            this.name2.Text = "TeamNameGoesHere";
-            // 
-            // rank9
-            // 
-            this.rank9.AutoSize = true;
-            this.rank9.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank9.Location = new System.Drawing.Point(8, 339);
-            this.rank9.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank9.Name = "rank9";
-            this.rank9.Size = new System.Drawing.Size(64, 25);
-            this.rank9.TabIndex = 10;
-            this.rank9.Text = "9th";
-            // 
-            // rank8
-            // 
-            this.rank8.AutoSize = true;
-            this.rank8.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank8.Location = new System.Drawing.Point(8, 298);
-            this.rank8.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank8.Name = "rank8";
-            this.rank8.Size = new System.Drawing.Size(65, 25);
-            this.rank8.TabIndex = 9;
-            this.rank8.Text = "8th";
-            // 
-            // rank7
-            // 
-            this.rank7.AutoSize = true;
-            this.rank7.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank7.Location = new System.Drawing.Point(8, 257);
-            this.rank7.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank7.Name = "rank7";
-            this.rank7.Size = new System.Drawing.Size(62, 25);
-            this.rank7.TabIndex = 8;
-            this.rank7.Text = "7th";
-            // 
-            // rank6
-            // 
-            this.rank6.AutoSize = true;
-            this.rank6.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank6.Location = new System.Drawing.Point(8, 216);
-            this.rank6.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank6.Name = "rank6";
-            this.rank6.Size = new System.Drawing.Size(64, 25);
-            this.rank6.TabIndex = 7;
-            this.rank6.Text = "6th";
-            // 
-            // rank5
-            // 
-            this.rank5.AutoSize = true;
-            this.rank5.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank5.Location = new System.Drawing.Point(8, 175);
-            this.rank5.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank5.Name = "rank5";
-            this.rank5.Size = new System.Drawing.Size(63, 25);
-            this.rank5.TabIndex = 6;
-            this.rank5.Text = "5th";
-            // 
-            // rank4
-            // 
-            this.rank4.AutoSize = true;
-            this.rank4.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank4.Location = new System.Drawing.Point(8, 134);
-            this.rank4.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank4.Name = "rank4";
-            this.rank4.Size = new System.Drawing.Size(65, 25);
-            this.rank4.TabIndex = 5;
-            this.rank4.Text = "4th";
-            // 
-            // rank3
-            // 
-            this.rank3.AutoSize = true;
-            this.rank3.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank3.Location = new System.Drawing.Point(8, 93);
-            this.rank3.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank3.Name = "rank3";
-            this.rank3.Size = new System.Drawing.Size(64, 25);
-            this.rank3.TabIndex = 4;
-            this.rank3.Text = "3rd";
-            // 
-            // rank2
-            // 
-            this.rank2.AutoSize = true;
-            this.rank2.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank2.Location = new System.Drawing.Point(8, 52);
-            this.rank2.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank2.Name = "rank2";
-            this.rank2.Size = new System.Drawing.Size(66, 25);
-            this.rank2.TabIndex = 3;
-            this.rank2.Text = "2nd";
-            // 
-            // score1
-            // 
-            this.score1.AutoSize = true;
-            this.score1.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.score1.Location = new System.Drawing.Point(735, 11);
-            this.score1.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.score1.Name = "score1";
-            this.score1.Size = new System.Drawing.Size(123, 25);
-            this.score1.TabIndex = 2;
-            this.score1.Text = "999,999";
-            this.score1.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // name1
-            // 
-            this.name1.AutoSize = true;
-            this.name1.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name1.Location = new System.Drawing.Point(73, 11);
-            this.name1.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.name1.Name = "name1";
-            this.name1.Size = new System.Drawing.Size(307, 25);
-            this.name1.TabIndex = 1;
-            this.name1.Text = "TeamNameGoesHere";
-            // 
-            // rank1
-            // 
-            this.rank1.AutoSize = true;
-            this.rank1.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank1.Location = new System.Drawing.Point(8, 11);
-            this.rank1.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
-            this.rank1.Name = "rank1";
-            this.rank1.Size = new System.Drawing.Size(54, 25);
-            this.rank1.TabIndex = 0;
-            this.rank1.Text = "1st";
             // 
             // tabPage2
             // 
@@ -810,6 +466,350 @@
             this.rank10.TabIndex = 27;
             this.rank10.Text = "1st";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.score9);
+            this.tabPage1.Controls.Add(this.score8);
+            this.tabPage1.Controls.Add(this.score7);
+            this.tabPage1.Controls.Add(this.score6);
+            this.tabPage1.Controls.Add(this.score5);
+            this.tabPage1.Controls.Add(this.score4);
+            this.tabPage1.Controls.Add(this.score3);
+            this.tabPage1.Controls.Add(this.score2);
+            this.tabPage1.Controls.Add(this.name9);
+            this.tabPage1.Controls.Add(this.name8);
+            this.tabPage1.Controls.Add(this.name7);
+            this.tabPage1.Controls.Add(this.name6);
+            this.tabPage1.Controls.Add(this.name5);
+            this.tabPage1.Controls.Add(this.name4);
+            this.tabPage1.Controls.Add(this.name3);
+            this.tabPage1.Controls.Add(this.name2);
+            this.tabPage1.Controls.Add(this.rank9);
+            this.tabPage1.Controls.Add(this.rank8);
+            this.tabPage1.Controls.Add(this.rank7);
+            this.tabPage1.Controls.Add(this.rank6);
+            this.tabPage1.Controls.Add(this.rank5);
+            this.tabPage1.Controls.Add(this.rank4);
+            this.tabPage1.Controls.Add(this.rank3);
+            this.tabPage1.Controls.Add(this.rank2);
+            this.tabPage1.Controls.Add(this.score1);
+            this.tabPage1.Controls.Add(this.name1);
+            this.tabPage1.Controls.Add(this.rank1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(871, 404);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Session 2";
+            // 
+            // score9
+            // 
+            this.score9.AutoSize = true;
+            this.score9.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score9.Location = new System.Drawing.Point(735, 339);
+            this.score9.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score9.Name = "score9";
+            this.score9.Size = new System.Drawing.Size(123, 25);
+            this.score9.TabIndex = 26;
+            this.score9.Text = "999,999";
+            this.score9.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // score8
+            // 
+            this.score8.AutoSize = true;
+            this.score8.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score8.Location = new System.Drawing.Point(735, 298);
+            this.score8.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score8.Name = "score8";
+            this.score8.Size = new System.Drawing.Size(123, 25);
+            this.score8.TabIndex = 25;
+            this.score8.Text = "999,999";
+            this.score8.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // score7
+            // 
+            this.score7.AutoSize = true;
+            this.score7.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score7.Location = new System.Drawing.Point(735, 257);
+            this.score7.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score7.Name = "score7";
+            this.score7.Size = new System.Drawing.Size(123, 25);
+            this.score7.TabIndex = 24;
+            this.score7.Text = "999,999";
+            this.score7.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // score6
+            // 
+            this.score6.AutoSize = true;
+            this.score6.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score6.Location = new System.Drawing.Point(735, 216);
+            this.score6.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score6.Name = "score6";
+            this.score6.Size = new System.Drawing.Size(123, 25);
+            this.score6.TabIndex = 23;
+            this.score6.Text = "999,999";
+            this.score6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // score5
+            // 
+            this.score5.AutoSize = true;
+            this.score5.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score5.Location = new System.Drawing.Point(735, 175);
+            this.score5.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score5.Name = "score5";
+            this.score5.Size = new System.Drawing.Size(123, 25);
+            this.score5.TabIndex = 22;
+            this.score5.Text = "999,999";
+            this.score5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // score4
+            // 
+            this.score4.AutoSize = true;
+            this.score4.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score4.Location = new System.Drawing.Point(735, 134);
+            this.score4.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score4.Name = "score4";
+            this.score4.Size = new System.Drawing.Size(123, 25);
+            this.score4.TabIndex = 21;
+            this.score4.Text = "999,999";
+            this.score4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // score3
+            // 
+            this.score3.AutoSize = true;
+            this.score3.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score3.Location = new System.Drawing.Point(735, 93);
+            this.score3.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score3.Name = "score3";
+            this.score3.Size = new System.Drawing.Size(123, 25);
+            this.score3.TabIndex = 20;
+            this.score3.Text = "999,999";
+            this.score3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // score2
+            // 
+            this.score2.AutoSize = true;
+            this.score2.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score2.Location = new System.Drawing.Point(735, 52);
+            this.score2.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score2.Name = "score2";
+            this.score2.Size = new System.Drawing.Size(123, 25);
+            this.score2.TabIndex = 19;
+            this.score2.Text = "999,999";
+            this.score2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // name9
+            // 
+            this.name9.AutoSize = true;
+            this.name9.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name9.Location = new System.Drawing.Point(73, 339);
+            this.name9.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name9.Name = "name9";
+            this.name9.Size = new System.Drawing.Size(307, 25);
+            this.name9.TabIndex = 18;
+            this.name9.Text = "TeamNameGoesHere";
+            // 
+            // name8
+            // 
+            this.name8.AutoSize = true;
+            this.name8.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name8.Location = new System.Drawing.Point(73, 298);
+            this.name8.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name8.Name = "name8";
+            this.name8.Size = new System.Drawing.Size(307, 25);
+            this.name8.TabIndex = 17;
+            this.name8.Text = "TeamNameGoesHere";
+            // 
+            // name7
+            // 
+            this.name7.AutoSize = true;
+            this.name7.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name7.Location = new System.Drawing.Point(73, 257);
+            this.name7.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name7.Name = "name7";
+            this.name7.Size = new System.Drawing.Size(307, 25);
+            this.name7.TabIndex = 16;
+            this.name7.Text = "TeamNameGoesHere";
+            // 
+            // name6
+            // 
+            this.name6.AutoSize = true;
+            this.name6.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name6.Location = new System.Drawing.Point(73, 216);
+            this.name6.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name6.Name = "name6";
+            this.name6.Size = new System.Drawing.Size(307, 25);
+            this.name6.TabIndex = 15;
+            this.name6.Text = "TeamNameGoesHere";
+            // 
+            // name5
+            // 
+            this.name5.AutoSize = true;
+            this.name5.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name5.Location = new System.Drawing.Point(73, 175);
+            this.name5.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name5.Name = "name5";
+            this.name5.Size = new System.Drawing.Size(307, 25);
+            this.name5.TabIndex = 14;
+            this.name5.Text = "TeamNameGoesHere";
+            // 
+            // name4
+            // 
+            this.name4.AutoSize = true;
+            this.name4.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name4.Location = new System.Drawing.Point(73, 134);
+            this.name4.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name4.Name = "name4";
+            this.name4.Size = new System.Drawing.Size(307, 25);
+            this.name4.TabIndex = 13;
+            this.name4.Text = "TeamNameGoesHere";
+            // 
+            // name3
+            // 
+            this.name3.AutoSize = true;
+            this.name3.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name3.Location = new System.Drawing.Point(73, 93);
+            this.name3.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name3.Name = "name3";
+            this.name3.Size = new System.Drawing.Size(307, 25);
+            this.name3.TabIndex = 12;
+            this.name3.Text = "TeamNameGoesHere";
+            // 
+            // name2
+            // 
+            this.name2.AutoSize = true;
+            this.name2.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name2.Location = new System.Drawing.Point(73, 52);
+            this.name2.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name2.Name = "name2";
+            this.name2.Size = new System.Drawing.Size(307, 25);
+            this.name2.TabIndex = 11;
+            this.name2.Text = "TeamNameGoesHere";
+            // 
+            // rank9
+            // 
+            this.rank9.AutoSize = true;
+            this.rank9.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank9.Location = new System.Drawing.Point(8, 339);
+            this.rank9.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank9.Name = "rank9";
+            this.rank9.Size = new System.Drawing.Size(64, 25);
+            this.rank9.TabIndex = 10;
+            this.rank9.Text = "9th";
+            // 
+            // rank8
+            // 
+            this.rank8.AutoSize = true;
+            this.rank8.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank8.Location = new System.Drawing.Point(8, 298);
+            this.rank8.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank8.Name = "rank8";
+            this.rank8.Size = new System.Drawing.Size(65, 25);
+            this.rank8.TabIndex = 9;
+            this.rank8.Text = "8th";
+            // 
+            // rank7
+            // 
+            this.rank7.AutoSize = true;
+            this.rank7.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank7.Location = new System.Drawing.Point(8, 257);
+            this.rank7.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank7.Name = "rank7";
+            this.rank7.Size = new System.Drawing.Size(62, 25);
+            this.rank7.TabIndex = 8;
+            this.rank7.Text = "7th";
+            // 
+            // rank6
+            // 
+            this.rank6.AutoSize = true;
+            this.rank6.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank6.Location = new System.Drawing.Point(8, 216);
+            this.rank6.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank6.Name = "rank6";
+            this.rank6.Size = new System.Drawing.Size(64, 25);
+            this.rank6.TabIndex = 7;
+            this.rank6.Text = "6th";
+            // 
+            // rank5
+            // 
+            this.rank5.AutoSize = true;
+            this.rank5.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank5.Location = new System.Drawing.Point(8, 175);
+            this.rank5.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank5.Name = "rank5";
+            this.rank5.Size = new System.Drawing.Size(63, 25);
+            this.rank5.TabIndex = 6;
+            this.rank5.Text = "5th";
+            // 
+            // rank4
+            // 
+            this.rank4.AutoSize = true;
+            this.rank4.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank4.Location = new System.Drawing.Point(8, 134);
+            this.rank4.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank4.Name = "rank4";
+            this.rank4.Size = new System.Drawing.Size(65, 25);
+            this.rank4.TabIndex = 5;
+            this.rank4.Text = "4th";
+            // 
+            // rank3
+            // 
+            this.rank3.AutoSize = true;
+            this.rank3.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank3.Location = new System.Drawing.Point(8, 93);
+            this.rank3.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank3.Name = "rank3";
+            this.rank3.Size = new System.Drawing.Size(64, 25);
+            this.rank3.TabIndex = 4;
+            this.rank3.Text = "3rd";
+            // 
+            // rank2
+            // 
+            this.rank2.AutoSize = true;
+            this.rank2.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank2.Location = new System.Drawing.Point(8, 52);
+            this.rank2.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank2.Name = "rank2";
+            this.rank2.Size = new System.Drawing.Size(66, 25);
+            this.rank2.TabIndex = 3;
+            this.rank2.Text = "2nd";
+            // 
+            // score1
+            // 
+            this.score1.AutoSize = true;
+            this.score1.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.score1.Location = new System.Drawing.Point(735, 11);
+            this.score1.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.score1.Name = "score1";
+            this.score1.Size = new System.Drawing.Size(123, 25);
+            this.score1.TabIndex = 2;
+            this.score1.Text = "999,999";
+            this.score1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // name1
+            // 
+            this.name1.AutoSize = true;
+            this.name1.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name1.Location = new System.Drawing.Point(73, 11);
+            this.name1.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.name1.Name = "name1";
+            this.name1.Size = new System.Drawing.Size(307, 25);
+            this.name1.TabIndex = 1;
+            this.name1.Text = "TeamNameGoesHere";
+            // 
+            // rank1
+            // 
+            this.rank1.AutoSize = true;
+            this.rank1.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rank1.Location = new System.Drawing.Point(8, 11);
+            this.rank1.Margin = new System.Windows.Forms.Padding(5, 8, 6, 8);
+            this.rank1.Name = "rank1";
+            this.rank1.Size = new System.Drawing.Size(54, 25);
+            this.rank1.TabIndex = 0;
+            this.rank1.Text = "1st";
+            // 
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
@@ -848,6 +848,7 @@
             this.ipAlert.Size = new System.Drawing.Size(316, 15);
             this.ipAlert.TabIndex = 4;
             this.ipAlert.Text = "NOTE: There are multiple IPs for this machine, click for more info.";
+            this.ipAlert.Click += new System.EventHandler(this.ipAlert_Click);
             // 
             // statusStrip1
             // 
@@ -983,10 +984,10 @@
             this.Name = "DisplayStruct";
             this.Text = "Leaderboard";
             this.tabSet.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
