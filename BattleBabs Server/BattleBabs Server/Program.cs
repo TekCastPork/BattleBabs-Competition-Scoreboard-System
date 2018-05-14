@@ -11,13 +11,14 @@ namespace BattleBabs_Server
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        [STAThread]
         static void Main()
         {
             Console.WriteLine("Appdata location: {0}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadExit += isExiting;
-            Application.Run(new Main());
+            Application.Run(new Display());
         }
 
         static void isExiting(object sender, System.EventArgs e)
