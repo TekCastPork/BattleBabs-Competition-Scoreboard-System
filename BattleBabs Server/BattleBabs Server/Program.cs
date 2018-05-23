@@ -15,6 +15,13 @@ namespace BattleBabs_Server
         static void Main()
         {
             Console.WriteLine("Appdata location: {0}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+            try
+            {
+                FileSystem.loadData();
+            } catch (Exception e)
+            {
+                Console.WriteLine("Error! {0} | {1}", e.ToString(), e.Message);
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadExit += isExiting;

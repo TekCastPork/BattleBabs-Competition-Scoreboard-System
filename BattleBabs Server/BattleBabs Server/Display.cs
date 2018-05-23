@@ -15,6 +15,7 @@ namespace BattleBabs_Server
     {
         Thread updateScreen;
         Session displaySession = new Session();
+        string name = String.Empty;
         
         public Display()
         {
@@ -196,8 +197,13 @@ namespace BattleBabs_Server
         {
             if(MessageBox.Show("Are you sure you want to end this leaderboard session?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-
+                GameData.removeSessionByName(name);
             }
+        }
+
+        private void Display_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FileSystem.saveData();
         }
     }
 }

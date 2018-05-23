@@ -47,13 +47,43 @@ namespace BattleBabs_Server
             Session session = new Session();
             string[] dataLines = File.ReadAllLines(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BattleBot Leaderboard", "SaveData", saveName));
             Console.WriteLine("Finding locations of session beginning lines...");
-            for(int i = 0; i < dataLines.Length; i++)
+            List<int> starterLocations = new List<int>(); // List to hold positions of starter lines
+            List<int> enderLocations = new List<int>(); // list to hold positions of ender lines
+            for (int i = 0; i < dataLines.Length; i++)
             {
-                if(dataLines[i].Equals("[]"))
+                if (dataLines[i].Equals("[]"))
                 {
-                    //a starter is found
+                    Console.WriteLine("A starter line has been found, marking location in list.");
+                    starterLocations.Add(i);
+                }
+                else if (dataLines[i].Equals("{}"))
+                {
+                    Console.WriteLine("A ender line has been found, marking location in list.");
+                    enderLocations.Add(i);
                 }
             }
+
+            Session loadedSession = new Session(); // varaible to use to place data into the Dictionary
+            string key = String.Empty; // variable to hold the session's key name
+            string teamString = String.Empty; // variable to hold a line of team data (Name:Score)
+            string[] teamData = new string[2]; // array to hold a parsed line of team data {Name,Score}
+
+            for(int i = 0; i < starterLocations.Count; i++)
+            {
+                loadedSession.teamCount = 0; // clear the team count
+                loadedSession.clearList(); // clear the Session list before loading a new session
+                    
+                key = dataLines[starterLocations.ElementAt(i) + 1]; // place the session name into the variable
+                loadedSession.teamCount = int.Parse(dataLines[starterLocations.ElementAt(i) + 2]); // place the team count in the loaded session
+                for(int j = starterLocations.ElementAt(i) + 3; j < enderLocations.ElementAt(i); j++) // start at the line after the starter and end before the ender
+                {
+                    teamString = dataLines[starterLocations.ElementAt(j)]; // get a line of team data
+                    teamData = teamString.Split(':'); // split the line of team data into their individual name and score
+                    loadedSession.insertNewTeam(teamData[0], int.Parse(teamData[1])); // add the team
+                }
+                GameData.saveSessionByName(loadedSession, key);
+            }
+            Console.WriteLine("Done loading.");
         }
     }
 }

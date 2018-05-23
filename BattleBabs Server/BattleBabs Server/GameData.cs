@@ -78,6 +78,11 @@ namespace BattleBabs_Server
             }
         }
 
+        public static void removeSessionByName(string key)
+        {
+            sessionDict.Remove(key);
+        }
+
         public static string[] getStoredKeys()
         {
             return sessionDict.Keys.ToArray();
