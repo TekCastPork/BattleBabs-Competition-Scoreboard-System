@@ -102,6 +102,7 @@ namespace BattleBabs_Server
         public int teamCount { get; set; }
         public string name;
         public Session() {
+            teams = new List<teamData>();
         }
 
 

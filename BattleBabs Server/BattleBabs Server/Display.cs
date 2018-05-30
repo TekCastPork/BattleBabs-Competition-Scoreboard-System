@@ -47,6 +47,11 @@ namespace BattleBabs_Server
             }
             else // If a invoke is not required
             {
+                sessionBox.Items.AddRange(GameData.getStoredKeys());
+                if(String.IsNullOrWhiteSpace(sessionBox.Text))
+                {
+                    sessionBox.Text = GameData.getStoredKeys()[0];
+                }
                 if (GameData.tryGetSession(sessionBox.Text)) // see if a session with the key from the session combo box exists in the dictionary
                 {
                     Console.WriteLine("{0} | Session Exists", DateTime.Now);
@@ -69,7 +74,8 @@ namespace BattleBabs_Server
                         updateLabel(scoresToUpdate[i], displaySession.teams.ElementAt(i).score.ToString());
                     }
                 }
-            }         
+            }
+            Console.WriteLine("Update function complete");
         }
         delegate void setLabelCallback(Label c, string text);
         private void updateLabel(Label c, string text)
