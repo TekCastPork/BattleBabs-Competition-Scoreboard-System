@@ -8,6 +8,7 @@ namespace BattleBabs_Server
 {
     class GameData
     {
+        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         static Dictionary<string, Session> sessionDict = new Dictionary<string, Session>(); // Dictionary that will store all sessions by session name
 
         /// <summary>
@@ -91,6 +92,7 @@ namespace BattleBabs_Server
 
     class Session
     {
+        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public struct teamData
         {
             public string name;

@@ -16,10 +16,12 @@ namespace BattleBabs_Server
         Thread updateScreen;
         Session displaySession = new Session();
         string name = String.Empty;
-        
+        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public Display()
         {
             InitializeComponent();
+            logger.Debug("Components of GUI created");
             updateScreen = new Thread(new ThreadStart(update))
             {
                 Name = "Display Update Thread",
