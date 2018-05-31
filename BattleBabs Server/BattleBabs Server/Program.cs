@@ -31,6 +31,7 @@ namespace BattleBabs_Server
 
         static void isExiting(object sender, System.EventArgs e)
         {
+            FileSystem.saveData();
             Console.WriteLine("Main thread is exiting!");
         }
     }

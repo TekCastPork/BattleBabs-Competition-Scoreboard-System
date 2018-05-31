@@ -276,7 +276,6 @@
             this.sessionBox.Name = "sessionBox";
             this.sessionBox.Size = new System.Drawing.Size(121, 21);
             this.sessionBox.TabIndex = 3;
-            this.sessionBox.DropDownClosed += new System.EventHandler(this.sessionBox_DropDownClosed);
             // 
             // label1
             // 

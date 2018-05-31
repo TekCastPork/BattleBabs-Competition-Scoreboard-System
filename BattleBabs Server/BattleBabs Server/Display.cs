@@ -22,6 +22,9 @@ namespace BattleBabs_Server
             InitializeComponent();
             logger.Debug("Components of GUI created");
             update();
+            Thread pinger = new Thread(new ThreadStart(pingerThread));
+            pinger.IsBackground = true;
+            pinger.Start();
         }
 
         //GUI update related code//
@@ -64,6 +67,8 @@ namespace BattleBabs_Server
                 if (executeOrder66) // The Time Has Come
                 {
                     Console.WriteLine("Yes my Lord.");
+                    Console.WriteLine("new key is: {0}", sessionBox.Text);
+                    Console.WriteLine("Using key to update...");
                     displaySession = GameData.getSessionByName(sessionBox.Text);
                     configureLabels(teamsToUpdate, scoresToUpdate, scoreTextLabels, rankTextLabels);
 
@@ -209,13 +214,18 @@ namespace BattleBabs_Server
 
         private void Display_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FileSystem.saveData();
+            
         }
 
-        private void sessionBox_DropDownClosed(object sender, EventArgs e)
+        
+
+        private void pingerThread()
         {
-            Console.WriteLine("Drop down closed");
-            update();
+            while (true)
+            {
+                update();
+                Thread.Sleep(250);
+            }
         }
     }
 }
