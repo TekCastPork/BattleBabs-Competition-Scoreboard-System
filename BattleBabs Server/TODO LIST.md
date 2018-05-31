@@ -6,7 +6,8 @@
 	- [x] Use list to hold structures - more powerful and useful
     - Now using Classes to hold sessions and a list inside the class will hold the structures, allowing for theoretically infinite sessions
     - [ ] Get GUI update working
-    - [ ] Create session Persistence (load/save)
+      - [ ] Fix wierd session issue (Session 1 loads, session 2 click keeps session 1, session 1 click loads session 2)
+    - [x] Create session Persistence (load/save)
       - Needed to get session display system working
 - [ ] Add networking class
 - [ ] Get networking class to work correctly with current scoreboard program

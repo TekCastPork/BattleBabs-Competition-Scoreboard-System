@@ -13,21 +13,15 @@ namespace BattleBabs_Server
 {
     public partial class Display : Form
     {
-        Thread updateScreen;
         Session displaySession = new Session();
         string name = String.Empty;
         private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+        public static Boolean goUpdate = false;
         public Display()
         {
             InitializeComponent();
             logger.Debug("Components of GUI created");
-            updateScreen = new Thread(new ThreadStart(update))
-            {
-                Name = "Display Update Thread",
-                IsBackground = true
-            };
-            updateScreen.Start();
+            update();
         }
 
         //GUI update related code//
@@ -41,7 +35,7 @@ namespace BattleBabs_Server
             Label[] scoresToUpdate = { score1, score2, score3, score4, score5, score6, score7, score8, score9, score10, score11, score12, score13, score14, score15, score16 };
             Label[] scoreTextLabels = {text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13, text14, text15, text16 };
             Label[] rankTextLabels = { rank1, rank2, rank3, rank4, rank5, rank6, rank7, rank8, rank9, rank10, rank11, rank12, rank13, rank14, rank15, rank16 };
-            Boolean executeOrder66 = false;
+            Boolean executeOrder66 = false;                
             if (sessionBox.InvokeRequired) // check to see if the session combo box requires an Invoke to get data (prevents Cross Threading Exceptions)
             {
                 SetUpdateCallback d = new SetUpdateCallback(update); // If so use the delegate then Invoke
@@ -49,11 +43,14 @@ namespace BattleBabs_Server
             }
             else // If a invoke is not required
             {
-                sessionBox.Items.AddRange(GameData.getStoredKeys());
-                if(String.IsNullOrWhiteSpace(sessionBox.Text))
+                
+                if (String.IsNullOrWhiteSpace(sessionBox.Text))
                 {
+                    sessionBox.Items.AddRange(GameData.getStoredKeys());
                     sessionBox.Text = GameData.getStoredKeys()[0];
+                   
                 }
+                  
                 if (GameData.tryGetSession(sessionBox.Text)) // see if a session with the key from the session combo box exists in the dictionary
                 {
                     Console.WriteLine("{0} | Session Exists", DateTime.Now);
@@ -64,20 +61,21 @@ namespace BattleBabs_Server
                     Console.WriteLine("{0} | Session did not exist", DateTime.Now);
                     executeOrder66 = false;
                 }
-                if(executeOrder66) // The Time Has Come
+                if (executeOrder66) // The Time Has Come
                 {
                     Console.WriteLine("Yes my Lord.");
                     displaySession = GameData.getSessionByName(sessionBox.Text);
+                    configureLabels(teamsToUpdate, scoresToUpdate, scoreTextLabels, rankTextLabels);
 
                     //BEGIN GUI UPDATE
-                    for(int i = 0; i < displaySession.teams.Count; i++)
+                    for (int i = 0; i < displaySession.teams.Count; i++)
                     {
                         updateLabel(teamsToUpdate[i], displaySession.teams.ElementAt(i).name);
                         updateLabel(scoresToUpdate[i], displaySession.teams.ElementAt(i).score.ToString());
                     }
                 }
-            }
             Console.WriteLine("Update function complete");
+            }
         }
         delegate void setLabelCallback(Label c, string text);
         private void updateLabel(Label c, string text)
@@ -133,7 +131,7 @@ namespace BattleBabs_Server
                 }
             }
 
-            for (int i = 15; i > displaySession.teamCount; i--)
+            for (int i = 15; i >= displaySession.teamCount; i--)
             {
                 if (teamsToUpdate[i].InvokeRequired)
                 {
@@ -212,6 +210,12 @@ namespace BattleBabs_Server
         private void Display_FormClosing(object sender, FormClosingEventArgs e)
         {
             FileSystem.saveData();
+        }
+
+        private void sessionBox_DropDownClosed(object sender, EventArgs e)
+        {
+            Console.WriteLine("Drop down closed");
+            update();
         }
     }
 }

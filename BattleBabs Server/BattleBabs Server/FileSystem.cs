@@ -77,7 +77,7 @@ namespace BattleBabs_Server
                     {
                         Session.teamData teamData = session.teams.ElementAt(j); // get a team structure from the session's internal list
                         logger.Info("Streaming team \"" + teamData.name + "\" with score: " + teamData.score);
-                        string teamString = String.Join(teamData.name, ":", teamData.score);
+                        string teamString = String.Join( ":", teamData.name, teamData.score);
                         saver.WriteLine(teamString);
                     }
                     saver.WriteLine("{}"); // Write a terminator to make finding the end of each session easier      
@@ -149,31 +149,43 @@ namespace BattleBabs_Server
                     }
                 }
 
-                Session loadedSession = new Session(); // varaible to use to place data into the Dictionary
+                
                 string key = String.Empty; // variable to hold the session's key name
                 string teamString = String.Empty; // variable to hold a line of team data (Name:Score)
                 string[] teamData = new string[2]; // array to hold a parsed line of team data {Name,Score}
                 logger.Info("variables for loaded data created");
+
+                //Continue adding log functions from here 
+
+                
                 for (int i = 0; i < starterLocations.Count; i++)
                 {
+                    Session loadedSession = new Session(); // varaible to use to place data into the Dictionary
                     loadedSession.teamCount = 0; // clear the team count
                     loadedSession.clearList(); // clear the Session list before loading a new session
+                    logger.Info("Session teamCount and list cleared");
                     Console.WriteLine("Session Data Cleared");
                     key = dataLines[starterLocations.ElementAt(i) + 1]; // place the session name into the variable
                     loadedSession.teamCount = int.Parse(dataLines[starterLocations.ElementAt(i) + 2]); // place the team count in the loaded session
+                    logger.Info(String.Format("Session name (key) and teamcount found in loaded file. Name (key): {0} , team count: {1}", key, loadedSession.teamCount));
                     Console.WriteLine("Session teamcount and key found");
-                    //Seems to be throwing an exception somewhere here \/
+                    logger.Info("Starting to load teams into session.");
                     for (int j = (starterLocations.ElementAt(i)) + 3; j < enderLocations.ElementAt(i); j++) // start at the line after the starter and end before the ender
                     {
                         Console.WriteLine("Getting line at index {0}", j);
+                        logger.Info(String.Format("Getting line at index {0}", j));
                         teamString = dataLines[j]; // get a line of team data
                         Console.WriteLine("Input line: {0}", teamString);
+                        logger.Info(String.Format("Input line is \"{0}\"", teamString));
                         teamData = teamString.Split(':'); // split the line of team data into their individual name and score
                         Console.WriteLine("data split");
+                        logger.Info(String.Format("Data split into pieces. Name: \"{0}\" Score: {1}", teamData[0], teamData[1]));
                         loadedSession.insertNewTeam(teamData[0], int.Parse(teamData[1])); // add the team
-                        Console.WriteLine("team inserted into session");
+                        Console.WriteLine("Team inserted into session");
+                        logger.Info("Team inserted into session");
 
                     }
+                    logger.Info("Session inserted into dictionary");
                     GameData.saveSessionByName(loadedSession, key);
                 }
                 Console.WriteLine("Done loading.");
