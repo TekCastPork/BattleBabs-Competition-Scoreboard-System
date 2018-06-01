@@ -39,7 +39,16 @@ namespace BattleBabs_Server
             Label[] scoresToUpdate = { score1, score2, score3, score4, score5, score6, score7, score8, score9, score10, score11, score12, score13, score14, score15, score16 };
             Label[] scoreTextLabels = {text1, text2, text3, text4, text5, text6, text7, text8, text9, text10, text11, text12, text13, text14, text15, text16 };
             Label[] rankTextLabels = { rank1, rank2, rank3, rank4, rank5, rank6, rank7, rank8, rank9, rank10, rank11, rank12, rank13, rank14, rank15, rank16 };
-            Boolean executeOrder66 = false;                
+            Boolean executeOrder66 = false;
+            displaySession.teams = displaySession.teams.OrderBy(x => x.score).ToList();
+            if(titleLabel.InvokeRequired)
+            {
+                SetUpdateCallback d = new SetUpdateCallback(update);
+                this.Invoke(d, new object[] { });
+            } else
+            {
+                titleLabel.Text = String.Format("Leaderboard for Session: {0}", name);
+            }
             if (sessionBox.InvokeRequired) // check to see if the session combo box requires an Invoke to get data (prevents Cross Threading Exceptions)
             {
                 SetUpdateCallback d = new SetUpdateCallback(update); // If so use the delegate then Invoke

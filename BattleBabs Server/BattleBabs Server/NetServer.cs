@@ -46,7 +46,15 @@ namespace BattleBabs_Server
                             data = Display.displaySession.teams.ElementAt(i);
                             data.score = int.Parse(splitData[0]);
                             Display.displaySession.removeTeam(i);
-                            Display.displaySession.teams.Insert(i, data);
+                            Display.displaySession.teams.Add(data); // will need sorting right away
+
+                        } else if(splitData[3].Equals(Display.displaySession.teams.ElementAt(i).name))
+                        {
+                            logger.Info("Team 2 has found a match");
+                            data = Display.displaySession.teams.ElementAt(i);
+                            data.score = int.Parse(splitData[1]);
+                            Display.displaySession.removeTeam(i);
+                            Display.displaySession.teams.Add(data); // will need sorting right away
                         }
                     }
                 } catch (Exception e)

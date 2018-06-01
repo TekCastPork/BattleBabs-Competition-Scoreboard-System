@@ -99,6 +99,7 @@
             this.team2 = new System.Windows.Forms.Label();
             this.team1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.titleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -123,6 +124,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.titleLabel);
             this.splitContainer1.Panel2.Controls.Add(this.rank16);
             this.splitContainer1.Panel2.Controls.Add(this.rank15);
             this.splitContainer1.Panel2.Controls.Add(this.rank14);
@@ -900,6 +902,16 @@
             this.openFileDialog1.Title = "Please Select Team Name File";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // titleLabel
+            // 
+            this.titleLabel.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(8, 602);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(638, 36);
+            this.titleLabel.TabIndex = 65;
+            this.titleLabel.Text = "TitleOfSession";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Display
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -997,5 +1009,6 @@
         private System.Windows.Forms.Label rank3;
         private System.Windows.Forms.Label rank2;
         private System.Windows.Forms.Label rank1;
+        private System.Windows.Forms.Label titleLabel;
     }
 }
