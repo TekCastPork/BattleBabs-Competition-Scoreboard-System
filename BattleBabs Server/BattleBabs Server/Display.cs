@@ -13,10 +13,11 @@ namespace BattleBabs_Server
 {
     public partial class Display : Form
     {
-        Session displaySession = new Session();
+        public static Session displaySession = new Session();
         string name = String.Empty;
         private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public static Boolean goUpdate = false;
+        SessionMaker maker = new SessionMaker();
         public Display()
         {
             InitializeComponent();
@@ -52,6 +53,17 @@ namespace BattleBabs_Server
                     sessionBox.Items.AddRange(GameData.getStoredKeys());
                     sessionBox.Text = GameData.getStoredKeys()[0];
                    
+                } else if (sessionBox.Items.Count < GameData.getStoredKeys().Length)
+                {
+                    string sessionHolder = sessionBox.Text;
+                    sessionBox.Items.Clear();
+                    sessionBox.Items.AddRange(GameData.getStoredKeys());
+                    sessionBox.Text = sessionHolder;
+                } else if (sessionBox.Items.Count > GameData.getStoredKeys().Length)
+                {
+                    sessionBox.Items.Clear();
+                    sessionBox.Items.AddRange(GameData.getStoredKeys());
+                    sessionBox.Text = GameData.getStoredKeys()[0];
                 }
                   
                 if (GameData.tryGetSession(sessionBox.Text)) // see if a session with the key from the session combo box exists in the dictionary
@@ -70,6 +82,7 @@ namespace BattleBabs_Server
                     Console.WriteLine("new key is: {0}", sessionBox.Text);
                     Console.WriteLine("Using key to update...");
                     displaySession = GameData.getSessionByName(sessionBox.Text);
+                    name = sessionBox.Text;
                     configureLabels(teamsToUpdate, scoresToUpdate, scoreTextLabels, rankTextLabels);
 
                     //BEGIN GUI UPDATE
@@ -191,16 +204,10 @@ namespace BattleBabs_Server
 
         private void newSession_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrWhiteSpace(nameBox.Text))
+           if(SessionMaker.isVisible == false)
             {
-                Console.WriteLine("Name box is empty or contains only whitespace characters, cannot create new session. Telling user");
-                MessageBox.Show("Session name is null, empty, or has only whitespace characters. Please enter a different session name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
-            {
-                displaySession.teamCount = (int)teamCount.Value;
-                GameData.saveSessionByName(displaySession, nameBox.Text);
-                nameBox.Text = String.Empty;
-                Console.WriteLine("Session made");
+                SessionMaker.isVisible = true;
+                maker.Show();
             }
         }
 

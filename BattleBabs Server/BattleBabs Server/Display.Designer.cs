@@ -29,16 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label5 = new System.Windows.Forms.Label();
-            this.teamCount = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nameBox = new System.Windows.Forms.TextBox();
             this.endSession = new System.Windows.Forms.Button();
             this.newSession = new System.Windows.Forms.Button();
             this.sessionBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.syncTeam = new System.Windows.Forms.Button();
-            this.loadTeam = new System.Windows.Forms.Button();
             this.rank16 = new System.Windows.Forms.Label();
             this.rank15 = new System.Windows.Forms.Label();
             this.rank14 = new System.Windows.Forms.Label();
@@ -108,7 +103,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.teamCount)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -121,16 +115,11 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.label5);
-            this.splitContainer1.Panel1.Controls.Add(this.teamCount);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.nameBox);
             this.splitContainer1.Panel1.Controls.Add(this.endSession);
             this.splitContainer1.Panel1.Controls.Add(this.newSession);
             this.splitContainer1.Panel1.Controls.Add(this.sessionBox);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.syncTeam);
-            this.splitContainer1.Panel1.Controls.Add(this.loadTeam);
             // 
             // splitContainer1.Panel2
             // 
@@ -202,53 +191,6 @@
             this.splitContainer1.SplitterDistance = 257;
             this.splitContainer1.TabIndex = 0;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(154, 149);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Teams in Session";
-            // 
-            // teamCount
-            // 
-            this.teamCount.Location = new System.Drawing.Point(194, 165);
-            this.teamCount.Maximum = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
-            this.teamCount.Minimum = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.teamCount.Name = "teamCount";
-            this.teamCount.Size = new System.Drawing.Size(50, 20);
-            this.teamCount.TabIndex = 8;
-            this.teamCount.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 149);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "New Session Name:";
-            // 
-            // nameBox
-            // 
-            this.nameBox.Location = new System.Drawing.Point(10, 165);
-            this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(123, 20);
-            this.nameBox.TabIndex = 6;
-            // 
             // endSession
             // 
             this.endSession.Location = new System.Drawing.Point(10, 104);
@@ -261,7 +203,7 @@
             // 
             // newSession
             // 
-            this.newSession.Location = new System.Drawing.Point(10, 191);
+            this.newSession.Location = new System.Drawing.Point(10, 133);
             this.newSession.Name = "newSession";
             this.newSession.Size = new System.Drawing.Size(123, 23);
             this.newSession.TabIndex = 4;
@@ -288,23 +230,13 @@
             // 
             // syncTeam
             // 
-            this.syncTeam.Location = new System.Drawing.Point(169, 10);
+            this.syncTeam.Location = new System.Drawing.Point(10, 3);
             this.syncTeam.Margin = new System.Windows.Forms.Padding(3, 3, 9, 3);
             this.syncTeam.Name = "syncTeam";
             this.syncTeam.Size = new System.Drawing.Size(75, 23);
             this.syncTeam.TabIndex = 1;
             this.syncTeam.Text = "Sync Teams";
             this.syncTeam.UseVisualStyleBackColor = true;
-            // 
-            // loadTeam
-            // 
-            this.loadTeam.Location = new System.Drawing.Point(12, 12);
-            this.loadTeam.Name = "loadTeam";
-            this.loadTeam.Size = new System.Drawing.Size(75, 23);
-            this.loadTeam.TabIndex = 0;
-            this.loadTeam.Text = "Load Teams";
-            this.loadTeam.UseVisualStyleBackColor = true;
-            this.loadTeam.Click += new System.EventHandler(this.loadTeam_Click);
             // 
             // rank16
             // 
@@ -804,7 +736,7 @@
             // 
             // team16
             // 
-            this.team16.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team16.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team16.Location = new System.Drawing.Point(90, 567);
             this.team16.Margin = new System.Windows.Forms.Padding(4);
             this.team16.Name = "team16";
@@ -814,7 +746,7 @@
             // 
             // team15
             // 
-            this.team15.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team15.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team15.Location = new System.Drawing.Point(90, 530);
             this.team15.Margin = new System.Windows.Forms.Padding(4);
             this.team15.Name = "team15";
@@ -824,7 +756,7 @@
             // 
             // team14
             // 
-            this.team14.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team14.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team14.Location = new System.Drawing.Point(90, 493);
             this.team14.Margin = new System.Windows.Forms.Padding(4);
             this.team14.Name = "team14";
@@ -834,7 +766,7 @@
             // 
             // team13
             // 
-            this.team13.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team13.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team13.Location = new System.Drawing.Point(90, 456);
             this.team13.Margin = new System.Windows.Forms.Padding(4);
             this.team13.Name = "team13";
@@ -844,7 +776,7 @@
             // 
             // team12
             // 
-            this.team12.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team12.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team12.Location = new System.Drawing.Point(90, 419);
             this.team12.Margin = new System.Windows.Forms.Padding(4);
             this.team12.Name = "team12";
@@ -854,7 +786,7 @@
             // 
             // team11
             // 
-            this.team11.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team11.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team11.Location = new System.Drawing.Point(90, 382);
             this.team11.Margin = new System.Windows.Forms.Padding(4);
             this.team11.Name = "team11";
@@ -864,7 +796,7 @@
             // 
             // team10
             // 
-            this.team10.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team10.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team10.Location = new System.Drawing.Point(90, 345);
             this.team10.Margin = new System.Windows.Forms.Padding(4);
             this.team10.Name = "team10";
@@ -874,7 +806,7 @@
             // 
             // team9
             // 
-            this.team9.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team9.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team9.Location = new System.Drawing.Point(90, 308);
             this.team9.Margin = new System.Windows.Forms.Padding(4);
             this.team9.Name = "team9";
@@ -884,7 +816,7 @@
             // 
             // team8
             // 
-            this.team8.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team8.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team8.Location = new System.Drawing.Point(90, 271);
             this.team8.Margin = new System.Windows.Forms.Padding(4);
             this.team8.Name = "team8";
@@ -894,7 +826,7 @@
             // 
             // team7
             // 
-            this.team7.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team7.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team7.Location = new System.Drawing.Point(90, 234);
             this.team7.Margin = new System.Windows.Forms.Padding(4);
             this.team7.Name = "team7";
@@ -904,7 +836,7 @@
             // 
             // team6
             // 
-            this.team6.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team6.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team6.Location = new System.Drawing.Point(90, 197);
             this.team6.Margin = new System.Windows.Forms.Padding(4);
             this.team6.Name = "team6";
@@ -914,7 +846,7 @@
             // 
             // team5
             // 
-            this.team5.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team5.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team5.Location = new System.Drawing.Point(90, 160);
             this.team5.Margin = new System.Windows.Forms.Padding(4);
             this.team5.Name = "team5";
@@ -924,7 +856,7 @@
             // 
             // team4
             // 
-            this.team4.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team4.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team4.Location = new System.Drawing.Point(90, 123);
             this.team4.Margin = new System.Windows.Forms.Padding(4);
             this.team4.Name = "team4";
@@ -934,7 +866,7 @@
             // 
             // team3
             // 
-            this.team3.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team3.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team3.Location = new System.Drawing.Point(90, 86);
             this.team3.Margin = new System.Windows.Forms.Padding(4);
             this.team3.Name = "team3";
@@ -944,7 +876,7 @@
             // 
             // team2
             // 
-            this.team2.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team2.Location = new System.Drawing.Point(90, 49);
             this.team2.Margin = new System.Windows.Forms.Padding(4);
             this.team2.Name = "team2";
@@ -954,7 +886,7 @@
             // 
             // team1
             // 
-            this.team1.Font = new System.Drawing.Font("GodOfWar", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team1.Font = new System.Drawing.Font("GodOfWar", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.team1.Location = new System.Drawing.Point(90, 12);
             this.team1.Margin = new System.Windows.Forms.Padding(4);
             this.team1.Name = "team1";
@@ -988,7 +920,6 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.teamCount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1045,14 +976,11 @@
         private System.Windows.Forms.Label team2;
         private System.Windows.Forms.Label team1;
         private System.Windows.Forms.Button syncTeam;
-        private System.Windows.Forms.Button loadTeam;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox sessionBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button endSession;
         private System.Windows.Forms.Button newSession;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.Label rank16;
         private System.Windows.Forms.Label rank15;
         private System.Windows.Forms.Label rank14;
@@ -1069,7 +997,5 @@
         private System.Windows.Forms.Label rank3;
         private System.Windows.Forms.Label rank2;
         private System.Windows.Forms.Label rank1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown teamCount;
     }
 }
