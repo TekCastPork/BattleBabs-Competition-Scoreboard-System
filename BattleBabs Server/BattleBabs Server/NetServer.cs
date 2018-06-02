@@ -17,7 +17,7 @@ namespace BattleBabs_Server
         static string message;
         static byte[] receiveBuffer;
         static Thread serverThread = new Thread(new ThreadStart(receiveData));
-        static UdpClient listener = new UdpClient(port);
+        static UdpClient listener = new UdpClient(endPoint);
         public static void create()
         {
             serverThread.IsBackground = true;

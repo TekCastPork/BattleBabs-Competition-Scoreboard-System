@@ -1,0 +1,1134 @@
+﻿'BattleBabs Leaderboard.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\Users\TekCastPork\Source\Repos\BattleBabs\Display\BattleBabs Server\BattleBabs Server\bin\Debug\BattleBabs Leaderboard.exe'. Symbols loaded.
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: BattleBabs Leaderboard.exe): Loaded 'C:\Users\TekCastPork\Source\Repos\BattleBabs\Display\BattleBabs Server\BattleBabs Server\bin\Debug\log4net.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: BattleBabs Leaderboard.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: BattleBabs Leaderboard.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: BattleBabs Leaderboard.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: BattleBabs Leaderboard.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: BattleBabs Leaderboard.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: BattleBabs Leaderboard.exe): Loaded 'C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+Appdata location: C:\Users\TekCastPork\AppData\Roaming
+2018-06-01 22:33:52,987 INFO BattleBabs_Server.FileSystem - Entire filepath existed.
+2018-06-01 22:33:53,008 INFO BattleBabs_Server.FileSystem - Filepath was verified. Loading saved data...
+Loading data from file into dictionary
+2018-06-01 22:33:53,010 INFO BattleBabs_Server.FileSystem - Save file loaded into array, beginning parse...
+2018-06-01 22:33:53,010 INFO BattleBabs_Server.FileSystem - Finding all locations of session beginner/terminator lines...
+Finding locations of session beginning lines...
+2018-06-01 22:33:53,010 INFO BattleBabs_Server.FileSystem - A session beginner line was found, marking location...0
+A starter line has been found, marking location in list.
+Marked location 0
+2018-06-01 22:33:53,011 INFO BattleBabs_Server.FileSystem - A session terminator line was found, marking location...7
+A ender line has been found, marking location in list.
+Marked location 7
+2018-06-01 22:33:53,067 INFO BattleBabs_Server.FileSystem - A session beginner line was found, marking location...8
+A starter line has been found, marking location in list.
+Marked location 8
+2018-06-01 22:33:53,075 INFO BattleBabs_Server.FileSystem - A session terminator line was found, marking location...14
+A ender line has been found, marking location in list.
+Marked location 14
+2018-06-01 22:33:53,082 INFO BattleBabs_Server.FileSystem - A session beginner line was found, marking location...15
+A starter line has been found, marking location in list.
+Marked location 15
+2018-06-01 22:33:53,091 INFO BattleBabs_Server.FileSystem - A session terminator line was found, marking location...21
+A ender line has been found, marking location in list.
+Marked location 21
+2018-06-01 22:33:53,107 INFO BattleBabs_Server.FileSystem - variables for loaded data created
+2018-06-01 22:33:53,117 INFO BattleBabs_Server.FileSystem - Session teamCount and list cleared
+Session Data Cleared
+2018-06-01 22:33:53,149 INFO BattleBabs_Server.FileSystem - Session name (key) and teamcount found in loaded file. Name (key): Session1 , team count: 4
+Session teamcount and key found
+2018-06-01 22:33:53,177 INFO BattleBabs_Server.FileSystem - Starting to load teams into session.
+Getting line at index 3
+2018-06-01 22:33:53,184 INFO BattleBabs_Server.FileSystem - Getting line at index 3
+Input line: Team1:47
+2018-06-01 22:33:53,191 INFO BattleBabs_Server.FileSystem - Input line is "Team1:47"
+data split
+2018-06-01 22:33:53,200 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "Team1" Score: 47
+Team Team1 with initial score 47 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,206 INFO BattleBabs_Server.FileSystem - Team inserted into session
+Getting line at index 4
+2018-06-01 22:33:53,222 INFO BattleBabs_Server.FileSystem - Getting line at index 4
+Input line: teAm1:280
+2018-06-01 22:33:53,229 INFO BattleBabs_Server.FileSystem - Input line is "teAm1:280"
+data split
+2018-06-01 22:33:53,237 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "teAm1" Score: 280
+Team teAm1 with initial score 280 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,244 INFO BattleBabs_Server.FileSystem - Team inserted into session
+Getting line at index 5
+2018-06-01 22:33:53,251 INFO BattleBabs_Server.FileSystem - Getting line at index 5
+Input line: team4:12345
+2018-06-01 22:33:53,259 INFO BattleBabs_Server.FileSystem - Input line is "team4:12345"
+data split
+2018-06-01 22:33:53,266 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "team4" Score: 12345
+Team team4 with initial score 12345 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,274 INFO BattleBabs_Server.FileSystem - Team inserted into session
+Getting line at index 6
+2018-06-01 22:33:53,281 INFO BattleBabs_Server.FileSystem - Getting line at index 6
+Input line: team1:105105743
+2018-06-01 22:33:53,288 INFO BattleBabs_Server.FileSystem - Input line is "team1:105105743"
+data split
+2018-06-01 22:33:53,296 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "team1" Score: 105105743
+Team team1 with initial score 105105743 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,324 INFO BattleBabs_Server.FileSystem - Team inserted into session
+2018-06-01 22:33:53,332 INFO BattleBabs_Server.FileSystem - Session inserted into dictionary
+Session Dictionary has no value with given key, creating
+2018-06-01 22:33:53,360 INFO BattleBabs_Server.FileSystem - Session teamCount and list cleared
+Session Data Cleared
+2018-06-01 22:33:53,368 INFO BattleBabs_Server.FileSystem - Session name (key) and teamcount found in loaded file. Name (key): sessioN2 , team count: 3
+Session teamcount and key found
+2018-06-01 22:33:53,384 INFO BattleBabs_Server.FileSystem - Starting to load teams into session.
+Getting line at index 11
+2018-06-01 22:33:53,391 INFO BattleBabs_Server.FileSystem - Getting line at index 11
+Input line: Team2:47
+2018-06-01 22:33:53,399 INFO BattleBabs_Server.FileSystem - Input line is "Team2:47"
+data split
+2018-06-01 22:33:53,408 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "Team2" Score: 47
+Team Team2 with initial score 47 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,425 INFO BattleBabs_Server.FileSystem - Team inserted into session
+Getting line at index 12
+2018-06-01 22:33:53,432 INFO BattleBabs_Server.FileSystem - Getting line at index 12
+Input line: teAm2:28055
+2018-06-01 22:33:53,444 INFO BattleBabs_Server.FileSystem - Input line is "teAm2:28055"
+data split
+2018-06-01 22:33:53,451 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "teAm2" Score: 28055
+Team teAm2 with initial score 28055 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,458 INFO BattleBabs_Server.FileSystem - Team inserted into session
+Getting line at index 13
+2018-06-01 22:33:53,462 INFO BattleBabs_Server.FileSystem - Getting line at index 13
+Input line: team2:105105743
+2018-06-01 22:33:53,467 INFO BattleBabs_Server.FileSystem - Input line is "team2:105105743"
+data split
+2018-06-01 22:33:53,472 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "team2" Score: 105105743
+Team team2 with initial score 105105743 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,477 INFO BattleBabs_Server.FileSystem - Team inserted into session
+2018-06-01 22:33:53,481 INFO BattleBabs_Server.FileSystem - Session inserted into dictionary
+Session Dictionary has no value with given key, creating
+2018-06-01 22:33:53,485 INFO BattleBabs_Server.FileSystem - Session teamCount and list cleared
+Session Data Cleared
+2018-06-01 22:33:53,489 INFO BattleBabs_Server.FileSystem - Session name (key) and teamcount found in loaded file. Name (key): TestSession , team count: 3
+Session teamcount and key found
+2018-06-01 22:33:53,494 INFO BattleBabs_Server.FileSystem - Starting to load teams into session.
+Getting line at index 18
+2018-06-01 22:33:53,499 INFO BattleBabs_Server.FileSystem - Getting line at index 18
+Input line: TesT1:0
+2018-06-01 22:33:53,503 INFO BattleBabs_Server.FileSystem - Input line is "TesT1:0"
+data split
+2018-06-01 22:33:53,507 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "TesT1" Score: 0
+Team TesT1 with initial score 0 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,511 INFO BattleBabs_Server.FileSystem - Team inserted into session
+Getting line at index 19
+2018-06-01 22:33:53,515 INFO BattleBabs_Server.FileSystem - Getting line at index 19
+Input line: Test2:0
+2018-06-01 22:33:53,522 INFO BattleBabs_Server.FileSystem - Input line is "Test2:0"
+data split
+2018-06-01 22:33:53,526 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "Test2" Score: 0
+Team Test2 with initial score 0 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,529 INFO BattleBabs_Server.FileSystem - Team inserted into session
+Getting line at index 20
+2018-06-01 22:33:53,533 INFO BattleBabs_Server.FileSystem - Getting line at index 20
+Input line: Test3:0
+2018-06-01 22:33:53,537 INFO BattleBabs_Server.FileSystem - Input line is "Test3:0"
+data split
+2018-06-01 22:33:53,541 INFO BattleBabs_Server.FileSystem - Data split into pieces. Name: "Test3" Score: 0
+Team Test3 with initial score 0 added to Session list
+Team inserted into session
+2018-06-01 22:33:53,545 INFO BattleBabs_Server.FileSystem - Team inserted into session
+2018-06-01 22:33:53,549 INFO BattleBabs_Server.FileSystem - Session inserted into dictionary
+Session Dictionary has no value with given key, creating
+Done loading.
+Waiting...
+2018-06-01 22:33:53,659 DEBUG BattleBabs_Server.Display - Components of GUI created
+6/1/2018 10:33:53 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:53 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:53 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:54 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:54 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:54 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:54 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:54 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:54 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:54 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:54 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:55 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:55 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:55 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:55 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:55 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:55 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:55 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:55 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:56 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:56 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:56 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:56 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:56 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:56 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:56 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:56 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+SENT: TESTSEND123 as bytes.
+RECEIVED: TESTSEND123
+
+Waiting...
+6/1/2018 10:33:57 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:57 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:57 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:57 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:57 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:57 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:57 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:57 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:58 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:58 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:58 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:58 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:58 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:58 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:58 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:58 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:59 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:59 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:59 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:59 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:59 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:59 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:59 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:33:59 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:00 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:00 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:00 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:00 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:00 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:00 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:00 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:00 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:01 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:01 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:01 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:01 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:01 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:01 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:01 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:01 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:02 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:02 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:02 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:02 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:02 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:02 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:02 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:02 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:03 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:03 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:03 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:03 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:03 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:03 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:03 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:03 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:04 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:04 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:04 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:04 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:04 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:04 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:04 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:04 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:05 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:05 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:05 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:05 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:05 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:05 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:05 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:05 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:06 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:06 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:06 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:06 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:06 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:06 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:07 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:07 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:07 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:07 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:07 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:07 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:07 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:07 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:08 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:08 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:08 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:08 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:08 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:08 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:08 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:08 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:09 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:09 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:09 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:09 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:09 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:09 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:09 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:09 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:10 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:10 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:10 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:10 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:10 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:10 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:10 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:10 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:11 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:11 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:11 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:11 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:11 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:11 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:11 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:11 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:12 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:12 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:12 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:12 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:12 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:12 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:12 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:12 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:13 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:13 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:13 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:13 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:13 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:13 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:13 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:13 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:14 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:14 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:14 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:14 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:14 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:14 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:14 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:14 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:15 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:15 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:15 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:15 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:15 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:15 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:15 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:15 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:16 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:16 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:16 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:16 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:16 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:16 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:16 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:16 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:17 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:17 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:17 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:17 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:17 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:17 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:17 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:17 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:18 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+6/1/2018 10:34:18 PM | Session Exists
+Yes my Lord.
+new key is: Session1
+Using key to update...
+Update function complete
+Exception thrown: 'System.ObjectDisposedException' in System.Windows.Forms.dll
+An unhandled exception of type 'System.ObjectDisposedException' occurred in System.Windows.Forms.dll
+Cannot access a disposed object.
+
+'BattleBabs Leaderboard.exe' (CLR v4.0.30319: BattleBabs Leaderboard.exe): Loaded 'D:\Programs\Visual Basic\Common7\IDE\PrivateAssemblies\Runtime\Microsoft.VisualStudio.Debugger.Runtime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
+The program '[7808] BattleBabs Leaderboard.exe' has exited with code -1 (0xffffffff).

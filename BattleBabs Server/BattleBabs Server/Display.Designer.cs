@@ -34,6 +34,7 @@
             this.sessionBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.syncTeam = new System.Windows.Forms.Button();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.rank16 = new System.Windows.Forms.Label();
             this.rank15 = new System.Windows.Forms.Label();
             this.rank14 = new System.Windows.Forms.Label();
@@ -99,7 +100,8 @@
             this.team2 = new System.Windows.Forms.Label();
             this.team1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.titleLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -116,6 +118,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.endSession);
             this.splitContainer1.Panel1.Controls.Add(this.newSession);
             this.splitContainer1.Panel1.Controls.Add(this.sessionBox);
@@ -239,6 +243,17 @@
             this.syncTeam.TabIndex = 1;
             this.syncTeam.Text = "Sync Teams";
             this.syncTeam.UseVisualStyleBackColor = true;
+            this.syncTeam.Click += new System.EventHandler(this.syncTeam_Click);
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(8, 602);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(638, 36);
+            this.titleLabel.TabIndex = 65;
+            this.titleLabel.Text = "TitleOfSession";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rank16
             // 
@@ -902,15 +917,24 @@
             this.openFileDialog1.Title = "Please Select Team Name File";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // titleLabel
+            // label2
             // 
-            this.titleLabel.Font = new System.Drawing.Font("GodOfWar", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(8, 602);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(638, 36);
-            this.titleLabel.TabIndex = 65;
-            this.titleLabel.Text = "TitleOfSession";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 233);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(240, 405);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "IP1\r\nIP2\r\nIp3\r\nIP4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 220);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "IPs of this Computer";
             // 
             // Display
             // 
@@ -1010,5 +1034,7 @@
         private System.Windows.Forms.Label rank2;
         private System.Windows.Forms.Label rank1;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

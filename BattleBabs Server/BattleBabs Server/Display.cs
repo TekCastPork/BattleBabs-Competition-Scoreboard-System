@@ -243,5 +243,10 @@ namespace BattleBabs_Server
                 Thread.Sleep(250);
             }
         }
+
+        private void syncTeam_Click(object sender, EventArgs e)
+        {
+            Net.send("TEST123");
+        }
     }
 }

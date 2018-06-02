@@ -92,6 +92,8 @@
     <Compile Include="Display.Designer.cs">
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
+    <Compile Include="Net.cs" />
+    <Compile Include="NetClient.cs" />
     <Compile Include="NetServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
