@@ -11,7 +11,10 @@
     - [x] Create session Persistence (load/save)
       - Needed to get session display system working
     - [ ] Create session creation interface
-- [ ] Add networking class
+- [x] Add networking class
+  - [ ] Get networking working to old client
+    - Make toggle to switch between old and new client (both cannot run at same time potentially?)
+  - [ ] Get networking to new client
 - [ ] Get networking class to work correctly with current scoreboard program
 - [ ] Get other classes to interact with networking class properly
 
