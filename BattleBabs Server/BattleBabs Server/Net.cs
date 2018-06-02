@@ -12,10 +12,18 @@ namespace BattleBabs_Server
     class Net
     {
         static UdpClient udp = new UdpClient();
-        static int groupPort = 25566;
+        static int groupPort = 25566; // used for all comms
         static IPEndPoint groupEP = new IPEndPoint(IPAddress.Broadcast, groupPort);
         static IPEndPoint receiveEP = new IPEndPoint(IPAddress.Any, groupPort);
         static Thread listener = new Thread(new ThreadStart(receiveMessage));
+
+        /*
+         * Packet types:
+         * Score->Leader
+         * Identifier: Byte[0] = :
+         * Teams->Score
+         * Identifier: Byte[0] = ;
+         */
 
         public static void start()
         {
