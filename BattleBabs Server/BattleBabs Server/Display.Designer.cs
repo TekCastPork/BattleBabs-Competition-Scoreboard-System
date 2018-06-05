@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.netMessage = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.endSession = new System.Windows.Forms.Button();
             this.newSession = new System.Windows.Forms.Button();
             this.sessionBox = new System.Windows.Forms.ComboBox();
@@ -100,8 +102,10 @@
             this.team2 = new System.Windows.Forms.Label();
             this.team1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.legacyNet = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.settingsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -118,7 +122,11 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.settingsButton);
+            this.splitContainer1.Panel1.Controls.Add(this.label4);
+            this.splitContainer1.Panel1.Controls.Add(this.legacyNet);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.netMessage);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.endSession);
             this.splitContainer1.Panel1.Controls.Add(this.newSession);
@@ -196,6 +204,24 @@
             this.splitContainer1.Size = new System.Drawing.Size(922, 657);
             this.splitContainer1.SplitterDistance = 257;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // netMessage
+            // 
+            this.netMessage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.netMessage.Location = new System.Drawing.Point(10, 226);
+            this.netMessage.Name = "netMessage";
+            this.netMessage.Size = new System.Drawing.Size(240, 16);
+            this.netMessage.TabIndex = 7;
+            this.netMessage.Text = "Network Message Here";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 213);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Most Recent Network Message:";
             // 
             // endSession
             // 
@@ -917,24 +943,44 @@
             this.openFileDialog1.Title = "Please Select Team Name File";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // label2
-            // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 233);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 405);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "IP1\r\nIP2\r\nIp3\r\nIP4";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 220);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 270);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "IPs of this Computer";
+            this.label3.Size = new System.Drawing.Size(64, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Settings";
+            // 
+            // legacyNet
+            // 
+            this.legacyNet.AutoSize = true;
+            this.legacyNet.Location = new System.Drawing.Point(10, 327);
+            this.legacyNet.Name = "legacyNet";
+            this.legacyNet.Size = new System.Drawing.Size(166, 17);
+            this.legacyNet.TabIndex = 10;
+            this.legacyNet.Text = "Use legacy network functions";
+            this.legacyNet.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 298);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(202, 26);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Use legacy networking if your scoreboard\r\nis not version 3 or greater.";
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.Location = new System.Drawing.Point(165, 267);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(85, 23);
+            this.settingsButton.TabIndex = 12;
+            this.settingsButton.Text = "Apply Settings";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // Display
             // 
@@ -1034,7 +1080,11 @@
         private System.Windows.Forms.Label rank2;
         private System.Windows.Forms.Label rank1;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label netMessage;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox legacyNet;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button settingsButton;
     }
 }

@@ -23,7 +23,7 @@ namespace BattleBabs_Server
             {
                 Console.WriteLine("Error! {0} | {1}", e.ToString(), e.Message);
             }
-            Net.start();
+            Net3.start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadExit += isExiting;

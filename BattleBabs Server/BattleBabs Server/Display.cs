@@ -246,7 +246,12 @@ namespace BattleBabs_Server
 
         private void syncTeam_Click(object sender, EventArgs e)
         {
-            Net.send("TEST123");
+            Net3.send("TEST123");
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

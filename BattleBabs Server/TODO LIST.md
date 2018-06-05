@@ -21,6 +21,7 @@
 ***Achieve above before working on below***
 - [ ] Create match list window
 	* Use a scrollable list instead of big window -> easier to view and smaller window required
-- [ ] Create Log file generating class
+- [x] Create Log file generating class
+  - used log4net framework
 
 **Ensure any savable data gets stored to %appdata% and not the working directory**
