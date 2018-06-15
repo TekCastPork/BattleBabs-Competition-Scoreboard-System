@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.settingsButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.legacyNet = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.netMessage = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.endSession = new System.Windows.Forms.Button();
@@ -102,14 +106,16 @@
             this.team2 = new System.Windows.Forms.Label();
             this.team1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label3 = new System.Windows.Forms.Label();
-            this.legacyNet = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.settingsButton = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.testPingButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -122,17 +128,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.settingsButton);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.legacyNet);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.netMessage);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.endSession);
-            this.splitContainer1.Panel1.Controls.Add(this.newSession);
-            this.splitContainer1.Panel1.Controls.Add(this.sessionBox);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.syncTeam);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
             // 
             // splitContainer1.Panel2
             // 
@@ -205,10 +201,49 @@
             this.splitContainer1.SplitterDistance = 257;
             this.splitContainer1.TabIndex = 0;
             // 
+            // settingsButton
+            // 
+            this.settingsButton.Location = new System.Drawing.Point(155, 3);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(85, 23);
+            this.settingsButton.TabIndex = 12;
+            this.settingsButton.Text = "Apply Settings";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(202, 26);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Use legacy networking if your scoreboard\r\nis not version 3 or greater.";
+            // 
+            // legacyNet
+            // 
+            this.legacyNet.AutoSize = true;
+            this.legacyNet.Location = new System.Drawing.Point(3, 32);
+            this.legacyNet.Name = "legacyNet";
+            this.legacyNet.Size = new System.Drawing.Size(166, 17);
+            this.legacyNet.TabIndex = 10;
+            this.legacyNet.Text = "Use legacy network functions";
+            this.legacyNet.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(5, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Settings";
+            // 
             // netMessage
             // 
             this.netMessage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.netMessage.Location = new System.Drawing.Point(10, 226);
+            this.netMessage.Location = new System.Drawing.Point(3, 205);
             this.netMessage.Name = "netMessage";
             this.netMessage.Size = new System.Drawing.Size(240, 16);
             this.netMessage.TabIndex = 7;
@@ -217,7 +252,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 213);
+            this.label2.Location = new System.Drawing.Point(3, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(160, 13);
             this.label2.TabIndex = 6;
@@ -225,7 +260,7 @@
             // 
             // endSession
             // 
-            this.endSession.Location = new System.Drawing.Point(10, 104);
+            this.endSession.Location = new System.Drawing.Point(3, 118);
             this.endSession.Name = "endSession";
             this.endSession.Size = new System.Drawing.Size(121, 23);
             this.endSession.TabIndex = 5;
@@ -235,7 +270,7 @@
             // 
             // newSession
             // 
-            this.newSession.Location = new System.Drawing.Point(10, 133);
+            this.newSession.Location = new System.Drawing.Point(3, 89);
             this.newSession.Name = "newSession";
             this.newSession.Size = new System.Drawing.Size(123, 23);
             this.newSession.TabIndex = 4;
@@ -246,7 +281,7 @@
             // sessionBox
             // 
             this.sessionBox.FormattingEnabled = true;
-            this.sessionBox.Location = new System.Drawing.Point(10, 77);
+            this.sessionBox.Location = new System.Drawing.Point(3, 62);
             this.sessionBox.Name = "sessionBox";
             this.sessionBox.Size = new System.Drawing.Size(121, 21);
             this.sessionBox.TabIndex = 3;
@@ -254,7 +289,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 61);
+            this.label1.Location = new System.Drawing.Point(3, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 2;
@@ -262,7 +297,7 @@
             // 
             // syncTeam
             // 
-            this.syncTeam.Location = new System.Drawing.Point(10, 3);
+            this.syncTeam.Location = new System.Drawing.Point(3, 3);
             this.syncTeam.Margin = new System.Windows.Forms.Padding(3, 3, 9, 3);
             this.syncTeam.Name = "syncTeam";
             this.syncTeam.Size = new System.Drawing.Size(75, 23);
@@ -943,44 +978,43 @@
             this.openFileDialog1.Title = "Please Select Team Name File";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // label3
+            // splitContainer2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 270);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 16);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Settings";
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // legacyNet
+            // splitContainer2.Panel1
             // 
-            this.legacyNet.AutoSize = true;
-            this.legacyNet.Location = new System.Drawing.Point(10, 327);
-            this.legacyNet.Name = "legacyNet";
-            this.legacyNet.Size = new System.Drawing.Size(166, 17);
-            this.legacyNet.TabIndex = 10;
-            this.legacyNet.Text = "Use legacy network functions";
-            this.legacyNet.UseVisualStyleBackColor = true;
+            this.splitContainer2.Panel1.Controls.Add(this.testPingButton);
+            this.splitContainer2.Panel1.Controls.Add(this.netMessage);
+            this.splitContainer2.Panel1.Controls.Add(this.syncTeam);
+            this.splitContainer2.Panel1.Controls.Add(this.label1);
+            this.splitContainer2.Panel1.Controls.Add(this.sessionBox);
+            this.splitContainer2.Panel1.Controls.Add(this.endSession);
+            this.splitContainer2.Panel1.Controls.Add(this.label2);
+            this.splitContainer2.Panel1.Controls.Add(this.newSession);
             // 
-            // label4
+            // splitContainer2.Panel2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 298);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(202, 26);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Use legacy networking if your scoreboard\r\nis not version 3 or greater.";
+            this.splitContainer2.Panel2.Controls.Add(this.legacyNet);
+            this.splitContainer2.Panel2.Controls.Add(this.settingsButton);
+            this.splitContainer2.Panel2.Controls.Add(this.label4);
+            this.splitContainer2.Panel2.Controls.Add(this.label3);
+            this.splitContainer2.Size = new System.Drawing.Size(247, 635);
+            this.splitContainer2.SplitterDistance = 317;
+            this.splitContainer2.TabIndex = 13;
             // 
-            // settingsButton
+            // testPingButton
             // 
-            this.settingsButton.Location = new System.Drawing.Point(165, 267);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(85, 23);
-            this.settingsButton.TabIndex = 12;
-            this.settingsButton.Text = "Apply Settings";
-            this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            this.testPingButton.Location = new System.Drawing.Point(140, 3);
+            this.testPingButton.Name = "testPingButton";
+            this.testPingButton.Size = new System.Drawing.Size(100, 23);
+            this.testPingButton.TabIndex = 8;
+            this.testPingButton.Text = "Test Connections";
+            this.testPingButton.UseVisualStyleBackColor = true;
+            this.testPingButton.Click += new System.EventHandler(this.testPingButton_Click);
             // 
             // Display
             // 
@@ -997,11 +1031,16 @@
             this.Text = "BattleBots Leaderboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Display_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1083,8 +1122,10 @@
         private System.Windows.Forms.Label netMessage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox legacyNet;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.CheckBox legacyNet;
+        private System.Windows.Forms.Button testPingButton;
     }
 }

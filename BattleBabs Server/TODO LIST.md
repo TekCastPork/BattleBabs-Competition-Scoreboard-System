@@ -5,12 +5,12 @@
 		- [x] int score
 	- [x] Use list to hold structures - more powerful and useful
     - Now using Classes to hold sessions and a list inside the class will hold the structures, allowing for theoretically infinite sessions
-    - [ ] Get GUI update working
+    - [x] Get GUI update working
       - [x] Fix wierd session issue (Session 1 loads, session 2 click keeps session 1, session 1 click loads session 2)
         - Was no problem, just log4net config issue
     - [x] Create session Persistence (load/save)
       - Needed to get session display system working
-    - [ ] Create session creation interface
+    - [x] Create session creation interface
 - [x] Add networking class
   - [ ] Get networking working to old client
     - Make toggle to switch between old and new client (both cannot run at same time potentially?)

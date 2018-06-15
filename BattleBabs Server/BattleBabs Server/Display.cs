@@ -246,12 +246,64 @@ namespace BattleBabs_Server
 
         private void syncTeam_Click(object sender, EventArgs e)
         {
-            Net3.send("TEST123");
+            string teamNames = String.Empty;
+            string[] names = new string[displaySession.teams.Count];
+            for(int i = 0; i < displaySession.teams.Count; i++)
+            {
+                names[i] = displaySession.teams.ElementAt(i).name;
+            }
+            teamNames = String.Join(":", names);
+            Net3.send(teamNames);
         }
-
+        public static int netStatus = 0; // 0 = net3, 1 = net2
         private void settingsButton_Click(object sender, EventArgs e)
         {
+            logger.Info("Applying leaderboard settings...");
+            //Networking
+            if(legacyNet.Checked == true)
+            {
+                logger.Info("Legacy networking checkbox is clicked, swapping from Net3 to Net2...");
+                try
+                {
+                    Net3.stop();
+                } catch (Exception e1)
+                {
+                    logger.Fatal("Exception!", e1);
+                }
+                try
+                {
+                    Net2.create();
+                    netStatus = 1;
+                } catch (Exception e2)
+                {
+                    logger.Fatal("Exception!", e2);
+                }
+            } else
+            {
+                logger.Info("Legacy networking checkbox isn't checked, using Net3 functions");
+                try
+                {
+                    Net2.stop();
+                } catch (Exception e1)
+                {
+                    logger.Fatal("Exception!", e1);
+                }
+                try
+                {
+                    Net3.start();
+                } catch (Exception e2)
+                {
+                    logger.Fatal("Exception!", e2);
+                }
+            }
+        }
 
+        private void testPingButton_Click(object sender, EventArgs e)
+        {
+            if (netStatus == 0)
+                Net3.send("Test Ping: Leaderboard");
+            else
+                logger.Warn("Net 3 isnt enabled, not sending ping");
         }
     }
 }

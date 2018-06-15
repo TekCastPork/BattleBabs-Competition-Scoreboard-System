@@ -11,11 +11,12 @@ namespace BattleBabs_Server
 {
     class Net3
     {
+        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         static UdpClient udp = new UdpClient();
         static int groupPort = 25566; // used for all comms
         static IPEndPoint groupEP = new IPEndPoint(IPAddress.Broadcast, groupPort);
         static IPEndPoint receiveEP = new IPEndPoint(IPAddress.Any, groupPort);
-        static Thread listener = new Thread(new ThreadStart(receiveMessage));
+        public static Thread listener;
 
         /*
          * Packet types:
@@ -25,10 +26,26 @@ namespace BattleBabs_Server
          * Identifier: Byte[0] = .
          */
 
+        private static Boolean started = false;
         public static void start()
         {
-            udp.EnableBroadcast = true;
-            listener.Start();
+            if (!started)
+            {
+                udp.EnableBroadcast = true;
+                listener = new Thread(new ThreadStart(receiveMessage));
+                listener.Start();
+                started = true;
+            } else
+            {
+                logger.Warn("The thread is already running! Not making another!");
+            }
+        }
+
+        public static void stop()
+        {
+            udp.Client.Disconnect(true);
+            listener.Abort();
+            started = false;
         }
 
         private static void receiveMessage()

@@ -16,10 +16,11 @@ namespace BattleBabs_Server
         static IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
         static string message;
         static byte[] receiveBuffer;
-        static Thread serverThread = new Thread(new ThreadStart(receive));
+        static Thread serverThread;
         static UdpClient listener = new UdpClient(port);
         public static void create()
         {
+            serverThread = new Thread(new ThreadStart(receive));
             serverThread.IsBackground = true;
             serverThread.Start();
         }
@@ -82,6 +83,11 @@ namespace BattleBabs_Server
             returnArray[2] = splitMessage[3]; // team 2 name
             Console.WriteLine("Success.");
             return returnArray;
+        }
+
+        public static void stop()
+        {
+            serverThread.Abort();
         }
     }
 }
