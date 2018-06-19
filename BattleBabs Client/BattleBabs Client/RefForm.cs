@@ -11,7 +11,7 @@ namespace BattleBabs_Client
         public static SerialPort arduinoport;
         public static string receivedData;
         public static string selectedPort = "";
-        public static Thread heartBeat = new Thread(new ThreadStart(isConnectionAlive));
+        
 
         //Variables related to point system (things like methods and worth)
         public static string[] ScoreNames = { "null", "null", "null", "null" };
@@ -28,32 +28,18 @@ namespace BattleBabs_Client
         public RefForm()
         {
             InitializeComponent();
-            Persistence.loadScoringData();
-            if(ScoreNames.Length == 0)
+            Thread heartBeat = new Thread(new ThreadStart(isConnectionAlive))
             {
-                Logger.writeWarningLog("ScoreNames length was 0! Writing defaults");
-                updateButton(team1Band, "Rubber Band");
-                updateButton(team1Ping, "Ping Pong");
-                updateButton(team1Disable, "Disabled");
-                updateButton(team1Shove, "Shove");
-                updateButton(team2Band, "Rubber Band");
-                updateButton(team2Ping, "Ping Pong");
-                updateButton(team2Disable, "Disabled");
-                updateButton(team2Shove, "Shove");
-            }
-            if(ScoreValues.Length == 0)
-            {
-                Logger.writeWarningLog("ScoreValues length was 0! Writing defaults");
-                ScoreValues[0] = 1;
-                ScoreValues[1] = 2;
-                ScoreValues[2] = 3;
-                ScoreValues[3] = 4;
-            }
-            heartBeat.IsBackground = true; // make the arduino connection tester a background thread so it will exit when the program exits
+                IsBackground = true, // make the arduino connection tester a background thread so it will exit when the program exits
+                Name = "Ref_ARDUINO_HEART"
+            };
             arduinoport = new SerialPort(); // create a SerialPort object to use with the arduino
             arduinoport.DataReceived += arduinoport_DataReceived; //Attach a function to the data received event
-            guiUpdate = new Thread(new ThreadStart(updateComponents));
-            guiUpdate.IsBackground = true; // make the GUI updating thread a background thread so it exits with the program
+            guiUpdate = new Thread(new ThreadStart(updateComponents))
+            {
+                Name = "Ref_GUI_Update",
+                IsBackground = true // make the GUI updating thread a background thread so it exits with the program
+            };
             guiUpdate.Start(); // start the GUI updater
             setTimeProgress(GameUtility.gameTime, true); // set the initial max game time
         }
@@ -76,7 +62,6 @@ namespace BattleBabs_Client
                     updateButton(team1Buttons[i], ScoreNames[i]);
                 } catch (Exception e)
                 {
-                    Logger.writeExceptionLog(e);
                     updateButton(team1Buttons[i], errorText);
                 }
             }
@@ -88,7 +73,6 @@ namespace BattleBabs_Client
                 }
                 catch (Exception e)
                 {
-                    Logger.writeExceptionLog(e);
                     updateButton(team2Buttons[i], errorText);
                 }
             }
@@ -401,7 +385,7 @@ namespace BattleBabs_Client
                 arduinoport.NewLine = "\n"; // set the new line carrier
                 arduinoport.Open(); // Open the COM port for communications
                 Console.WriteLine("Connected to arduino via COM port {0}", selectedPort);
-                heartBeat.Start(); // start a watcher that checks the status of the connection.
+         //       heartBeat.Start(); // start a watcher that checks the status of the connection.
 
             }
             catch (Exception e)
@@ -705,7 +689,6 @@ namespace BattleBabs_Client
         private void stopButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Stop button is pushed!");
-            GameUtility.doSend = false;
             GameUtility.endMatch();
             GameUtility.makeSpeech("The match was stopped by the referee.");
             
@@ -741,8 +724,6 @@ namespace BattleBabs_Client
         /// <param name="e"></param>
         private void sendButton_Click(object sender, EventArgs e)
         {
-            Networking.sendData(Display.team1Score + ":" + Display.team2Score + ":" + lastTeam1 + ":" + lastTeam2);
-            GameUtility.doSend = false; // make the start button not send in order to prevent dupes
         } // used to force send data to the leaderboard
     }
 }

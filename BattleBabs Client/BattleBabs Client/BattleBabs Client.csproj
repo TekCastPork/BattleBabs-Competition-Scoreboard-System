@@ -85,12 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="ArduinoSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,16 +98,7 @@
       <DependentUpon>Display.cs</DependentUpon>
     </Compile>
     <Compile Include="GameUtility.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Logger.cs" />
-    <Compile Include="Networking.cs" />
-    <Compile Include="NetworkWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NetworkWindow.Designer.cs">
-      <DependentUpon>NetworkWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Persistence.cs" />
+    <Compile Include="Net3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefForm.cs">
@@ -122,51 +107,15 @@
     <Compile Include="RefForm.Designer.cs">
       <DependentUpon>RefForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RefFormSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RefFormSettings.Designer.cs">
-      <DependentUpon>RefFormSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Team Entry.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Team Entry.Designer.cs">
-      <DependentUpon>Team Entry.cs</DependentUpon>
-    </Compile>
     <Compile Include="Updater.cs" />
-    <Compile Include="WhatsNewScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WhatsNewScreen.Designer.cs">
-      <DependentUpon>WhatsNewScreen.cs</DependentUpon>
-    </Compile>
-    <Content Include="HorizBanner.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="VertBanner.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EmbeddedResource Include="AboutBox.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ArduinoSelect.resx">
       <DependentUpon>ArduinoSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Display.resx">
       <DependentUpon>Display.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NetworkWindow.resx">
-      <DependentUpon>NetworkWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -181,24 +130,6 @@
     <EmbeddedResource Include="RefForm.resx">
       <DependentUpon>RefForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RefFormSettings.resx">
-      <DependentUpon>RefFormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Team Entry.resx">
-      <DependentUpon>Team Entry.cs</DependentUpon>
-    </EmbeddedResource>
-    <Content Include="erbos_draco_1st_open_nbp.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GODOFWAR.TTF">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EmbeddedResource Include="WhatsNewScreen.resx">
-      <DependentUpon>WhatsNewScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -211,15 +142,6 @@
     </Compile>
     <None Include="Resources\erbos_draco_1st_nbp.ttf" />
     <Content Include="config.cfg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Teamnames.persist">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ScoringMethods.persist">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ScoringValues.persist">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\erbos_draco_1st_open_nbp.ttf">

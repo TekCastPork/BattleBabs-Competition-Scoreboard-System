@@ -16,12 +16,6 @@ namespace BattleBabs_Client
         public static int team2Score = 0;
         public static Boolean teamOpen = false;
         Boolean lastScreenState = false;
-        public static Team_Entry teamEntryForm = new Team_Entry();
-        WhatsNewScreen newScreen = new WhatsNewScreen();
-        AboutBox about = new AboutBox();
-        NetworkWindow networking = new NetworkWindow();
-        RefFormSettings refSettings = new RefFormSettings();
-        Settings settingWindow = new Settings();
         Thread GUIupdate;
         public static Boolean screenMode = false;
 
@@ -29,39 +23,22 @@ namespace BattleBabs_Client
 
         public Display()
         {
-            Logger.writeGeneralLog("Beginning startup functions.");
+          
             InitializeComponent();
-            Logger.writeGeneralLog("Screen objects created"); /*
-            System.Drawing.Text.PrivateFontCollection privateFonts = new System.Drawing.Text.PrivateFontCollection();
-            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "erbos_draco_1st_open_nbp.ttf"));
-            privateFonts.AddFontFile(Path.Combine(Application.StartupPath, "GODOFWAR.TTF"));
-            Logger.writeGeneralLog("Fonts added to private fonts array");
-            System.Drawing.Font scoreFont = new Font(privateFonts.Families[0], 27);
-            System.Drawing.Font timeFont = new Font(privateFonts.Families[0], 40);
-            System.Drawing.Font titleFont = new Font(privateFonts.Families[1], 36);
-            Logger.writeGeneralLog("Font objects created");
-            team1Name.Font = titleFont;
-            team2Name.Font = titleFont;
-            team2ScoreLbl.Font = scoreFont;
-            team1ScoreLbl.Font = scoreFont;
-            timerLabel.Font = timeFont;
-            titleLabel.Font = titleFont;*/
-            Logger.writeGeneralLog("Fonts applied to labels");
+           
             GameUtility.setupObjects();
-            WhatsNewScreen.shouldPopOnStart();
-            Logger.writeGeneralLog("Game objects setup complete");
-            GUIupdate = new Thread(new ThreadStart(updateComponents)); // create a GUI updating thread
-            GUIupdate.IsBackground = true; // make the GUI updating thread a background thread so it closes when the window closes
-            GUIupdate.Start(); // start the GUI updating thread
-            Logger.writeGeneralLog("GUI updating thread created and started");
-            referee.Show(); // create the referee window so that points can be allocated and team names set
-            Logger.writeGeneralLog("Referee window is now shown");
-            GoFullscreen(screenMode); // set the fullscreen mode
-            Logger.writeGeneralLog("Fullscreen setting applied");
-            if(WhatsNewScreen.isShowing == true)
+
+            GUIupdate = new Thread(new ThreadStart(updateComponents))
             {
-                newScreen.Show();
-            }
+                Name = "Display_GUI_Update",
+                IsBackground = true // make the GUI updating thread a background thread so it closes when the window closes
+            }; // create a GUI updating thread
+            GUIupdate.Start(); // start the GUI updating thread
+           
+            referee.Show(); // create the referee window so that points can be allocated and team names set
+
+            GoFullscreen(screenMode); // set the fullscreen mode
+
         }
 
         delegate void SetBooleanCallback(Boolean state);
@@ -72,16 +49,16 @@ namespace BattleBabs_Client
         /// <param name="fullscreen"></param>
         private void GoFullscreen(bool fullscreen)
         {
-            Logger.writeGeneralLog("Setting display form's fullscreen mode");
+          
             if (this.InvokeRequired)
             {
-                Logger.writeWarningLog("An invoke is required on this function to change fullscreen settings!");
+              
                 SetBooleanCallback d = new SetBooleanCallback(GoFullscreen);
                 this.Invoke(d, new object[] { fullscreen });
             }
             else
             {
-                Logger.writeGeneralLog("Invoke either not required or just executing, setting fullscreen settings");
+               
                 if (fullscreen)
                 {
                     this.WindowState = FormWindowState.Normal;
@@ -99,10 +76,12 @@ namespace BattleBabs_Client
         private void Display_FormClosing(object sender, FormClosingEventArgs e)
         {
             GUIupdate.Abort();
-            Persistence.saveScoringData(); // save referee scoring data when the main form is closing
+          
             referee.Close();
             referee.Dispose();
         }
+
+        //GUI UPDATING FUNCTIONS
 
         private void updateComponents()
         {
@@ -227,41 +206,14 @@ namespace BattleBabs_Client
             }
         }
 
+        //EVENTS
+
         private void exitButton_Click(object sender, EventArgs e)
         {
             ActiveForm.Close();
         }
 
         public static Boolean connectOpen = false;
-
-        private void scoringToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(RefFormSettings.isShowing == false)
-            {
-                refSettings.Show();
-                RefFormSettings.isShowing = true;
-            }
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (AboutBox.isShowing == false)
-            {
-                about.Show();
-                AboutBox.isShowing = true;
-            }
-        }
-
-        private void reportBugToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Report bug button clicked.");
-            MessageBox.Show("Now opening bug report page. Please include the following: \n" +
-                "Which program experienced the bug (Scoreboard, Leaderboard, or both). \n" +
-                "What you were trying to do when the bug occurred.\n" +
-                "The log file located in the Logs folder located in the installation folder (close the program before uploading the log)\n" +
-                "Any additional comments that could help reproduce the issue so it may be solved.", "Bug Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            System.Diagnostics.Process.Start("https://github.com/TekCastPork/BattleBabs-Competition-Scoreboard-System/issues/new");
-        }
 
         private void connectToArduinoControllerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -273,40 +225,6 @@ namespace BattleBabs_Client
             }
         }
 
-        private void generalToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (Settings.isShowing == false)
-            {
-                settingWindow.Show();
-                Settings.isShowing = true;
-            }
-        }
-
-        private void networkToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (NetworkWindow.isOpen == false)
-            {
-                networking.Show();
-                NetworkWindow.isOpen = true;
-            }
-        }
-
-        private void changeTeamsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(Team_Entry.isShowing == false)
-            {
-                teamEntryForm.Show();
-                Team_Entry.isShowing = true;
-            }
-        }
-
-        private void changelogToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(WhatsNewScreen.isShowing == false)
-            {
-                newScreen.Show();
-                WhatsNewScreen.isShowing = true;
-            }
-        }
+        
     }
 }

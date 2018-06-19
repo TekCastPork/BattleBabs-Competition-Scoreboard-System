@@ -12,9 +12,13 @@ namespace BattleBabs_Client
         public string[] portList;
         public ArduinoForm()
         {
-            Thread updateThread = new Thread(new ThreadStart(updateText));
+            
             InitializeComponent();
-            updateThread.IsBackground = true;
+            Thread updateThread = new Thread(new ThreadStart(updateText))
+            {
+                Name = "Arduino_GUI_Update",
+                IsBackground = true
+            };
             updateThread.Start();
             timer.Interval = 5000;
             timer.AutoReset = false;
@@ -68,18 +72,8 @@ namespace BattleBabs_Client
             Console.WriteLine("Gathering all connected COM ports...");
             portList = SerialPort.GetPortNames();
             Console.WriteLine("All COM ports Gathered, now putting ports to drop down.");
-
             Console.WriteLine("Removing previous entries.");
-            for (int i = 0; i < portList.Length; i++)
-            {
-                try
-                {
-                    comPortBox.Items.Remove(i);
-                } catch (Exception e)
-                {
-                    Console.WriteLine("Exception catched! {0}", e.ToString());
-                }
-            }
+            comPortBox.Items.Clear();
             Console.WriteLine("Adding COM port names.");
             for (int i = 0; i < portList.Length; i++)
             {

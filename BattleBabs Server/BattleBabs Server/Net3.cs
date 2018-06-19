@@ -56,7 +56,7 @@ namespace BattleBabs_Server
                 Console.WriteLine("Waiting...");
                 
                 byte[] receivedData = udp.Receive(ref receiveEP);
-                if(receivedData[0].Equals('.'))
+                if(receivedData[0].Equals(','))
                 {
                     for(int i = 1; i < receivedData.Length; i++)
                     {
@@ -90,7 +90,7 @@ namespace BattleBabs_Server
 
         public static void send(string message)
         {
-            byte[] byteData = Encoding.ASCII.GetBytes(message + "\n");
+            byte[] byteData = Encoding.ASCII.GetBytes("." + message + "\n");
             Console.WriteLine("SENT: {0} as bytes.", message);
             udp.Send(byteData, byteData.Length, groupEP);
         }

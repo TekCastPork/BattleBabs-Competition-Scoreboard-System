@@ -17,9 +17,7 @@ namespace BattleBabs_Client
         static void Main()
         {
             Application.EnableVisualStyles();
-            Updater.validateFiles();
             Updater.checkForUpdates();            
-            Logger.createLogFile();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ApplicationExit += hasExited;
             Application.Run(new Display());
@@ -28,7 +26,6 @@ namespace BattleBabs_Client
         static void hasExited(object sender, System.EventArgs e)
         {
             Console.WriteLine("Application main thread is exiting, closing log");
-            Logger.closeLog();
         }
     }
 }
